@@ -1,0 +1,22 @@
+This is 6nome-GKrellM a theme for GKrellM 2.
+
+The GKrellM theme...
+
+  ...makes GKrellM 2 look like the 6nome-GTK themes.
+
+
+INSTALLATION
+------------
+
+Unpack into your ~/.themes directory. Create a softlink to the theme
+directory by typing:
+
+ ln -s ~/.themes/6nome/gkrellm2 ~/.gkrellm2/themes/6nome
+
+You can then select 6nome from the GKrellM configuration dialog.
+
+
+AUTHOR(s)
+---------
+This theme was brought to you by:
+	Marcus Petzoldt <m.petzoldt@gmx.de>

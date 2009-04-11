@@ -1,0 +1,15 @@
+6nome-GKrellM 1.2
+
+* Fixed chart clipping problem
+
+6nome-GKrellM 1.1
+
+* Included gkrellmms buttons.
+* Fixed a problem with stacked net/disk charts.
+* Fixed a problem with the grid on charts.
+
+6nome-GKrellM 1.0
+
+* Initial release
+
+Marcus Petzoldt <m.petzoldt@gmx.de>

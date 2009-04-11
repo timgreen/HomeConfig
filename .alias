@@ -1,0 +1,8 @@
+alias rm='rm -i'
+alias ssh22='ssh 10.20.2.22 -X -Y'
+alias ssh36='ssh leemars@10.11.10.36 -X -Y'
+
+alias ..='cd ..'
+alias cd..='cd ..'
+alias l='ls -al'
+alias ll='ls -l'

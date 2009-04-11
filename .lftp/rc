@@ -1,0 +1,11 @@
+set net:reconnect-interval-base 30
+set net:reconnect-interval-multiplier 1
+
+set ftp:fix-pasv-address 0
+
+set ftp:charset "gbk"
+set file:charset "UTF-8"
+alias gbk "set ftp:charset gbk; set file:charset UTF-8"
+alias utf8 "set ftp:charset UTF-8; set file:charset UTF-8"
+
+debug 4

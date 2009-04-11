@@ -1,0 +1,19 @@
+" Mappings
+map > gt
+map < gT
+map ? <C-^>
+map <C-Right> gt
+map <C-Left> gT
+map s :stop<CR>
+map <F1> <Nop>
+map <F4> <Nop>
+map gd t d<space>
+
+" Options
+set guioptions=mT
+set nextpattern=[nN]ext,^>$,^(>>|»)$,^[mM]ore$,下一页,下页,后一页,后页
+set previouspattern=[pP]rev|[pP]revious,^<$,^(<<|«)$,上一页,上页,前一页,前页
+set focuscontent
+set defsearch=g
+
+" vim: set ft=vimperator:
