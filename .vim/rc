@@ -1,6 +1,7 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
 " Set {{{
+set modeline
 set nocompatible
 set nu
 set autoindent
