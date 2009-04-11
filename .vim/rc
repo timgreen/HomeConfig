@@ -22,7 +22,7 @@ set statusline+=%2*%-3.3n%0*\                " buffer number
 set statusline+=%-00.70f\                    " file name
 set statusline+=%h%1*%m%r%w%0*               " flags
 set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
-set statusline+=%{&encoding},                " encoding
+set statusline+=%{&fileencoding},                " encoding
 set statusline+=%{&fileformat}]              " file format
 if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
   set statusline+=\ %{VimBuddy()}            " vim buddy
@@ -135,7 +135,7 @@ filetype plugin indent on
 
 augroup filetypedetect
   "" 让文本文件也有高亮，thanks to xbeta@smth
-  au BufNewFile,BufRead *.* setf ztxt
+  "au BufNewFile,BufRead *.* setf ztxt
 	" 缓冲区写入文件的时候自动检查文件类型
 	au BufWritePost * filet detect
 augroup END
