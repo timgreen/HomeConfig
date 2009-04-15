@@ -1,6 +1,5 @@
 remove Lock = Caps_Lock
 ! Make menu work
-keycode 117 = Menu Menu Menu
+keycode 135 = Menu Menu Menu
 ! clear Fn
 keycode 227 = NoSymbol NoSymbol NoSymbol
-
