@@ -2,6 +2,7 @@
 
 " Set {{{
 set modeline
+set modelines=5
 set nocompatible
 set nu
 set autoindent
