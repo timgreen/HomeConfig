@@ -4,3 +4,6 @@ alias ..='cd ..'
 alias cd..='cd ..'
 alias l='ls -al'
 alias ll='ls -l'
+
+alias ri='ri -T -f ansi'
+alias less='less -R'
