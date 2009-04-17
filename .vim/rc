@@ -1,5 +1,6 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
+
 " Set {{{
 set modeline
 set modelines=5
@@ -13,7 +14,10 @@ set showmatch
 set fdc=4
 set mouse=h
 set cursorline
+
 colorscheme timgreen
+" swap file dir
+set dir=/dev/shm/cache/vim/
 " }}} Set
 
 " Statusline {{{
