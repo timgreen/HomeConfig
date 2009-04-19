@@ -1,6 +1,6 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
-# 自动添加 sudo {{{
+## 自动添加 sudo {{{
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
@@ -8,6 +8,11 @@ sudo-command-line() {
     zle end-of-line
 }
 zle -N sudo-command-line
-# 定义快捷键为： [Esc] s
+# 定义快捷键为: [Esc] s
 bindkey "\es" sudo-command-line
-# }}}
+## }}}
+
+## 命令搜索 {{{
+bindkey "^[p" history-beginning-search-backward
+bindkey "^[n" history-beginning-search-forward
+## }}}
