@@ -1,24 +1,59 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
-
-" Set {{{
+" Basic {{{
 set modeline
 set modelines=5
-set nocompatible
-set nu
+set nocompatible " explicitly get out of vi-compatible mode
+" }}}
+
+" General {{{
+set autochdir " always switch to the current directory of the file you are editing
 set autoindent
 set smartindent
 set cindent
 set nowrap
-set showmatch
-set fdc=4
 set mouse=h
-set cursorline
+set directory=/dev/shm/cache/vim/ " swap file dir
+" }}}
 
+" Wild {{{
+"set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.swp,*.jpg,*.gif,*.png " ignore these
+set wildmenu " turn on command line completion
+set wildmode=full " turn on wild menu with full match
+" }}}
+
+" UI {{{
 colorscheme timgreen
-" swap file dir
-set dir=/dev/shm/cache/vim/
-" }}} Set
+set cursorline
+"set cursorcolumn
+set lazyredraw " do not redraw while running macros
+set matchtime=5 " how many tenths of a second to blink matching brackets for
+set showmatch " show matching brackets
+set number " turn on line numbers
+set report=0 " tell us when anything is changed via :...
+set shortmess=atI " shortens messages
+set showcmd " show the command being typed
+set sidescrolloff=10 " Keep 5 lines at the size
+set scrolloff=10 " Keep 5 lines (top/bottom) for scope
+set foldcolumn=4 " fold column width
+" }}}
+
+" Search {{{
+set ignorecase " case insensitive by default
+set smartcase " if there are caps, go case-sensitive
+" }}}
+
+"" Folding {{{
+"   set foldenable " Turn on folding
+"   set foldmarker={,} " Fold C style code (useful with high foldlevel)
+"   set foldmethod=marker " Fold on the marker
+"   set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+"   set foldopen=block,hor,mark,percent,quickfix,tag " what movements to open folds on
+"   function SimpleFoldText() " {
+"      return getline(v:foldstart).' '
+"   endfunction " }
+"   set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
+"" }}}
 
 " Statusline {{{
 set laststatus=2
@@ -155,7 +190,9 @@ augroup END
     exe "set softtabstop=" . a:i
     exe "set ts=" . a:i
     set expandtab
+		set shiftround
   endfunction
+	call SetTabIndent(2)
 
   function! HighlightTooLongLines()
     highlight def link RightMargin Error
