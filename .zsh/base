@@ -40,9 +40,11 @@ WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
 ## source {{{
 # 读入提示符的设置
-source ~/.zshrc_prompt
-# 读入扩展设置
-source ~/.zshrc_ext
+source ~/.zsh/prompt
+# 读入 bindkey 设置
+source ~/.zsh/bindkey
+# 读入 complete 设置
+source ~/.zsh/complete
 # 读入一些乱七八糟的设置
-source ~/.zshrc_misc
+source ~/.zsh/misc
 ## }}}
