@@ -1,5 +1,10 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
+## Emacs风格 键绑定
+bindkey -e
+## 设置 [DEL]键 为向后删除
+bindkey "\e[3~" delete-char
+
 ## 自动添加 sudo {{{
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
@@ -16,3 +21,5 @@ bindkey "\es" sudo-command-line
 bindkey "^[p" history-beginning-search-backward
 bindkey "^[n" history-beginning-search-forward
 ## }}}
+
+#bindkey "^_" undo # default

@@ -22,13 +22,6 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 ## }}}
 
-## 键绑定 {{{
-# Emacs风格 键绑定
-bindkey -e
-# 设置 [DEL]键 为向后删除
-bindkey "\e[3~" delete-char
-## }}}
-
 ## 杂项 {{{
 # 允许在交互模式中使用注释  例如：cmd #这是注释
 setopt INTERACTIVE_COMMENTS
@@ -36,6 +29,11 @@ setopt INTERACTIVE_COMMENTS
 limit coredumpsize 0
 # 单词分界  去掉了 '.' '/'
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
+# Show the default prompt while scrolling during menu selection
+MENUPROMPT=
+setopt LIST_ROWS_FIRST LIST_PACKED
+#
+setopt longlistjobs
 ## }}}
 
 ## source {{{
