@@ -1,5 +1,7 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
+set t_Co=256
+
 " Basic {{{
 set modeline
 set modelines=5
@@ -25,7 +27,7 @@ set wildmode=full " turn on wild menu with full match
 " UI {{{
 colorscheme timgreen
 set cursorline
-"set cursorcolumn
+set cursorcolumn
 set lazyredraw " do not redraw while running macros
 set matchtime=5 " how many tenths of a second to blink matching brackets for
 set showmatch " show matching brackets
@@ -35,7 +37,6 @@ set shortmess=atI " shortens messages
 set showcmd " show the command being typed
 set sidescrolloff=10 " Keep 5 lines at the size
 set scrolloff=10 " Keep 5 lines (top/bottom) for scope
-set foldcolumn=4 " fold column width
 " }}}
 
 " Search {{{
@@ -43,7 +44,8 @@ set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 " }}}
 
-"" Folding {{{
+" Folding {{{
+set foldcolumn=4 " fold column width
 "   set foldenable " Turn on folding
 "   set foldmarker={,} " Fold C style code (useful with high foldlevel)
 "   set foldmethod=marker " Fold on the marker
@@ -53,7 +55,7 @@ set smartcase " if there are caps, go case-sensitive
 "      return getline(v:foldstart).' '
 "   endfunction " }
 "   set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
-"" }}}
+" }}}
 
 " Statusline {{{
 set laststatus=2
@@ -134,27 +136,55 @@ nnoremap <silent> <F9> :NERDTreeToggle<CR>
 " }}}
 
 " Toggle {{{
-map th :nohlsearch<CR>
+function! s:RunAndEcho(cmd)
+  exe a:cmd
+  echo a:cmd
+endfunction
+
+function! ToggleHightlightSearch()
+	if &hlsearch
+		call s:RunAndEcho('set nohlsearch')
+	else
+		call s:RunAndEcho('set hlsearch')
+	endif
+endfunction
+map th :call ToggleHightlightSearch()<CR>
+
 function! ToggleWrap()
 	if &wrap
-		set nowrap
-		echo 'set nowrap'
+		call s:RunAndEcho('set nowrap')
 	else
-		set wrap
-		echo 'set wrap'
+		call s:RunAndEcho('set wrap')
 	endif
 endfunction
 map tw :call ToggleWrap()<CR>
+
 function! ToggleCheckSpell()
 	if &spell
-		set nospell
-		echo 'set nospell'
+		call s:RunAndEcho('set nospell')
 	else
-		set spell
-		echo 'set spell'
+		call s:RunAndEcho('set spell')
 	endif
 endfunction
 map ts :call ToggleCheckSpell()<CR>
+
+function! ToggleCursorColumn()
+  if &cursorcolumn
+		call s:RunAndEcho('set nocursorcolumn')
+  else
+		call s:RunAndEcho('set cursorcolumn')
+	endif
+endfunction
+map tc :call ToggleCursorColumn()<CR>
+
+function! ToggleFoldColumn()
+  if &foldcolumn
+		call s:RunAndEcho('set foldcolumn=0')
+  else
+		call s:RunAndEcho('set foldcolumn=4')
+	endif
+endfunction
+map tf :call ToggleFoldColumn()<CR>
 " }}} Toggle
 
 " IMAP {{{ need latexsuite
