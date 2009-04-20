@@ -1,9 +1,12 @@
+# For safe
 alias rm='rm -i'
-
+# General
 alias ..='cd ..'
 alias cd..='cd ..'
 alias l='ls -al'
 alias ll='ls -l'
-
-alias ri='ri -T -f ansi'
+# Tools
 alias less='less -R'
+alias grep='grep --color'
+#
+alias ri='ri -T -f ansi'
