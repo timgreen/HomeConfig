@@ -1,4 +1,4 @@
-attrcolor b ".I"
+attrcolor b ".I" # Use bright colors for bold text.
 startup_message off
 
 # terminfo and termcap for nice 256 color terminal
@@ -70,7 +70,16 @@ bind ^Q
 bind q
 bind ^S
 bind s
+
 # my keybindings
 bind h prev # prev tab
 bind l next # next tab
 bind ' ' other
+
+# Window numbering starts at 1, not 0.
+bind c screen 1
+bind 0 select 10
+screen 1
+# Using tab to move around regions gets annoying. These help.
+bind j focus down
+bind k focus up
