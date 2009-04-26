@@ -23,6 +23,8 @@ setopt PUSHD_IGNORE_DUPS
 ## }}}
 
 ## 杂项 {{{
+# Don't ask me 'do you wish to see all XX possibilities' before menu selection
+LISTPROMPT=''
 # 允许在交互模式中使用注释  例如：cmd #这是注释
 setopt INTERACTIVE_COMMENTS
 # 禁用 core dumps
@@ -80,6 +82,12 @@ function preexec {
         title $cmd[1]:t "$TERM $cmd[2,-1]"
     fi
 }
+## }}}
+
+## Alias for nocorrect{{{
+alias mv='nocorrect mv -i'
+alias cp='nocorrect cp -i'
+alias rm='nocorrect rm -i'
 ## }}}
 
 ## source {{{
