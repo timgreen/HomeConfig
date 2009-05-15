@@ -99,4 +99,6 @@ source ~/.zsh/bindkey
 source ~/.zsh/complete
 # 读入一些乱七八糟的设置
 source ~/.zsh/misc
+# 读入一些临时的设置
+[[ -r ~/.zshrc_temp ]] && source ~/.zshrc_temp
 ## }}}

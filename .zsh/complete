@@ -24,6 +24,8 @@ zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _appr
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-shlashes 'yes'
 zstyle ':completion::complete:*' '\\'
+# 排个序
+zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 ## }}}
 
 zstyle ':completion:*' menu select
