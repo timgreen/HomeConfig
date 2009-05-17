@@ -21,12 +21,16 @@ bindkey "\es" sudo-command-line
 ## }}}
 
 ## 命令搜索 {{{
+# Alt-p
 bindkey "^[p" history-beginning-search-backward
+# Alt-n
 bindkey "^[n" history-beginning-search-forward
 ## }}}
 
 ## 光标移动 {{{
+# Alt-f
 bindkey "^[f" emacs-forward-word
+# Alt-b
 bindkey "^[b" emacs-backward-word
 
 big-emacs-backward-word() {
@@ -39,8 +43,27 @@ big-emacs-forward-word() {
 }
 zle -N big-emacs-forward-word
 zle -N big-emacs-backward-word
+# Ctrl-left
 bindkey "[1;5D" big-emacs-backward-word
+# Ctrl-right
 bindkey "[1;5C" big-emacs-forward-word
 ## }}}
 
-#bindkey "^_" undo # default
+## Undo / Redo {{{
+# Alt-u
+bindkey "u" undo
+# Alt-r
+bindkey "r" redo
+## }}}
+
+## Comment current {{{
+comment-current() {
+    if [[ -n $BUFFER ]]; then
+        [[ $BUFFER[1] != "#" ]] && BUFFER="# $BUFFER"
+        zle accept-line
+    fi
+}
+zle -N comment-current
+# Alt-#
+bindkey "#" comment-current
+## }}}
