@@ -34,11 +34,11 @@ bindkey "^[f" emacs-forward-word
 bindkey "^[b" emacs-backward-word
 
 big-emacs-backward-word() {
-    local WORDCHARS="${WORDCHARS}./"
+    local WORDCHARS="${WORDCHARS}./:"
     zle emacs-backward-word
 }
 big-emacs-forward-word() {
-    local WORDCHARS="${WORDCHARS}./"
+    local WORDCHARS="${WORDCHARS}./:"
     zle emacs-forward-word
 }
 zle -N big-emacs-forward-word
