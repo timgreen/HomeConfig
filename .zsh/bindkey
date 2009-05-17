@@ -1,5 +1,8 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
+## get the keysequences like this:
+## use quoted-insert (control-V) and press the key combination.
+
 ## Emacs风格 键绑定
 bindkey -e
 ## 设置 [DEL]键 为向后删除
@@ -20,6 +23,24 @@ bindkey "\es" sudo-command-line
 ## 命令搜索 {{{
 bindkey "^[p" history-beginning-search-backward
 bindkey "^[n" history-beginning-search-forward
+## }}}
+
+## 光标移动 {{{
+bindkey "^[f" emacs-forward-word
+bindkey "^[b" emacs-backward-word
+
+big-emacs-backward-word() {
+    local WORDCHARS="${WORDCHARS}./"
+    zle emacs-backward-word
+}
+big-emacs-forward-word() {
+    local WORDCHARS="${WORDCHARS}./"
+    zle emacs-forward-word
+}
+zle -N big-emacs-forward-word
+zle -N big-emacs-backward-word
+bindkey "[1;5D" big-emacs-backward-word
+bindkey "[1;5C" big-emacs-forward-word
 ## }}}
 
 #bindkey "^_" undo # default
