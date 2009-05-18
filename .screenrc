@@ -12,6 +12,9 @@ termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
 defbce "off"
 # disable Ctrl-S/Ctrl-Q "flow control"
 defflow off
+# get rid of the content leaved by a quited vim
+altscreen on
+
 
 caption always '%{wb} %-w%{= BW}%50>%n %t%{-}%+w %<'
 # ------------------------------------------------------------------------------
