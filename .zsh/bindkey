@@ -28,6 +28,9 @@ bindkey "^[n" history-beginning-search-forward
 ## }}}
 
 ## 光标移动 {{{
+# End
+bindkey "OF" end-of-line
+
 # Alt-f
 bindkey "^[f" emacs-forward-word
 # Alt-b
