@@ -1,13 +1,13 @@
-attrcolor b ".I" # Use bright colors for bold text.
+#attrcolor b ".I" # Use bright colors for bold text.
 startup_message off
 
-# terminfo and termcap for nice 256 color terminal
-termcapinfo xterm*|rxvt-* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-termcapinfo xterm*|rxvt-* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
-termcapinfo xterm*|rxvt-* ti@:te=\E[3J
-termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
-termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
-
+## terminfo and termcap for nice 256 color terminal
+#termcapinfo xterm*|rxvt-* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#termcapinfo xterm*|rxvt-* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+#termcapinfo xterm*|rxvt-* ti@:te=\E[3J
+#termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+#termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+#
 # erase background with current bg color
 defbce "off"
 # disable Ctrl-S/Ctrl-Q "flow control"
