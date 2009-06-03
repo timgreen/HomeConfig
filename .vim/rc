@@ -33,7 +33,7 @@ set matchtime=5 " how many tenths of a second to blink matching brackets for
 set showmatch " show matching brackets
 set number " turn on line numbers
 set report=0 " tell us when anything is changed via :...
-set shortmess=atI " shortens messages
+set shortmess=atToOI " shortens messages
 set showcmd " show the command being typed
 set sidescrolloff=10 " Keep 5 lines at the size
 set scrolloff=10 " Keep 5 lines (top/bottom) for scope
