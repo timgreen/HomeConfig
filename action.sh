@@ -17,14 +17,14 @@ function check() {
 
 function installConfig() {
     for i in $(getConfigList); do
-	rm ~/"$i" -f
+	rm -fr ~/"$i"
         ln -sf "$PWD"/"$i" ~/"$i"
     done
 }
 
 function removeConfig() {
     for i in $(getConfigList); do
-         rm -f ~/"$i"
+         rm -rf ~/"$i"
     done
 }
 
