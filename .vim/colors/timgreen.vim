@@ -247,10 +247,10 @@ hi Visual		term=reverse   cterm=reverse	  gui=NONE		guifg=white guibg=darkgreen
 "
 call s:X("Normal"      , "87FF90", ""      , "")
 " Fold
-call s:X("Folded"      , "FFD700", "4D4D4D", "")
-call s:X("FoldColumn"  , "D2B48C", "4D4D4D", "")
+call s:X("Folded"      , "FFD700", "222222", "")
+call s:X("FoldColumn"  , "D2B48C", "444444", "")
 " LineNr
-call s:X("LineNr"      , "FFAA90", "111111", "")
+call s:X("LineNr"      , "FFAA90", "222222", "")
 " Cursor
  "" Cursor
  "" CursorIM
