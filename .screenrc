@@ -1,6 +1,9 @@
 #attrcolor b ".I" # Use bright colors for bold text.
 startup_message off
 
+# use zsh
+shell zsh
+
 ## terminfo and termcap for nice 256 color terminal
 #termcapinfo xterm*|rxvt-* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 #termcapinfo xterm*|rxvt-* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
