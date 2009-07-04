@@ -9,13 +9,13 @@ set nocompatible " explicitly get out of vi-compatible mode
 " }}}
 
 " General {{{
-set autochdir " always switch to the current directory of the file you are editing
+"""set autochdir " always switch to the current directory of the file you are editing
 set autoindent
 set smartindent
 set cindent
 set nowrap
 set mouse=h
-set directory=/dev/shm/cache/vim/ " swap file dir
+set directory=~/.cache/vim/ " swap file dir
 " }}}
 
 " Wild {{{
@@ -191,7 +191,7 @@ map tf :call ToggleFoldColumn()<CR>
 "" runtime! plugin/IMAP.vim
 set grepprg=grep\ -nH\ $*
 function! SetIMAP()
-	call IMAP('""', '""<++>', '')
+	call IMAP('""', '""', '')
 	call IMAP('()', '(<++>)<++>', '')
 	call IMAP('[]', '[<++>]<++>', '')
 	call IMAP('for  ', 'for (<++>) {<++>}<++>', '')

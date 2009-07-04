@@ -125,6 +125,8 @@ alias rm='nocorrect rm -i'
 ## }}}
 
 ## source {{{
+# alias
+source ~/.alias
 # 读入提示符的设置
 source ~/.zsh/prompt
 # 读入 bindkey 设置
