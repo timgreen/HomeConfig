@@ -36,6 +36,25 @@ MENUPROMPT=
 setopt LIST_ROWS_FIRST LIST_PACKED
 #
 setopt longlistjobs
+#
+setopt NO_AUTO_CD EXTENDEDGLOB
+## }}}
+
+## precmd/preexec settings {{{
+# auto execute all relative functions.
+function precmd {
+    for cmd in ${(M)${(k)functions}:#precmd_*}; do
+        $cmd
+    done
+}
+function preexec {
+    emulate -L zsh
+    local -a cmd; cmd=(${(z)1})
+
+    for action in ${(M)${(k)functions}:#preexec_*}; do
+        $action $cmd
+    done
+}
 ## }}}
 
 ## 256 Colors Term {{{
@@ -68,7 +87,7 @@ function title {
 }
 
 # Set screen title if not connected remotely
-function precmd {
+function precmd_title {
     local dir; dir=$(print -Pn "%~")
     local odir
 
@@ -82,9 +101,9 @@ function precmd {
     echo -ne '\033[?17;0;127c'
 }
 
-function preexec {
-    emulate -L zsh
-    local -a cmd; cmd=(${(z)1})
+function preexec_title {
+    local -a cmd; cmd=($*)
+
     if [[ $cmd[1]:t == "ssh" ]]; then
         title "@"$cmd[2] "$TERM $cmd"
     elif [[ $cmd[1]:t == "sudo" ]]; then
@@ -99,7 +118,7 @@ function preexec {
 }
 ## }}}
 
-## Alias for nocorrect{{{
+## Alias for nocorrect {{{
 alias mv='nocorrect mv -i'
 alias cp='nocorrect cp -i'
 alias rm='nocorrect rm -i'
