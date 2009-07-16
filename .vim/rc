@@ -318,3 +318,7 @@ if version >= 500
   " Constants are not underlined but have a slightly lighter background
 endif
 " }}}
+
+" Load ext {{{
+runtime! ext.rc
+" }}}
