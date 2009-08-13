@@ -116,6 +116,8 @@ map  <F2> :up<CR>
 map! <F2> <ESC>:up<CR>a
 map  <F5> :tabe<CR>:LUWalk<CR>
 map! <F5> <ESC>:tabe<CR>:LUWalk<CR>
+"" disable delete in mac
+imap [3~ <Nop>
 
 function! TODOQFixToggle()
   if bufname("%") == ""
@@ -141,14 +143,10 @@ function! s:RunAndEcho(cmd)
   echo a:cmd
 endfunction
 
-function! ToggleHightlightSearch()
-	if &hlsearch
-		call s:RunAndEcho('set nohlsearch')
-	else
-		call s:RunAndEcho('set hlsearch')
-	endif
+function! TempTurnOffHightlightSearch()
+  call s:RunAndEcho('nohlsearch')
 endfunction
-map th :call ToggleHightlightSearch()<CR>
+map th :call TempTurnOffHightlightSearch()<CR>
 
 function! ToggleWrap()
 	if &wrap
