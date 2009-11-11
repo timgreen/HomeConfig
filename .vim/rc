@@ -186,15 +186,15 @@ map tf :call ToggleFoldColumn()<CR>
 " }}} Toggle
 
 " IMAP {{{ need latexsuite
-"" runtime! plugin/IMAP.vim
-set grepprg=grep\ -nH\ $*
+"" "" runtime! plugin/IMAP.vim
+"" set grepprg=grep\ -nH\ $*
 function! SetIMAP()
-	call IMAP('""', '""', '')
-	call IMAP('()', '(<++>)<++>', '')
-	call IMAP('[]', '[<++>]<++>', '')
-	call IMAP('for  ', 'for (<++>) {<++>}<++>', '')
-	call IMAP('if  ', 'if (<++>) {<++>}<++>', '')
-	call IMAP('else  ', 'else {<++>}<++>', '')
+"" 	call IMAP('""', '""', '')
+"" 	call IMAP('()', '(<++>)<++>', '')
+"" 	call IMAP('[]', '[<++>]<++>', '')
+"" 	call IMAP('for  ', 'for (<++>) {<++>}<++>', '')
+"" 	call IMAP('if  ', 'if (<++>) {<++>}<++>', '')
+"" 	call IMAP('else  ', 'else {<++>}<++>', '')
 endfunction
 " }}} IMAP
 
