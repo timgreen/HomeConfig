@@ -19,6 +19,9 @@ function precmd_prompt {
 }
 
 setprompt () {
+    # prompt_subst is not set by default. It allows variable substitution to
+    # take place in the prompt, so I can just change the contents of certain
+    # variables without recreating the prompt every time.
     setopt prompt_subst
 
     # See if we can use colors.
@@ -68,10 +71,9 @@ setprompt () {
 
     PROMPT='${PR_LIGHT_GREEN}[ $PR_LIGHT_YELLOW%$PR_PWDLEN<...<%~%<<$PR_LIGHT_GREEN ]${(e)PR_FILLBAR}\
 
-$PR_NO_COLOUR$ '
+%(?..$PR_LIGHT_RED%? )$PR_NO_COLOUR$ '
 
-##    RPROMPT=' $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_BLUE$PR_HBAR$PR_SHIFT_OUT\
-##($PR_YELLOW%D{%a,%b%d}$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_CYAN$PR_LRCORNER$PR_SHIFT_OUT$PR_NO_COLOUR'
+    RPROMPT=' $PR_BLUE($PR_LIGHT_YELLOW%D{%H:%M}$PR_BLUE)$PR_NO_COLOUR'
 
 
     PS2='$PR_LIGHT_GREEN- $PR_LIGHT_BLUE%_$PR_LIGHT_GREEN -$PR_NO_COLOUR '
@@ -79,3 +81,10 @@ $PR_NO_COLOUR$ '
 }
 
 setprompt
+
+# run TRAPALRM every $TMOUT seconds
+TMOUT=30
+TRAPALRM () {
+    ## reset-prompt - this will update the prompt
+    zle reset-prompt
+}
