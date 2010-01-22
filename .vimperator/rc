@@ -11,8 +11,8 @@ map gd t d<space>
 
 " Options
 set guioptions=mT
-set nextpattern=[nN]ext,^>$,^(>>|»)$,^[mM]ore$,下一页,下页,后一页,后页
-set previouspattern=[pP]rev|[pP]revious,^<$,^(<<|«)$,上一页,上页,前一页,前页
+set nextpattern=[nN]ext,^>$,^(>>|»)$,^[mM]ore$,下一页,下一頁,下页,下頁,后一页,后一頁,后页,后頁
+set previouspattern=[pP]rev|[pP]revious,^<$,^(<<|«)$,上一页,上一頁,上页,上頁,前一页,前一頁,前页,前頁
 set focuscontent
 set defsearch=g
 
