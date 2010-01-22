@@ -143,44 +143,41 @@ function! s:RunAndEcho(cmd)
   echo a:cmd
 endfunction
 
-function! TempTurnOffHightlightSearch()
-  call s:RunAndEcho('nohlsearch')
-endfunction
-map th :call TempTurnOffHightlightSearch()<CR>
+map th :nohlsearch<CR>
 
 function! ToggleWrap()
-	if &wrap
-		call s:RunAndEcho('set nowrap')
-	else
-		call s:RunAndEcho('set wrap')
-	endif
+  if &wrap
+    call s:RunAndEcho('set nowrap')
+  else
+    call s:RunAndEcho('set wrap')
+  endif
 endfunction
 map tw :call ToggleWrap()<CR>
 
 function! ToggleCheckSpell()
-	if &spell
-		call s:RunAndEcho('set nospell')
-	else
-		call s:RunAndEcho('set spell')
-	endif
+  if &spell
+    call s:RunAndEcho('set nospell')
+  else
+    call s:RunAndEcho('set spell')
+  endif
 endfunction
 map ts :call ToggleCheckSpell()<CR>
 
 function! ToggleCursorColumn()
   if &cursorcolumn
-		call s:RunAndEcho('set nocursorcolumn')
+    call s:RunAndEcho('set nocursorcolumn')
   else
-		call s:RunAndEcho('set cursorcolumn')
-	endif
+    call s:RunAndEcho('set cursorcolumn')
+  endif
 endfunction
 map tc :call ToggleCursorColumn()<CR>
 
 function! ToggleFoldColumn()
   if &foldcolumn
-		call s:RunAndEcho('set foldcolumn=0')
+    call s:RunAndEcho('set foldcolumn=0')
   else
-		call s:RunAndEcho('set foldcolumn=4')
-	endif
+    call s:RunAndEcho('set foldcolumn=4')
+  endif
 endfunction
 map tf :call ToggleFoldColumn()<CR>
 " }}} Toggle
@@ -189,12 +186,12 @@ map tf :call ToggleFoldColumn()<CR>
 "" "" runtime! plugin/IMAP.vim
 "" set grepprg=grep\ -nH\ $*
 function! SetIMAP()
-"" 	call IMAP('""', '""', '')
-"" 	call IMAP('()', '(<++>)<++>', '')
-"" 	call IMAP('[]', '[<++>]<++>', '')
-"" 	call IMAP('for  ', 'for (<++>) {<++>}<++>', '')
-"" 	call IMAP('if  ', 'if (<++>) {<++>}<++>', '')
-"" 	call IMAP('else  ', 'else {<++>}<++>', '')
+""   call IMAP('""', '""', '')
+""   call IMAP('()', '(<++>)<++>', '')
+""   call IMAP('[]', '[<++>]<++>', '')
+""   call IMAP('for  ', 'for (<++>) {<++>}<++>', '')
+""   call IMAP('if  ', 'if (<++>) {<++>}<++>', '')
+""   call IMAP('else  ', 'else {<++>}<++>', '')
 endfunction
 " }}} IMAP
 
@@ -204,23 +201,23 @@ filetype plugin indent on
 augroup filetypedetect
   "" 让文本文件也有高亮，thanks to xbeta@smth
   "au BufNewFile,BufRead *.* setf ztxt
-	" 缓冲区写入文件的时候自动检查文件类型
-	au BufWritePost * filet detect
+  " 缓冲区写入文件的时候自动检查文件类型
+  au BufWritePost * filet detect
 augroup END
 
   " Helper functions {{{
   " Set default indent and tab
   function! SetTabIndent(i)
-		set textwidth=78
+    set textwidth=78
     set ai
     exe "set shiftwidth=" . a:i
     exe "set tabstop=" . a:i
     exe "set softtabstop=" . a:i
     exe "set ts=" . a:i
     set expandtab
-		set shiftround
+    set shiftround
   endfunction
-	"" call SetTabIndent(2)
+  "" call SetTabIndent(2)
 
   function! HighlightTooLongLines()
     highlight def link RightMargin Error
@@ -250,32 +247,32 @@ endif
 " }}} Multi-encoding setting
 
 " Plugin Configs {{{
-	" lookupfile {{{
-	let g:LookupFile_DefaultCmd = ':LUWalk'
-	let g:LookupFile_DisableDefaultMap = 1
-	" }}} lookupfile
-	" taglist {{{
-	nnoremap <silent> <F8> :TlistUpdate<CR>:TlistToggle<CR>
-	let Tlist_Show_One_File = 1
-	let Tlist_Use_Right_Window = 1
-	let Tlist_Exit_OnlyWindow = 1
-	let Tlist_File_Fold_Auto_Close = 1
-	let Tlist_GainFocus_On_ToggleOpen = 1
-	let Tlist_WinWidth = 70
-	" }}} taglist
+  " lookupfile {{{
+  let g:LookupFile_DefaultCmd = ':LUWalk'
+  let g:LookupFile_DisableDefaultMap = 1
+  " }}} lookupfile
+  " taglist {{{
+  nnoremap <silent> <F8> :TlistUpdate<CR>:TlistToggle<CR>
+  let Tlist_Show_One_File = 1
+  let Tlist_Use_Right_Window = 1
+  let Tlist_Exit_OnlyWindow = 1
+  let Tlist_File_Fold_Auto_Close = 1
+  let Tlist_GainFocus_On_ToggleOpen = 1
+  let Tlist_WinWidth = 70
+  " }}} taglist
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
 " The commands in this are executed when the GUI is started.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2001 Sep 02
+" Maintainer:  Bram Moolenaar <Bram@vim.org>
+" Last change:  2001 Sep 02
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.gvimrc
-"	      for Amiga:  s:.gvimrc
+"        for Amiga:  s:.gvimrc
 "  for MS-DOS and Win32:  $VIM\_gvimrc
-"	    for OpenVMS:  sys$login:.gvimrc
+"      for OpenVMS:  sys$login:.gvimrc
 
 " Make external commands work through a pipe instead of a pseudo-tty
 "set noguipty
@@ -283,7 +280,7 @@ endif
 " set the X11 font to use
 " set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
 
-set mousehide		" Hide the mouse when typing text
+set mousehide    " Hide the mouse when typing text
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>

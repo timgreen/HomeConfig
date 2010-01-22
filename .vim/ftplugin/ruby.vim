@@ -1,1 +1,1 @@
-call SetTabIndent(4)
+call SetTabIndent(2)

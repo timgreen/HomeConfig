@@ -20,3 +20,5 @@ Wirble.init
 # enable color
 Wirble.colorize
 
+require 'hirb'
+Hirb::View.enable
