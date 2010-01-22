@@ -30,12 +30,14 @@ function precmd_prompt {
     # TODO(timgreen): should be zero?
     local prompt_size=4
     local pwd_size=${#${(%):-%~}}
+    local git_info_size
     if (( ${#__GIT_CURRENT_BRANCH} )); then
         PR_GIT_INFO=" $PR_LIGHT_GREEN: $PR_CYAN$__GIT_CURRENT_BRANCH"
+        git_info_size=$((3 + ${#__GIT_CURRENT_BRANCH}))
     else
         PR_GIT_INFO=''
+        git_info_size=0
     fi
-    local git_info_size=$((3 + ${#__GIT_CURRENT_BRANCH}))
 
     if (( $prompt_size + $pwd_size + $git_info_size > $TERM_WIDTH )); then
         ((PR_PWDLEN = $TERM_WIDTH - $prompt_size - $git_info_size))
