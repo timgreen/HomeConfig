@@ -4,7 +4,7 @@
 unset LANGUAGE
 
 ## 文件关联 {{{
-autoload -U zsh-mime-setup
-zsh-mime-setup
-alias -s pdf=okular
+#autoload -U zsh-mime-setup
+#zsh-mime-setup
+#alias -s pdf=okular
 ## }}}

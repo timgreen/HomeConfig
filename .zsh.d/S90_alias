@@ -1,0 +1,26 @@
+# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
+
+# For safe
+alias mv='nocorrect mv -i'
+alias cp='nocorrect cp -i'
+alias rm='nocorrect rm -i'
+
+# General
+alias ..='cd ..'
+alias cd..='cd ..'
+
+if $(ls --color &> /dev/null); then
+    alias ls='ls --color'
+else
+    # in Mac
+    alias ls='ls -G'
+fi
+alias l='ls -al'
+alias ll='ls -l'
+
+# Tools
+alias less='less -R'
+alias grep='grep --color=auto'
+
+#
+alias ri='ri -T -f ansi'

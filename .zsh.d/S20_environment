@@ -1,0 +1,18 @@
+# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
+
+## Java
+export JAVA_HOME=/usr/local/Java/jdk/
+
+## Git
+export GIT_PAGER='less -R'
+
+## Path {{{
+PATH+=:/sbin/:/usr/sbin/                         # sbin
+PATH+=:/usr/local/bin/                           # local
+PATH+=:$JAVA_HOME/bin                            # Java
+PATH+=:/usr/local/texlive/bin/i386-linux/        # texlive
+export PATH=~/sh:$PATH
+## }}}
+
+# This removes duplicates from PATH, CDPATH, MANPATH, and FPATH
+typeset -U path manpath fpath
