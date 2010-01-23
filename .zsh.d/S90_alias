@@ -9,11 +9,12 @@ alias rm='nocorrect rm -i'
 alias ..='cd ..'
 alias cd..='cd ..'
 
-if $(ls --color &> /dev/null); then
-    alias ls='ls --color'
-else
+ls --color &> /dev/null
+if (( $? )); then
     # in Mac
     alias ls='ls -G'
+else
+    alias ls='ls --color'
 fi
 alias l='ls -al'
 alias ll='ls -l'
