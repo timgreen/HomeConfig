@@ -1,5 +1,8 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
+# For git in Mac
+export PATH=/usr/local/git/bin/:$PATH
+
 # get the name of the branch we are on
 parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'

@@ -10,7 +10,9 @@ export GIT_PAGER='less -R'
 PATH+=:/sbin/:/usr/sbin/                         # sbin
 PATH+=:/usr/local/bin/                           # local
 PATH+=:$JAVA_HOME/bin                            # Java
-PATH+=:/usr/local/texlive/bin/i386-linux/        # texlive
+PATH+=:~/.gem/ruby/1.8/bin/                      # Ruby
+PATH+=:/usr/local/texlive/bin/i386-linux/        # Texlive
+PATH+=:/timdata/Mac/bin/                         # Mac
 export PATH=~/sh:$PATH
 ## }}}
 
