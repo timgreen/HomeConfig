@@ -25,3 +25,6 @@ alias grep='grep --color=auto'
 
 #
 alias ri='ri -T -f ansi'
+
+# Colorful man
+alias man="TERMINFO=~/.terminfo/ LESS=C TERM=mostlike PAGER=less man"
