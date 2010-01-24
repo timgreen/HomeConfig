@@ -1,44 +1,48 @@
 #!/bin/bash
 
 function getConfigList() {
-    find . -maxdepth 1 -exec basename '{}' \; \
-    | grep -vx "." \
-    | grep -vx ".git" \
-    | grep -vx "action.sh" \
-    | grep -vx "list" \
-    | grep -vx ".gitignore"
+  find . -maxdepth 1 -exec basename '{}' \; \
+  | grep -vx "." \
+  | grep -vx ".git" \
+  | grep -vx "action.sh" \
+  | grep -vx "list" \
+  | grep -vx ".gitignore"
 }
 
 function check() {
-    for i in $(getConfigList); do
-        [ -e ~/$i ] && echo $i
-    done
+  for i in $(getConfigList); do
+    [ -e ~/$i ] && echo $i
+  done
 }
 
 function installConfig() {
-    for i in $(getConfigList); do
-	rm -fr ~/"$i"
-        ln -sf "$PWD"/"$i" ~/"$i"
-    done
+  for i in $(getConfigList); do
+    rm -fr ~/"$i"
+    ln -sf "$PWD"/"$i" ~/"$i"
+  done
+
+  # compile terminfo
+  cd ~/.terminfo/
+  tic mostlike.txt
 }
 
 function removeConfig() {
-    for i in $(getConfigList); do
-         rm -rf ~/"$i"
-    done
+  for i in $(getConfigList); do
+    rm -rf ~/"$i"
+  done
 }
 
 case "$1" in
-    check)
-        check
-        ;;
-    install)
-        installConfig
-        ;;
-    rm)
-        removeConfig
-        ;;
-    *)
-        getConfigList
-        ;;
+  check)
+  check
+    ;;
+  install)
+    installConfig
+    ;;
+  rm)
+    removeConfig
+    ;;
+  *)
+    getConfigList
+    ;;
 esac
