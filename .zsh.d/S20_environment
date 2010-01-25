@@ -1,5 +1,8 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
+## Editor
+export EDITOR=vim
+
 ## Java
 export JAVA_HOME=/usr/local/Java/jdk/
 
