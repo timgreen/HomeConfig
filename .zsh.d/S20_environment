@@ -10,13 +10,16 @@ export JAVA_HOME=/usr/local/Java/jdk/
 export GIT_PAGER='less -R'
 
 ## Path {{{
-PATH+=:/sbin/:/usr/sbin/                         # sbin
-PATH+=:/usr/local/bin/                           # local
-PATH+=:$JAVA_HOME/bin                            # Java
-PATH+=:~/.gem/ruby/1.8/bin/                      # Ruby
-PATH+=:/usr/local/texlive/bin/i386-linux/        # Texlive
-PATH+=:/timdata/Mac/bin/                         # Mac
-export PATH=~/sh:$PATH
+path=(
+    $path                                     # System default
+    /sbin/:/usr/sbin/                         # sbin
+    /usr/local/bin/                           # local
+    /JAVA_HOME/bin                            # Java
+    ~/sh                                      # My scripts
+    ~/.gem/ruby/1.8/bin/                      # Ruby
+    /usr/local/texlive/bin/i386-linux/        # Texlive
+    /timdata/Mac/bin/                         # Mac
+)
 ## }}}
 
 # This removes duplicates from PATH, CDPATH, MANPATH, and FPATH
