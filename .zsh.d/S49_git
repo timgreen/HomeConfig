@@ -7,8 +7,3 @@ export PATH=/usr/local/git/bin/:$PATH
 parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
-
-git_chpwd_update_var() {
-    export __GIT_CURRENT_BRANCH="$(parse_git_branch)"
-}
-chpwd_functions+='git_chpwd_update_var'

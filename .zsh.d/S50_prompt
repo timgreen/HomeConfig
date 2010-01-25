@@ -31,9 +31,10 @@ function precmd_prompt {
     local prompt_size=4
     local pwd_size=${#${(%):-%~}}
     local git_info_size
-    if (( ${#__GIT_CURRENT_BRANCH} )); then
-        PR_GIT_INFO=" $PR_LIGHT_GREEN: $PR_CYAN$__GIT_CURRENT_BRANCH"
-        git_info_size=$((3 + ${#__GIT_CURRENT_BRANCH}))
+    local git_current_branch="$(parse_git_branch)"
+    if (( ${#git_current_branch} )); then
+        PR_GIT_INFO=" $PR_LIGHT_GREEN: $PR_CYAN$git_current_branch"
+        git_info_size=$((3 + ${#git_current_branch}))
     else
         PR_GIT_INFO=''
         git_info_size=0
