@@ -2,6 +2,9 @@
 
 set t_Co=256
 
+" Vim addon manager
+set runtimepath+=~/.vim-plugins/vim-addon-manager
+
 " Basic {{{
 set modeline
 set modelines=5
@@ -187,7 +190,7 @@ map tf :call ToggleFoldColumn()<CR>
 "" set grepprg=grep\ -nH\ $*
 function! SetIMAP()
 ""   call IMAP('""', '""', '')
-""   call IMAP('()', '(<++>)<++>', '')
+""   call IMAP('()', '()<++>', '')
 ""   call IMAP('[]', '[<++>]<++>', '')
 ""   call IMAP('for  ', 'for (<++>) {<++>}<++>', '')
 ""   call IMAP('if  ', 'if (<++>) {<++>}<++>', '')
