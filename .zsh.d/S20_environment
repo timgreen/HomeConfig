@@ -1,7 +1,13 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
+## Android
+export ANDROID_SDK_HOME=~/dev/android-sdk/
+
 ## Editor
 export EDITOR=vim
+
+## Git
+export GIT_PAGER='less -R'
 
 ## Java
 if [ $IS_MACOX ]; then
@@ -10,15 +16,16 @@ elif [ $IS_LINUX ]; then
     export JAVA_HOME=/usr/local/Java/jdk/
 fi
 
-## Git
-export GIT_PAGER='less -R'
+## Scala
+export SCALA_HOME=~/dev/scala/
 
 ## Path {{{
 path=(
     $path                                     # System default
     /sbin/:/usr/sbin/                         # sbin
     /usr/local/bin/                           # local
-    /JAVA_HOME/bin                            # Java
+    $JAVA_HOME/bin                            # Java
+    $SCALA_HOME/bin/                          # Scala
     ~/sh                                      # My scripts
     ~/.gem/ruby/1.8/bin/                      # Ruby
     /usr/local/texlive/bin/i386-linux/        # Texlive
