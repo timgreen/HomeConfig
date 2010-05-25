@@ -6,7 +6,7 @@ subfont-autoscale=3
 subfont-text-scale=3
 sub-fuzziness=2
 subfont-osd-scale=3
-ao=pulse,alsa,
+ao=pulse,alsa,coreaudio,
 vo=xv:adaptor=1,xv,x11,
 #vf=screenshot
 zoom=yes
