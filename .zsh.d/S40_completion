@@ -9,7 +9,10 @@ elif [ $IS_LINUX ]; then
 fi
 fpath+=$my_fpath
 for p in $my_fpath; do
-    autoload -U $p/*(N:t)
+    funcs=($p/*(N:t))
+    if ((${#funcs} > 0)); then
+        autoload -U $funcs
+    fi
 done
 ## }}}
 
