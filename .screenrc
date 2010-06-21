@@ -22,7 +22,7 @@ altscreen on
 defscrollback 10000
 
 #caption always '%{wb} %-w%{= BW}%50>%n %t%{-}%+w %<'
-caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{wb}%? %L=%-w%45>%{wk}%{rk}%n%{-} %t%{-}%+w%-0<"
+caption always "%?%F%{-b bc}%:%{-b bb}%?%{+b rc}%H %{-}%C %D %M %d%?%F%{wb}%? %L=%-w%45>%{wk}%{rk}%n%{-} %t%{-}%+w%-0<"
 # ------------------------------------------------------------------------------
 # caption description:
 # ------------------------------------------------------------------------------
@@ -39,11 +39,13 @@ caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{wb}%? %L=%-w%45>%{wk
 #  %{-b bb}   - Turn off bold, blue foreground, blue background (this obscures
 #               the text on non-focused windows and just gives a blue line).
 # %?          - End conditional statement.
+#  %{+b rc}   - Turn on bold, red foreground, cyan background
+#  %H         - hostname
+#  %{-}       - undo last color change
 #  %C         - time (hh:mm, leading space) in 12 hour format
 #  %D         - Three-letter day-of-week appreviation
 #  %M         - Three-letter month appreviation
 #  %d         - Day of the month
-#  %H         - hostname
 #  %?         - Start of conditional statement.
 #   %F        - Use this part of the statement if the window has focus.
 #   %{+u wb}  - underlined, white foreground, blue background
