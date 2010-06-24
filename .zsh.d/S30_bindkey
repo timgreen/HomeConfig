@@ -20,6 +20,15 @@ zle -N sudo-command-line
 bindkey "\es" sudo-command-line
 ## }}}
 
+## 移动光标到第一下参数的前 {{{
+move-to-first-param() {
+    zle beginning-of-line
+    zle forward-word
+}
+zle -N move-to-first-param
+bindkey "\ea" move-to-first-param
+## }}}
+
 ## 命令搜索 {{{
 # Alt-p
 bindkey "^[p" history-beginning-search-backward
