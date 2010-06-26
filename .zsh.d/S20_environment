@@ -1,8 +1,5 @@
 # vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
 
-## Android
-export ANDROID_SDK_HOME=~/dev/android-sdk/
-
 ## Editor
 export EDITOR=vim
 
@@ -27,6 +24,7 @@ path=(
     $JAVA_HOME/bin/                           # Java
     $SCALA_HOME/bin/                          # Scala
     ~/.gem/ruby/1.8/bin/                      # Ruby
+    /usr/local/Cellar/python/2.6.5/bin        # Python Mac
 
     /usr/local/bin/                           # local
     /opt/local/bin/                           # opt - Mac
