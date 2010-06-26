@@ -30,11 +30,10 @@ function! FindAndChange()
 	let searchPos = search(s:searchString)
 
     " Find and replace the trailing spaces  {{{1
-	while searchPos > 0 && &modifiable
-		exe 's/'.s:searchString.'/'.s:newString.'/e'
+	if searchPos > 0 && &modifiable
+		exe '%s/'.s:searchString.'/'.s:newString.'/e'
 		call s:RemoveLastHistoryItem()
-		let searchPos = search(s:searchString)
-	endwhile
+	end
 
 	exe pos
 endfunction
