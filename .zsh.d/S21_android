@@ -1,0 +1,10 @@
+if [ $IS_MACOX ]; then
+  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r6
+  export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/r6
+elif [ $IS_LINUX ]; then
+  # TODO
+  export ANDROID_SDK_ROOT=""
+  export ANDROID_SDK_HOME=""
+fi
+
+path+=$ANDROID_SDK_ROOT/tools/
