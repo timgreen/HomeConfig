@@ -19,7 +19,7 @@ export SCALA_HOME=~/dev/scala/
 
 ## Path {{{
 path=(
-    ~/sh                                      # My scripts
+    ~/Dropbox/Runnable/Common/sh/                  # My scripts
     /timdata/Mac/bin/                         # Mac
     $JAVA_HOME/bin/                           # Java
     $SCALA_HOME/bin/                          # Scala
@@ -31,7 +31,6 @@ path=(
     /usr/local/texlive/bin/i386-linux/        # Texlive
 
     $path                                     # System default
-
     /sbin/:/usr/sbin/                         # sbin
     /usr/local/sbin                           # local sbin
 )
