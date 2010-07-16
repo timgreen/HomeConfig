@@ -9,5 +9,6 @@ alias ll='ls -l'
 # Tools
 alias less='less -R'
 alias grep='grep --color'
+alias rscp='rsync -v -P -e ssh'
 #
 alias ri='ri -T -f ansi'
