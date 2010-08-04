@@ -19,6 +19,12 @@ set cindent
 set nowrap
 set mouse=h
 set directory=~/.cache/vim/ " swap file dir
+" see http://vim.wikia.com/wiki/Change_to_the_directory_of_the_current_file
+if exists('+autochdir')
+  set autochdir
+else
+  autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
 " }}}
 
 " Wild {{{
