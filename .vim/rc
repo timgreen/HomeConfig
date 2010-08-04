@@ -226,7 +226,7 @@ augroup END
     set expandtab
     set shiftround
   endfunction
-  "" call SetTabIndent(2)
+  call SetTabIndent(2)
 
   function! HighlightTooLongLines()
     highlight def link RightMargin Error
