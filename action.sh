@@ -13,31 +13,70 @@ function getConfigList() {
 }
 
 # Check the status of target, see it already point to source or not.
-function checkLink() {
-  file="$1"
-  target="$HOME/$file"
-  targetLink=$(readlink "$target")
-  if [[ "$targetLink" == "$PWD/$file" ]]; then
-    echo "[YES] - $file"
-  else
-    echo "[NO] - $file"
+function checkTrackedLink() {
+  local file="$1"
+  local target="$HOME/$file"
+  local targetLink=$(readlink "$target")
+  if [[ "$targetLink" != "$PWD/$file" ]]; then
+    echo "[NO] - $file" >&2
     return 1
+#  else
+#    echo "[YES] - $file"
   fi
+}
+
+function checkUntrackedFile() {
+  local dir="$1"
+  [[ -d "$HOME/$dir" ]] || return;
+
+  for target in $(find "$HOME/$dir" -depth 1 | sed "s!^\./!!"); do
+    local file="$dir/$(basename $target)"
+
+    if [[ -d "$target" ]]; then
+      if [[ ! -a "$file" ]]; then
+        echo "[Untracked dir] - $file" >&2
+        continue
+      fi
+      if [[ ! -d "$file" ]]; then
+        echo "[C dir ^dir] - $file" >&2
+        continue
+      fi
+      checkUntrackedFile "$file"
+    else
+      if [[ ! -a "$PWD/$file" ]]; then
+        echo "[Untracked file] - $file" >&2
+        continue
+      fi
+      if [[ ! -L "$target" ]]; then
+        echo "[C not link] - $file" >&2
+        continue
+      fi
+      local targetLink=$(readlink "$target")
+      if [[ "$targetLink" != "$PWD/$file" ]]; then
+        echo "[C link] - $file" >&2
+        continue
+      fi
+    fi
+  done
 }
 
 function check() {
   for i in $(getConfigList); do
-    checkLink "$i"
+    checkTrackedLink "$i"
+  done
+  for i in $(find . -depth 1 -type d | sed "s!^\./!!"); do
+    checkUntrackedFile $i
   done
 }
 
 function installConfig() {
   for i in $(getConfigList); do
-    dir=$(dirname "$HOME/$i")
+    local dir=$(dirname "$HOME/$i")
     mkdir -p "$dir"
     ln -sf "$PWD/$i" "$HOME/$i"
   done
 
+  # TODO(timgreen): refactor
   # compile terminfo
   cd ~/.terminfo/
   tic mostlike.txt
