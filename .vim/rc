@@ -2,8 +2,8 @@
 
 set t_Co=256
 
-" Vim addon manager
-set runtimepath+=~/.vim-plugins/vim-addon-manager
+" Add directories in .vim/bundle to the runtime path
+call pathogen#runtime_append_all_bundles()
 
 " Basic {{{
 set modeline
@@ -12,13 +12,13 @@ set nocompatible " explicitly get out of vi-compatible mode
 " }}}
 
 " General {{{
-"""set autochdir " always switch to the current directory of the file you are editing
 set autoindent
 set smartindent
 set cindent
 set nowrap
 set mouse=h
 set directory=~/.cache/vim/ " swap file dir
+" always switch to the current directory of the file you are editing
 " see http://vim.wikia.com/wiki/Change_to_the_directory_of_the_current_file
 if exists('+autochdir')
   set autochdir
@@ -218,12 +218,15 @@ augroup END
   " Set default indent and tab
   function! SetTabIndent(i)
     set textwidth=78
-    set ai
+    set linebreak
     exe "set shiftwidth=" . a:i
     exe "set tabstop=" . a:i
     exe "set softtabstop=" . a:i
     exe "set ts=" . a:i
+    set smarttab
     set expandtab
+    set smartindent
+    set ai
     set shiftround
   endfunction
   call SetTabIndent(2)
@@ -235,6 +238,7 @@ augroup END
       exec 'match RightMargin /\%<' . (&textwidth + 4) . 'v.\%>' . (&textwidth + 2) . 'v/'
     endif
   endfunction
+  call HighlightTooLongLines()
   " }}} Helper functions
 " }}} FileType
 
