@@ -29,31 +29,31 @@ function checkUntrackedFile() {
   local dir="$1"
   [[ -d "$HOME/$dir" ]] || return;
 
-  for target in $(find "$HOME/$dir" -depth 1 | sed "s!^\./!!"); do
+  for target in $(find "$HOME/$dir" -maxdepth 1 -mindepth 1| sed "s!^\./!!"); do
     local file="$dir/$(basename $target)"
 
     if [[ -d "$target" ]]; then
       if [[ ! -a "$file" ]]; then
-        echo "[Untracked dir] - $file" >&2
+        echo "[Untracked dir] - $target" >&2
         continue
       fi
       if [[ ! -d "$file" ]]; then
-        echo "[C dir ^dir] - $file" >&2
+        echo "[C dir ^dir] - $target" >&2
         continue
       fi
       checkUntrackedFile "$file"
     else
       if [[ ! -a "$PWD/$file" ]]; then
-        echo "[Untracked file] - $file" >&2
+        echo "[Untracked file] - $target" >&2
         continue
       fi
       if [[ ! -L "$target" ]]; then
-        echo "[C not link] - $file" >&2
+        echo "[C not link] - $target" >&2
         continue
       fi
       local targetLink=$(readlink "$target")
       if [[ "$targetLink" != "$PWD/$file" ]]; then
-        echo "[C link] - $file" >&2
+        echo "[C link] - $target" >&2
         continue
       fi
     fi
@@ -64,7 +64,7 @@ function check() {
   for i in $(getConfigList); do
     checkTrackedLink "$i"
   done
-  for i in $(find . -depth 1 -type d | sed "s!^\./!!"); do
+  for i in $(find . -maxdepth 1 -mindepth 1 -type d | sed "s!^\./!!"); do
     checkUntrackedFile $i
   done
 }
