@@ -1,6 +1,6 @@
 # Welcome to Tim Green''s config
 
 ## How to use
-./action.sh install
+  ./action.sh install
 
 TODO(timgreen):
