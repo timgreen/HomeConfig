@@ -1,6 +1,6 @@
 if [ $IS_MACOX ]; then
-  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r6
-  export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/r6
+  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r7
+  export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/r7
 elif [ $IS_LINUX ]; then
   # TODO
   export ANDROID_SDK_ROOT=""
