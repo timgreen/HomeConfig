@@ -1,0 +1,10 @@
+# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
+
+export VIM_APP_DIR=~/Dropbox/Runnable/Mac/Apps/More/
+
+if [ $IS_MACOX ]; then
+    path=(
+        ~/Dropbox/Runnable/Mac/bin/
+        $path
+    )
+fi
