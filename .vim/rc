@@ -2,6 +2,7 @@
 
 set t_Co=256
 
+filetype off
 " Add directories in .vim/bundle to the runtime path
 call pathogen#runtime_append_all_bundles()
 
@@ -25,6 +26,8 @@ if exists('+autochdir')
 else
   autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 endif
+set ttyfast
+set ruler
 " }}}
 
 " Wild {{{
@@ -67,7 +70,7 @@ set foldcolumn=4 " fold column width
 " }}}
 
 " Statusline {{{
-set laststatus=2
+set laststatus=2                             " always
 set statusline=
 set statusline+=%2*%-3.3n%0*\                " buffer number
 set statusline+=%-00.70f\                    " file name
@@ -189,6 +192,15 @@ function! ToggleFoldColumn()
   endif
 endfunction
 map tf :call ToggleFoldColumn()<CR>
+
+function! ToggleRelativeNumber()
+  if &number
+    call s:RunAndEcho('set relativenumber')
+  else
+    call s:RunAndEcho('set number')
+  endif
+endfunction
+map tn :call ToggleRelativeNumber()<CR>
 " }}} Toggle
 
 " IMAP {{{ need latexsuite
