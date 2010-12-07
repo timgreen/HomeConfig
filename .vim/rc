@@ -95,6 +95,16 @@ an 40.820 &Tools.清理行末空格 :%s/\s\+$//<CR>
 " }}} Menu
 
 " Map {{{
+"" forcing use hjkl
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
 "" forcing use of tabs
 nnoremap gf <C-W>gf
 cab      e  tabe
@@ -229,7 +239,8 @@ augroup END
   " Helper functions {{{
   " Set default indent and tab
   function! SetTabIndent(i)
-    set textwidth=78
+    set textwidth=99
+    set colorcolumn=80,100
     set linebreak
     exe "set shiftwidth=" . a:i
     exe "set tabstop=" . a:i
