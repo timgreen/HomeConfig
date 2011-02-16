@@ -22,6 +22,7 @@ export SCALA_HOME=~/dev/scala/
 # TODO(timgreen): use wildcard.
 path=(
     ~/Dropbox/Runnable/Common/sh/             # My scripts
+    $HOME/bin
     $JAVA_HOME/bin/                           # Java
     $SCALA_HOME/bin/                          # Scala
     ~/.gem/ruby/1.8/bin/                      # Ruby

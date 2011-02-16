@@ -8,6 +8,7 @@ function getConfigList() {
   find . -type f \
   | sed "s!^\./!!" \
   | grep -v "^\.git" \
+  | grep -v "/.git/" \
   | grep -v "^action.sh" \
   | grep -v "^list"
 }

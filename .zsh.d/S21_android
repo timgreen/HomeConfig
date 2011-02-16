@@ -1,6 +1,6 @@
 if [ $IS_MACOX ]; then
-  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r7
-  export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/r7
+  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r9
+  export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/r9
 elif [ $IS_LINUX ]; then
   # TODO
   export ANDROID_SDK_ROOT=""
@@ -9,4 +9,5 @@ fi
 
 path+=$ANDROID_SDK_ROOT/bin/
 
+export ANDROID_HOME=$ANDROID_SDK_HOME
 export ANDROID_KEYSTORE=~/workspace/android/devtools/keystore
