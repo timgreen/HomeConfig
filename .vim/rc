@@ -239,8 +239,6 @@ augroup END
   " Helper functions {{{
   " Set default indent and tab
   function! SetTabIndent(i)
-    set textwidth=99
-    set colorcolumn=80,100
     set linebreak
     exe "set shiftwidth=" . a:i
     exe "set tabstop=" . a:i
@@ -254,14 +252,12 @@ augroup END
   endfunction
   call SetTabIndent(2)
 
-  function! HighlightTooLongLines()
-    highlight def link RightMargin Error
+  function SetTextWidth(i)
+    exe "set textwidth=" . a:i
     if &textwidth != 0
-      " FIXME: 中文上工作不正常 (半格的情况)
-      exec 'match RightMargin /\%<' . (&textwidth + 4) . 'v.\%>' . (&textwidth + 2) . 'v/'
+      set colorcolumn=+0,+20
     endif
   endfunction
-  call HighlightTooLongLines()
   " }}} Helper functions
 " }}} FileType
 
