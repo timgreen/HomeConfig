@@ -264,20 +264,6 @@ augroup END
 " Load matchit (% to bounce from do to end, etc.)
 runtime! macros/matchit.vim
 
-" Multi-encoding setting {{{
-if has("multi_byte")
-  " set bomb
-  " 该顺序不能颠倒，并且在后面再添加其它编码如 big5、latin1 也是没有意义的，因为 Vim 不能识别 8比特编码中的错误，因此这些编码后列的编码永远不会被用到。
-  " 不能自动识别的文件，则可以使用以下命令：':e ++enc=编码 文件名'。详情可参考“:help ++enc'。
-  set fileencodings=ucs-bom,utf-8,chinese
-
-  set encoding=utf-8
-  set termencoding=utf-8
-else
-  echoerr "Sorry, this version of (g)vim was not compiled with multi_byte"
-endif
-" }}} Multi-encoding setting
-
 " Plugin Configs {{{
   " lookupfile {{{
   let g:LookupFile_DefaultCmd = ':LUWalk'
