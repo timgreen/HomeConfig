@@ -10,7 +10,8 @@ function getConfigList() {
   | grep -v "^\.git" \
   | grep -v "/.git/" \
   | grep -v "^action.sh" \
-  | grep -v "^list"
+  | grep -v "^list" \
+  | grep -v "^README.md"
 }
 
 # Check the status of target, see it already point to source or not.
