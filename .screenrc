@@ -22,7 +22,7 @@ altscreen on
 defscrollback 10000
 
 #caption always '%{wb} %-w%{= BW}%50>%n %t%{-}%+w %<'
-caption always "%?%F%{-b bc}%:%{-b bb}%?%{+b rc}%H %{-}%C %D %M %d%?%F%{wb}%? %L=%-w%45>%{wk}%{rk}%n%{-} %t%{-}%+w%-0<"
+caption always "%?%F%{-b bc}%:%{-b bb}%?%?%F%{wb}%? %L=%-w%45>%{wk}%{rk}%n%{-} %t%{-}%+w%-0<"
 # ------------------------------------------------------------------------------
 # caption description:
 # ------------------------------------------------------------------------------
@@ -68,6 +68,21 @@ caption always "%?%F%{-b bc}%:%{-b bb}%?%{+b rc}%H %{-}%C %D %M %d%?%F%{wb}%? %L
 #    %+Lw     - window list from the next window on (-), show window flags (L)
 #    %-0<     - truncation/padding point.  Place this point zero spaces (0)
 #               from the right margin (-).
+#
+
+# backtick & hardstatus
+backtick 102 5 5              byobu-status reboot_required
+backtick 105 47 47            byobu-status mem_available
+backtick 106 2 2              byobu-status load_average
+backtick 107 13 13            byobu-status mem_used
+backtick 109 607 607          byobu-status hostname
+backtick 115 29 29            byobu-status uptime
+backtick 117 3 3              byobu-status network
+backtick 120 28793 28793      byobu-status date
+backtick 121 9999999 9999999  byobu-status time
+backtick 122 127 127          byobu-status ip_address
+hardstatus alwayslastline
+hardstatus string '%{-b bc}%109`%102` %120`%121`%{=r} %=%117` Uptime: %115`Load: %106` Mem: %105`%107` IP:%122`'
 
 # 使用 `(1左邊那個按鍵)取代 ctrl＋A，如果要輸入 `，點兩下 ` 即可。
 escape ``
