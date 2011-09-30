@@ -16,16 +16,17 @@ fi
 
 # TODO(timgreen): move to the better place.
 ## Scala
-export SCALA_HOME=~/dev/scala/
+export SCALA_HOME=~/dev/scala/scala-current/
 
 ## Path {{{
 # TODO(timgreen): use wildcard.
 path=(
-    ~/Dropbox/Runnable/Common/sh/             # My scripts
-    $HOME/bin
+    $HOME/Dropbox/Runnable/Common/sh/             # My scripts
+    $HOME/sh/
+    $HOME/bin/
     $JAVA_HOME/bin/                           # Java
     $SCALA_HOME/bin/                          # Scala
-    ~/.gem/ruby/1.8/bin/                      # Ruby
+    $HOME/.gem/ruby/1.8/bin/                      # Ruby
     /usr/local/Cellar/ruby/1.9.1-p378/bin     # Ruby Mac
     /usr/local/Cellar/python/2.6.5/bin        # Python Mac
 
