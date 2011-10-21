@@ -37,7 +37,8 @@ set wildmode=full " turn on wild menu with full match
 " }}}
 
 " UI {{{
-colorscheme timgreen
+"colorscheme timgreen
+colorscheme murphy
 set cursorline
 set cursorcolumn
 set lazyredraw " do not redraw while running macros

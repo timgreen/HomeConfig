@@ -94,10 +94,10 @@ $SNIPPET_EXIT_CODE$PR_NO_COLOUR\$ "
 
 set_prompt
 
-# run TRAPALRM every $TMOUT seconds
-TMOUT=30
-TRAPALRM() {
-    # reset-prompt - this will update the prompt
-    # TODO(timgreen): when in menu select, menu will gone after reset
-    zle reset-prompt
-}
+# # run TRAPALRM every $TMOUT seconds
+# TMOUT=30
+# TRAPALRM() {
+#     # reset-prompt - this will update the prompt
+#     # TODO(timgreen): when in menu select, menu will gone after reset
+#     zle reset-prompt
+# }

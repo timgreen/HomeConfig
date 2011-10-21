@@ -11,7 +11,7 @@ if [ $IS_MACOX ]; then
     # TODO(timgreen): link to ~/.java_home?
     export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/
 elif [ $IS_LINUX ]; then
-    export JAVA_HOME=~/.java_home
+    export JAVA_HOME=~/dev/java/jdk1.7.0
 fi
 
 # TODO(timgreen): move to the better place.
@@ -43,3 +43,6 @@ path=(
 
 # This removes duplicates from PATH, CDPATH, MANPATH, and FPATH
 typeset -U path manpath fpath
+
+## ibus
+declare -x XMODIFIERS="@im=ibus"
