@@ -1,6 +1,8 @@
 #attrcolor b ".I" # Use bright colors for bold text.
 startup_message off
 
+defutf8 on
+
 # use zsh
 shell zsh
 
@@ -75,12 +77,12 @@ backtick 102 5 5              byobu-status reboot_required
 backtick 105 47 47            byobu-status mem_available
 backtick 106 2 2              byobu-status load_average
 backtick 107 13 13            byobu-status mem_used
-backtick 109 607 607          byobu-status hostname
-backtick 115 29 29            byobu-status uptime
+backtick 109 607 607          $HOME/.screen/hostname
+backtick 115 29 29            $HOME/.screen/uptime
 backtick 117 3 3              byobu-status network
 backtick 120 28793 28793      byobu-status date
 backtick 121 9999999 9999999  byobu-status time
-backtick 122 127 127          byobu-status ip_address
+backtick 122 127 127          $HOME/.screen/ip_address
 hardstatus alwayslastline
 hardstatus string '%{-b bc}%109`%102` %120`%121`%{=r} %=%117` Uptime: %115`Load: %106` Mem: %105`%107` IP:%122`'
 
