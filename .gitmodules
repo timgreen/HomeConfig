@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/vim-css3"]
 	path = .vim/bundle/vim-css3
 	url = git://github.com/hail2u/vim-css3-syntax.git
+[submodule ".vim/bundle/vim-soy"]
+	path = .vim/bundle/vim-soy
+	url = git://github.com/duganchen/vim-soy.git
