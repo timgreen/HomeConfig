@@ -212,6 +212,11 @@ function! ToggleRelativeNumber()
   endif
 endfunction
 map tn :call ToggleRelativeNumber()<CR>
+
+function! ToggleTagBar()
+	call s:RunAndEcho('TagbarToggle')
+endfunction
+map tt :call ToggleTagBar()<CR>
 " }}} Toggle
 
 " FileType {{{
@@ -267,7 +272,7 @@ runtime! macros/matchit.vim
   let Tlist_WinWidth = 70
   " }}} taglist
   " snipMate {{{
- let g:snips_author = 'Tim Green'
+	let g:snips_author = 'Tim Green'
   " }}}
 " }}} Plugin Configs
 
