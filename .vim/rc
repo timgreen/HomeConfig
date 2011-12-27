@@ -41,20 +41,20 @@ set wildmode=full " turn on wild menu with full match
 colorscheme murphy
 set cursorline
 set cursorcolumn
-set lazyredraw " do not redraw while running macros
-set matchtime=5 " how many tenths of a second to blink matching brackets for
-set showmatch " show matching brackets
-set number " turn on line numbers
-set report=0 " tell us when anything is changed via :...
+set lazyredraw       " do not redraw while running macros
+set matchtime=5      " how many tenths of a second to blink matching brackets for
+set showmatch        " show matching brackets
+set number           " turn on line numbers
+set report=0         " tell us when anything is changed via :...
 set shortmess=atToOI " shortens messages
-set showcmd " show the command being typed
+set showcmd          " show the command being typed
 set sidescrolloff=10 " Keep 5 lines at the size
-set scrolloff=10 " Keep 5 lines (top/bottom) for scope
+set scrolloff=10     " Keep 5 lines (top/bottom) for scope
 " }}}
 
 " Search {{{
-set ignorecase " case insensitive by default
-set smartcase " if there are caps, go case-sensitive
+set ignorecase       " case insensitive by default
+set smartcase        " if there are caps, go case-sensitive
 " }}}
 
 " Folding {{{
@@ -214,19 +214,6 @@ endfunction
 map tn :call ToggleRelativeNumber()<CR>
 " }}} Toggle
 
-" IMAP {{{ need latexsuite
-"" "" runtime! plugin/IMAP.vim
-"" set grepprg=grep\ -nH\ $*
-function! SetIMAP()
-""   call IMAP('""', '""', '')
-""   call IMAP('()', '()<++>', '')
-""   call IMAP('[]', '[<++>]<++>', '')
-""   call IMAP('for  ', 'for (<++>) {<++>}<++>', '')
-""   call IMAP('if  ', 'if (<++>) {<++>}<++>', '')
-""   call IMAP('else  ', 'else {<++>}<++>', '')
-endfunction
-" }}} IMAP
-
 " FileType {{{
 filetype plugin indent on
 
@@ -241,22 +228,22 @@ augroup END
   " Set default indent and tab
   function! SetTabIndent(i)
     set linebreak
-    exe "set shiftwidth=" . a:i
-    exe "set tabstop=" . a:i
-    exe "set softtabstop=" . a:i
-    exe "set ts=" . a:i
-    set smarttab
-    set expandtab
-    set smartindent
-    set ai
-    set shiftround
+    exe "setlocal shiftwidth=" . a:i
+    exe "setlocal tabstop=" . a:i
+    exe "setlocal softtabstop=" . a:i
+    exe "setlocal ts=" . a:i
+    setlocal smarttab
+    setlocal expandtab
+    setlocal smartindent
+    setlocal ai
+    setlocal shiftround
   endfunction
-  call SetTabIndent(2)
+  "call SetTabIndent(2)
 
   function SetTextWidth(i)
     exe "set textwidth=" . a:i
     if &textwidth != 0
-      set colorcolumn=+0,+20
+      setlocal colorcolumn=+0,+20
     endif
   endfunction
   " }}} Helper functions
@@ -279,6 +266,9 @@ runtime! macros/matchit.vim
   let Tlist_GainFocus_On_ToggleOpen = 1
   let Tlist_WinWidth = 70
   " }}} taglist
+  " snipMate {{{
+ let g:snips_author = 'Tim Green'
+  " }}}
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
