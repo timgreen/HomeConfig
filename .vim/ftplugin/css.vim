@@ -319,3 +319,4 @@ endif		" has("gui_running")
 
 
 call SetTextWidth(0)
+call SetTabIndent(2)
