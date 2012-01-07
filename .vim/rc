@@ -133,8 +133,15 @@ map <Space>7 :tabnext 7<CR>
 map <Space>8 :tabnext 8<CR>
 
 "" Command-T
-map <Space>t  :tabe .<CR>:CommandT<CR>
-map <Space>tb :tabe .<CR>:CommandTBuffer<CR>
+function SmartCommandT()
+  if exists("b:NERDTreeRoot")
+    exec 'CommandT ' . b:NERDTreeRoot.path.str()
+  else
+    CommandT
+  endif
+endfunction
+map <Space>t  :call SmartCommandT()<CR>
+map <Space>tb :CommandTBuffer<CR>
 
 "" others
 map  <F1> <Nop>
@@ -258,10 +265,6 @@ augroup END
 runtime! macros/matchit.vim
 
 " Plugin Configs {{{
-  " lookupfile {{{
-  let g:LookupFile_DefaultCmd = ':LUWalk'
-  let g:LookupFile_DisableDefaultMap = 1
-  " }}} lookupfile
   " taglist {{{
   nnoremap <silent> <F8> :TlistUpdate<CR>:TlistToggle<CR>
   let Tlist_Show_One_File = 1
@@ -272,7 +275,10 @@ runtime! macros/matchit.vim
   let Tlist_WinWidth = 70
   " }}} taglist
   " snipMate {{{
-	let g:snips_author = 'Tim Green'
+  let g:snips_author = 'Tim Green'
+  " }}}
+  " CommandT {{{
+  let g:CommandTMatchWindowAtTop = 1
   " }}}
 " }}} Plugin Configs
 
