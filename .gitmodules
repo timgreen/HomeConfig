@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = https://github.com/timgreen/vim-tagbar.git
+[submodule ".vim/bundle/command-t"]
+	path = .vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git

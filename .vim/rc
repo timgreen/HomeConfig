@@ -132,13 +132,13 @@ map <Space>6 :tabnext 6<CR>
 map <Space>7 :tabnext 7<CR>
 map <Space>8 :tabnext 8<CR>
 
+"" Command-T
+map <Space>t  :tabe .<CR>:CommandT<CR>
+map <Space>tb :tabe .<CR>:CommandTBuffer<CR>
+
 "" others
 map  <F1> <Nop>
 map! <F1> <Nop>
-map  <F2> :up<CR>
-map! <F2> <ESC>:up<CR>a
-map  <F5> :tabe<CR>:LUWalk<CR>
-map! <F5> <ESC>:tabe<CR>:LUWalk<CR>
 "" disable delete in mac
 imap [3~ <Nop>
 
