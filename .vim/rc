@@ -17,8 +17,8 @@ set autoindent
 set smartindent
 set cindent
 set nowrap
-set mouse=h
-set directory=~/.cache/vim/ " swap file dir
+set mouse=
+set noswapfile
 " always switch to the current directory of the file you are editing
 " see http://vim.wikia.com/wiki/Change_to_the_directory_of_the_current_file
 if exists('+autochdir')
@@ -37,8 +37,8 @@ set wildmode=full " turn on wild menu with full match
 " }}}
 
 " UI {{{
-"colorscheme timgreen
-colorscheme murphy
+colorscheme timgreen
+"colorscheme murphy
 set cursorline
 set cursorcolumn
 set lazyredraw       " do not redraw while running macros
@@ -86,6 +86,68 @@ set statusline+=%=                           " right align
 set statusline+=%2*0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 " }}} Statusline
+
+" Tabline {{{
+set showtabline=2
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " 选择高亮
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " 设置标签页号 (用于鼠标点击)
+    let s .= '%' . (i + 1) . 'T '
+
+    " 选择高亮
+    if i + 1 == tabpagenr()
+      let s .= '%#TabNumSel#' . (i + 1) . '%#TabLineSel#'
+    else
+      let s .= '%#TabNum#' . (i + 1) . '%#TabLine#'
+    endif
+    " MyTabLabel() 提供标签
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+
+  let s .= '%#TabLineFill#%T'
+  return s
+endfunction
+function MyTabLabel(n)
+  let label = ''
+  let bufnrlist = tabpagebuflist(a:n)
+  " Add '+' if one of the buffers in the tab page is modified
+  for bufnr in bufnrlist
+    if getbufvar(bufnr, "&modified")
+      let label = '+'
+      break
+    endif
+  endfor
+  " Append the buffer name
+  let name = bufname(bufnrlist[tabpagewinnr(a:n) - 1])
+  if name == ''
+    " give a name to no-name documents
+    if &buftype=='quickfix'
+      let name = '[Quickfix List]'
+    else
+      let name = '[No Name]'
+    endif
+  else
+    " get only the file name
+    let name = fnamemodify(name, ":t")
+  endif
+  let label .= name
+  " Append the number of windows in the tab page
+  let wincount = tabpagewinnr(a:n, '$')
+  if wincount > 1
+    let label .= '[' . wincount . ']'
+  endif
+  return label
+endfunction
+set tabline=%!MyTabLine()
+" }}}
 
 " Menu {{{
 an 40.800 &Tools.-SEP4- <NOP>

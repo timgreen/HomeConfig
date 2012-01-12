@@ -263,9 +263,11 @@ hi link IncSearch	Search
 call s:X("Comment"     , "87CEEB", ""      , "")
 
 " UI
-call s:X("TabLineFill" , "888888", "444444", "underline")
-call s:X("TabLine"     , "888888", "444444", "underline")
-call s:X("TabLineSel"  , "87FF90", "000000", "bold")
+call s:X("TabLineFill" , "888888" , "444444" , "underline")
+call s:X("TabLine"     , "888888" , "444444" , "underline")
+call s:X("TabLineSel"  , "87FF90" , "000000" , "bold")
+call s:X("TabNum"      , "FFD7FF" , "444444" , "underline")
+call s:X("TabNumSel"   , "FFD7FF" , "000000" , "bold")
 ""  StatusLine
 ""  StatusLineNC
 
