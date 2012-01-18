@@ -91,29 +91,86 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 set showtabline=2
 function MyTabLine()
   let s = ''
-  for i in range(tabpagenr('$'))
-    " 选择高亮
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
+  let leftS = ''
+  let rightS = ''
+  let avail = &columns
+  let current = tabpagenr()
+  let total = tabpagenr('$')
+  let s = MyTabLabelWithHi(current, current, s, 1)
+  let t = MyTabLabel(current)
+  let avail -= strlen(t . current) + 3
 
-    " 设置标签页号 (用于鼠标点击)
-    let s .= '%' . (i + 1) . 'T '
-
-    " 选择高亮
-    if i + 1 == tabpagenr()
-      let s .= '%#TabNumSel#' . (i + 1) . '%#TabLineSel#'
-    else
-      let s .= '%#TabNum#' . (i + 1) . '%#TabLine#'
-    endif
-    " MyTabLabel() 提供标签
-    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  let stopLoop = 0
+  let iLeft = current
+  let iRight = current
+  for delta in range(total)
+    let i = current - (delta + 1)
+    if i > 0
+      let t = MyTabLabel(i)
+      let used = strlen(t . i) + 3
+      if avail - used <= 4
+        let avail = avail - 2
+        let stopLoop = 1
+      else
+        let avail -= used
+        let iLeft = i
+        let s = MyTabLabelWithHi(i, current, s, 1)
+      endif
+    end
+    let i = current + (delta + 1)
+    if i <= total
+      let t = MyTabLabel(i)
+      let used = strlen(t . i) + 3
+      if avail - used <= 4
+        let avail = avail - 2
+        let stopLoop = 1
+      else
+        let avail -= used
+        let iRight = i
+        let s = MyTabLabelWithHi(i, current, s, 0)
+      endif
+    end
+    if stopLoop == 1
+      break
+    end
   endfor
 
+  if iLeft != 1
+    let leftS = '< '
+  end
+  if iRight != total
+    let rightS = ' >'
+  end
   let s .= '%#TabLineFill#%T'
-  return s
+  return leftS . s . rightS
+endfunction
+function MyTabLabelWithHi(i, current, s, appendLeft)
+  let ts = ''
+  " 选择高亮
+  if a:i == a:current
+    let ts .= '%#TabLineSel#'
+  else
+    let ts .= '%#TabLine#'
+  endif
+
+  " 设置标签页号 (用于鼠标点击)
+  let ts .= '%' . a:i . 'T '
+
+  " 选择高亮
+  if a:i == tabpagenr()
+    let ts .= '%#TabNumSel#' . a:i . '%#TabLineSel#'
+  else
+    let ts .= '%#TabNum#' . a:i . '%#TabLine#'
+  endif
+  " MyTabLabel() 提供标签
+  let t = ' %{MyTabLabel(' . a:i . ')} '
+  let ts .= t
+
+  if (a:appendLeft == 1)
+    return ts . a:s
+  else
+    return a:s . ts
+  endif
 endfunction
 function MyTabLabel(n)
   let label = ''
@@ -283,7 +340,7 @@ endfunction
 map tn :call ToggleRelativeNumber()<CR>
 
 function! ToggleTagBar()
-	call s:RunAndEcho('TagbarToggle')
+  call s:RunAndEcho('TagbarToggle')
 endfunction
 map tt :call ToggleTagBar()<CR>
 " }}} Toggle
