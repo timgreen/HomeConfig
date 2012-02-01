@@ -250,6 +250,9 @@ map <Space>5 :tabnext 5<CR>
 map <Space>6 :tabnext 6<CR>
 map <Space>7 :tabnext 7<CR>
 map <Space>8 :tabnext 8<CR>
+map <Space>9 :tabnext 9<CR>
+map <Space>- :tabnext 10<CR>
+map <Space>= :tabnext 11<CR>
 
 "" Command-T
 function SmartCommandT()

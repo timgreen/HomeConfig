@@ -21,6 +21,9 @@ fi
 ## Scala
 export SCALA_HOME=~/dev/scala/scala-current/
 
+## rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 ## Path {{{
 # TODO(timgreen): use wildcard.
 path=(
@@ -29,8 +32,7 @@ path=(
     $HOME/bin/
     $JAVA_HOME/bin/                           # Java
     $SCALA_HOME/bin/                          # Scala
-    $HOME/.gem/ruby/1.8/bin/                      # Ruby
-    /usr/local/Cellar/ruby/1.9.1-p378/bin     # Ruby Mac
+    $rvm_bin_path                             # rvm
     /usr/local/Cellar/python/2.6.5/bin        # Python Mac
 
     /usr/local/bin/                           # local
@@ -46,6 +48,7 @@ path=(
 
 # This removes duplicates from PATH, CDPATH, MANPATH, and FPATH
 typeset -U path manpath fpath
+
 
 ## ibus
 declare -x XMODIFIERS="@im=ibus"
