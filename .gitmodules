@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule ".vim/bundle/vim-nanoc"]
+	path = .vim/bundle/vim-nanoc
+	url = git://github.com/timgreen/vim-nanoc.git
