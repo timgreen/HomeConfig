@@ -1,3 +1,4 @@
 --type-set=less=.less
 --type-set=ssp=.ssp
 --type-set=soy=.soy
+--type-set=haml=.haml
