@@ -29,7 +29,7 @@ function precmd_prompt {
 
     # TODO(timgreen): should be zero?
     local prompt_size=4
-    local pwd_placeholder=$(echo "${(%):-%~}" | LC_ALL=C sed "s/[\x80-\xff]\{3\}/xx/g")
+    local pwd_placeholder="$(echo "${(%):-%~}" | LC_ALL=C sed "s/[\x80-\xff]\{3\}/xx/g")"
     local pwd_size=${#pwd_placeholder}
     local hostname_size=$((${#${(%):-%m}} + 1))
     local git_info_size
