@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-nanoc"]
 	path = .vim/bundle/vim-nanoc
 	url = git://github.com/timgreen/vim-nanoc.git
+[submodule ".vim/bundle/neocomplcache"]
+	path = .vim/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
