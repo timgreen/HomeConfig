@@ -1,0 +1,3 @@
+EDITFILES=0
+PACMAN="pacman-color"
+BUILD_NOCONFIRM=1
