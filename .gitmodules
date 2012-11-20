@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/PKGBUILD"]
 	path = .vim/bundle/PKGBUILD
 	url = git://github.com/vim-scripts/PKGBUILD.git
+[submodule ".dircolors-solarized"]
+	path = .dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
