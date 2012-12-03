@@ -22,7 +22,7 @@ compinit
 
 ## 自动补全缓存 {{{
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path .zcache
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
 # Don't complete the directory in which we are
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 ## }}}
@@ -48,6 +48,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*:*:default' force-list always
 
 ## 彩色补全菜单 {{{
+export ZLSCOLORS="${LSCOLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
