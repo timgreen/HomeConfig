@@ -25,3 +25,6 @@
 [submodule ".dircolors-solarized"]
 	path = .dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule ".vim/bundle/vim-qml"]
+	path = .vim/bundle/vim-qml
+	url = git://github.com/peterhoeg/vim-qml.git
