@@ -22,7 +22,7 @@ compinit
 
 ## 自动补全缓存 {{{
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path ~/.zsh/cache
+zstyle ':completion::complete:*' cache-path /dev/shm/.zcache
 # Don't complete the directory in which we are
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 ## }}}
