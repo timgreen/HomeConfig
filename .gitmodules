@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-qml"]
 	path = .vim/bundle/vim-qml
 	url = git://github.com/peterhoeg/vim-qml.git
+[submodule ".vim/bundle/qmake-syntax"]
+	path = .vim/bundle/qmake-syntax
+	url = git://github.com/vim-scripts/qmake--syntax.vim.git
