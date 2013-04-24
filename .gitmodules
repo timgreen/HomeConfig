@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/qmake-syntax"]
 	path = .vim/bundle/qmake-syntax
 	url = git://github.com/vim-scripts/qmake--syntax.vim.git
+[submodule ".vim/bundle/vim-dispatch"]
+	path = .vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
