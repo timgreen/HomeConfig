@@ -1,6 +1,7 @@
 set show-rev-graph = yes
 set show-refs = yes
 
+bind status a !git commit --amend
 
 bind main p !git push corp HEAD:refs/for/master
 bind main f !git fetch
