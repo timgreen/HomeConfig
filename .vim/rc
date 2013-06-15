@@ -296,6 +296,7 @@ function! s:RunAndEcho(cmd)
 endfunction
 
 map th :nohlsearch<CR>
+map tq :cclose<CR>
 
 function! ToggleWrap()
   if &wrap
@@ -456,6 +457,9 @@ runtime! macros/matchit.vim
   let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
   let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
   let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+  " ack }}}
+  " {{{
+  let g:ackprg="ag --nocolor --nogroup --column"
   " }}}
 " }}} Plugin Configs
 
