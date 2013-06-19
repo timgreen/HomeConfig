@@ -2,7 +2,7 @@ require 'rake'
 
 def filelist
   Dir.glob('**/*', File::FNM_DOTMATCH).reject { |f|
-    f == 'Rakefile' || f == 'README.md' ||
+    f == 'Rakefile' || f == 'README.md' || f == 'clean.sh' ||
       f =~ /\.$/ ||
       f =~ /\.git\// || f =~ /\.git$/ ||
       f =~ /\.gitignore$/ || f =~ /\.gitattributes$/ || f =~ /\.gitmodules$/
@@ -100,4 +100,9 @@ task :uninstall => ['update-submodule', 'pre-uninstall'] do
       end
     end
   end
+end
+
+desc 'Clean up dead links'
+task :clean do
+  `./clean.sh`
 end
