@@ -21,13 +21,19 @@ Bundle 'CmdlineComplete'
 Bundle 'FencView.vim'
 Bundle 'Indent-Guides'
 Bundle 'IndexedSearch'
+Bundle 'LargeFile'
 Bundle 'PKGBUILD'
+Bundle 'StripWhiteSpaces'
 Bundle 'Tabular'
 Bundle 'Tagbar'
 Bundle 'ack.vim'
+Bundle 'genutils'
+Bundle 'gitdiff.vim'
 Bundle 'less.vim'
+Bundle 'libList.vim'
 Bundle 'neocomplcache'
 Bundle 'qmake--syntax.vim'
+Bundle 'sudo.vim'
 Bundle 'vim-soy'
 "" github
 Bundle 'muhlig/vim-scala'
@@ -37,6 +43,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'sprsquish/thrift.vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-markdown'
+Bundle "pangloss/vim-javascript"
 
 
 " }}}
@@ -256,7 +263,7 @@ inoremap <right> <nop>
 
 "" forcing use of tabs
 nnoremap gf <C-W>gf
-cab      e  tabe
+cab      e  tab drop
 
 "" tab nav
 nmap <C-Left> :tabprevious<CR>
@@ -282,17 +289,6 @@ map <Space>8 :tabnext 8<CR>
 map <Space>9 :tabnext 9<CR>
 map <Space>- :tabnext 10<CR>
 map <Space>= :tabnext 11<CR>
-
-"" Command-T
-function SmartCommandT()
-  if exists("b:NERDTreeRoot")
-    exec 'CommandT ' . b:NERDTreeRoot.path.str()
-  else
-    CommandT
-  endif
-endfunction
-map <Space>t  :call SmartCommandT()<CR>
-map <Space>tb :CommandTBuffer<CR>
 
 "" others
 map  <F1> <Nop>
