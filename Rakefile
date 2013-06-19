@@ -71,6 +71,11 @@ desc 'Post install'
 task 'post-install' do
   # compile terminfo
   `tic ~/.terminfo/mostlike.txt -o ~/.terminfo/`
+  # vundle
+  if !File.exist?("#{ENV["HOME"]}/.vim/bundle/vundle")
+    `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+  end
+  `vim +BundleInstall +qall`
 end
 
 desc 'Install config to home directory.'
