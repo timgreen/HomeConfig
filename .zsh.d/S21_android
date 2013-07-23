@@ -1,10 +1,5 @@
-if [ $IS_MACOX ]; then
-  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r9
-  export ANDROID_SDK_HOME=/usr/local/Cellar/android-sdk/r9
-elif [ $IS_LINUX ]; then
-  export ANDROID_SDK_ROOT="$HOME/dev/android-sdk-linux_x86/"
-  export ANDROID_SDK_HOME="$HOME/dev/android-sdk-linux_x86/"
-fi
+export ANDROID_SDK_ROOT="/opt/android-sdk/"
+export ANDROID_SDK_HOME="$ANDROID_SDK_ROOT"
 
 path+=$ANDROID_SDK_ROOT/platform-tools/
 
