@@ -1,4 +1,0 @@
-" Abbreviations
-source! ~/.vimperator/rc
-
-" vim: set ft=vimperator:
