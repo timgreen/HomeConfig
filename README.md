@@ -1,6 +1,8 @@
 # Welcome to Tim Green''s config
 
+This is a moduled configs with easy installer.
+
 ## How to use
-  rake install
+  ./setup.sh
 
 TODO(timgreen):
