@@ -1,12 +1,9 @@
 #!/bin/bash
 
+source "$(dirname "$0")/../../util.sh"
+
 post_install() {
   tic "$HOME/.terminfo/mostlike.txt"
 }
 
-cmd="$1"
-case "$cmd" in 
-  post-install)
-    post_install
-  ;;
-esac
+action_main "$@"
