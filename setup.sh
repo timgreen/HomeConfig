@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DEBUG=false
+
 BASE=$(dirname $(readlink -f "$0"))
 MODULE_PATH="$BASE/modules"
 IFS=$'\n'
@@ -11,8 +13,21 @@ msg_link() {
 msg_mkdir() {
   echo "  mkdir $1"
 }
-msg_skip() {
-  echo "  skip  $1"
+msg_skip_dir() {
+  if [[ $DEBUG == true ]]; then
+    echo "  skip  $1/"
+  fi
+}
+msg_error_dir() {
+  echo "  error $1/"
+}
+msg_skip_file() {
+  if [[ $DEBUG == true ]]; then
+    echo "  skip  $1"
+  fi
+}
+msg_error_file() {
+  echo "  error $1"
 }
 
 find_modules() {
@@ -36,14 +51,26 @@ install_module() {
     part=${src:${#m}+1}
     dst="$HOME/$part"
     if [ -d "$src" ]; then
-      #mkdir -p "$HOME/$part"
-      msg_mkdir "$part"
+      if [ -e "$dst" ]; then
+        if [ -d "$dst" ]; then
+          msg_skip_dir "$part"
+        else 
+          msg_error_dir "$part"
+        fi
+      else 
+        msg_mkdir "$part"
+        mkdir "$dst"
+      fi
     else
       if [ -e "$dst" ]; then
-        msg_skip "$part"
+        if [[ "$(readlink "$dst")" == "$src" ]]; then
+          msg_skip_file "$part"
+        else
+          msg_error_file "$part"
+        fi
       else
-        #ln -s "$src" "$dst"
         msg_link "$part"
+        ln -s "$src" "$dst"
       fi
     fi
   done
