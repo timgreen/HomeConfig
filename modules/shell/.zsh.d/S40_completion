@@ -1,18 +1,18 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
+# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
 
 ## 增加补齐目录 {{{
 local -a my_fpath
 if [ $IS_MACOX ]; then
-    my_fpath+=(~/.zsh.comp_mac)
+  my_fpath+=(~/.zsh.comp_mac)
 elif [ $IS_LINUX ]; then
-    my_fpath+=(~/.zsh.comp_linux)
+  my_fpath+=(~/.zsh.comp_linux)
 fi
 fpath+=$my_fpath
 for p in $my_fpath; do
-    funcs=($p/*(N:t))
-    if ((${#funcs} > 0)); then
-        autoload -U $funcs
-    fi
+  funcs=($p/*(N:t))
+  if ((${#funcs} > 0)); then
+    autoload -U $funcs
+  fi
 done
 ## }}}
 

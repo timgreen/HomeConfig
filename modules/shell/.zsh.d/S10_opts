@@ -1,9 +1,9 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
+# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
 
 if test -x dircolors; then
-    eval "`dircolors`"
-    export LS_COLORS="*.ogm=01;35:${LS_COLORS}"
-    export ZLS_COLORS=$LS_COLORS
+  eval "`dircolors`"
+  export LS_COLORS="*.ogm=01;35:${LS_COLORS}"
+  export ZLS_COLORS=$LS_COLORS
 fi
 
 ## 关于历史纪录的配置 {{{

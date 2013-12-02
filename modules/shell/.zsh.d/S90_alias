@@ -1,4 +1,4 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
+# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
 
 # For safe
 alias mv='nocorrect mv -i'
@@ -10,9 +10,9 @@ alias ..='cd ..'
 alias cd..='cd ..'
 
 if [ $IS_MACOX ]; then
-    alias ls='ls -G'
+  alias ls='ls -G'
 elif [ $IS_LINUX ]; then
-    alias ls='ls --color'
+  alias ls='ls --color'
 fi
 alias l='ls -al'
 alias ll='ls -l'
