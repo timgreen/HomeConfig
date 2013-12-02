@@ -4,8 +4,10 @@ DEBUG=false
 
 BASE=$(dirname $(readlink -f "$0"))
 MODULE_PATH="$BASE/modules"
+EXT_MODULE_PATH="$BASE/modules"
 IFS=$'\n'
 declare -a CONFIG_MODULES
+declare -a EXT_CONFIG_MODULES
 
 msg_link() {
   echo "  link  $1"
@@ -31,7 +33,8 @@ msg_error_file() {
 }
 
 find_modules() {
-  for item in $(find "$MODULE_PATH" -maxdepth 1 -mindepth 1 -type d); do
+  M_PATH="$1"
+  for item in $(find "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
     module=$(basename "$item")
     echo "$module"
   done
@@ -41,6 +44,11 @@ install_modules() {
   for m in "${CONFIG_MODULES[@]}"; do
     echo "Installing $m"
     install_module "$MODULE_PATH/$m"
+    echo "Done       $m"
+  done
+  for m in "${EXT_CONFIG_MODULES[@]}"; do
+    echo "Installing $m"
+    install_module "$EXT_MODULE_PATH/$m"
     echo "Done       $m"
   done
 }
@@ -78,8 +86,11 @@ install_module() {
 
 main() {
   set -e
-  CONFIG_MODULES=($(find_modules))
-  echo "Found ${#CONFIG_MODULES[@]} config modules."
+  CONFIG_MODULES=($(find_modules "$MODULE_PATH"))
+  if [ -d "$EXT_CONFIG_MODULES" ]; then
+    EXT_CONFIG_MODULES=($(find_modules "$EXT_MODULE_PATH"))
+  fi
+  echo "Found ${#CONFIG_MODULES[@]} config modules & ${#EXT_CONFIG_MODULES[@]} ext modules."
   
   install_modules
 }
