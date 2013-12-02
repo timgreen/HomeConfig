@@ -3,6 +3,7 @@
 DEBUG=false
 
 BASE=$(dirname $(readlink -f "$0"))
+ACTION_SCRIPT="action.sh"
 MODULE_PATH="$BASE/modules"
 EXT_MODULE_PATH="$BASE/modules"
 IFS=$'\n'
@@ -56,11 +57,18 @@ install_modules() {
 should_ignore() {
   part="$1"
   src="$2"
-  [[ "$part" == ".gitignore" ]] || [[ "$part" == ".git" ]] || [[ "$part" == "README.md" ]];
+  [[ "$part" == "action.sh" ]] || \
+    [[ "$part" == ".gitignore" ]] || \
+    [[ "$part" == ".git" ]] || \
+    [[ "$part" == "README.md" ]];
 }
 
 install_module() {
   m="$1"
+  if [ -f "$m/$ACTION_SCRIPT" ]; then
+    sh "$m/$ACTION_SCRIPT" pre-install
+  fi
+
   for src in $(find "$m" -mindepth 1); do
     part=${src:${#m}+1}
     if should_ignore "$part" "$src"; then
@@ -91,6 +99,10 @@ install_module() {
       fi
     fi
   done
+
+  if [ -f "$m/$ACTION_SCRIPT" ]; then
+    sh "$m/$ACTION_SCRIPT" post-install
+  fi
 }
 
 main() {
