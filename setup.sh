@@ -53,10 +53,19 @@ install_modules() {
   done
 }
 
+should_ignore() {
+  part="$1"
+  src="$2"
+  [[ "$part" == ".gitignore" ]] || [[ "$part" == ".git" ]] || [[ "$part" == "README.md" ]];
+}
+
 install_module() {
   m="$1"
   for src in $(find "$m" -mindepth 1); do
     part=${src:${#m}+1}
+    if should_ignore "$part" "$src"; then
+      continue;
+    fi
     dst="$HOME/$part"
     if [ -d "$src" ]; then
       if [ -e "$dst" ]; then
