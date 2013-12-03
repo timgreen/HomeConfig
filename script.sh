@@ -38,10 +38,10 @@ msg_unlink() {
 
 find_modules() {
   M_PATH="$1/"
-  for item in $(find "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
+  (for item in $(find "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
     module=$(basename "$item")
     echo "$module"
-  done
+  done) | grep -v "^.git$"
 }
 
 install_modules() {
@@ -128,7 +128,6 @@ uninstall_module() {
 scan_configs() {
   CONFIG_MODULES=($(find_modules "$MODULE_PATH"))
   if [ -r "$EXT_MODULE_PATH" ]; then
-    echo xxxxxxxxxxxxxxxx
     EXT_CONFIG_MODULES=($(find_modules "$EXT_MODULE_PATH"))
   fi
   echo "Found ${#CONFIG_MODULES[@]} config modules & ${#EXT_CONFIG_MODULES[@]} ext modules."
