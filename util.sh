@@ -13,5 +13,15 @@ action_main() {
         pre_install
       fi
     ;;
+    post-uninstall)
+      if type post_uninstall &> /dev/null; then
+        post_uninstall
+      fi
+    ;;
+    pre-uninstall)
+      if type pre_uninstall &> /dev/null; then
+        pre_uninstall
+      fi
+    ;;
   esac
 }

@@ -32,6 +32,9 @@ msg_skip_file() {
 msg_error_file() {
   echo "  error $1"
 }
+msg_unlink() {
+  echo "  unlink $1"
+}
 
 find_modules() {
   M_PATH="$1"
@@ -43,14 +46,20 @@ find_modules() {
 
 install_modules() {
   for m in "${CONFIG_MODULES[@]}"; do
-    echo "Installing $m"
     install_module "$MODULE_PATH/$m"
-    echo "Done       $m"
   done
   for m in "${EXT_CONFIG_MODULES[@]}"; do
-    echo "Installing $m"
     install_module "$EXT_MODULE_PATH/$m"
-    echo "Done       $m"
+  done
+}
+
+uninstall_modules() {
+  stage="$1"
+  for m in "${CONFIG_MODULES[@]}"; do
+    uninstall_module "$MODULE_PATH/$m" $stage
+  done
+  for m in "${EXT_CONFIG_MODULES[@]}"; do
+    uninstall_module "$EXT_MODULE_PATH/$m" $stage
   done
 }
 
@@ -65,6 +74,7 @@ should_ignore() {
 
 install_module() {
   m="$1"
+  echo "Installing $m"
   if [ -f "$m/$ACTION_SCRIPT" ]; then
     sh "$m/$ACTION_SCRIPT" pre-install
   fi
@@ -103,17 +113,46 @@ install_module() {
   if [ -f "$m/$ACTION_SCRIPT" ]; then
     sh "$m/$ACTION_SCRIPT" post-install
   fi
+  echo "Done       $m"
 }
 
-main() {
-  set -e
+uninstall_module() {
+  m="$1"
+  stage="$2"
+  
+  if [ -f "$m/$ACTION_SCRIPT" ]; then
+    sh "$m/$ACTION_SCRIPT" $stage
+  fi
+}
+
+scan_configs() {
   CONFIG_MODULES=($(find_modules "$MODULE_PATH"))
   if [ -d "$EXT_CONFIG_MODULES" ]; then
     EXT_CONFIG_MODULES=($(find_modules "$EXT_MODULE_PATH"))
   fi
   echo "Found ${#CONFIG_MODULES[@]} config modules & ${#EXT_CONFIG_MODULES[@]} ext modules."
-  
-  install_modules
 }
 
-main
+clean_config() {
+  uninstall_modules pre-uninstall
+  for item in $(find $HOME -mindepth 1 -type l); do
+    src=$(readlink "$item")
+    if [[ "${src:0:${#BASE}}" == "$BASE" ]]; then
+      msg_unlink "$item" "$src"
+      unlink "$item"
+    fi
+  done
+  uninstall_modules post-uninstall
+}
+
+cmd="$1"
+set -e
+scan_configs
+case "$cmd" in 
+  uninstall | clean)
+    clean_config
+  ;;
+  "" | install)
+    install_modules
+  ;;
+esac
