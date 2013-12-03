@@ -1,0 +1,2 @@
+## dircolor 256
+eval $(dircolors ~/.dircolors-solarized/dircolors.256dark)
