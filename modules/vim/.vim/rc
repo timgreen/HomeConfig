@@ -45,6 +45,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'sprsquish/thrift.vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-markdown'
+Bundle 'uarun/vim-protobuf'
 
 
 " }}}
