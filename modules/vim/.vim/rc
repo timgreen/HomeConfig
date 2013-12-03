@@ -589,5 +589,5 @@ endif
 " }}}
 
 " Load ext {{{
-runtime! ext.rc
+runtime! ext/*.vim
 " }}}
