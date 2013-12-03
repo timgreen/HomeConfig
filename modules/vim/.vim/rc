@@ -16,7 +16,6 @@ call vundle#rc()
 "" self
 Bundle "gmarik/vundle"
 "" vim-scripts repos
-Bundle "css3-mod"
 Bundle 'CmdlineComplete'
 Bundle 'FencView.vim'
 Bundle 'Indent-Guides'
@@ -27,6 +26,7 @@ Bundle 'StripWhiteSpaces'
 Bundle 'Tabular'
 Bundle 'Tagbar'
 Bundle 'ack.vim'
+Bundle 'css3-mod'
 Bundle 'genutils'
 Bundle 'gitdiff.vim'
 Bundle 'less.vim'
@@ -36,14 +36,15 @@ Bundle 'qmake--syntax.vim'
 Bundle 'sudo.vim'
 Bundle 'vim-soy'
 "" github
+Bundle 'Valloric/MatchTagAlways'
 Bundle 'muhlig/vim-scala'
+Bundle 'pangloss/vim-javascript'
 Bundle 'peterhoeg/vim-qml'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'sprsquish/thrift.vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-markdown'
-Bundle "pangloss/vim-javascript"
 
 
 " }}}
