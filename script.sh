@@ -5,7 +5,7 @@ DEBUG=false
 BASE=$(dirname $(readlink -f "$0"))
 ACTION_SCRIPT="action.sh"
 MODULE_PATH="$BASE/modules"
-EXT_MODULE_PATH="$BASE/modules"
+EXT_MODULE_PATH="$BASE/ext_modules"
 IFS=$'\n'
 declare -a CONFIG_MODULES
 declare -a EXT_CONFIG_MODULES
@@ -37,7 +37,7 @@ msg_unlink() {
 }
 
 find_modules() {
-  M_PATH="$1"
+  M_PATH="$1/"
   for item in $(find "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
     module=$(basename "$item")
     echo "$module"
@@ -89,10 +89,10 @@ install_module() {
       if [ -e "$dst" ]; then
         if [ -d "$dst" ]; then
           msg_skip_dir "$part"
-        else 
+        else
           msg_error_dir "$part"
         fi
-      else 
+      else
         msg_mkdir "$part"
         mkdir "$dst"
       fi
@@ -119,7 +119,7 @@ install_module() {
 uninstall_module() {
   m="$1"
   stage="$2"
-  
+
   if [ -f "$m/$ACTION_SCRIPT" ]; then
     sh "$m/$ACTION_SCRIPT" $stage
   fi
@@ -127,7 +127,8 @@ uninstall_module() {
 
 scan_configs() {
   CONFIG_MODULES=($(find_modules "$MODULE_PATH"))
-  if [ -d "$EXT_CONFIG_MODULES" ]; then
+  if [ -r "$EXT_MODULE_PATH" ]; then
+    echo xxxxxxxxxxxxxxxx
     EXT_CONFIG_MODULES=($(find_modules "$EXT_MODULE_PATH"))
   fi
   echo "Found ${#CONFIG_MODULES[@]} config modules & ${#EXT_CONFIG_MODULES[@]} ext modules."
@@ -148,7 +149,7 @@ clean_config() {
 cmd="$1"
 set -e
 scan_configs
-case "$cmd" in 
+case "$cmd" in
   uninstall | clean)
     clean_config
   ;;
