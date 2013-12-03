@@ -2,8 +2,14 @@
 
 source "$(dirname "$0")/../../util.sh"
 
+target="$HOME/.dircolors-solarized"
+
 pre_install() {
-  git clone https://github.com/seebi/dircolors-solarized.git "$HOME/.dircolors-solarized"
+  [ -d "$target" ] || git clone https://github.com/seebi/dircolors-solarized.git "$target"
+}
+
+post_uninstall() {
+  rm -fr "$target"
 }
 
 action_main "$@"

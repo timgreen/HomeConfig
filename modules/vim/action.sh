@@ -9,4 +9,8 @@ post_install() {
   vim +BundleInstall +qall
 }
 
+pre_uninstall() {
+  rm -fr "$HOME/.vim/bundle/"
+}
+
 action_main "$@"
