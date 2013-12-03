@@ -3,6 +3,8 @@
 This is a moduled configs with easy installer.
 
 ## How to use
-  ./setup.sh
+
+   * Install `./script.sh [instal]`
+   * Uninstall `./script.sh uninstall`
 
 TODO(timgreen):
