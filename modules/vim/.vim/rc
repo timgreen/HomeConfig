@@ -252,6 +252,10 @@ an 40.810.30 &Tools.File&Encoding.BIG5 :e ++enc=big5<CR>
 an 40.820 &Tools.清理行末空格 :%s/\s\+$//<CR>
 " }}} Menu
 
+" Misc {{{
+set switchbuf+=usetab,newtab " launch files in new tab in quickfix list
+" }}} Misc
+
 " Map {{{
 "" forcing use hjkl
 nnoremap <up> <nop>
@@ -264,7 +268,7 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 "" forcing use of tabs
-nnoremap gf <C-W>gf
+nnoremap gf :tab drop <cfile><CR>
 cab      e  tab drop
 
 "" tab nav
