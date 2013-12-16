@@ -79,3 +79,16 @@ zle -N comment-current
 # Alt-#
 bindkey "#" comment-current
 ## }}}
+
+## Copy whole line {{{
+copy-whole-line() {
+  if [[ -n $BUFFER ]]; then
+    echo -n "$BUFFER" | xclip
+    BUFFER="# $BUFFER"
+    zle accept-line
+  fi
+}
+zle -N copy-whole-line
+# Alt-y
+bindkey "\ey" copy-whole-line
+## }}}
