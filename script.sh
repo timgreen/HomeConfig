@@ -36,6 +36,14 @@ msg_unlink() {
   echo "  unlink $1"
 }
 
+run_action() {
+  m="$1"
+  stage="$2"
+  if [ -f "$m/$ACTION_SCRIPT" ]; then
+    sh "$m/$ACTION_SCRIPT" $stage
+  fi
+}
+
 find_modules() {
   M_PATH="$1/"
   (for item in $(find "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
@@ -74,15 +82,18 @@ should_ignore() {
 
 install_module() {
   m="$1"
-  echo "Installing $m"
-  if [ -f "$m/$ACTION_SCRIPT" ]; then
-    sh "$m/$ACTION_SCRIPT" pre-install
+  if ! run_action "$m" check; then
+    echo "Skip       $m"
+    return
   fi
+
+  echo "Installing $m"
+  run_action "$m" pre-install
 
   for src in $(find "$m" -mindepth 1); do
     part=${src:${#m}+1}
     if should_ignore "$part" "$src"; then
-      continue;
+      continue
     fi
     dst="$HOME/$part"
     if [ -d "$src" ]; then
@@ -110,9 +121,7 @@ install_module() {
     fi
   done
 
-  if [ -f "$m/$ACTION_SCRIPT" ]; then
-    sh "$m/$ACTION_SCRIPT" post-install
-  fi
+  run_action "$m" post-install
   echo "Done       $m"
 }
 
@@ -120,9 +129,7 @@ uninstall_module() {
   m="$1"
   stage="$2"
 
-  if [ -f "$m/$ACTION_SCRIPT" ]; then
-    sh "$m/$ACTION_SCRIPT" $stage
-  fi
+  run_action "$m" $stage
 }
 
 scan_configs() {

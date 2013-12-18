@@ -2,26 +2,40 @@
 
 action_main() {
   cmd="$1"
-  case "$cmd" in 
+  case "$cmd" in
+    check)
+      if [[ $(type -t check) == "function" ]]; then
+        check
+      fi
+    ;;
     post-install)
-      if type post_install &> /dev/null; then
+      if [[ $(type -t post_install) == "function" ]]; then
         post_install
       fi
     ;;
     pre-install)
-      if type pre_install &> /dev/null; then
+      if [[ $(type -t pre_install) == "function" ]]; then
         pre_install
       fi
     ;;
     post-uninstall)
-      if type post_uninstall &> /dev/null; then
+      if [[ $(type -t post_uninstall) == "function" ]]; then
         post_uninstall
       fi
     ;;
     pre-uninstall)
-      if type pre_uninstall &> /dev/null; then
+      if [[ $(type -t pre_uninstall) == "function" ]]; then
         pre_uninstall
       fi
     ;;
   esac
+}
+
+require() {
+  msg="$1"
+  shift
+  eval "$@ &> /dev/null" || {
+    echo "$msg"
+    exit 1
+  }
 }
