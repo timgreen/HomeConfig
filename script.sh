@@ -140,7 +140,7 @@ scan_configs() {
   echo "Found ${#CONFIG_MODULES[@]} config modules & ${#EXT_CONFIG_MODULES[@]} ext modules."
 }
 
-clean_config() {
+uninstall_config() {
   uninstall_modules pre-uninstall
   for item in $(find $HOME -mindepth 1 -type l); do
     src=$(readlink "$item")
@@ -152,11 +152,24 @@ clean_config() {
   uninstall_modules post-uninstall
 }
 
+clean_config() {
+  for item in $(find $HOME -mindepth 1 -type l); do
+    src=$(readlink "$item")
+    if [[ "${src:0:${#BASE}}" == "$BASE" ]] && [ ! -f "$src" ]; then
+      msg_unlink "$item" "$src"
+      unlink "$item"
+    fi
+  done
+}
+
 cmd="$1"
 set -e
 scan_configs
 case "$cmd" in
-  uninstall | clean)
+  uninstall)
+    uninstall_config
+  ;;
+  clean)
     clean_config
   ;;
   "" | install)
