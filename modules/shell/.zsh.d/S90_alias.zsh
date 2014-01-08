@@ -22,6 +22,3 @@ alias rscp='rsync -aHAXxv -v -P -e "ssh -T -c arcfour -o Compression=no -x"' # h
 
 #
 alias ri='ri -T -f ansi'
-
-# Colorful man
-alias man="TERMINFO=~/.terminfo/ LESS=C TERM=mostlike PAGER=less man"
