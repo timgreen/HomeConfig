@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 ## 增加补齐目录 {{{
 local -a my_fpath
 my_fpath+=(~/.zsh.comp.d)

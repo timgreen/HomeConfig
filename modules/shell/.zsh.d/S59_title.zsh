@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 ## 动态 Title
 function title {
   if [[ $TERM == "screen" || $TERM == "screen.linux" || $TERM == "screen-256color" ]]; then

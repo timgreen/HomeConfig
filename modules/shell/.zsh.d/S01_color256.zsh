@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 ## 256 Colors Term
 if [[ -n $COLORTERM ]]; then
   case $TERM in

@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 ## get the keysequences like this:
 ## use quoted-insert (control-V) and press the key combination.
 

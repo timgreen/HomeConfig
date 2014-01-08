@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 # 让中文 man 在 opensuse?/konsole 上不乱码
 unset LANGUAGE
 

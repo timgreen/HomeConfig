@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 # prompt_subst is not set by default. It allows variable substitution to
 # take place in the prompt, so I can just change the contents of certain
 # variables without recreating the prompt every time.

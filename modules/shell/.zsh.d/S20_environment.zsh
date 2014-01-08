@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 export LANG=en_US.UTF8
 export LC_ALL=en_US.UTF8
 

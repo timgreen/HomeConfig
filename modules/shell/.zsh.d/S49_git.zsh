@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 # TODO(timgreen): change to vcs_info introduced in zsh 4.3.6.
 # get the name of the branch we are on
 parse_git_branch() {

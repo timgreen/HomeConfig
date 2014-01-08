@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=4 :
-
 ## OS type {{{
 if [[ $OSTYPE[1,6] == "darwin" ]]; then
     export IS_MACOX=true

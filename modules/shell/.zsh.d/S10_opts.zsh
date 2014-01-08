@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 if test -x dircolors; then
   eval "`dircolors`"
   export LS_COLORS="*.ogm=01;35:${LS_COLORS}"

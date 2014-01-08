@@ -34,5 +34,5 @@ function smartdir_99_compress_to_20 {
 }
 
 
-smartdir_title_only_functions+="smartdir_99_compress_to_20"
+#smartdir_title_only_functions+="smartdir_99_compress_to_20"
 

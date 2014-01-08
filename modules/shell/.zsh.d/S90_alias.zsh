@@ -1,5 +1,3 @@
-# vim: set ft=zsh foldmethod=marker autoindent expandtab shiftwidth=2 :
-
 # For safe
 alias mv='nocorrect mv -i'
 alias cp='nocorrect cp -i'
