@@ -26,14 +26,14 @@ function precmd_prompt {
   PR_PWDLEN=""
 
   # TODO(timgreen): should be zero?
-  local prompt_size=4
+  local prompt_size=2
   local pwd_placeholder="$(echo "${(%):-%~}" | LC_ALL=C sed "s/[\x80-\xff]\{3\}/xx/g")"
   local pwd_size=${#pwd_placeholder}
   local hostname_size=$((${#${(%):-%m}} + 1))
   local git_info_size
   local git_current_branch="$(parse_git_branch)"
   if (( ${#git_current_branch} )); then
-    PR_GIT_INFO=" $PR_LIGHT_GREEN: $PR_CYAN$git_current_branch"
+    PR_GIT_INFO=" $PR_LIGHT_GREEN● $PR_CYAN$git_current_branch"
     git_info_size=$((3 + ${#git_current_branch}))
   else
     PR_GIT_INFO=''
@@ -48,7 +48,7 @@ function precmd_prompt {
       ((PR_PWDLEN = $TERM_WIDTH - $prompt_size))
     fi
   else
-    PR_FILLBAR="\${(l.(($TERM_WIDTH - ($prompt_size + $pwd_size + $git_info_size + $hostname_size)))..-.)}"
+    PR_FILLBAR="\${(l.(($TERM_WIDTH - ($prompt_size + $pwd_size + $git_info_size + $hostname_size)))..━.)}"
   fi
 }
 precmd_functions+='precmd_prompt'
@@ -70,7 +70,7 @@ set_prompt () {
 
   local SNIPPET_PWD='%$PR_PWDLEN<...<%~%<<'
   local SNIPPET_FILLBAR='${(e)PR_FILLBAR}'
-  local SNIPPET_EXIT_CODE='%(?..$PR_LIGHT_RED%? )'
+  local SNIPPET_EXIT_CODE='%(?..$PR_LIGHT_RED✖ %? )'
   local SNIPPET_TIME='%D{%H:%M %b %d}'
   local SNIPPET_HOSTNAME=' %m'
 
@@ -79,7 +79,7 @@ set_prompt () {
   # [ pwd ]----------------------
   # OR
   # [ pwd : git_branch ]----------------------
-  PROMPT="${PR_LIGHT_GREEN}[ $PR_LIGHT_YELLOW$SNIPPET_PWD\$PR_GIT_INFO$PR_LIGHT_GREEN ]$SNIPPET_FILLBAR$PR_LIGHT_RED$SNIPPET_HOSTNAME
+  PROMPT="${PR_LIGHT_GREEN} $PR_LIGHT_YELLOW$SNIPPET_PWD\$PR_GIT_INFO$PR_LIGHT_GREEN $SNIPPET_FILLBAR$PR_LIGHT_RED$SNIPPET_HOSTNAME
 $SNIPPET_EXIT_CODE$PR_NO_COLOUR\$ "
 
   # Show time at right e.g
