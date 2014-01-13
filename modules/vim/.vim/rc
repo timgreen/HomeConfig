@@ -38,6 +38,7 @@ Bundle 'Valloric/MatchTagAlways'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'muhlig/vim-scala'
+Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'peterhoeg/vim-qml'
 Bundle 'rking/ag.vim'
@@ -538,6 +539,9 @@ runtime! macros/matchit.vim
               \ 'case class'     : 'r'
         \ }
   \ }
+  " }}}
+  " javascrpit-libraries-syntax {{{
+  let g:used_javascript_libs = 'jquery,angularjs'
   " }}}
 " }}} Plugin Configs
 
