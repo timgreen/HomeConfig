@@ -23,6 +23,7 @@ Bundle 'IndexedSearch'
 Bundle 'LargeFile'
 Bundle 'PKGBUILD'
 Bundle 'StripWhiteSpaces'
+Bundle 'SyntaxComplete'
 Bundle 'Tabular'
 Bundle 'Tagbar'
 Bundle 'css3-mod'
@@ -542,6 +543,14 @@ runtime! macros/matchit.vim
   " }}}
   " javascrpit-libraries-syntax {{{
   let g:used_javascript_libs = 'jquery,angularjs'
+  " }}}
+  " SyntaxComplete {{{
+  if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+          \	if &omnifunc == "" |
+          \		setlocal omnifunc=syntaxcomplete#Complete |
+          \	endif
+  endif
   " }}}
 " }}} Plugin Configs
 
