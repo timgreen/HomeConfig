@@ -17,6 +17,7 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 "" vim-scripts repos
 Bundle 'CmdlineComplete'
+Bundle 'EasyMotion'
 Bundle 'FencView.vim'
 Bundle 'Indent-Guides'
 Bundle 'IndexedSearch'
