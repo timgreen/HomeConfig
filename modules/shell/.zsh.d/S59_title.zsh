@@ -23,18 +23,15 @@ function precmd_title {
 precmd_functions+='precmd_title'
 
 function preexec_title {
-  local -a cmd; cmd=($*)
+  local -a cmd; cmd=(${=*})
 
-  if [[ $cmd[1]:t == "ssh" ]]; then
-      title "@"$cmd[2] "$TERM $cmd"
-  elif [[ $cmd[1]:t == "sudo" ]]; then
-      title "#"$cmd[2]:t "$TERM $cmd[3,-1]"
-  elif [[ $cmd[1]:t == "for" ]]; then
-      title "()"$cmd[7] "$TERM $cmd"
-  elif [[ $cmd[1]:t == "svn" ]] || [[ $cmd[1]:t == "git" ]]; then
-      title "$cmd[1,2]" "$TERM $cmd"
-  else
-      title $cmd[1]:t "$TERM $cmd[2,-1]"
-  fi
+  for func in ${(@o)cmd_title_functions[@]}; do
+    output=$($func "${cmd[@]}")
+    if [[ "$output" != "" ]]; then
+      title "$output"
+      break
+    fi
+  done
 }
+
 preexec_functions+='preexec_title'
