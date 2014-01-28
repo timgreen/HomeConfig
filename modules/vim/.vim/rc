@@ -37,6 +37,7 @@ Bundle 'sudo.vim'
 Bundle 'vim-soy'
 "" github
 Bundle 'Valloric/MatchTagAlways'
+Bundle 'derekwyatt/vim-sbt'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'muhlig/vim-scala'
