@@ -1,1 +1,1 @@
-eval "$(grunt --completion=zsh)"
+type -p grunt &> /dev/null && eval "$(grunt --completion=zsh)"
