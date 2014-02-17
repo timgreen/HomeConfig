@@ -3,7 +3,7 @@
 # this is a simple config for herbstluftwm
 
 function hc() {
-    herbstclient "$@"
+  herbstclient "$@"
 }
 
 hc emit_hook reload
@@ -20,6 +20,7 @@ hc keybind $Mod-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn dmenu_run -l 5 -p run
+hc keybind Control-Alt+l spawn xscreensaver-command -lock
 
 # tags
 TAG_NAMES=( {1..9} )
@@ -27,12 +28,12 @@ TAG_KEYS=( {1..9} 0 )
 
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
-    hc add "${TAG_NAMES[$i]}"
-    key="${TAG_KEYS[$i]}"
-    if ! [ -z "$key" ] ; then
-        hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
-        hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
-    fi
+  hc add "${TAG_NAMES[$i]}"
+  key="${TAG_KEYS[$i]}"
+  if ! [ -z "$key" ] ; then
+    hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
+    hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
+  fi
 done
 
 # layouting
@@ -70,7 +71,7 @@ hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 
-# 
+#
 hc set window_gap 0
 
 # colors
