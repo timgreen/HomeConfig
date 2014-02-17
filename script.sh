@@ -96,7 +96,7 @@ install_module() {
       continue
     fi
     dst="$HOME/$part"
-    if [ -d "$src" ]; then
+    if [ ! -L "$src" ] && [ -d "$src" ]; then
       if [ -e "$dst" ]; then
         if [ -d "$dst" ]; then
           msg_skip_dir "$part"
