@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# this is a simple config for herbstluftwm
+dir=$(dirname "$0")
 
 function hc() {
   herbstclient "$@"
@@ -21,6 +21,9 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn dmenu_run -l 5 -p run
 hc keybind Control-Alt+l spawn xscreensaver-command -lock
+
+# q3
+hc keybind Control-Escape spawn "$dir/q3terminal.sh"
 
 # tags
 TAG_NAMES=( {1..9} )
