@@ -51,7 +51,7 @@ update_geom() {
     hc move_monitor "$monitor" $geom
 }
 
-steps=5
+steps=1
 interval=0.01
 
 animate() {
@@ -65,15 +65,28 @@ animate() {
 
 show() {
     hc lock
-    hc raise_monitor "$monitor"
-    hc focus_monitor "$monitor"
-    hc raise "$tag"
+    raise_and_focus
     hc unlock
     hc lock_tag "$monitor"
     animate $(seq $steps -1 0)
 }
 
+raise_and_focus() {
+    hc raise_monitor "$monitor"
+    hc focus_monitor "$monitor"
+    hc raise "$tag"
+}
+
 hide() {
+  if [[ $(hc attr tags.focus.name) == "$tag" ]]; then
+      do_hide
+    else
+      # re-focus instead of hide if not focused (e.g. switch to other tag when this is showing.)
+      raise_and_focus
+    fi
+}
+
+do_hide() {
     rect=( $(hc monitor_rect "$monitor" ) )
     local tmp=${rect[0]}
     rect[0]=${rect[2]}
