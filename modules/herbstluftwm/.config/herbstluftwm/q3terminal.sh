@@ -65,16 +65,11 @@ animate() {
 
 show() {
     hc lock
-    raise_and_focus
+    hc raise_monitor "$monitor"
     hc unlock
     hc lock_tag "$monitor"
     animate $(seq $steps -1 0)
-}
-
-raise_and_focus() {
-    hc raise_monitor "$monitor"
     hc focus_monitor "$monitor"
-    hc raise "$tag"
 }
 
 hide() {
@@ -82,7 +77,8 @@ hide() {
       do_hide
     else
       # re-focus instead of hide if not focused (e.g. switch to other tag when this is showing.)
-      raise_and_focus
+      hc raise_monitor "$monitor"
+      hc focus_monitor "$monitor"
     fi
 }
 
