@@ -36,7 +36,9 @@ Bundle 'qmake--syntax.vim'
 Bundle 'sudo.vim'
 Bundle 'vim-soy'
 "" github
-Bundle 'Valloric/MatchTagAlways'
+if has("python")
+  Bundle 'Valloric/MatchTagAlways'
+end
 Bundle 'derekwyatt/vim-sbt'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
