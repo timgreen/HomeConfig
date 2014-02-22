@@ -155,7 +155,7 @@ uninstall_config() {
 clean_config() {
   for item in $(find $HOME -mindepth 1 -type l); do
     src=$(readlink "$item")
-    if [[ "${src:0:${#BASE}}" == "$BASE" ]] && [ ! -f "$src" ]; then
+    if [[ "${src:0:${#BASE}}" == "$BASE" ]] && [ ! -e "$src" ]; then
       msg_unlink "$item" "$src"
       unlink "$item"
     fi
