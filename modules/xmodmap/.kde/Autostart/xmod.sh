@@ -1,0 +1,1 @@
+../../.kde4/Autostart/xmod.sh

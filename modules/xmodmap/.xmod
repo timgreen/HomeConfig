@@ -1,4 +1,3 @@
-# Disable CapsLock
 remove Lock = Caps_Lock
 keycode 66 = Control_L NoSymbol Control_L
 add Control = Control_L
