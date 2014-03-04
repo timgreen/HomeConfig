@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SBT_LAUNCH_JAR_URL="http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.1/sbt-launch.jar"
+SBT_LAUNCH_JAR="$(dirname $0)/sbt-launch.jar"
+
+[ -r "$SBT_LAUNCH_JAR" ] || curl "$SBT_LAUNCH_JAR_URL" -o "$SBT_LAUNCH_JAR"
+
+SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+java $SBT_OPTS -jar "$SBT_LAUNCH_JAR" "$@"
