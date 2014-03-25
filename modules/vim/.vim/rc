@@ -420,7 +420,7 @@ augroup END
   function SetTextWidth(i)
     exe "set textwidth=" . a:i
     if &textwidth != 0
-      setlocal colorcolumn=+0,+20
+      setlocal colorcolumn=+0,+20,-20
     endif
   endfunction
   " }}} Helper functions
