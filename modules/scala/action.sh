@@ -7,7 +7,7 @@ post_install() {
   [ -x "$SCALA_BASE/current/bin/scala" ] || {
     mkdir -p "$SCALA_BASE"
     cd "$SCALA_BASE"
-    SCALA_VERSION=scala-2.10.3
+    SCALA_VERSION=scala-2.11.0
     aria2c http://www.scala-lang.org/files/archive/$SCALA_VERSION.tgz
     tar xf $SCALA_VERSION.tgz
     rm -f current
