@@ -1,5 +1,12 @@
-set show-rev-graph = yes
-set show-refs = yes
+set line-graphics = utf-8
+set mouse = true
+
+set main-view = \
+	date:relative \
+	author:full,width=15 \
+	id:yes,color,width=16 \
+	commit-title:yes,graph=yes,refs=yes,overflow=yes
+
 
 bind status a !git commit --amend
 
