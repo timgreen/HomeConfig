@@ -1,0 +1,35 @@
+	If you wish to contribute to this conky by making a theme, please follow the guidelines below! :)
+	
+/* ===================================================================
+ * KEEP THE CODE CLEAN
+ * ===================================================================*/
+ 
+ 	Best way to do so is to build your theme on top of one of the included ones rather then building it from scratch.
+ 	
+/* ===================================================================
+ * CREATE A COMPLETE THEME
+ * ===================================================================*/
+ 
+ 	Complete in this case would mean for it to have the "Mini", "Compact", "Comfortable", and "God-Mode" modes.
+ 	
+ 	You don´t have to make 2 weather modes in case your conky is too tranparent since an opaque image would look badly out of place!
+ 	
+ 	Also, in case you do use the "weather-photos" mode, please refrain from creating a new photos folder in the ".conky-weather" folder.These folders take up a lot of space, and I need to keep the total size of harmattan below 40 MB!
+ 	
+/* ===================================================================
+ * DON´T CHANGE THE STRUCTURE
+ * ===================================================================*/
+ 
+ 	By this I mean don´t change the position of the text or icons in the ".conkyrc" files.
+ 	A theme only changes the various images and colors.All the themes have the same structure!
+ 	So, anything in the assets folders is up for customization as well as the text colors.
+ 	
+ 	Also, keep the structure of the folders the same.All the conkies pull their images from the same place!
+
+/* ===================================================================
+ * DON´T ADD SCRIPTS
+ * ===================================================================*/
+ 
+ 	Please don´t add any external scripts for more functionality.
+ 	Harmattan only uses the conky file to generate the content.
+ 	No lua scripts etc.

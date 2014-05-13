@@ -1,0 +1,182 @@
+/* ===================================================================
+ * INSTALATION
+ * ===================================================================*/
+
+	1. Some files are hidden so in order to see them hit "Ctrl + H" ("show hidden files")!!
+	   You will be staring at blank folders otherwise :)
+
+
+	2. Install "curl"(sudo apt-get install curl), and also install the "Droid Sans" font if it isn´t already installed!!
+	
+	
+	3. Move the ".conky-weather" folder into your home folder.
+	
+	
+	4. Each theme is just a ".conkyrc" text file.These text files are in the ".harmattan-theme" folder, and they are separated across folders for easier navigation!
+	   There are no previews of the themes, so you will have to apply them if you want to know how they all look! A little exploration is not a bad thing ;)
+	
+	
+	5. After you have navigated to the ".conkyrc" file of your choice, move the chosen ".conkyrc" file into your home folder!
+	   To switch between themes, all you have to do is pick another ".conkyrc" file and place that one in your home folder.
+	
+	
+	6. Open the terminal and type "conky" to start your conky.
+	
+	
+	7. In order to display the weather of your city, open your ".conkyrc" file and find the number "44418"(this is for London).This number is the WOEID(Where On Earth ID).
+	   To find the WOEID of your city, go to the Yahoo weather page, "http://weather.yahoo.com", and search for your city.You will find the WOEID of your city in the URL bar(address bar) at the top of your web browser!
+ 
+/* ===================================================================
+ * MOVING THE CONKY AROUND
+ * ===================================================================*/
+	
+	In order to move the conky around, all you have to do is manipulate the numbers "gap_x" and "gap_y" in you ".conkyrc" file!
+	
+	You can also position the conky using the "alignment" configuration.
+	Find the line "#alignment middle_middle".
+	First uncomment the line(remove the "#" symbol), then manipulate the value.(middle_middle, top_left, bottom_right, etc.)
+	
+	Keep in mind that "gap_x" and "gap_y" still work after you activate "alignment", so either comment them out(add "#") or use them in combination with "alignment".
+	
+/* ===================================================================
+ * ADDING CONKY TO STARTUP
+ * ===================================================================*/	
+ 
+	To start conky on startup, add it to your "startup aplications".
+		Just add the command "conky".I recommend starting conky with a slight delay.
+		To do so, instead of "conky" type "conky -p 6".This will start conky with a delay of 6 seconds!	
+		If necessary, you can increase the delay.
+	
+/* ===================================================================
+ * MODES
+ * ===================================================================*/
+ 
+ 	 /*###  There are 4 "display modes"  ###*/
+ 	
+ 	1. "Mini":
+ 	
+  			This is the smallest mode.
+ 			The first day displays the current conditions.
+ 			The other 2 days display the forecast for the next 2 days.
+ 			Due to the small size this is the only mode that doesn´t have 2 "weather modes".
+ 			
+-------------------------------------------------------------------------------------------	
+ 	2. "Compact":
+ 	
+ 			This mode is split into 2 sections.
+ 			The upper section contains information of the current weather conditions.
+ 			(shown are the "current temperature", "weather description", "atmospheric pressure", "wind speed", and "humidity")
+ 			The lower section displays the weather forecast for today and the next 2 days.
+ 			
+-------------------------------------------------------------------------------------------- 
+  	3. "Comfortable":
+ 	
+ 			This is a slightly bigger version of the compact mode.
+ 			The added size allows for slightly bigger text and icons in the conditions section.
+ 			It also includes additional information for "sunrise" and "sunset".
+ 			When using the "fav-color" weather mode it also displays an icon for current weather.
+ -------------------------------------------------------------------------------------------	
+    4. "God-Mode":
+    
+    		As the name implies, it displays various information about your system including weather.
+    		
+    		"clock + calendar"
+    		
+    		"conditions"
+    		
+    		"forecast"
+    		
+    		"network"
+    		
+    		"cpu + memory + uptime"(Uptime is the total amount of time your system has been on.)
+    		"procesess"(This section shows the top proceses; their memory usage in percents and their memory usage in bytes.)
+    		
+    		
+   
+  /*###  There are 2 "weather modes"  ###*/
+     		
+    1. "fav-color":
+     		
+     		I named this favourite color because the background of the conditions section of each "display mode" uses an image.In most themes this is a color.You can modify it to anything you wish just like the rest of the conky.
+     		All the necessary images are in the ".conky-weather" folder.
+     		
+-------------------------------------------------------------------------------------------
+   
+    2. "weather-photos"
+     		
+     		This mode will use a photo to display the current weather as a background for the conditions section.
+     		
+/* ===================================================================
+ * THEMES
+ * ===================================================================*/
+ 	
+ 	
+ 	1. "Cards"
+ 			This is a simple and flat theme.
+ 	
+ 	
+ 	2. "Elementary"
+ 			This theme is designed to fit into the default elementary OS theme.It imitates the styling of the panel popup menus.
+ 	
+ 	
+ 	3. "Elune"
+ 			This theme is designed around the Elune cinnamon and gnome-shell themes!
+ 			It is working especially well with the cinnamon desklets!
+ 	
+ 	
+ 	4. "Flatts"
+ 			This theme was inspired by the homonymous rainmeter skin by ~DesignByMichaels(on deviantART)
+ 			The colored bar at the top will go grey if you are disconnected from the interwebz ;) 
+ 	
+ 	
+ 	5. "Metro"
+ 			This theme was inspired by the "modern UI" interface from Windows 8/8.1.
+ 	
+ 	
+ 	6. "New-Minty"
+ 			This theme is designed to fit with the New-Minty cinnamon theme!
+ 			It is especially working well in combination with the desklets!
+ 		
+ 	
+ 	7. "Nord"
+ 			This theme is designed to fit with the Nord cinnamon and gnome-shell themes.
+ 			It is especially working well with the cinnamon desklets!
+ 	
+ 	
+ 	8. "Numix"
+ 			This theme is designed to fit in with the numix brand.Especially it´s cinnamon and gnome-shell themes!
+ 			(once more)It is especially working well with the cinnamon desklets!
+ 	
+ 	
+ 	9. "Transparent"
+ 			This is just a simple transparent theme.
+ 			It doesn´t use images, and it also doesn´t have the "weather-photos" mode!
+ 	
+ 	
+ 	10. "Ubuntu-Touch"
+ 			This theme is designed around various UI elements from the Ubuntu Touch OS.
+ 			Due to transparency, it is best used with dark and simplistic wallpapers!
+ 	
+ 	
+ 	11. "Zukitwo"
+ 			This theme is designed to fit into the Zukitwo cinnamon and gnome-shell themes.
+ 			(cough-cough)It is especially working well with the cinnamon desklets!
+ 	
+ 	
+ 	12. "Zukitwo-v2"
+ 			This theme is designed around the transparent parts of the Zukitwo cinnamon and gnome-shell themes.
+ 			Due to heavy transparency, it doesn´t have a "weather-photos" mode.
+ 			Also, due to transparency, it is best used with dark and simplistic wallpapers!
+ 			
+ 			
+ 	13. "Button"
+ 			A simple and colorful theme.
+ 			
+ 			
+ 	14. "Texture" 
+ 			A darker theme with a noisy texture.		
+
+
+	15. "Zukitwo-Dark"
+			This theme is designed to go with the Zukitwo-Dark cinnamon theme.
+ 			

@@ -1,0 +1,1 @@
+../../.conky-autostart.sh
