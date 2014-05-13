@@ -37,7 +37,7 @@ show_graph_range no
 # Text settings #
 use_xft yes
 xftalpha 0
-xftfont Droid Sans:size=7
+xftfont Droid Sans:size=8
 text_buffer_size 256
 override_utf8_locale yes
 
@@ -88,8 +88,8 @@ ${color2}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ~/.cach
 \
 # The "conditions" section of the conky #
 \
-${goto 36}${voffset -172}${font Droid Sans :size=34}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${color}
-${goto 46}${voffset 14}${font Droid Sans :size=10}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}${color}
+${goto 36}${voffset -172}${font Droid Sans :size=36}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${color}
+${goto 46}${voffset 14}${font Droid Sans :size=12}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}${color}
 ${color1}${alignr 52}${voffset -73}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 ${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} %${color}
 ${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${color}
@@ -154,6 +154,11 @@ ${voffset -266}${goto 40}${color5}Up: ${color2}${upspeed wlp2s0}${color6}${goto 
 ${voffset 10}${goto 40}${upspeedgraph wlp2s0 26,80 4fc0e9 4fc0e9}${goto 150}${downspeedgraph wlp2s0 26,80 4fc0e9 4fc0e9}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp2s0}${color6}${goto 150}Received: ${color2}${totaldown wlp2s0}${image ~/.conky-weather/assets/Flatts/God-Mode/online.png -p 20,25 -s 228x5}
 ${else}
+${if_existing /proc/net/route wlp5s0}
+${voffset -266}${goto 40}${color5}Up: ${color2}${upspeed wlp5s0}${color6}${goto 150}Down: ${color2}${downspeed wlp5s0}
+${voffset 10}${goto 40}${upspeedgraph wlp5s0 26,80 4fc0e9 4fc0e9}${goto 150}${downspeedgraph wlp5s0 26,80 4fc0e9 4fc0e9}
+${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup wlp5s0}${color6}${goto 150}Received: ${color2}${totaldown wlp5s0}${image ~/.conky-weather/assets/Flatts/God-Mode/online.png -p 20,25 -s 228x5}
+${else}
 ${if_existing /proc/net/route wlan0}
 ${voffset -279}${goto 40}${color5}Up: ${color2}${upspeed wlan0}${color6}${goto 150}Down: ${color2}${downspeed wlan0}
 ${voffset 8}${goto 40}${upspeedgraph wlan0 26,80 4fc0e9 4fc0e9}${goto 150}${downspeedgraph wlan0 26,80 4fc0e9 4fc0e9}
@@ -198,4 +203,4 @@ ${execi 300 cp -f ~/.conky-weather/icons/weather-icons-dark2/$(grep "yweather:fo
 ${execi 300 cp -f ~/.conky-weather/icons/weather-icons-dark2/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3').png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 195,207 -s 32x32}${font}${voffset -120}\
 
 # Set background correctly, this line helps to get rid of black border.
-${execi 6000 feh --bg-scale "`grep 'wallpaper=' ~/.kde/share/config/plasma-desktop-appletsrc | head -n1 | tail --bytes=+11`"}
+${execi 6000 feh --bg-scale "`grep 'wallpaper=' ~/.kde*/share/config/plasma-desktop-appletsrc | head -n1 | tail --bytes=+11`"}
