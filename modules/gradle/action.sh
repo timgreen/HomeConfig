@@ -7,7 +7,7 @@ post_install() {
   [ -x "$SCALA_BASE/current/bin/gradle" ] || {
     mkdir -p "$GRADLE_BASE"
     cd "$GRADLE_BASE"
-    GRADLE_VERSION=gradle-1.11
+    GRADLE_VERSION=gradle-1.12
     aria2c http://services.gradle.org/distributions/${GRADLE_VERSION}-bin.zip
     unzip ${GRADLE_VERSION}-bin.zip
     rm -f current
