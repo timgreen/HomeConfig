@@ -6,7 +6,11 @@ function do_smartdir {
   shift
 
   for func in ${(@o)*}; do
-    dir=$($func "$dir")
+    tmp=$($func "$dir")
+    if [[ "$tmp" != "" ]]; then
+      dir="$tmp"
+      break
+    fi
   done
 
   echo "$dir"
@@ -30,7 +34,7 @@ function smartdir_99_compress_to_20 {
     dir=$(echo $dir | sed "s:\([~/][^/]\)[^/]\+:\1:")
   done
 
-  echo "$dir"
+  [[ "$1" != "$dir" ]] && echo "$dir"
 }
 
 
