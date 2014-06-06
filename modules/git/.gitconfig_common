@@ -1,0 +1,4 @@
+[push]
+	default = simple
+[alias]
+	amend = commit --amend -C HEAD
