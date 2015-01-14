@@ -4,20 +4,17 @@ source "$(dirname "$0")/../../util.sh"
 
 post_install() {
   GRADLE_BASE="$HOME/dev/gradle/"
-  [ -x "$GRADLE_BASE/current/bin/gradle" ] || {
+  GRADLE_VERSION=gradle-2.2.1
+  GRADLE_DOWNLOAD_PATH=${GRADLE_BASE}/${GRADLE_VERSION}-bin.zip
+
+  [ -x "$GRADLE_BASE/current/bin/gradle" ] && [ -r "$GRADLE_DOWNLOAD_PATH" ] || {
     mkdir -p "$GRADLE_BASE"
     cd "$GRADLE_BASE"
-    GRADLE_VERSION=gradle-1.12
     aria2c http://services.gradle.org/distributions/${GRADLE_VERSION}-bin.zip
-    unzip ${GRADLE_VERSION}-bin.zip
+    unzip $GRADLE_DOWNLOAD_PATH
     rm -f current
     ln -s $GRADLE_VERSION current
   }
-}
-
-check() {
-  require "Only for gradle is not installed" \
-    'if type -p gradle > /dev/null; then false; else true; fi'
 }
 
 action_main "$@"
