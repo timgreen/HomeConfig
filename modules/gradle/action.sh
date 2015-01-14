@@ -4,7 +4,7 @@ source "$(dirname "$0")/../../util.sh"
 
 post_install() {
   GRADLE_BASE="$HOME/dev/gradle/"
-  [ -x "$SCALA_BASE/current/bin/gradle" ] || {
+  [ -x "$GRADLE_BASE/current/bin/gradle" ] || {
     mkdir -p "$GRADLE_BASE"
     cd "$GRADLE_BASE"
     GRADLE_VERSION=gradle-1.12
