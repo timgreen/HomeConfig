@@ -82,12 +82,13 @@ should_ignore() {
 
 install_module() {
   m="$1"
+  short_path_for_m=${m#$BASE/}
   if ! run_action "$m" check; then
-    echo "Skip       $m"
+    echo "Skip       $short_path_for_m"
     return
   fi
 
-  echo "Installing $m"
+  echo "Installing $short_path_for_m"
   run_action "$m" pre-install
 
   for src in $(find "$m" -mindepth 1); do
@@ -122,7 +123,7 @@ install_module() {
   done
 
   run_action "$m" post-install
-  echo "Done       $m"
+  echo "Done       $short_path_for_m"
 }
 
 uninstall_module() {
