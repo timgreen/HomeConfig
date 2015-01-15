@@ -142,7 +142,7 @@ scan_configs() {
   if [ -r "$EXT_MODULE_PATH" ]; then
     EXT_CONFIG_MODULES=($(find_modules "$EXT_MODULE_PATH"))
   fi
-  echo "Found ${#CONFIG_MODULES[@]} config modules & ${#EXT_CONFIG_MODULES[@]} ext modules."
+  echo "Found $(tput setaf 113)${#CONFIG_MODULES[@]}$(tput op) config modules & $(tput setaf 113)${#EXT_CONFIG_MODULES[@]}$(tput op) ext modules."
 }
 
 uninstall_config() {
