@@ -7,6 +7,8 @@ post_install() {
   [ -r "$HOME/.vim/bundle/vundle" ] || git clone https://github.com/gmarik/vundle.git "$HOME/.vim/bundle/vundle"
   echo "Installing vim plugins ..."
   vim +BundleInstall +qall
+  tput cuu1
+  tput ed
 }
 
 pre_uninstall() {
