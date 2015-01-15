@@ -1,5 +1,5 @@
 path=(
-  $HOME/dev/nodejs/bin
+  $HOME/dev/node/current/bin
 
   $path
 )
