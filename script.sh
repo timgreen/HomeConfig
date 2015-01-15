@@ -82,13 +82,18 @@ should_ignore() {
 
 install_module() {
   m="$1"
-  short_path_for_m=${m#$BASE/}
-  if ! run_action "$m" check; then
-    echo "Skip       $short_path_for_m"
+  m_display=${m#$BASE/}
+
+  echo "$m_display"
+
+  if ! output=$(run_action "$m" check); then
+    tput cuu1  # cursor up
+    tput ed    # clear line to end
+    echo "$m_display $(tput setaf 13)Skip$(tput op)"
+    echo -n "$ouptut"
     return
   fi
 
-  echo "Installing $short_path_for_m"
   run_action "$m" pre-install
 
   for src in $(find "$m" -mindepth 1); do
@@ -123,7 +128,6 @@ install_module() {
   done
 
   run_action "$m" post-install
-  echo "Done       $short_path_for_m"
 }
 
 uninstall_module() {
@@ -164,6 +168,8 @@ clean_config() {
 }
 
 cmd="$1"
+shift
+
 set -e
 scan_configs
 case "$cmd" in
@@ -173,7 +179,10 @@ case "$cmd" in
   clean)
     clean_config
   ;;
-  "" | install)
+  install)
+    install_modules "$@"
+  ;;
+  "")
     install_modules
   ;;
 esac
