@@ -379,10 +379,10 @@ endfunction
 map tf :call ToggleFoldColumn()<CR>
 
 function! ToggleRelativeNumber()
-  if &number
-    call s:RunAndEcho('set relativenumber')
+  if &relativenumber
+    call s:RunAndEcho('set norelativenumber')
   else
-    call s:RunAndEcho('set number')
+    call s:RunAndEcho('set relativenumber')
   endif
 endfunction
 map tn :call ToggleRelativeNumber()<CR>
