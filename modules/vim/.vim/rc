@@ -50,6 +50,7 @@ Bundle 'peterhoeg/vim-qml'
 Bundle 'rking/ag.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
+Bundle 'sirtaj/vim-openscad'
 Bundle 'sprsquish/thrift.vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-markdown'
