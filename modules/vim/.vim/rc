@@ -43,6 +43,7 @@ end
 Bundle 'derekwyatt/vim-sbt'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'leafgarland/typescript-vim'
 Bundle 'muhlig/vim-scala'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
