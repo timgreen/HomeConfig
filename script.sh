@@ -53,12 +53,16 @@ find_modules() {
 }
 
 install_modules() {
-  for m in "${CONFIG_MODULES[@]}"; do
-    install_module "$MODULE_PATH/$m"
-  done
-  for m in "${EXT_CONFIG_MODULES[@]}"; do
-    install_module "$EXT_MODULE_PATH/$m"
-  done
+  if [[ "$1" != "" ]]; then
+    install_module "$(readlink -f $1)"
+  else
+    for m in "${CONFIG_MODULES[@]}"; do
+      install_module "$MODULE_PATH/$m"
+    done
+    for m in "${EXT_CONFIG_MODULES[@]}"; do
+      install_module "$EXT_MODULE_PATH/$m"
+    done
+  fi
 }
 
 uninstall_modules() {
