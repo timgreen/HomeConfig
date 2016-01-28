@@ -4,7 +4,7 @@ source "$(dirname "$0")/../../util.sh"
 
 post_install() {
   GRADLE_BASE="$HOME/dev/gradle/"
-  GRADLE_VERSION=gradle-2.2.1
+  GRADLE_VERSION="$(get_version)"
   GRADLE_DOWNLOAD_PATH=${GRADLE_BASE}/${GRADLE_VERSION}-bin.zip
 
   [ -x "$GRADLE_BASE/current/bin/gradle" ] && [ -r "$GRADLE_DOWNLOAD_PATH" ] || {

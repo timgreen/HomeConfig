@@ -7,7 +7,7 @@ NPM="$HOME/dev/nodejs/bin/npm"
 
 pre_install() {
   NODE_BASE="$HOME/dev/node"
-  NODE_VERSION="v0.10.35"
+  NODE_VERSION="$(get_version)"
   NODE_DOWNLOAD_LINK="http://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz"
   NODE_DOWNLOAD_NAME="node-${NODE_VERSION}-linux-x64.tar.gz"
   NODE_DOWNLOAD_PATH="${NODE_BASE}/${NODE_DOWNLOAD_NAME}"
