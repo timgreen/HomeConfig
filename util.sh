@@ -40,3 +40,21 @@ require() {
     exit 1
   }
 }
+
+get_version() {
+  name="version"
+  dir=$(dirname "$0")
+  config_file="$dir/action_config.json"
+
+  [ -r "$config_file" ] || {
+    echo "Config file not exists: $config_file"
+    exit 1
+  }
+
+  type -p jq > /dev/null || {
+    echo "Install `jq` before continue."
+    exit 1
+  }
+
+  jq -r .version "$config_file"
+}

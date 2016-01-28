@@ -75,6 +75,7 @@ should_ignore() {
   part="$1"
   src="$2"
   [[ "$part" == "action.sh" ]] || \
+    [[ "$part" == "action_config.json" ]] || \
     [[ "$part" == ".gitignore" ]] || \
     [[ "$part" == ".git" ]] || \
     [[ "$part" == "README.md" ]];
