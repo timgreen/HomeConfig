@@ -190,4 +190,7 @@ case "$cmd" in
   "")
     install_modules
   ;;
+  *)
+    echo "Unknown command $(tput setaf 13)$cmd$(tput op)"
+    exit 1
 esac
