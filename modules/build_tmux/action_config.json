@@ -1,3 +1,4 @@
 {
-  "version": "2.1"
+  "version": "2.1",
+  "url_tpl": "https://github.com/tmux/tmux/releases/download/%s/tmux-%s.tar.gz"
 }
