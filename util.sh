@@ -58,3 +58,12 @@ get_version() {
 
   jq -r .version "$config_file"
 }
+
+# http://stackoverflow.com/questions/4023830/bash-how-compare-two-strings-in-version-format
+verlte() {
+	[  "$1" = "`echo -e "$1\n$2" | sort -V | head -n1`" ]
+}
+
+verlt() {
+	[ "$1" = "$2" ] && return 1 || verlte $1 $2
+}
