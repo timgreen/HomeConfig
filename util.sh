@@ -41,8 +41,8 @@ require() {
   }
 }
 
-get_version() {
-  name="version"
+get() {
+  name="$1"
   dir=$(dirname "$0")
   config_file="$dir/action_config.json"
 
@@ -56,7 +56,7 @@ get_version() {
     exit 1
   }
 
-  jq -r .version "$config_file"
+  jq -r ."$name" "$config_file"
 }
 
 # http://stackoverflow.com/questions/4023830/bash-how-compare-two-strings-in-version-format
@@ -66,4 +66,12 @@ verlte() {
 
 verlt() {
 	[ "$1" = "$2" ] && return 1 || verlte $1 $2
+}
+
+path_for_version() {
+  path_tpl="$1"
+  version="$2"
+
+  count=$(echo "$path_tpl" | grep -o "%s" | wc -l)
+  printf "$path_tpl" $(yes $version | head -n $count)
 }

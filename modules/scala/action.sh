@@ -4,8 +4,7 @@ source "$(dirname "$0")/../../util.sh"
 
 post_install() {
   SCALA_BASE="$HOME/dev/scala/"
-  #SCALA_VERSION=scala-2.11.5
-  SCALA_VERSION=$(get_version)
+  SCALA_VERSION=$(get version)
   SCALA_DOWNLOAD_LINK="http://www.scala-lang.org/files/archive/$SCALA_VERSION.tgz"
   SCALA_DOWNLOAD_PATH="${SCALA_BASE}/$SCALA_VERSION.tgz"
 
