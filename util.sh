@@ -4,6 +4,10 @@ action_dir() {
   readlink -f $(dirname "$0")/..
 }
 
+action_cwd() {
+  readlink -f $(action_dir)/.action_cwd
+}
+
 module_dir() {
   readlink -f $(action_dir)/..
 }
@@ -12,6 +16,7 @@ module_dir() {
 action_main() {
   dir=$(module_dir)
   cmd="$1"
+  cd $(action_cwd)
   case "$cmd" in
     check)
       if [[ $(type -t check) == "function" ]]; then

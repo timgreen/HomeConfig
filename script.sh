@@ -193,7 +193,6 @@ shift
 
 set -e
 scan_configs
-set -x
 case "$cmd" in
   uninstall)
     uninstall_config

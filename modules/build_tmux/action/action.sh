@@ -8,9 +8,17 @@ check() {
   require "tmux >= $(get version) already installed" check_tmux_version
 }
 
-post_install() {
+pre_install() {
+  url=$(path_for_version $(get url_tpl) $(get version))
+  file=$(basename $url)
+  echo "Downloading $url"
+  aria2c -c "$url"
+  tar xf "$file"
+
   # build & install tmux
   echo "build & install tmux $(get version)"
-  url=$(path_for_version $(get url_tpl) $(get version))
-  echo "Downloading $url"
+  buildDir=$(echo $file |sed 's/\.tar.*$//')
+  cd $buildDir
+  ./configure && make
+  sudo make install
 }
