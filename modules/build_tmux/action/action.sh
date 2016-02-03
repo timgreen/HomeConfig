@@ -1,5 +1,4 @@
 check_tmux_version() {
-  # TODO(timgreen): read version from config
   ! type -p tmux || \
     verlt $(tmux -V | awk '{print $2}') $(get version)
 }
