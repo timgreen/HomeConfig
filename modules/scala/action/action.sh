@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 post_install() {
   SCALA_BASE="$HOME/dev/scala/"
   SCALA_VERSION=$(get version)
@@ -17,5 +13,3 @@ post_install() {
     ln -s $SCALA_VERSION current
   }
 }
-
-action_main "$@"

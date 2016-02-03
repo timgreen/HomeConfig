@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 NPM_COMPLETION_PATH="$HOME/.zsh.comp.d/_npm"
 NPM="$HOME/dev/nodejs/bin/npm"
 
@@ -35,5 +31,3 @@ pre_uninstall() {
     rmdir $(dirname "$NPM_COMPLETION_PATH")
   }
 }
-
-action_main "$@"

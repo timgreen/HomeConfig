@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 check_arch() {
   cat /etc/*-release | grep 'NAME="Arch Linux"'
 }
@@ -13,5 +9,3 @@ check() {
   require "Need jq installed" \
     'type -p jq'
 }
-
-action_main "$@"

@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 target="$HOME/.dircolors-solarized"
 
 pre_install() {
@@ -11,5 +7,3 @@ pre_install() {
 post_uninstall() {
   rm -fr "$target"
 }
-
-action_main "$@"

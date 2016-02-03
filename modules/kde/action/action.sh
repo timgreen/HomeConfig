@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 disable_akonadi() {
   CONFIG=$HOME/.config/akonadi/akonadiserverrc
   grep 'StartServer=true' "$CONFIG" &> /dev/null && {
@@ -19,12 +15,10 @@ echo_imports_info() {
 ################################################################################
 EOF
 
-find $HOME/.kde_imports
+  find $HOME/.kde_imports
 }
 
 post_install() {
   disable_akonadi
   echo_imports_info
 }
-
-action_main "$@"

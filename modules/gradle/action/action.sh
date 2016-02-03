@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 post_install() {
   GRADLE_BASE="$HOME/dev/gradle/"
   GRADLE_VERSION="$(get version)"
@@ -16,5 +12,3 @@ post_install() {
     ln -s $GRADLE_VERSION current
   }
 }
-
-action_main "$@"

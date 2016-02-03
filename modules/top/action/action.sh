@@ -1,13 +1,9 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../util.sh"
-
 post_install() {
-  force_htop_config "$1"
+  force_htop_config
 }
 
 force_htop_config() {
-  local dir="$1"
+  local dir="$(module_dir)"
   local htop_config="$HOME/.config/htop/htoprc"
 
   for line in $(grep "^    " "$dir/README.md" | sed "s/^    //"); do
@@ -21,5 +17,3 @@ force_htop_config() {
     echo "$key=$value" >> "$htop_config"
   done
 }
-
-action_main "$@"
