@@ -1,7 +1,18 @@
 # Util for action script
 
+action_dir() {
+  # TODO(timgreen): change back to below line once start using generated_action.sh
+  # readlink -f $(dirname "$0")/..
+  readlink -f $(dirname "$0")
+}
+
+module_dir() {
+  readlink -f $(action_dir)/..
+}
+
+
 action_main() {
-  dir=$(dirname "$0")
+  dir=$(module_dir)
   cmd="$1"
   case "$cmd" in
     check)
@@ -43,8 +54,7 @@ require() {
 
 get() {
   name="$1"
-  dir=$(dirname "$0")
-  config_file="$dir/action_config.json"
+  config_file="$(action_dir)/config.json"
 
   [ -r "$config_file" ] || {
     echo "Config file not exists: $config_file"

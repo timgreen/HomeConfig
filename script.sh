@@ -3,7 +3,7 @@
 DEBUG=false
 
 BASE=$(dirname $(readlink -f "$0"))
-ACTION_SCRIPT="action.sh"
+ACTION_SCRIPT="action/action.sh"
 MODULE_PATH="$BASE/modules"
 EXT_MODULE_PATH="$BASE/ext_modules"
 IFS=$'\n'
@@ -78,8 +78,8 @@ uninstall_modules() {
 should_ignore() {
   part="$1"
   src="$2"
-  [[ "$part" == "action.sh" ]] || \
-    [[ "$part" == "action_config.json" ]] || \
+  [[ "$part" == "action" ]] || \
+    [[ "${part:0:7}" == "action/" ]] || \
     [[ "$part" == ".gitignore" ]] || \
     [[ "$part" == ".git" ]] || \
     [[ "$part" == "README.md" ]];

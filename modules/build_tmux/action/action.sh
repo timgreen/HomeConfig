@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname "$0")/../../util.sh"
+source "$(dirname "$0")/../../../util.sh"
 
 check_tmux_version() {
   # TODO(timgreen): read version from config
