@@ -1,2 +1,2 @@
 ext_modules
-action/.action_cwd/
+**/action/.action_cwd/
