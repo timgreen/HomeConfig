@@ -1,9 +1,7 @@
 # Util for action script
 
 action_dir() {
-  # TODO(timgreen): change back to below line once start using generated_action.sh
-  # readlink -f $(dirname "$0")/..
-  readlink -f $(dirname "$0")
+  readlink -f $(dirname "$0")/..
 }
 
 module_dir() {

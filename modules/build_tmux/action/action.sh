@@ -1,7 +1,3 @@
-#!/bin/bash
-
-source "$(dirname "$0")/../../../util.sh"
-
 check_tmux_version() {
   # TODO(timgreen): read version from config
   ! type -p tmux || \
@@ -18,5 +14,3 @@ post_install() {
   url=$(path_for_version $(get url_tpl) $(get version))
   echo "Downloading $url"
 }
-
-action_main "$@"

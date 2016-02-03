@@ -4,6 +4,7 @@ DEBUG=false
 
 BASE=$(dirname $(readlink -f "$0"))
 ACTION_SCRIPT="action/action.sh"
+GENERATED_ACTION_SCRIPT="action/.action_cwd/generated_action.sh"
 MODULE_PATH="$BASE/modules"
 EXT_MODULE_PATH="$BASE/ext_modules"
 IFS=$'\n'
@@ -36,11 +37,26 @@ msg_unlink() {
   echo "  unlink $1"
 }
 
+generate_action_script() {
+  m="$1"
+  mkdir -p "$m/action/.action_cwd"
+  cat << EOF  > "$m/$GENERATED_ACTION_SCRIPT"
+source "$(readlink -f $BASE/util.sh)"
+
+#### start module script
+$(cat "$m/$ACTION_SCRIPT")
+#### end module script
+
+action_main "\$@"
+EOF
+}
+
 run_action() {
   m="$1"
   stage="$2"
   if [ -f "$m/$ACTION_SCRIPT" ]; then
-    sh "$m/$ACTION_SCRIPT" $stage
+    generate_action_script $m
+    sh "$m/$GENERATED_ACTION_SCRIPT" $stage
   fi
 }
 
@@ -177,6 +193,7 @@ shift
 
 set -e
 scan_configs
+set -x
 case "$cmd" in
   uninstall)
     uninstall_config
