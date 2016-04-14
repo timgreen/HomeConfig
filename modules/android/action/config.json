@@ -1,0 +1,4 @@
+{
+  "version": "r24.4.1",
+  "url_tpl": "http://dl.google.com/android/android-sdk_%s-linux.tgz"
+}
