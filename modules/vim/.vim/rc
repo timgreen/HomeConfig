@@ -40,6 +40,7 @@ Bundle 'vim-soy'
 if has("python")
   Bundle 'Valloric/MatchTagAlways'
 end
+Bundle 'asins/vim-dict'
 Bundle 'derekwyatt/vim-sbt'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
