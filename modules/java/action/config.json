@@ -1,0 +1,5 @@
+{
+  "version": "8u92-b14",
+  "version_short": "8u92",
+  "url_tpl": "http://download.oracle.com/otn-pub/java/jdk/%s/jdk-%s-linux-x64.tar.gz"
+}
