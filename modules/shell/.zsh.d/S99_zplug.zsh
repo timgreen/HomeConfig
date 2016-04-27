@@ -12,6 +12,7 @@ zplug "junegunn/fzf-bin", \
     rename-to:fzf, \
     use:"*linux*amd64*"
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+zplug "junegunn/fzf", use:"shell/*.zsh"
 
 
 # Install plugins if there are plugins that have not been installed
