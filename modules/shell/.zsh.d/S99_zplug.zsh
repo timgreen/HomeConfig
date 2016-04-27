@@ -13,5 +13,14 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 
-# load
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
 zplug load --verbose
