@@ -1,6 +1,7 @@
 source ~/.zplug/zplug
 
 zplug "b4b4r07/zplug"
+
 zplug "supercrabtree/k"
 # zsh-syntax-highlighting must be loaded after executing compinit command and sourcing other plugins
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
@@ -13,6 +14,9 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 zplug "junegunn/fzf", use:"shell/*.zsh"
+
+zplug "zsh-users/zaw"
+zplug "zsh-users/zsh-completions"
 
 
 # Install plugins if there are plugins that have not been installed
