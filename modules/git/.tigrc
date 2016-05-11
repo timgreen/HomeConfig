@@ -12,3 +12,5 @@ bind status a !git commit --amend
 
 bind main p !git push corp HEAD:refs/for/master
 bind main f !git fetch
+
+source ~/.tig/tig-colors-neonwolf-256.tigrc
