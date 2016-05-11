@@ -13,6 +13,8 @@ path=(
   $HOME/sh/
   $HOME/bin/
 
+  $HOME/local/bin/                          # user local
+
   /usr/local/bin/                           # local
 
   $path                                     # System default

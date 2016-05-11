@@ -18,6 +18,8 @@ pre_install() {
   echo "build & install tig $(get version)"
   buildDir=$(echo $file |sed 's/\.tar.*$//')
   cd $buildDir
-  make prefix=/usr/local
-  sudo make install prefix=/usr/local
+  root="$HOME/local"
+  ./configure --prefix="$root"
+  make
+  make install
 }
