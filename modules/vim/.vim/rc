@@ -566,6 +566,10 @@ runtime! macros/matchit.vim
           \	endif
   endif
   " }}}
+  " fzf {{{
+  let g:fzf_buffers_jump = 1
+  let g:fzf_layout = { 'right': '40%' }
+  " }}}
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
