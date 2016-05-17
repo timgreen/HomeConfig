@@ -32,6 +32,7 @@ Bundle 'fugitive.vim'
 Bundle 'genutils'
 Bundle 'gitdiff.vim'
 Bundle 'libList.vim'
+Bundle 'matchit.zip'
 Bundle 'neocomplcache'
 Bundle 'qmake--syntax.vim'
 Bundle 'sudo.vim'
@@ -432,9 +433,6 @@ augroup END
   endfunction
   " }}} Helper functions
 " }}} FileType
-
-" Load matchit (% to bounce from do to end, etc.)
-runtime! macros/matchit.vim
 
 " Plugin Configs {{{
   " NERDTree {{{
