@@ -8,62 +8,63 @@ set modelines=5
 set nocompatible " explicitly get out of vi-compatible mode
 " }}}
 
-" Vundle {{{
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" vim-plug {{{
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-"" self
-Bundle "gmarik/vundle"
+call plug#begin('~/.vim/plugged')
 "" vim-scripts repos
-Bundle 'CmdlineComplete'
-Bundle 'EasyMotion'
-Bundle 'FencView.vim'
-Bundle 'Indent-Guides'
-Bundle 'IndexedSearch'
-Bundle 'LargeFile'
-Bundle 'PKGBUILD'
-Bundle 'StripWhiteSpaces'
-Bundle 'SyntaxComplete'
-Bundle 'Tabular'
-Bundle 'Tagbar'
-Bundle 'css3-mod'
-Bundle 'fugitive.vim'
-Bundle 'genutils'
-Bundle 'gitdiff.vim'
-Bundle 'libList.vim'
-Bundle 'matchit.zip'
-Bundle 'neocomplcache'
-Bundle 'qmake--syntax.vim'
-Bundle 'sudo.vim'
-Bundle 'vim-soy'
+Plug 'CmdlineComplete'
+Plug 'EasyMotion'
+Plug 'FencView.vim'
+Plug 'Indent-Guides'
+Plug 'IndexedSearch'
+Plug 'LargeFile'
+Plug 'PKGBUILD'
+Plug 'StripWhiteSpaces'
+Plug 'SyntaxComplete'
+Plug 'Tabular'
+Plug 'Tagbar'
+Plug 'css3-mod'
+Plug 'fugitive.vim'
+Plug 'genutils'
+Plug 'gitdiff.vim'
+Plug 'libList.vim'
+Plug 'matchit.zip'
+Plug 'neocomplcache'
+Plug 'qmake--syntax.vim'
+Plug 'sudo.vim'
+Plug 'vim-soy', {'for': 'soy'}
 "" github
 if has("python")
-  Bundle 'Valloric/MatchTagAlways'
+  Plug 'Valloric/MatchTagAlways'
 end
-Bundle 'asins/vim-dict'
-Bundle 'derekwyatt/vim-sbt'
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'junegunn/fzf'
-Bundle 'junegunn/fzf.vim'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'muhlig/vim-scala'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'peterhoeg/vim-qml'
-Bundle 'rking/ag.vim'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdtree'
-Bundle 'sirtaj/vim-openscad'
-Bundle 'sprsquish/thrift.vim'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'uarun/vim-protobuf'
-Bundle 'walm/jshint.vim'
-
+Plug 'asins/vim-dict'
+Plug 'derekwyatt/vim-sbt'
+Plug 'groenewege/vim-less', {'for': 'less'}
+Plug 'hail2u/vim-css3-syntax'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'muhlig/vim-scala'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'peterhoeg/vim-qml', {'for': 'qml'}
+Plug 'rking/ag.vim'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
+Plug 'sirtaj/vim-openscad'
+Plug 'sprsquish/thrift.vim', {'for': 'thrift'}
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-markdown', {'for': ['md', 'mkd']}
+Plug 'tpope/vim-surround'
+Plug 'uarun/vim-protobuf'
+Plug 'walm/jshint.vim', {'for': 'js'}
+call plug#end()
 
 " }}}
 
