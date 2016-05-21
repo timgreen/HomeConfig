@@ -41,6 +41,10 @@ Plug 'vim-soy', {'for': 'soy'}
 if has("python")
   Plug 'Valloric/MatchTagAlways'
 end
+"" NerdTree {{{
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
+"" }}}
 Plug 'asins/vim-dict'
 Plug 'derekwyatt/vim-sbt', {'for': ['sbt', 'scala']}
 Plug 'groenewege/vim-less', {'for': 'less'}
@@ -55,7 +59,6 @@ Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'peterhoeg/vim-qml', {'for': 'qml'}
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
-Plug 'scrooloose/nerdtree' ", {'on':  'NERDTreeToggle'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
 Plug 'sprsquish/thrift.vim', {'for': 'thrift'}
 Plug 'tpope/vim-dispatch'
@@ -339,7 +342,6 @@ function! TODOQFixToggle()
 endfunction
 map  <F3> <ESC>:call TODOQFixToggle()<CR>
 map! <F3> <ESC>:call TODOQFixToggle()<CR>
-nnoremap <silent> <F9> :NERDTreeToggle<CR>
 " }}}
 
 " Toggle {{{
@@ -441,6 +443,19 @@ augroup END
 " Plugin Configs {{{
   " NERDTree {{{
     let NERDTreeAutoDeleteBuffer=1
+    map <C-n> :NERDTreeToggle<CR>
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    augroup nerd_loader
+      autocmd!
+      autocmd VimEnter * silent! autocmd! FileExplorer
+      autocmd BufEnter,BufNew *
+            \  if isdirectory(expand('<amatch>'))
+            \|   call plug#load('nerdtree')
+            \|   call plug#load('nerdtree-git-plugin')
+            \|   execute 'autocmd! nerd_loader'
+            \| endif
+    augroup END
   " }}}
   " taglist {{{
   nnoremap <silent> <F8> :TlistUpdate<CR>:TlistToggle<CR>
