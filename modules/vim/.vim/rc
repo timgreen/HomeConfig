@@ -56,12 +56,12 @@ Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'peterhoeg/vim-qml', {'for': 'qml'}
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
-Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree' ", {'on':  'NERDTreeToggle'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
 Plug 'sprsquish/thrift.vim', {'for': 'thrift'}
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'uarun/vim-protobuf', {'for': 'proto'}
 Plug 'walm/jshint.vim', {'for': 'javascript'}
