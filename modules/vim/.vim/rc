@@ -48,6 +48,7 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 Plug 'hail2u/vim-css3-syntax'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'muhlig/vim-scala', {'for': 'scala'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
@@ -93,8 +94,8 @@ set wildmode=full " turn on wild menu with full match
 " }}}
 
 " UI {{{
-colorscheme timgreen
-"colorscheme murphy
+colorscheme seoul256
+"colorscheme timgreen
 set cursorline
 set cursorcolumn
 set lazyredraw       " do not redraw while running macros
