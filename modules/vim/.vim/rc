@@ -36,7 +36,6 @@ Plug 'libList.vim'
 Plug 'matchit.zip'
 Plug 'neocomplcache'
 Plug 'qmake--syntax.vim'
-Plug 'sudo.vim'
 Plug 'vim-soy', {'for': 'soy'}
 "" github
 if has("python")
@@ -60,6 +59,7 @@ Plug 'scrooloose/nerdtree' ", {'on':  'NERDTreeToggle'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
 Plug 'sprsquish/thrift.vim', {'for': 'thrift'}
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
