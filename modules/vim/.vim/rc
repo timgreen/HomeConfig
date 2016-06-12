@@ -45,6 +45,10 @@ end
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 "" }}}
+"" Airline {{{
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"" }}}
 Plug 'asins/vim-dict'
 Plug 'derekwyatt/vim-sbt', {'for': ['sbt', 'scala']}
 Plug 'groenewege/vim-less', {'for': 'less'}
@@ -586,6 +590,10 @@ augroup END
   " fzf {{{
   let g:fzf_buffers_jump = 1
   let g:fzf_layout = { 'right': '40%' }
+  " }}}
+  " airline {{{
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
   " }}}
 " }}} Plugin Configs
 
