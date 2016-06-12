@@ -49,6 +49,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "" }}}
+Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
 Plug 'derekwyatt/vim-sbt', {'for': ['sbt', 'scala']}
 Plug 'groenewege/vim-less', {'for': 'less'}
