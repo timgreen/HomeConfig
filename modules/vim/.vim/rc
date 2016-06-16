@@ -53,6 +53,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
+Plug 'coderifous/textobj-word-column.vim'
 Plug 'thalesmello/vim-textobj-methodcall'
 "" }}}
 Plug 'airblade/vim-gitgutter'
