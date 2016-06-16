@@ -49,6 +49,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "" }}}
+"" vim-textobj-user {{{
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-indent'
+Plug 'thalesmello/vim-textobj-methodcall'
+"" }}}
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
 Plug 'derekwyatt/vim-sbt', {'for': ['sbt', 'scala']}
