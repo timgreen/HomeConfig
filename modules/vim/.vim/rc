@@ -55,6 +55,7 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'thalesmello/vim-textobj-methodcall'
+Plug 'AndrewRadev/sideways.vim'
 "" }}}
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
@@ -602,6 +603,12 @@ augroup END
   " airline {{{
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
+  " }}}
+  " sideways {{{
+  omap aa <Plug>SidewaysArgumentTextobjA
+  xmap aa <Plug>SidewaysArgumentTextobjA
+  omap ia <Plug>SidewaysArgumentTextobjI
+  xmap ia <Plug>SidewaysArgumentTextobjI
   " }}}
 " }}} Plugin Configs
 
