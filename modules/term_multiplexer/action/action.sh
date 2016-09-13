@@ -1,5 +1,6 @@
 post_install() {
   mkdir -p ~/.tmux/plugins
+  mkdir -p ~/.tmux/tmuxifier-layouts
 
   [ -d ~/.tmux/plugins/tpm ] || {
     echo "Installing TPM ..."
