@@ -1,0 +1,33 @@
+do_fzf_git() {
+  BASE="$1"
+  HEADER_PREFIX="$2"
+
+  out=$(COLUMNS=1000 git diff --stat --relative --color "$BASE" 2>/dev/null)
+  stat=$(echo "$out" | tail -n 1)
+  out=$(echo "$out" | head -n -1)
+
+  echo "$out" | fzf --ansi --multi --header="$HEADER_PREFIX $stat" --preview="echo {} | cut -d'|' -f 1 | xargs git diff --color $BASE" | cut -d'|' -f 1
+}
+
+usage() { echo "Usage: $0 [-s <45|90>] [-p <string>]" 1>&2; exit 1; }
+
+main() {
+  BASE="HEAD"
+  HEADER_PREFIX="Opened files in git client:"
+
+  while getopts ":1" o "$@"; do
+    case "${o}" in
+      1)
+        BASE="HEAD^"
+        HEADER_PREFIX="Changed files in last git commit:"
+        ;;
+      *)
+        usage
+        ;;
+    esac
+  done
+
+  do_fzf_git "$BASE" "$HEADER_PREFIX"
+}
+
+main "$@"
