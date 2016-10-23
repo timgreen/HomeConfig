@@ -70,6 +70,7 @@ Plug 'muhlig/vim-scala', {'for': 'scala'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'peterhoeg/vim-qml', {'for': 'qml'}
+Plug 'posva/vim-vue'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
