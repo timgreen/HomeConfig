@@ -601,6 +601,24 @@ augroup END
   let g:fzf_command_prefix = 'Fzf'
   let g:fzf_buffers_jump = 1
   let g:fzf_layout = { 'right': '40%' }
+
+  function! s:fzf_git_sink(line)
+    let parts = split(a:line, '|')
+    exec 'tabedit' parts[0]
+  endfunction
+
+  command! -bang FzfGit call fzf#run({
+        \ 'source': 'git diff --stat --relative --color HEAD',
+        \ 'sink': function('s:fzf_git_sink'),
+        \ 'options': '--ansi --multi --reverse --header="Opened files in git client:" --preview="echo {} | cut -d\"|\" -f 1 | xargs git diff --color HEAD"',
+        \ 'down': '30%'
+        \})
+  command! -bang FzfGit1 call fzf#run({
+        \ 'source': 'git diff --stat --relative --color HEAD^',
+        \ 'sink': function('s:fzf_git_sink'),
+        \ 'options': '--ansi --multi --reverse --header="Changed files in last git commit:" --preview="echo {} | cut -d\"|\" -f 1 | xargs git diff --color HEAD^"',
+        \ 'down': '30%'
+        \})
   " }}}
   " airline {{{
   let g:airline_powerline_fonts = 1
