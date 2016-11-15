@@ -67,6 +67,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'muhlig/vim-scala', {'for': 'scala'}
+Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'peterhoeg/vim-qml', {'for': 'qml'}
