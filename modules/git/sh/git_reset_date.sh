@@ -17,4 +17,15 @@ reset_commit() {
        fi"
 }
 
+help() {
+  cat << EOF
+Usage: $(basename "$0") <commit_id> <delta>
+       Example delta: "12 hours ago"
+EOF
+}
+
+if (( $# != 2 )); then
+  help
+  exit 1
+fi
 reset_commit "$1" "$2"
