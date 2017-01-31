@@ -7,6 +7,9 @@ set main-view = \
 	id:yes,color,width=16 \
 	commit-title:yes,graph=yes,refs=yes,overflow=yes
 
+bind generic g none
+bind generic gg move-first-line
+bind generic G move-last-line
 
 bind status a !git commit --amend
 
