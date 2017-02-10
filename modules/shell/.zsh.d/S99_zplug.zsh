@@ -1,10 +1,17 @@
-source ~/.zplug/init.zsh
+export ZPLUG_HOME="$HOME/.zplug/zplug"
 
-zplug "b4b4r07/zplug"
+# Check if zplug is installed
+if [[ ! -d $ZPLUG_HOME ]]; then
+  mkdir -p $(dirname $ZPLUG_HOME)
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+  source $ZPLUG_HOME/init.zsh && zplug update --self
+fi
+
+source $ZPLUG_HOME/init.zsh
 
 zplug "supercrabtree/k"
 # zsh-syntax-highlighting must be loaded after executing compinit command and sourcing other plugins
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # fzf & fzf-tmux
 zplug "junegunn/fzf-bin", \
