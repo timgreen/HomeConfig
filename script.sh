@@ -62,7 +62,7 @@ run_action() {
 
 find_modules() {
   M_PATH="$1/"
-  (for item in $(find "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
+  (for item in $(find -L "$M_PATH" -maxdepth 1 -mindepth 1 -type d); do
     module=$(basename "$item")
     echo "$module"
   done) | grep -v "^.git$"
