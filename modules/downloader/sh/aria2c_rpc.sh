@@ -4,6 +4,8 @@ dir=~/Downloads/aria/
 mkdir -p $dir
 cd $dir
 
+mkdir -p ~/.aria2/
+touch ~/.aria2/rcp_session
 sesson=~/.aria2/rcp_session
 aria2c --enable-rpc --input-file=$sesson  --save-session=$sesson \
   --seed-ratio=0.1 \
