@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dir=~/Downloads/aria/
+mkdir -p $dir
 cd $dir
 
 sesson=~/.aria2/rcp_session
