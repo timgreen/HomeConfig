@@ -13,6 +13,9 @@ bind generic G move-last-line
 
 bind status a !git commit --amend
 
+bind main <Ctrl-R> !git rebase -i %(commit)^
+bind diff <Ctrl-R> !git rebase -i %(commit)^
+
 bind main p !git push corp HEAD:refs/for/master
 bind main f !git fetch
 
