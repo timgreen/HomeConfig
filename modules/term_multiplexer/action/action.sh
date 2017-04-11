@@ -11,4 +11,6 @@ post_install() {
     echo "installing Tmuxifier ..."
     git clone https://github.com/jimeh/tmuxifier.git ~/.tmux/tmuxifier
   }
+
+  ~/.tmux/plugins/tpm/bindings/install_plugins
 }
