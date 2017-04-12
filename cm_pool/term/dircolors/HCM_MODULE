@@ -1,9 +1,11 @@
 target="$HOME/.dircolors-solarized"
 
-pre_install() {
+pre_link() {
   [ -d "$target" ] || git clone https://github.com/seebi/dircolors-solarized.git "$target"
 }
 
-post_uninstall() {
+post_unlink() {
   rm -fr "$target"
 }
+
+# vim: ft=sh
