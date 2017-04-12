@@ -1,6 +1,8 @@
-post_install() {
+post_link() {
   echo "Installing vim plugins ..."
   vim +PlugInstall +qall &> /dev/null
   tput cuu1
   tput ed
 }
+
+# vim: ft=sh
