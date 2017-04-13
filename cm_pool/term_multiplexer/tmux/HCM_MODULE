@@ -1,4 +1,4 @@
-post_install() {
+post_lunk() {
   mkdir -p ~/.tmux/plugins
   mkdir -p ~/.tmux/tmuxifier-layouts
 
