@@ -1,12 +1,12 @@
-post_install() {
+post_link() {
   force_htop_config
 }
 
 force_htop_config() {
-  local dir="$(module_dir)"
   local htop_config="$HOME/.config/htop/htoprc"
+  mkdir -p "$(dirname "$htop_config")"
 
-  for line in $(grep "^    " "$dir/README.md" | sed "s/^    //"); do
+  for line in $(grep "^    " "$CM_DIR/README.md" | sed "s/^    //"); do
     key=$(echo "$line" | cut -f1 -d=)
     value=$(echo "$line" | cut -f2 -d=)
 
@@ -17,3 +17,5 @@ force_htop_config() {
     echo "$key=$value" >> "$htop_config"
   done
 }
+
+# vim: ft=sh
