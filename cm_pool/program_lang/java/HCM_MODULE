@@ -1,0 +1,25 @@
+pre_link() {
+  JDK_VERSION="8u92-b14"
+  JDK_VERSION_SHORT="8u92"
+  JDK_DOWNLOAD_URL_TPL="http://download.oracle.com/otn-pub/java/jdk/%s/jdk-%s-linux-x64.tar.gz"
+  JDK_DOWNLOAD_URL=$(printf $JDK_DOWNLOAD_URL_TPL $JDK_VERSION $JDK_VERSION_SHORT)
+  JDK_DOWNLOAD_NAME="jdk-${JDK_VERSION_SHORT}-linux-x64.tar.gz"
+  JDK_DIR="jdk1.8.0_92"
+
+  [ -d "$JDK_DIR" ] && [[ "$(readlink jdk)" == "$JDK_DIR" ]] && return
+
+  [ -d "$JDK_DIR" ] || {
+    [ -r $JDK_DOWNLOAD_NAME ] || {
+      aria2c \
+        --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+        "$JDK_DOWNLOAD_URL" -o "$JDK_DOWNLOAD_NAME"
+    }
+
+    tar xf "$JDK_DOWNLOAD_NAME"
+  }
+
+  rm -f jdk
+  ln -s "$JDK_DIR" jdk
+}
+
+# vim: ft=sh
