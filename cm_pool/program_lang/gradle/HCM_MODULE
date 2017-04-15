@@ -1,0 +1,19 @@
+pre_link() {
+  GRADLE_VERSION="gradle-2.12"
+  GRADLE_DOWNLOAD_PATH=${GRADLE_VERSION}-bin.zip
+
+  [ -d "$GRADLE_VERSION" ] && [ "$(readlink gradle)" == "$GRADLE_VERSION" ] && return
+
+  [ -r ${GRADLE_DOWNLOAD_PATH} ] || {
+    aria2c http://services.gradle.org/distributions/${GRADLE_VERSION}-bin.zip
+  }
+
+  [ -d "$GRADLE_VERSION" ] || {
+    unzip $GRADLE_DOWNLOAD_PATH
+  }
+
+  rm -f gradle
+  ln -s "$GRADLE_VERSION" gradle
+}
+
+# vim: ft=sh
