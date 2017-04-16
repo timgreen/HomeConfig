@@ -1,0 +1,20 @@
+pre_link() {
+  SCALA_VERSION="scala-2.12.1"
+  SCALA_DOWNLOAD_LINK="http://www.scala-lang.org/files/archive/$SCALA_VERSION.tgz"
+  SCALA_DOWNLOAD_PATH="$SCALA_VERSION.tgz"
+
+  [ -d "$SCALA_VERSION" ] && [ "$(readlink scala)" == "$SCALA_VERSION" ] && return
+
+  [ -r "$SCALA_DOWNLOAD_PATH" ] || {
+    aria2c "$SCALA_DOWNLOAD_LINK"
+  }
+
+  [ -d "$SCALA_VERSION" ] || {
+    tar xf "$SCALA_DOWNLOAD_PATH"
+  }
+
+  rm -f scala
+  ln -s $SCALA_VERSION scala
+}
+
+# vim: ft=sh

@@ -1,0 +1,5 @@
+post_link() {
+  tic "$HOME/.terminfo/mostlike.txt"
+}
+
+# vim: ft=sh
