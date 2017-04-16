@@ -59,6 +59,12 @@ bindkey "[1;5D" big-emacs-backward-word
 bindkey "[1;5C" big-emacs-forward-word
 ## }}}
 
+## Copy words {{{
+autoload -Uz copy-earlier-word
+zle -N copy-earlier-word
+bindkey "^[m" copy-earlier-word
+## }}}
+
 ## Undo / Redo {{{
 # Alt-u
 bindkey "u" undo
