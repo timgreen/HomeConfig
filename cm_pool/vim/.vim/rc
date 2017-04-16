@@ -291,6 +291,8 @@ an 40.820 &Tools.清理行末空格 :%s/\s\+$//<CR>
 
 " Misc {{{
 set switchbuf+=usetab,newtab " launch files in new tab in quickfix list
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 " }}} Misc
 
 " Map {{{
