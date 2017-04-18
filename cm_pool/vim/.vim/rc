@@ -76,7 +76,7 @@ Plug 'posva/vim-vue'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
-Plug 'sprsquish/thrift.vim', {'for': 'thrift'}
+Plug 'solarnz/thrift.vim', {'for': 'thrift'}
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
