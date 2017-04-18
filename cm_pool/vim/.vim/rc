@@ -6,6 +6,7 @@ set t_Co=256
 set modeline
 set modelines=5
 set nocompatible " explicitly get out of vi-compatible mode
+let mapleader = ","
 " }}}
 
 " vim-plug {{{
