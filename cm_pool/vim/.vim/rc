@@ -636,6 +636,10 @@ augroup END
   omap ia <Plug>SidewaysArgumentTextobjI
   xmap ia <Plug>SidewaysArgumentTextobjI
   " }}}
+  " Mark--Karkat {{{
+  nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+  nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+  " }}}
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
