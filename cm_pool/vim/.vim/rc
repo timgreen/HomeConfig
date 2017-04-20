@@ -624,6 +624,8 @@ augroup END
         \ 'options': '--ansi --multi --reverse --header="Changed files in last git commit:" --preview="echo {} | cut -d\"|\" -f 1 | xargs git diff --color HEAD^"',
         \ 'down': '30%'
         \})
+  map <Space>b :FzfBuffers<CR>
+  map <Space>w :FzfWindows<CR>
   " }}}
   " airline {{{
   let g:airline_powerline_fonts = 1
