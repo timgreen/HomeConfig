@@ -1,0 +1,14 @@
+pre_link() {
+  JQ_VERSION=1.5
+  JQ_BIN=jq-linux64-${JQ_VERSION}
+
+  [ -x "$JQ_BIN" ] && [ "$(readlink jq)" == "$JQ_BIN" ] && return
+
+  [ -r $JQ_BIN ] || aria2c https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 -o "$JQ_BIN"
+  [ -x $JQ_BIN ] || chmod +x "$JQ_BIN"
+
+  rm -f jq
+  ln -s "$JQ_BIN" jq
+}
+
+# vim: ft=sh
