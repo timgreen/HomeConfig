@@ -1,5 +1,10 @@
 pre_link() {
   JQ_VERSION=1.5
+
+  if which jq && version_gt "$(jq -V)" "jq-$JQ_VERSION" ; then
+    skip_this_cm
+  fi
+
   JQ_BIN=jq-linux64-${JQ_VERSION}
 
   [ -x "$JQ_BIN" ] && [ "$(readlink jq)" == "$JQ_BIN" ] && return
