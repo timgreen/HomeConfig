@@ -1,0 +1,22 @@
+pre_link() {
+  TMUX_VERSION=2.4
+
+  if which tmux && version_gt "$(tmux -V)" "tmux $TMUX_VERSION"; then
+    skip_this_cm
+  fi
+
+  url="https://github.com/tmux/tmux/releases/download/$TMUX_VERSION/tmux-$TMUX_VERSION.tar.gz"
+  file=$(basename $url)
+  buildDir=$(echo $file |sed 's/\.tar.*$//')
+
+  [ -r $file ] || aria2c "$url" -o "$file"
+  [ -d $buildDir ] || tar xf "$file"
+
+  # build & install tmux
+  echo "build & install tmux $TMUX_VERSION"
+  cd $buildDir
+  ./configure --prefix="$HOOK_CWD/install_dest/" && make
+  make install
+}
+
+# vim: ft=sh
