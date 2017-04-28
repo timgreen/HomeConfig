@@ -1,7 +1,7 @@
 pre_link() {
   TMUX_VERSION=2.4
 
-  if which tmux && version_gt "$(tmux -V)" "tmux $TMUX_VERSION"; then
+  if which tmux && version_gte "$(tmux -V)" "tmux $TMUX_VERSION"; then
     skip_this_cm
   fi
 

@@ -1,7 +1,7 @@
 pre_link() {
   JQ_VERSION=1.5
 
-  if which jq && version_gt "$(jq -V)" "jq-$JQ_VERSION" ; then
+  if which jq && version_gte "$(jq -V)" "jq-$JQ_VERSION" ; then
     skip_this_cm
   fi
 
