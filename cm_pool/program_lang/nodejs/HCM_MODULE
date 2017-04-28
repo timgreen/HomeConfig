@@ -1,0 +1,21 @@
+pre_link() {
+  NODEJS_VERSION=v7.9.0
+  NODEJS_DOWNLOAD_LINK="https://nodejs.org/dist/${NODEJS_VERSION}/node-${NODEJS_VERSION}-linux-x64.tar.gz"
+  NODEJS_DOWNLOAD_NAME="node-${NODEJS_VERSION}-linux-x64.tar.gz"
+
+  [ -d "$NODEJS_VERSION" ] && [[ "$(readlink nodejs)" == "$NODEJS_VERSION" ]] && skip_this_cm
+
+  [ -d "$NODEJS_VERSION" ] || {
+    [ -r "$NODEJS_DOWNLOAD_NAME" ] || {
+      aria2c "$NODEJS_DOWNLOAD_LINK" -o "$NODEJS_DOWNLOAD_NAME"
+    }
+
+    mkdir "$NODEJS_VERSION"
+    tar -C "$NODEJS_VERSION" -xf "$NODEJS_DOWNLOAD_NAME" --strip 1
+  }
+
+  rm -f nodejs
+  ln -s "$NODEJS_VERSION" nodejs
+}
+
+# vim: ft=sh
