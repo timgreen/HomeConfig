@@ -1,6 +1,6 @@
 ## 动态 Title
 function title {
-  if [[ $TERM == "screen" || $TERM == "screen.linux" || $TERM == "screen-256color" ]]; then
+  if [[ $TERM == "screen" || $TERM == "screen.linux" || $TERM == "screen-256color" || $TERM == "tmux" || $TERM == "tmux-256color" ]]; then
     # Use these two for GNU Screen:
     print -nR $'\033k'$1$'\033'\\\
 
