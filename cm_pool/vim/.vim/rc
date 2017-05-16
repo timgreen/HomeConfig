@@ -7,6 +7,10 @@ if (has("termguicolors"))
   set t_8b=[48;2;%lu;%lu;%lum
   set t_8f=[38;2;%lu;%lu;%lum
 endif
+"" italics {{{
+set t_ZH=[3m
+set t_ZR=[23m
+"" }}}
 " }}}
 
 " Basic {{{
@@ -68,6 +72,7 @@ Plug 'AndrewRadev/sideways.vim'
 "" Colorscheme 256 {{{
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 "" }}}
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -124,7 +129,7 @@ set wildmode=full " turn on wild menu with full match
 " }}}
 
 " UI {{{
-colorscheme gruvbox
+colorscheme one
 "colorscheme timgreen
 set background=dark
 set cursorline
@@ -656,6 +661,15 @@ augroup END
   " indentline {{{
   let g:indentLine_enabled = 1
   let g:indentLine_char = '│'
+  " }}}
+  " gruvbox {{{
+  let g:gruvbox_italic = 1
+  let g:gruvbox_italicize_strings = 1
+  let g:gruvbox_italicize_comments = 1
+  " }}}
+  " vim-one {{{
+  let g:one_allow_italics = 1
+  let g:airline_theme='one'
   " }}}
 " }}} Plugin Configs
 
