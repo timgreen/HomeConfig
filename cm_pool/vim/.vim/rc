@@ -28,7 +28,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'CmdlineComplete'
 Plug 'EasyMotion'
 Plug 'FencView.vim'
-Plug 'Indent-Guides'
 Plug 'IndexedSearch'
 Plug 'LargeFile'
 Plug 'Mark--Karkat'
@@ -70,6 +69,7 @@ Plug 'AndrewRadev/sideways.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 "" }}}
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
 Plug 'derekwyatt/vim-sbt', {'for': ['sbt', 'scala']}
@@ -652,6 +652,10 @@ augroup END
   " Mark--Karkat {{{
   nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
   nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+  " }}}
+  " indentline {{{
+  let g:indentLine_enabled = 1
+  let g:indentLine_char = '│'
   " }}}
 " }}} Plugin Configs
 
