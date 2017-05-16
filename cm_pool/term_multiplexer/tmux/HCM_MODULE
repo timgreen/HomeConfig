@@ -13,4 +13,6 @@ post_link() {
   }
 
   ~/.tmux/plugins/tpm/bindings/install_plugins
+
+  tic "$HOME/.terminfo/tmux.txt"
 }

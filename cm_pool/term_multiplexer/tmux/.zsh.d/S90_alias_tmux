@@ -1,2 +1,2 @@
-alias tmux='TERM=xterm-256color tmux'
-alias tmuxifier='TERM=xterm-256color tmuxifier'
+alias tmux='TERM=tmux-256color tmux'
+alias tmuxifier='TERM=tmux-256color tmuxifier'
