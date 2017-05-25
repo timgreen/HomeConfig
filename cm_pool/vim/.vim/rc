@@ -119,6 +119,10 @@ else
   autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 endif
 set ttyfast
+if &term =~ '256color'
+  " disable Background Color Erase (BCE)
+  set t_ut=
+endif
 set ruler
 " }}}
 
