@@ -1,6 +1,7 @@
 pre_link() {
-  TMUX_MAIN_VERSION=2.5
-  TMUX_VERSION=2.5-rc
+  # Stick with v2.3 until https://github.com/tmux-plugins/tmux-copycat/issues/109 has been fixed.
+  TMUX_MAIN_VERSION=2.3
+  TMUX_VERSION=2.3
 
   if which tmux && version_gte "$(tmux -V)" "tmux $TMUX_VERSION"; then
     skip_this_cm
