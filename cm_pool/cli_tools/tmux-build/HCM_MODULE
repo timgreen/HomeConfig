@@ -1,11 +1,12 @@
 pre_link() {
-  TMUX_VERSION=2.4
+  TMUX_MAIN_VERSION=2.5
+  TMUX_VERSION=2.5-rc
 
   if which tmux && version_gte "$(tmux -V)" "tmux $TMUX_VERSION"; then
     skip_this_cm
   fi
 
-  url="https://github.com/tmux/tmux/releases/download/$TMUX_VERSION/tmux-$TMUX_VERSION.tar.gz"
+  url="https://github.com/tmux/tmux/releases/download/$TMUX_MAIN_VERSION/tmux-$TMUX_VERSION.tar.gz"
   file=$(basename $url)
   buildDir=$(echo $file |sed 's/\.tar.*$//')
 
