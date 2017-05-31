@@ -74,6 +74,10 @@ Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 "" }}}
+"" Mapping {{{
+" Mappings for simultaneously pressed keys
+Plug 'kana/vim-arpeggio'
+"" }}}
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
