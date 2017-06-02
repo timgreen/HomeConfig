@@ -104,6 +104,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'uarun/vim-protobuf', {'for': 'proto'}
 Plug 'walm/jshint.vim', {'for': 'javascript'}
+Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
 " }}}
