@@ -93,6 +93,7 @@ Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'peterhoeg/vim-qml', {'for': 'qml'}
 Plug 'posva/vim-vue'
+Plug 'rhysd/clever-f.vim'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
@@ -553,6 +554,12 @@ augroup END
   let wiki.custom_wiki2html = '~/sh/wiki2html.sh'
   let wiki.custom_wiki2html_args = ''
   let g:vimwiki_list = [wiki]
+  " }}}
+  " clever-f {{{
+  let g:clever_f_across_no_line = 1
+  let g:clever_f_smart_case = 0
+  let g:clever_f_chars_match_any_signs = ';'
+  nmap <Esc> <Plug>(clever-f-reset)
   " }}}
 " }}} Plugin Configs
 
