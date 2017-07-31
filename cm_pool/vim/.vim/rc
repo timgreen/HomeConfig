@@ -106,9 +106,6 @@ Plug 'tpope/vim-surround'
 Plug 'uarun/vim-protobuf', {'for': 'proto'}
 Plug 'walm/jshint.vim', {'for': 'javascript'}
 Plug 'wesQ3/vim-windowswap'
-" " Vimwiki dev branch as 21 Jul 2017
-" Plug 'vimwiki/vimwiki', {'commit': '976cbbcd23dcd19ddb5dc5544645da8a51dbdfe6'}
-Plug 'timgreen/vimwiki'
 call plug#end()
 
 " }}}
@@ -539,21 +536,6 @@ augroup END
   " vim-one {{{
   let g:one_allow_italics = 1
   let g:airline_theme='one'
-  " }}}
-  " vimwiki {{{
-  let g:vimwiki_use_calendar = 0
-  let g:vimwiki_folding='expr'
-
-  let wiki = {}
-  let wiki.path = '~/vimwiki/'
-  let wiki.syntax = 'markdown'
-  let wiki.ext = '.md'
-  let wiki.auto_export = 0
-  " https://github.com/vimwiki/vimwiki/pull/358
-  let wiki.list_margin = 0
-  let wiki.custom_wiki2html = '~/sh/wiki2html.sh'
-  let wiki.custom_wiki2html_args = ''
-  let g:vimwiki_list = [wiki]
   " }}}
   " clever-f {{{
   let g:clever_f_across_no_line = 1
