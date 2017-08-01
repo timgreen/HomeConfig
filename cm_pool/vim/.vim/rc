@@ -544,6 +544,10 @@ augroup END
   " Disable https://github.com/rhysd/clever-f.vim/issues/11
   " nmap <Esc> <Plug>(clever-f-reset)
   " }}}
+  " windowswap {{{
+  let g:windowswap_map_keys = 0 "prevent default bindings
+  nnoremap <silent> <C-w>s :call WindowSwap#EasyWindowSwap()<CR>
+  " }}}
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
