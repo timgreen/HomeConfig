@@ -541,7 +541,8 @@ augroup END
   let g:clever_f_across_no_line = 1
   let g:clever_f_smart_case = 0
   let g:clever_f_chars_match_any_signs = ';'
-  nmap <Esc> <Plug>(clever-f-reset)
+  " Disable https://github.com/rhysd/clever-f.vim/issues/11
+  " nmap <Esc> <Plug>(clever-f-reset)
   " }}}
 " }}} Plugin Configs
 
