@@ -62,10 +62,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "" }}}
 "" vim-textobj-user {{{
+""" https://github.com/kana/vim-textobj-user/wiki
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'coderifous/textobj-word-column.vim'
+Plug 'jceb/vim-textobj-uri'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'sgur/vim-textobj-parameter'
 Plug 'thalesmello/vim-textobj-methodcall'
 Plug 'AndrewRadev/sideways.vim'
 "" }}}
@@ -177,6 +181,8 @@ set foldcolumn=4 " fold column width
 set switchbuf+=usetab,newtab " launch files in new tab in quickfix list
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim/undodir
+set undolevels=1000
+set undoreload=10000
 " }}} Misc
 
 " Map {{{
@@ -227,6 +233,11 @@ map  <F1> <Nop>
 map! <F1> <Nop>
 "" disable delete in mac
 imap [3~ <Nop>
+
+" Have the indent commands re-highlight the last visual selection to make
+" multiple indentations easier
+vnoremap > >gv
+vnoremap < <gv
 
 function! TODOQFixToggle()
   if bufname("%") == ""
