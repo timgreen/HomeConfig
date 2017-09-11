@@ -102,6 +102,7 @@ Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
 Plug 'solarnz/thrift.vim', {'for': 'thrift'}
+Plug 'timgreen/vim-re-edit-all'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
