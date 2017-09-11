@@ -32,7 +32,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'CmdlineComplete'
 Plug 'EasyMotion'
 Plug 'FencView.vim'
-Plug 'IndexedSearch'
 Plug 'LargeFile'
 Plug 'Mark--Karkat'
 Plug 'PKGBUILD'
@@ -81,6 +80,10 @@ Plug 'rakr/vim-one'
 "" Mapping {{{
 " Mappings for simultaneously pressed keys
 Plug 'kana/vim-arpeggio'
+"" }}}
+"" Search Enhance {{{
+Plug 'henrik/vim-indexed-search'
+Plug 'haya14busa/vim-asterisk' | Plug 'inside/vim-search-pulse'
 "" }}}
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -560,6 +563,23 @@ augroup END
   let g:windowswap_map_keys = 0 "prevent default bindings
   nnoremap <silent> <C-w>s :call WindowSwap#EasyWindowSwap()<CR>
   " }}}
+  " Search enhance {{{
+  let g:indexed_search_mappings = 0
+  let g:vim_search_pulse_disable_auto_mappings = 1
+  nmap *  <Plug>(asterisk-z*)<Plug>Pulse
+  nmap #  <Plug>(asterisk-z#)<Plug>Pulse
+  nmap g* <Plug>(asterisk-gz*)<Plug>Pulse
+  nmap g# <Plug>(asterisk-gz#)<Plug>Pulse
+  nmap n n<Plug>Pulse
+  nmap N N<Plug>Pulse
+  " Pulses cursor line on first match
+  " when doing search with / or ?
+  cmap <silent> <expr> <enter> search_pulse#PulseFirst()
+  " }}}
+  augroup Pulse
+    autocmd! User PostPulse
+    autocmd  User PostPulse ShowSearchIndex
+  augroup END
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
