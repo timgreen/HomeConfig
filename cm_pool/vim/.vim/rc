@@ -52,10 +52,6 @@ Plug 'vim-soy', {'for': 'soy'}
 if has("python")
   Plug 'Valloric/MatchTagAlways'
 end
-"" NerdTree {{{
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
-"" }}}
 "" Airline {{{
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -356,23 +352,18 @@ augroup END
   " }}} Helper functions
 " }}} FileType
 
-" Plugin Configs {{{
-  " NERDTree {{{
-    let NERDTreeAutoDeleteBuffer=1
-    map <C-n> :NERDTreeToggle<CR>
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Config netrw {{{
+"" absolute width of netrw window
+let g:netrw_winsize = -28
+"" tree-view
+let g:netrw_liststyle = 3
+"" sort is affecting only: directories on the top, files below
+let g:netrw_sort_sequence = '[\/]$,*'
+"" open file in a new tab
+let g:netrw_browse_split = 3
+" }}}
 
-    augroup nerd_loader
-      autocmd!
-      autocmd VimEnter * silent! autocmd! FileExplorer
-      autocmd BufEnter,BufNew *
-            \  if isdirectory(expand('<amatch>'))
-            \|   call plug#load('nerdtree')
-            \|   call plug#load('nerdtree-git-plugin')
-            \|   execute 'autocmd! nerd_loader'
-            \| endif
-    augroup END
-  " }}}
+" Plugin Configs {{{
   " taglist {{{
   nnoremap <silent> <F8> :TlistUpdate<CR>:TlistToggle<CR>
   let Tlist_Show_One_File = 1
