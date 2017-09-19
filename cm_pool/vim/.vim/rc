@@ -34,7 +34,6 @@ Plug 'EasyMotion'
 Plug 'FencView.vim'
 Plug 'LargeFile'
 Plug 'Mark--Karkat'
-Plug 'PKGBUILD'
 Plug 'StripWhiteSpaces'
 Plug 'SyntaxComplete'
 Plug 'Tabular'
@@ -81,34 +80,24 @@ Plug 'kana/vim-arpeggio'
 Plug 'henrik/vim-indexed-search'
 Plug 'haya14busa/vim-asterisk' | Plug 'inside/vim-search-pulse'
 "" }}}
+"" Langauges Configs {{{
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
+" Plug 'vim-syntastic/syntastic'
+"" }}}
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
-Plug 'derekwyatt/vim-sbt', {'for': ['sbt', 'scala']}
-Plug 'groenewege/vim-less', {'for': 'less'}
-Plug 'hail2u/vim-css3-syntax'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-Plug 'muhlig/vim-scala', {'for': 'scala'}
-Plug 'mxw/vim-jsx'
-Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'peterhoeg/vim-qml', {'for': 'qml'}
-Plug 'posva/vim-vue'
 Plug 'rhysd/clever-f.vim'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
-Plug 'sirtaj/vim-openscad', {'for': 'openscad'}
-Plug 'solarnz/thrift.vim', {'for': 'thrift'}
 Plug 'timgreen/vim-re-edit-all'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'uarun/vim-protobuf', {'for': 'proto'}
-Plug 'walm/jshint.vim', {'for': 'javascript'}
 Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
@@ -361,6 +350,8 @@ let g:netrw_liststyle = 3
 let g:netrw_sort_sequence = '[\/]$,*'
 "" open file in a new tab
 let g:netrw_browse_split = 3
+""
+autocmd FileType netrw setl bufhidden=delete
 " }}}
 
 " Plugin Configs {{{
