@@ -85,6 +85,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'vim-syntastic/syntastic'
 "" }}}
+"" nav {{{
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'wesQ3/vim-windowswap'
+"" }}}
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
@@ -98,7 +102,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
 " }}}
