@@ -547,7 +547,9 @@ autocmd FileType netrw setl bufhidden=delete
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '✓ ' : ''
+    let l:linters_count = len(ale#linter#Get(&filetype))
+    " Only show ✓ if there is enabled linter for this filetype.
+    return l:linters_count != 0 && l:counts.total == 0 ? '✓ ' : ''
   endfunction
 
   autocmd User ALELint call s:MaybeUpdateLightline()
