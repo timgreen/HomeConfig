@@ -101,6 +101,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 call plug#end()
 
 " }}}
@@ -566,11 +567,15 @@ autocmd FileType netrw setl bufhidden=delete
   " Pulses cursor line on first match
   " when doing search with / or ?
   cmap <silent> <expr> <enter> search_pulse#PulseFirst()
-  " }}}
   augroup Pulse
     autocmd! User PostPulse
     autocmd  User PostPulse ShowSearchIndex
   augroup END
+  " }}}
+  " ALE {{{
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
+  " }}}
 " }}} Plugin Configs
 
 " An example for a gvimrc file. {{{
