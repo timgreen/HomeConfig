@@ -51,9 +51,8 @@ Plug 'vim-soy', {'for': 'soy'}
 if has("python")
   Plug 'Valloric/MatchTagAlways'
 end
-"" Airline {{{
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"" Status {{{
+Plug 'itchyny/lightline.vim'
 "" }}}
 "" vim-textobj-user {{{
 """ https://github.com/kana/vim-textobj-user/wiki
@@ -508,10 +507,18 @@ autocmd FileType netrw setl bufhidden=delete
   map <Space>b :FzfBuffers<CR>
   map <Space>w :FzfWindows<CR>
   " }}}
-  " airline {{{
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#tab_nr_type = 1
+  " lightline {{{
+  set laststatus=2
+  set noshowmode
+  let g:lightline = {
+    \   'colorscheme': 'wombat',
+    \ }
+  set showtabline=2  " Show tabline
+  set guioptions-=e  " Don't use GUI tabline
+  let g:lightline.tabline = {
+    \   'left': [ ['tabs'] ],
+    \   'right': [ ['close'] ]
+    \ }
   " }}}
   " sideways {{{
   omap aa <Plug>SidewaysArgumentTextobjA
