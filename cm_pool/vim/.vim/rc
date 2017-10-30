@@ -29,24 +29,21 @@ endif
 
 call plug#begin('~/.vim/plugged')
 "" vim-scripts repos
-Plug 'CmdlineComplete'
-Plug 'EasyMotion'
-Plug 'FencView.vim'
-Plug 'LargeFile'
-Plug 'Mark--Karkat'
-Plug 'StripWhiteSpaces'
-Plug 'SyntaxComplete'
-Plug 'Tabular'
+Plug 'vim-scripts/cmdline-completion'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/FencView.vim'
+Plug 'vim-scripts/LargeFile'
+Plug 'vim-scripts/Mark--Karkat'
+Plug 'vim-scripts/SyntaxComplete'
+Plug 'godlygeek/tabular'
 " Plug 'Tagbar'
-Plug 'css3-mod'
+Plug 'hail2u/vim-css3-syntax'
 " Plug 'fugitive.vim'
-Plug 'genutils'
-Plug 'gitdiff.vim'
-Plug 'libList.vim'
-Plug 'matchit.zip'
-Plug 'neocomplcache'
-Plug 'qmake--syntax.vim'
-Plug 'vim-soy', {'for': 'soy'}
+Plug 'vim-scripts/genutils'
+Plug 'vim-scripts/gitdiff.vim'
+Plug 'vim-scripts/libList.vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'Shougo/neocomplcache.vim'
 "" github
 if has("python")
   Plug 'Valloric/MatchTagAlways'
