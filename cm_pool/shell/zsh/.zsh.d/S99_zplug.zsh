@@ -24,7 +24,9 @@ zplug "junegunn/fzf", use:"shell/*.zsh"
 
 zplug "zsh-users/zaw"
 zplug "zsh-users/zsh-completions"
-
+zplug "zsh-users/zsh-autosuggestions"
+zplug "bric3/nice-exit-code"
+zplug "nviennot/zsh-vim-plugin" # support vi file:123
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

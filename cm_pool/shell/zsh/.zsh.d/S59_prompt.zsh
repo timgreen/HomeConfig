@@ -70,7 +70,7 @@ set_prompt () {
 
   local SNIPPET_PWD='%$PR_PWDLEN<...<%~%<<'
   local SNIPPET_FILLBAR='${(e)PR_FILLBAR}'
-  local SNIPPET_EXIT_CODE='%(?..$PR_LIGHT_RED✖ %? )'
+  local SNIPPET_EXIT_CODE='%(?..$PR_LIGHT_RED✖ $(nice_exit_code))'
   local SNIPPET_TIME='%D{%H:%M %b %d}'
   local SNIPPET_HOSTNAME=' %m'
 
