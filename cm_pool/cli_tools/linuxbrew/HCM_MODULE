@@ -4,4 +4,13 @@ pre_link() {
   }
 }
 
+post_link() {
+  zsh < <(cat << EOF
+    which scalafmt || brew install --HEAD olafurpg/scalafmt/scalafmt
+    which jq       || brew install jq
+    which fzf      || brew install fzf
+EOF
+)
+}
+
 # vim: ft=sh
