@@ -1,23 +1,8 @@
-pre_link() {
-  GO_VERSION="go1.8.1.linux"
-  GO_DOWNLOAD_PATH="${GO_VERSION}-amd64.tar.gz"
-
-  [ -d "$GO_VERSION" ] && [[ "$(readlink go)" == "$GO_VERSION" ]] && return
-
-  [ -d "$GO_VERSION" ] || {
-    [ -r "$GO_DOWNLOAD_PATH" ] || {
-      aria2c \
-        --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-        "https://storage.googleapis.com/golang/${GO_DOWNLOAD_PATH}" \
-        -o "$GO_DOWNLOAD_PATH"
-    }
-
-    mkdir "$GO_VERSION"
-    tar -C "$GO_VERSION" -xf "$GO_DOWNLOAD_PATH"
-  }
-
-  rm -f current
-  ln -s "$GO_VERSION" current
+post_install() {
+  zsh < <(cat << EOF
+    brew install go
+EOF
+)
 }
 
 # vim: ft=sh

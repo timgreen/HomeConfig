@@ -1,0 +1,8 @@
+post_install() {
+  zsh < <(cat << EOF
+    which aria2 || brew install aria2
+EOF
+)
+}
+
+# vim: ft=sh

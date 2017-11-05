@@ -1,0 +1,8 @@
+post_install() {
+  zsh < <(cat << EOF
+    which tig || brew install tig
+EOF
+)
+}
+
+# vim: ft=sh
