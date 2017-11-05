@@ -9,6 +9,7 @@ post_link() {
     which scalafmt || brew install --HEAD olafurpg/scalafmt/scalafmt
     which jq       || brew install jq
     which fzf      || brew install fzf
+    which tig      || brew install tig
 EOF
 )
 }
