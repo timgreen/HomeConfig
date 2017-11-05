@@ -1,0 +1,8 @@
+post_install() {
+  zsh < <(cat << EOF
+    brew install android-sdk
+EOF
+)
+}
+
+# vim: ft=sh
