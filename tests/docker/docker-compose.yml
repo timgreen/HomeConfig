@@ -1,0 +1,10 @@
+version: '3'
+services:
+  test_init_sync:
+    build: .
+    volumes:
+      - ../../:/source
+      - ../test_home:/home/timgreen
+      - ../test_hcm_sync.sh:/test_hcm_sync.sh
+    command:
+      - /test_hcm_sync.sh
