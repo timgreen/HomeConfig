@@ -1,5 +1,6 @@
 FROM alpine
 
+# for hcm
 RUN apk add --no-cache \
   coreutils \
   findutils \
@@ -12,6 +13,11 @@ RUN apk add --no-cache \
   jq \
   py-pip \
   && pip install yq
+
+# required tools
+RUN apk add --no-cache \
+  vim \
+  tmux
 
 USER timgreen
 ENV HOME /home/timgreen
