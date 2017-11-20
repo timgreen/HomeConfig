@@ -16,6 +16,7 @@ RUN apk add --no-cache \
 
 # required tools
 RUN apk add --no-cache \
+  curl \
   vim \
   tmux
 
