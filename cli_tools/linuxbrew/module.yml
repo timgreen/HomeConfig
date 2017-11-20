@@ -1,0 +1,13 @@
+requires:
+  - git
+after:
+  - ../../skeletons/zsh
+pre-install: |
+  [ -d ~/.linuxbrew ] || {
+    git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+  }
+post-install: |
+  which scalafmt || brew install --HEAD olafurpg/scalafmt/scalafmt
+  which jq       || brew install jq
+  which fzf      || brew install fzf
+  which tig      || brew install tig

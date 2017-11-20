@@ -18,7 +18,8 @@ RUN apk add --no-cache \
 RUN apk add --no-cache \
   curl \
   vim \
-  tmux
+  tmux \
+  git
 
 USER timgreen
 ENV HOME /home/timgreen
