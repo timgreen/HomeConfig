@@ -2,3 +2,4 @@ shell: zsh
 modules:
   - skeletons/zsh
   - cli_tools/linuxbrew
+  - program_lang/sdkman
