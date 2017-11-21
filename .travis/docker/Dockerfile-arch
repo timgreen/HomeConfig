@@ -1,0 +1,29 @@
+FROM alekzonder/archlinux-yaourt
+
+RUN curl -o /etc/pacman.d/mirrorlist https://www.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4&use_mirror_status=on \
+  && sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
+
+USER yaourt
+
+# for hcm
+RUN yaourt --noconfirm -Syu --aur \
+  coreutils \
+  findutils \
+  grep \
+  bash \
+  zsh \
+  ncurses \
+  rsync \
+  wget \
+  jq \
+  yq
+
+# required tools
+RUN yaourt --noconfirm -S \
+  curl \
+  vim \
+  tmux \
+  git \
+  unzip
+
+ENV HOME /home/timgreen

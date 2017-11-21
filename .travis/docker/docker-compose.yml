@@ -1,6 +1,6 @@
 version: '3'
 services:
-  debian:
+  debian: &template
     build:
       context: .
       dockerfile: Dockerfile-debian
@@ -10,3 +10,8 @@ services:
       - ../test_hcm_sync.sh:/test_hcm_sync.sh:ro
     command:
       - /test_hcm_sync.sh
+  arch:
+    <<: *template
+    build:
+      context: .
+      dockerfile: Dockerfile-arch
