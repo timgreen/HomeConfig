@@ -1,7 +1,9 @@
 version: '3'
 services:
-  test_init_sync:
-    build: .
+  debian:
+    build:
+      context: .
+      dockerfile: Dockerfile-debian
     volumes:
       - ../../:/source:ro
       - ../test_home:/home/timgreen
