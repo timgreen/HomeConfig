@@ -8,6 +8,9 @@ modules:
   - downloader/aria2
   - downloader/lftp
   - downloader/wget
+  - git/fzf_git
+  - git/git
+  - git/tig
   - program_lang/sdkman
   - shell/zsh
   - skeletons/zsh
