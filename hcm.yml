@@ -3,3 +3,5 @@ modules:
   - skeletons/zsh
   - cli_tools/linuxbrew
   - program_lang/sdkman
+  - code_search/ack
+  - code_search/ctags

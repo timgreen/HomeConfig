@@ -1,0 +1,4 @@
+requires:
+  - brew
+post-install: |
+  which ctags &> /dev/null || brew install ctags

@@ -1,9 +1,0 @@
-post_install() {
-  zsh < <(cat << EOF
-    which ack || brew install ack
-    which ag  || brew install ag
-EOF
-)
-}
-
-# vim: ft=sh

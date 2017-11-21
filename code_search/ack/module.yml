@@ -1,0 +1,5 @@
+requires:
+  - brew
+post-install: |
+  which ack &> /dev/null || brew install ack
+  which ag  &> /dev/null || brew install ag
