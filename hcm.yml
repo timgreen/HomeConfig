@@ -4,5 +4,6 @@ modules:
   - cli_tools/linuxbrew
   - code_search/ack
   - code_search/ctags
+  - desktop/cursor_theme
   - program_lang/sdkman
   - skeletons/zsh
