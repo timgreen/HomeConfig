@@ -19,7 +19,8 @@ RUN apt-get install -y \
   curl \
   vim \
   tmux \
-  git
+  git \
+  unzip
 
 USER timgreen
 ENV HOME /home/timgreen
