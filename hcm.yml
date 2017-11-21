@@ -5,5 +5,8 @@ modules:
   - code_search/ack
   - code_search/ctags
   - desktop/cursor_theme
+  - downloader/aria2
+  - downloader/lftp
+  - downloader/wget
   - program_lang/sdkman
   - skeletons/zsh
