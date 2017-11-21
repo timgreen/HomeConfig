@@ -1,7 +1,8 @@
 shell: zsh
 modules:
-  - skeletons/zsh
+  - chrome/Surfingkeys
   - cli_tools/linuxbrew
-  - program_lang/sdkman
   - code_search/ack
   - code_search/ctags
+  - program_lang/sdkman
+  - skeletons/zsh
