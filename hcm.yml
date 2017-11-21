@@ -9,4 +9,5 @@ modules:
   - downloader/lftp
   - downloader/wget
   - program_lang/sdkman
+  - shell/zsh
   - skeletons/zsh
