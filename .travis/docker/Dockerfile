@@ -1,21 +1,21 @@
-FROM alpine
+FROM debian
 
 # for hcm
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
   coreutils \
   findutils \
   grep \
   bash \
   zsh \
-  ncurses \
+  ncurses-bin \
   rsync \
   wget \
   jq \
-  py-pip \
+  python-pip \
   && pip install yq
 
 # required tools
-RUN apk add --no-cache \
+RUN apt-get install -y \
   curl \
   vim \
   tmux \
