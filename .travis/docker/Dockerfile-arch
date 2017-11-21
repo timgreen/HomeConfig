@@ -24,6 +24,7 @@ RUN yaourt --noconfirm -S \
   vim \
   tmux \
   git \
-  unzip
+  unzip \
+  zip
 
 ENV HOME /home/timgreen

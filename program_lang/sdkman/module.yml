@@ -2,6 +2,8 @@ requires:
   - curl
   - yes
   - sed
+  - zip
+  - unzip
 after:
   - ../../skeletons/zsh
 pre-install: |
