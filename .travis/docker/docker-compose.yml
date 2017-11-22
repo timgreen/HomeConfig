@@ -8,10 +8,11 @@ services:
       - &v_source
         ../../:/source:ro
       - &v_script
-        ../test_hcm_sync.sh:/test_hcm_sync.sh:ro
+        ../hcm_sync.sh:/hcm_sync.sh:ro
       - ../test_home/debian:/home/timgreen
     command:
-      - /test_hcm_sync.sh
+      - bash
+      - /hcm_sync.sh
   arch:
     <<: *template
     build:

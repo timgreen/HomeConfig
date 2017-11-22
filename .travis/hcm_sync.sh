@@ -1,14 +1,11 @@
 #!/bin/bash
 
-set -x
-
 cd $HOME
-ls -al
 
 # install hcm
-wget --no-check-certificate --continue https://github.com/timgreen/hcm/archive/v1.zip
+wget -q --no-check-certificate --continue https://github.com/timgreen/hcm/archive/v1.zip
 rm -fr ./hcm-1
-unzip v1.zip &> /dev/null
+unzip -qq v1.zip
 HCM=./hcm-1/hcm
 
 # link hcm.yml
