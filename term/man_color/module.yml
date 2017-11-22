@@ -1,5 +1,4 @@
-post_link() {
+requires:
+  - tic
+post-install: |
   tic "$HOME/.terminfo/mostlike.txt"
-}
-
-# vim: ft=sh

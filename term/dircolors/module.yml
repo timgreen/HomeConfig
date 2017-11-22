@@ -1,0 +1,9 @@
+requires:
+  - git
+  - dircolors
+pre-install: |
+  target="$HOME/.dircolors-solarized"
+  [ -d "$target" ] || git clone https://github.com/seebi/dircolors-solarized.git "$target"
+post-uninstall: |
+  target="$HOME/.dircolors-solarized"
+  rm -fr "$target"
