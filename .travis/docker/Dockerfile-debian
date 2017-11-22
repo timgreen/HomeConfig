@@ -20,7 +20,8 @@ RUN apt-get install -y \
   vim \
   tmux \
   git \
-  unzip
+  unzip \
+  zip
 
 # UTF-8
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils locales \
