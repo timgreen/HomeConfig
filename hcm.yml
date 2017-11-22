@@ -16,3 +16,4 @@ modules:
   - skeletons/zsh
   - top/htop
   - top/top
+  - vim
