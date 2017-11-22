@@ -1,2 +1,7 @@
 after:
   - ../../skeletons/zsh
+
+post-install: |
+  if ! zplug check; then
+    zplug install
+  fi
