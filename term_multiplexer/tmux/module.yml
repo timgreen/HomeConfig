@@ -1,4 +1,10 @@
-post_link() {
+requires:
+  - tic
+  - git
+  - tmux
+after:
+  - ../../shell/zsh
+post-install: |
   mkdir -p ~/.tmux/plugins
   mkdir -p ~/.tmux/tmuxifier-layouts
 
@@ -15,4 +21,3 @@ post_link() {
   ~/.tmux/plugins/tpm/bindings/install_plugins
 
   tic "$HOME/.terminfo/tmux.txt"
-}

@@ -17,6 +17,9 @@ modules:
   - term/dircolors
   - term/man_color
   - term/readline
+  - term_multiplexer/screen
+  - term_multiplexer/tmux
+  - term_multiplexer/tmuxifier_layouts
   - top/htop
   - top/top
   - vim
