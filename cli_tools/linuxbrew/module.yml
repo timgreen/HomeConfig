@@ -6,7 +6,3 @@ pre-install: |
   [ -d ~/.linuxbrew ] || {
     git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
   }
-post-install: |
-  which scalafmt &> /dev/null || brew install --HEAD olafurpg/scalafmt/scalafmt
-  which jq       &> /dev/null || brew install jq
-  which fzf      &> /dev/null || brew install fzf
