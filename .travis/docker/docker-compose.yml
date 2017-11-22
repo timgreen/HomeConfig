@@ -1,17 +1,30 @@
 version: '3'
 services:
-  debian: &template
+  tpl: &template
+    build:
+      context: .
+    volumes:
+      - &v_source
+        ../../:/source:ro
+      - &v_script
+        ../test_hcm_sync.sh:/test_hcm_sync.sh:ro
+    command:
+      - /test_hcm_sync.sh
+  debian:
+    <<: *template
     build:
       context: .
       dockerfile: Dockerfile-debian
     volumes:
-      - ../../:/source:ro
-      - ../test_home:/home/timgreen
-      - ../test_hcm_sync.sh:/test_hcm_sync.sh:ro
-    command:
-      - /test_hcm_sync.sh
+      - *v_source
+      - *v_script
+      - ../test_home_debian:/home/timgreen
   arch:
     <<: *template
     build:
       context: .
       dockerfile: Dockerfile-arch
+    volumes:
+      - *v_source
+      - *v_script
+      - ../test_home_arch:/home/timgreen

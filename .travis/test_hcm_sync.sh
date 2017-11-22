@@ -3,6 +3,7 @@
 set -x
 
 cd $HOME
+ls -al
 
 # install hcm
 wget --no-check-certificate https://github.com/timgreen/hcm/archive/v1.zip

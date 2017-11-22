@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 cd "$(dirname "$(readlink -f "$0")")"
 
 images=(
@@ -8,9 +9,10 @@ images=(
 )
 
 for image in ${images[@]}; do
-  rm -fr test_home
-  mkdir -p test_home
+  mkdir -p test_home_$image
   docker-compose \
     -f docker/docker-compose.yml \
-    run --user="$UID:$GID" "$image"
+    run \
+    --user="$(id -u):$(id -g)" \
+    $image
 done
