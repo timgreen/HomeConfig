@@ -1,4 +1,6 @@
 requires:
   - tic
+after:
+  - ../../shell/zsh
 post-install: |
   tic "$HOME/.terminfo/mostlike.txt"

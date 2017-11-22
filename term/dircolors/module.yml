@@ -1,6 +1,8 @@
 requires:
   - git
   - dircolors
+after:
+  - ../../shell/zsh
 pre-install: |
   target="$HOME/.dircolors-solarized"
   [ -d "$target" ] || git clone https://github.com/seebi/dircolors-solarized.git "$target"
