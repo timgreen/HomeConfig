@@ -133,8 +133,11 @@ set wildmode=full " turn on wild menu with full match
 " }}}
 
 " UI {{{
-colorscheme one
-"colorscheme timgreen
+try
+  colorscheme one
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
 set background=dark
 set cursorline
 set cursorcolumn
