@@ -7,6 +7,11 @@ if (has("termguicolors"))
   set t_8b=[48;2;%lu;%lu;%lum
   set t_8f=[38;2;%lu;%lu;%lum
 endif
+"" disable Background Color Erase (BCE) {{{
+if &term =~ '256color'
+  set t_ut=
+endif
+"" }}}
 "" italics {{{
 set t_ZH=[3m
 set t_ZR=[23m
@@ -118,10 +123,6 @@ else
   autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 endif
 set ttyfast
-if &term =~ '256color'
-  " disable Background Color Erase (BCE)
-  set t_ut=
-endif
 set ruler
 " }}}
 
