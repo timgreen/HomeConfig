@@ -1,15 +1,3 @@
-## 增加补齐目录 {{{
-local -a my_fpath
-my_fpath+=(~/.zsh.comp.d)
-fpath=($my_fpath $fpath)
-for p in $my_fpath; do
-  funcs=($p/*(N:t))
-  if ((${#funcs} > 0)); then
-    autoload -U $funcs
-  fi
-done
-## }}}
-
 ## Setup new style completion system.
 autoload -U compinit
 compinit
