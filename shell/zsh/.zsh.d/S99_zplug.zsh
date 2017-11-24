@@ -15,12 +15,6 @@ zplug "supercrabtree/k"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # fzf & fzf-tmux
-zplug "junegunn/fzf-bin", \
-    as:command, \
-    from:gh-r, \
-    rename-to:fzf, \
-    use:"*linux*amd64*"
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 zplug "junegunn/fzf", use:"shell/*.zsh"
 
 zplug "zsh-users/zaw"
