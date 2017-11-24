@@ -2,6 +2,8 @@ after:
   - ../../skeletons/zsh
 
 post-install: |
+  zplug clean --force
   if ! zplug check; then
     zplug install
   fi
+  zplug update
