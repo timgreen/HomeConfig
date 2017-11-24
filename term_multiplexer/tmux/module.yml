@@ -4,7 +4,7 @@ requires:
   - tmux
 after:
   - ../../shell/zsh
-post-install: |
+pre-install: |
   mkdir -p ~/.tmux/plugins
   mkdir -p ~/.tmux/tmuxifier-layouts
 
@@ -17,7 +17,7 @@ post-install: |
     echo "installing Tmuxifier ..."
     git clone https://github.com/jimeh/tmuxifier.git ~/.tmux/tmuxifier
   }
-
+post-install: |
   ~/.tmux/plugins/tpm/bindings/install_plugins
 
   tic "$HOME/.terminfo/tmux.txt"
