@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker-compose -f .travis/docker/docker-compose.yml build
+
+script:
+  - .travis/run_tests.sh
+  # the second round should be no-op
+  - .travis/run_tests.sh

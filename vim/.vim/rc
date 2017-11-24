@@ -1,0 +1,682 @@
+" vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
+
+" Color {{{
+set t_Co=256
+if (has("termguicolors"))
+  set termguicolors
+  set t_8b=[48;2;%lu;%lu;%lum
+  set t_8f=[38;2;%lu;%lu;%lum
+endif
+"" disable Background Color Erase (BCE) {{{
+if &term =~ '256color'
+  set t_ut=
+endif
+"" }}}
+"" italics {{{
+set t_ZH=[3m
+set t_ZR=[23m
+"" }}}
+" }}}
+
+" Basic {{{
+set modeline
+set modelines=5
+set nocompatible " explicitly get out of vi-compatible mode
+let mapleader = ","
+" }}}
+
+" vim-plug {{{
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+"" vim-scripts repos
+Plug 'vim-scripts/cmdline-completion'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/FencView.vim'
+Plug 'vim-scripts/LargeFile'
+Plug 'vim-scripts/Mark--Karkat'
+Plug 'vim-scripts/SyntaxComplete'
+Plug 'godlygeek/tabular'
+" Plug 'Tagbar'
+Plug 'hail2u/vim-css3-syntax'
+" Plug 'fugitive.vim'
+Plug 'vim-scripts/genutils'
+Plug 'vim-scripts/gitdiff.vim'
+Plug 'vim-scripts/libList.vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'Shougo/neocomplcache.vim'
+"" github
+if has("python")
+  Plug 'Valloric/MatchTagAlways'
+end
+"" Status {{{
+Plug 'itchyny/lightline.vim'
+"" }}}
+"" vim-textobj-user {{{
+""" https://github.com/kana/vim-textobj-user/wiki
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-indent'
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'jceb/vim-textobj-uri'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'thalesmello/vim-textobj-methodcall'
+Plug 'AndrewRadev/sideways.vim'
+"" }}}
+"" Colorscheme 256 {{{
+Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
+"" }}}
+"" Mapping {{{
+" Mappings for simultaneously pressed keys
+Plug 'kana/vim-arpeggio'
+"" }}}
+"" Search Enhance {{{
+Plug 'henrik/vim-indexed-search'
+Plug 'haya14busa/vim-asterisk' | Plug 'inside/vim-search-pulse'
+"" }}}
+"" Langauges Configs {{{
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
+" Plug 'vim-syntastic/syntastic'
+"" }}}
+"" nav {{{
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'wesQ3/vim-windowswap'
+"" }}}
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'asins/vim-dict'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'rking/ag.vim'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
+Plug 'timgreen/vim-re-edit-all'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
+call plug#end()
+
+" }}}
+
+" General {{{
+set autoindent
+set smartindent
+set cindent
+set nowrap
+set mouse=
+set noswapfile
+" always switch to the current directory of the file you are editing
+" see http://vim.wikia.com/wiki/Change_to_the_directory_of_the_current_file
+if exists('+autochdir')
+  set autochdir
+else
+  autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
+set ttyfast
+set ruler
+" }}}
+
+" Wild {{{
+"set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.swp,*.jpg,*.gif,*.png " ignore these
+set wildmenu " turn on command line completion
+set wildmode=full " turn on wild menu with full match
+" }}}
+
+" UI {{{
+set background=dark
+try
+  colorscheme one
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
+set cursorline
+set cursorcolumn
+set lazyredraw       " do not redraw while running macros
+set matchtime=5      " how many tenths of a second to blink matching brackets for
+set showmatch        " show matching brackets
+set number           " turn on line numbers
+set report=0         " tell us when anything is changed via :...
+set shortmess=atToOI " shortens messages
+set showcmd          " show the command being typed
+set sidescrolloff=10 " Keep 5 lines at the size
+set scrolloff=10     " Keep 5 lines (top/bottom) for scope
+" }}}
+
+" Search {{{
+set ignorecase       " case insensitive by default
+set smartcase        " if there are caps, go case-sensitive
+" }}}
+
+" Folding {{{
+set foldcolumn=4 " fold column width
+"   set foldenable " Turn on folding
+"   set foldmarker={,} " Fold C style code (useful with high foldlevel)
+"   set foldmethod=marker " Fold on the marker
+"   set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+"   set foldopen=block,hor,mark,percent,quickfix,tag " what movements to open folds on
+"   function SimpleFoldText() " {
+"      return getline(v:foldstart).' '
+"   endfunction " }
+"   set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
+" }}}
+
+" Misc {{{
+set switchbuf+=usetab,newtab " launch files in new tab in quickfix list
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
+set undolevels=1000
+set undoreload=10000
+" }}} Misc
+
+" Map {{{
+"" forcing use hjkl
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+"" forcing use of tabs
+nnoremap gf :tab drop <cfile><CR>
+cab      e  tab drop
+
+"" tab nav
+nmap <C-Left> :tabprevious<CR>
+nmap <C-Right> :tabnext<CR>
+map <C-Left> :tabprevious<CR>
+map <C-Right> :tabnext<CR>
+imap <C-Left> <ESC>:tabprevious<CR>
+imap <C-Right> <ESC>:tabnext<CR>
+
+map <Space>p :tabprevious<CR>
+map <Space>n :tabnext<CR>
+map <Space>h :tabprevious<CR>
+map <Space>l :tabnext<CR>
+
+map <Space>1 :tabfirst<CR>
+map <Space>2 :tabnext 2<CR>
+map <Space>3 :tabnext 3<CR>
+map <Space>4 :tabnext 4<CR>
+map <Space>5 :tabnext 5<CR>
+map <Space>6 :tabnext 6<CR>
+map <Space>7 :tabnext 7<CR>
+map <Space>8 :tabnext 8<CR>
+map <Space>9 :tabnext 9<CR>
+map <Space>- :tabnext 10<CR>
+map <Space>= :tabnext 11<CR>
+let g:lasttab = 1
+map <Space><Space> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+"" others
+map  <F1> <Nop>
+map! <F1> <Nop>
+"" disable delete in mac
+imap [3~ <Nop>
+
+" Have the indent commands re-highlight the last visual selection to make
+" multiple indentations easier
+vnoremap > >gv
+vnoremap < <gv
+
+function! TODOQFixToggle()
+  if bufname("%") == ""
+    cclose
+    unlet w:qfix_win
+  elseif exists("w:qfix_win")
+    cclose
+    unlet w:qfix_win
+  else
+    vimgrep /TODO\|FIXME/gj %
+    let w:qfix_win=bufname("%")
+    copen 10
+  endif
+endfunction
+map  <F3> <ESC>:call TODOQFixToggle()<CR>
+map! <F3> <ESC>:call TODOQFixToggle()<CR>
+" }}}
+
+" Toggle {{{
+function! s:RunAndEcho(cmd)
+  exe a:cmd
+  echo a:cmd
+endfunction
+
+map th :nohlsearch<CR>
+map tq :cclose<CR>
+map t= :IndentGuidesToggle<CR>
+
+function! ToggleWrap()
+  if &wrap
+    call s:RunAndEcho('set nowrap')
+  else
+    call s:RunAndEcho('set wrap')
+  endif
+endfunction
+map tw :call ToggleWrap()<CR>
+
+function! ToggleCheckSpell()
+  if &spell
+    call s:RunAndEcho('set nospell')
+  else
+    call s:RunAndEcho('set spell')
+  endif
+endfunction
+map ts :call ToggleCheckSpell()<CR>
+
+function! ToggleCursorColumn()
+  if &cursorcolumn
+    call s:RunAndEcho('set nocursorcolumn')
+  else
+    call s:RunAndEcho('set cursorcolumn')
+  endif
+endfunction
+map tc :call ToggleCursorColumn()<CR>
+
+function! ToggleFoldColumn()
+  if &foldcolumn
+    call s:RunAndEcho('set foldcolumn=0')
+  else
+    call s:RunAndEcho('set foldcolumn=4')
+  endif
+endfunction
+map tf :call ToggleFoldColumn()<CR>
+
+function! ToggleRelativeNumber()
+  if &relativenumber
+    call s:RunAndEcho('set norelativenumber')
+  else
+    call s:RunAndEcho('set relativenumber')
+  endif
+endfunction
+map tn :call ToggleRelativeNumber()<CR>
+
+function! ToggleTagBar()
+  call s:RunAndEcho('TagbarToggle')
+endfunction
+map tt :call ToggleTagBar()<CR>
+" }}} Toggle
+
+" FileType {{{
+filetype plugin indent on
+
+augroup filetypedetect
+  "" 让文本文件也有高亮，thanks to xbeta@smth
+  "au BufNewFile,BufRead *.* setf ztxt
+  " 缓冲区写入文件的时候自动检查文件类型
+  au BufWritePost * filet detect
+augroup END
+
+  " Helper functions {{{
+  " Set default indent and tab
+  function! SetTabIndent(i)
+    set linebreak
+    exe "setlocal shiftwidth=" . a:i
+    exe "setlocal tabstop=" . a:i
+    exe "setlocal softtabstop=" . a:i
+    exe "setlocal ts=" . a:i
+    setlocal smarttab
+    setlocal expandtab
+    setlocal smartindent
+    setlocal ai
+    setlocal shiftround
+  endfunction
+  "call SetTabIndent(2)
+
+  function SetTextWidth(i)
+    exe "set textwidth=" . a:i
+    if &textwidth != 0
+      setlocal colorcolumn=+0,+20,-20
+    endif
+  endfunction
+  " }}} Helper functions
+" }}} FileType
+
+" Config netrw {{{
+let g:netrw_keepdir = 0
+"" absolute width of netrw window
+let g:netrw_winsize = -28
+"" tree-view
+let g:netrw_liststyle = 3
+"" sort is affecting only: directories on the top, files below
+let g:netrw_sort_sequence = '[\/]$,*'
+""
+autocmd FileType netrw setl bufhidden=delete
+" }}}
+
+" Plugin Configs {{{
+  " taglist {{{
+  nnoremap <silent> <F8> :TlistUpdate<CR>:TlistToggle<CR>
+  let Tlist_Show_One_File = 1
+  let Tlist_Use_Right_Window = 1
+  let Tlist_Exit_OnlyWindow = 1
+  let Tlist_File_Fold_Auto_Close = 1
+  let Tlist_GainFocus_On_ToggleOpen = 1
+  let Tlist_WinWidth = 70
+  " }}} taglist
+  " snipMate {{{
+  let g:snips_author = 'Tim Green'
+  " }}}
+  " CommandT {{{
+  let g:CommandTMatchWindowAtTop = 1
+  " }}}
+  " ack {{{
+  let g:ackprg="ag --nocolor --nogroup --column"
+  " }}}
+  " vim indent guides {{{
+  let g:indent_guides_auto_colors = 0
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_enable_on_vim_startup = 1
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=lightgrey
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=darkgrey
+  " }}}
+  " neocomplcache {{{
+  " Disable AutoComplPop.
+  let g:acp_enableAtStartup = 0
+  " Use neocomplcache.
+  let g:neocomplcache_enable_at_startup = 1
+  " Use smartcase.
+  let g:neocomplcache_enable_smart_case = 0
+  " Use camel case completion.
+  let g:neocomplcache_enable_camel_case_completion = 1
+  " Use underbar completion.
+  let g:neocomplcache_enable_underbar_completion = 1
+  " Set minimum syntax keyword length.
+  let g:neocomplcache_min_syntax_length = 2
+  let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+  " Define dictionary.
+  let g:neocomplcache_dictionary_filetype_lists = {
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions'
+      \ }
+
+  " Define keyword.
+  if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+  endif
+  let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+  " Plugin key-mappings.
+  imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+  smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+  inoremap <expr><C-g>     neocomplcache#undo_completion()
+  inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+  " <TAB>: completion.
+  "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplcache#close_popup()
+  inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+  " Enable heavy omni completion.
+  if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+  endif
+  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+  let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+  let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+  let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+  " }}}
+  " vim-tagbar {{{
+  let g:tagbar_type_scala = {
+        \ 'ctagstype' : 'scala',
+        \ 'kinds'     : [
+              \ 'p:packages:1',
+              \ 'V:values',
+              \ 'v:variables',
+              \ 'T:types',
+              \ 't:traits',
+              \ 'o:objects',
+              \ 'a:aclasses',
+              \ 'c:classes',
+              \ 'r:cclasses',
+              \ 'm:methods'
+        \ ],
+        \ 'sro'      : '.',
+        \ 'kind2scope' : {
+              \ 'T' : 'type',
+              \ 't' : 'trait',
+              \ 'o' : 'object',
+              \ 'a' : 'abstract class',
+              \ 'c' : 'class',
+              \ 'r' : 'case class'
+        \ },
+        \ 'scope2kind' : {
+              \ 'type'           : 'T',
+              \ 'trait'          : 't',
+              \ 'object'         : 'o',
+              \ 'abstract class' : 'a',
+              \ 'class'          : 'c',
+              \ 'case class'     : 'r'
+        \ }
+  \ }
+  " }}}
+  " javascrpit-libraries-syntax {{{
+  let g:used_javascript_libs = 'jquery,angularjs'
+  " }}}
+  " SyntaxComplete {{{
+  if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+          \	if &omnifunc == "" |
+          \		setlocal omnifunc=syntaxcomplete#Complete |
+          \	endif
+  endif
+  " }}}
+  " fzf {{{
+  let g:fzf_command_prefix = 'Fzf'
+  let g:fzf_buffers_jump = 1
+  let g:fzf_layout = { 'right': '40%' }
+
+  function! Fzf_git_sink(line)
+    let parts = split(a:line, '|')
+    exec 'tabedit' parts[0]
+  endfunction
+
+  command! -bang FzfGit call fzf#run({
+        \ 'source': 'COLUMNS=1000 git diff --stat --relative --color HEAD',
+        \ 'sink': function('Fzf_git_sink'),
+        \ 'options': '--ansi --multi --reverse --header="Opened files in git client:" --preview="echo {} | cut -d\"|\" -f 1 | xargs git diff --color HEAD"',
+        \ 'down': '30%'
+        \})
+  command! -bang FzfGit1 call fzf#run({
+        \ 'source': 'COLUMNS=1000 git diff --stat --relative --color HEAD^',
+        \ 'sink': function('Fzf_git_sink'),
+        \ 'options': '--ansi --multi --reverse --header="Changed files in last git commit:" --preview="echo {} | cut -d\"|\" -f 1 | xargs git diff --color HEAD^"',
+        \ 'down': '30%'
+        \})
+  map <Space>b :FzfBuffers<CR>
+  map <Space>w :FzfWindows<CR>
+  " }}}
+  " lightline {{{
+  set laststatus=2
+  set noshowmode
+  let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [['mode', 'paste'], ['filename', 'modified']],
+  \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+  \ },
+  \ 'component_expand': {
+  \   'linter_warnings': 'LightlineLinterWarnings',
+  \   'linter_errors': 'LightlineLinterErrors',
+  \   'linter_ok': 'LightlineLinterOK'
+  \ },
+  \ 'component_type': {
+  \   'readonly': 'error',
+  \   'linter_warnings': 'warning',
+  \   'linter_errors': 'error'
+  \ },
+  \ }
+
+  function! LightlineLinterWarnings() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+  endfunction
+
+  function! LightlineLinterErrors() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+  endfunction
+
+  function! LightlineLinterOK() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    let l:linters_count = len(ale#linter#Get(&filetype))
+    " Only show ✓ if there is enabled linter for this filetype.
+    return l:linters_count != 0 && l:counts.total == 0 ? '✓ ' : ''
+  endfunction
+
+  autocmd User ALELint call s:MaybeUpdateLightline()
+
+  " Update and show lightline but only if it's visible (e.g., not in Goyo)
+  function! s:MaybeUpdateLightline()
+    if exists('#lightline')
+      call lightline#update()
+    end
+  endfunction
+  set showtabline=2  " Show tabline
+  set guioptions-=e  " Don't use GUI tabline
+  let g:lightline.tabline = {
+    \   'left': [ ['tabs'] ],
+    \   'right': [ ['close'] ]
+    \ }
+  " }}}
+  " sideways {{{
+  omap aa <Plug>SidewaysArgumentTextobjA
+  xmap aa <Plug>SidewaysArgumentTextobjA
+  omap ia <Plug>SidewaysArgumentTextobjI
+  xmap ia <Plug>SidewaysArgumentTextobjI
+  " }}}
+  " Mark--Karkat {{{
+  nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+  nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+  " }}}
+  " indentline {{{
+  let g:indentLine_enabled = 1
+  let g:indentLine_char = '│'
+  " }}}
+  " gruvbox {{{
+  let g:gruvbox_italic = 1
+  let g:gruvbox_italicize_strings = 1
+  let g:gruvbox_italicize_comments = 1
+  " }}}
+  " vim-one {{{
+  let g:one_allow_italics = 1
+  let g:airline_theme='one'
+  " }}}
+  " clever-f {{{
+  let g:clever_f_across_no_line = 1
+  let g:clever_f_smart_case = 0
+  let g:clever_f_chars_match_any_signs = ';'
+  " Disable https://github.com/rhysd/clever-f.vim/issues/11
+  " nmap <Esc> <Plug>(clever-f-reset)
+  " }}}
+  " windowswap {{{
+  let g:windowswap_map_keys = 0 "prevent default bindings
+  nnoremap <silent> <C-w>s :call WindowSwap#EasyWindowSwap()<CR>
+  " }}}
+  " Search enhance {{{
+  let g:indexed_search_mappings = 0
+  let g:vim_search_pulse_disable_auto_mappings = 1
+  nmap *  <Plug>(asterisk-z*)<Plug>Pulse
+  nmap #  <Plug>(asterisk-z#)<Plug>Pulse
+  nmap g* <Plug>(asterisk-gz*)<Plug>Pulse
+  nmap g# <Plug>(asterisk-gz#)<Plug>Pulse
+  nmap n n<Plug>Pulse
+  nmap N N<Plug>Pulse
+  " Pulses cursor line on first match
+  " when doing search with / or ?
+  cmap <silent> <expr> <enter> search_pulse#PulseFirst()
+  augroup Pulse
+    autocmd! User PostPulse
+    autocmd  User PostPulse ShowSearchIndex
+  augroup END
+  " }}}
+  " ALE {{{
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
+  " }}}
+" }}} Plugin Configs
+
+" An example for a gvimrc file. {{{
+" The commands in this are executed when the GUI is started.
+"
+" Maintainer:  Bram Moolenaar <Bram@vim.org>
+" Last change:  2001 Sep 02
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.gvimrc
+"        for Amiga:  s:.gvimrc
+"  for MS-DOS and Win32:  $VIM\_gvimrc
+"      for OpenVMS:  sys$login:.gvimrc
+
+" Make external commands work through a pipe instead of a pseudo-tty
+"set noguipty
+
+" set the X11 font to use
+" set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
+
+set mousehide    " Hide the mouse when typing text
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" Only do this for Vim version 5.0 and later.
+if version >= 500
+
+  " I like highlighting strings inside C comments
+  let c_comment_strings=1
+
+  " Switch on syntax highlighting if it wasn't on yet.
+  if !exists("syntax_on")
+    syntax on
+  endif
+
+  " Switch on search pattern highlighting.
+  set hlsearch
+
+  " For Win32 version, have "K" lookup the keyword in a help file
+  "if has("win32")
+  "  let winhelpfile='windows.hlp'
+  "  map K :execute "!start winhlp32 -k <cword> " . winhelpfile <CR>
+  "endif
+
+  " Set nice colors
+  " background for normal text is light grey
+  " Text below the last line is darker grey
+  " Cursor is green, Cyan when ":lmap" mappings are active
+  " Constants are not underlined but have a slightly lighter background
+endif
+" }}}
+
+" Load ext {{{
+runtime! ext/*.vim
+" }}}

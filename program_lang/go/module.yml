@@ -1,0 +1,6 @@
+requires:
+  - brew
+after:
+  - ../../shell/zsh
+pre-install: |
+  brew install go

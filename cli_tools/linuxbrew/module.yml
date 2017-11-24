@@ -1,0 +1,8 @@
+requires:
+  - git
+after:
+  - ../../skeletons/zsh
+pre-install: |
+  [ -d ~/.linuxbrew ] || {
+    git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+  }

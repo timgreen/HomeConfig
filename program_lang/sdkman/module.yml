@@ -1,0 +1,26 @@
+requires:
+  - curl
+  - yes
+  - sed
+  - zip
+  - unzip
+after:
+  - ../../skeletons/zsh
+pre-install: |
+  [ -d "$HOME/.sdkman" ] || {
+    # Install sdkman without profile modifications.
+    # https://github.com/sdkman/sdkman-cli/issues/556
+    curl -s http://get.sdkman.io | sed -e '/if.*sdkman_bashrc/,$d' | bash
+  }
+post-install: |
+  yes n | {
+    sdk install java 9.0.0-zulu
+    sdk install java 8u144-zulu
+    sdk default java 8u144-zulu
+
+    sdk install gradle 4.3
+    sdk default gradle 4.3
+
+    sdk install scala 2.12.4
+    sdk default scala 2.12.4
+  }

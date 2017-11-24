@@ -1,8 +1,0 @@
-post_install() {
-  zsh < <(cat << EOF
-    brew install nodejs
-EOF
-)
-}
-
-# vim: ft=sh

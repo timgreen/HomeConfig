@@ -1,0 +1,8 @@
+requires:
+  - git
+after:
+  - ../../shell/zsh
+post-install: |
+  git config --global --get include.path \.gitconfig_common &> /dev/null || {
+    git config --global --add include.path .gitconfig_common
+  }
