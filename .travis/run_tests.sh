@@ -11,6 +11,7 @@ if (( ${#images[@]} == 0 )); then
   images=(${all_images[@]})
 fi
 
+set -e
 for image in ${images[@]}; do
   mkdir -p test_home/$image
   docker-compose \
