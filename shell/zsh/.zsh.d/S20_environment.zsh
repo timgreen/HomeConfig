@@ -6,17 +6,17 @@ export EDITOR=vim
 
 ## Path
 path=(
-  $HOME/sh/
-  $HOME/bin/
+  $HOME/sh
+  $HOME/bin
 
-  $HOME/local/bin/                          # user local
+  $HOME/local/bin                          # user local
 
-  /usr/local/bin/                           # local
+  /usr/local/bin                           # local
 
-  $path                                     # System default
-  /sbin/                                    # sbin
-  /usr/sbin/                                # sbin
-  /usr/local/sbin                           # local sbin
+  $path                                    # System default
+  /sbin                                    # sbin
+  /usr/sbin                                # sbin
+  /usr/local/sbin                          # local sbin
 )
 
 # This removes duplicates from PATH, CDPATH, MANPATH, and FPATH
