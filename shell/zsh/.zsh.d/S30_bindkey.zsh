@@ -96,3 +96,10 @@ zle -N copy-whole-line
 # Alt-y
 bindkey "\ey" copy-whole-line
 ## }}}
+
+## Edit command line {{{
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+## }}}
