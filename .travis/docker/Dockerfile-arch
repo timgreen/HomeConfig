@@ -13,6 +13,7 @@ USER yaourt
 RUN yaourt --noconfirm -Syu --aur \
   coreutils \
   findutils \
+  util-linux \
   grep \
   bash \
   zsh \
