@@ -10,7 +10,11 @@ HCM=./hcm-1/hcm
 
 # link hcm.yml
 mkdir -p ~/.hcm
-ln -sf /source/hcm.yml ~/.hcm/hcm.yml
+{
+  echo "shell: zsh"
+  echo "lists:"
+  echo "  - /source/list.yml"
+} > ~/.hcm/hcm.yml
 
 # hcm sync
 $HCM sync -f
