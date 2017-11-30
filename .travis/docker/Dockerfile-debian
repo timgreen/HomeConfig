@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 # required tools
 RUN apt-get install -y \
+  procps \
   curl \
   vim \
   tmux \

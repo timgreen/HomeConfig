@@ -25,6 +25,7 @@ RUN yaourt --noconfirm -Syu --aur \
 
 # required tools
 RUN yaourt --noconfirm -S \
+  procps \
   curl \
   vim \
   tmux \

@@ -1,0 +1,9 @@
+requires:
+  - ps
+after:
+  - ../../shell/zsh
+pre-install: |
+  \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles --autolibs=disable
+post-install: |
+  rvm install ruby-2.4.2
+  rvm use --default ruby-2.4.2

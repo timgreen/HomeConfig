@@ -12,6 +12,7 @@ modules:
   - git/fzf_git
   - git/git
   - git/tig
+  - program_lang/ruby
   - program_lang/sdkman
   - shell/zsh
   - skeletons/zsh
