@@ -1,7 +1,7 @@
 requires:
   - ps
 after:
-  - ../../shell/zsh
+  - ../../skeletons/zsh
 pre-install: |
   \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles --autolibs=disable
 post-install: |
