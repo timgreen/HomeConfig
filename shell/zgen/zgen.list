@@ -1,0 +1,7 @@
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+bric3/nice-exit-code
+nviennot/zsh-vim-plugin              # support vi file:123
+supercrabtree/k
+zdharma/fast-syntax-highlighting
+# TODO: fzf is missing
