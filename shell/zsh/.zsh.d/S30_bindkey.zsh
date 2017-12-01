@@ -6,18 +6,6 @@ bindkey -e
 ## 设置 [DEL]键 为向后删除
 bindkey "\e[3~" delete-char
 
-## 自动添加 sudo {{{
-sudo-command-line() {
-  [[ -z $BUFFER ]] && zle up-history
-  [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-  # 光标移动到行末
-  zle end-of-line
-}
-zle -N sudo-command-line
-# 定义快捷键为: [Esc] s
-bindkey "\es" sudo-command-line
-## }}}
-
 ## 移动光标到第一下参数的前 {{{
 move-to-first-param() {
   zle beginning-of-line

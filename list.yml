@@ -16,7 +16,6 @@ modules:
   - program_lang/sdkman
   - shell/zsh
   - skeletons/zsh
-  - term/dircolors
   - term/man_color
   - term/readline
   - term_multiplexer/screen
