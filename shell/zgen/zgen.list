@@ -2,9 +2,9 @@ MichaelAquilina/zsh-you-should-use   # reminds the existing aliases
 bric3/nice-exit-code
 hcgraf/zsh-sudo                      # toggles "sudo" by pressing [ESC][ESC]
 joel-porquet/zsh-dircolors-solarized
+junegunn/fzf shell                   # fzf
 nviennot/zsh-vim-plugin              # support vi file:123
 supercrabtree/k
 zdharma/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
-# TODO: fzf is missing
