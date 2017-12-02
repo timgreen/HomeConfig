@@ -3,7 +3,7 @@ requires:
   - ruby
 after:
   - ../../skeletons/zsh
-  - ../../program_lang/ruby
+  # - ../../program_lang/ruby
 pre-install: |
   [ -d ~/.linuxbrew ] || {
     git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
