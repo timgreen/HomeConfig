@@ -1,0 +1,14 @@
+after:
+  - ../../skeletons/zsh
+pre-install: |
+  ZGEN_HOME="$HOME/.zgen"
+  [ -d "$ZGEN_HOME" ] || {
+    git clone https://github.com/tarjoilija/zgen.git
+  }
+post-install: |
+  zgen selfupdate
+  zgen loadall < <(sed 's/\s*#.*$//' zgen.list)
+  zgen save
+  zgen update
+post-uninstall: |
+  rm -f "$HOME/.zgen/init.zsh"
