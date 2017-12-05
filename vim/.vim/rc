@@ -90,6 +90,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'wesQ3/vim-windowswap'
 "" }}}
+Plug 'SidOfc/mkdx'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'asins/vim-dict'
@@ -99,12 +100,12 @@ Plug 'rhysd/clever-f.vim'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/', 'for': 'html'}
 Plug 'timgreen/vim-re-edit-all'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 " }}}
