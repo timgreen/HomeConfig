@@ -5,7 +5,7 @@ after:
 pre-install: |
   ZGEN_HOME="$HOME/.zgen"
   [ -d "$ZGEN_HOME" ] || {
-    git clone https://github.com/tarjoilija/zgen.git
+    git clone https://github.com/tarjoilija/zgen.git "$ZGEN_HOME"
   }
 post-install: |
   yes | zgen selfupdate
