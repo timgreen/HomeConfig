@@ -1,3 +1,5 @@
+requires:
+  - yes
 after:
   - ../../skeletons/zsh
 pre-install: |
@@ -6,9 +8,9 @@ pre-install: |
     git clone https://github.com/tarjoilija/zgen.git
   }
 post-install: |
-  zgen selfupdate
+  yes | zgen selfupdate
   zgen loadall < <(sed 's/\s*#.*$//' zgen.list)
   zgen save
-  zgen update
+  yes n | zgen update
 post-uninstall: |
   rm -f "$HOME/.zgen/init.zsh"
