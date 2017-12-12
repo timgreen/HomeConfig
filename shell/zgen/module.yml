@@ -8,9 +8,6 @@ pre-install: |
     git clone https://github.com/tarjoilija/zgen.git "$ZGEN_HOME"
   }
 post-install: |
-  yes | zgen selfupdate
-  zgen loadall < <(sed 's/\s*#.*$//' zgen.list)
-  zgen save
-  yes n | zgen update
+  $HOME/sh/init_zgen.zsh
 post-uninstall: |
   rm -f "$HOME/.zgen/init.zsh"
