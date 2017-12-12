@@ -16,6 +16,7 @@ modules:
   - program_lang/sdkman
   - shell/zgen
   - shell/zsh
+  - skeletons/zgen
   - skeletons/zsh
   - term/man_color
   - term/readline

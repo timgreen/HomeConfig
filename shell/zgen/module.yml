@@ -1,13 +1,5 @@
-requires:
-  - yes
 after:
-  - ../../skeletons/zsh
-pre-install: |
-  ZGEN_HOME="$HOME/.zgen"
-  [ -d "$ZGEN_HOME" ] || {
-    git clone https://github.com/tarjoilija/zgen.git "$ZGEN_HOME"
-  }
+  - ../../skeletons/zgen
 post-install: |
   $HOME/sh/init_zgen.zsh
-post-uninstall: |
-  rm -f "$HOME/.zgen/init.zsh"
+
