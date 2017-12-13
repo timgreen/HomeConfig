@@ -9,7 +9,6 @@ pre-install: |
   }
 post-install: |
   yes | zgen selfupdate
-  yes n | zgen update
   $HOME/sh/init_zgen.zsh
 post-uninstall: |
   rm -f "$HOME/.zgen/init.zsh"
