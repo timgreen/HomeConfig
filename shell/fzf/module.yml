@@ -1,0 +1,5 @@
+after:
+  - ../../skeletons/zgen
+post-install: |
+  $HOME/sh/init_zgen.zsh
+
