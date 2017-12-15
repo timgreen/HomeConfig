@@ -5,11 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile-debian
     volumes:
-      - &v_source
-        ../../:/source:ro
-      - &v_script
-        ../hcm_sync.sh:/hcm_sync.sh:ro
-      - ../test_home/debian:/home/timgreen
+      - ../../:/source:ro
+      - ../hcm_sync.sh:/hcm_sync.sh:ro
     command:
       - bash
       - /hcm_sync.sh
@@ -18,7 +15,3 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-arch
-    volumes:
-      - *v_source
-      - *v_script
-      - ../test_home/arch:/home/timgreen

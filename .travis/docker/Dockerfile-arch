@@ -33,4 +33,8 @@ RUN yaourt --noconfirm -S \
   unzip \
   zip
 
+USER root
+ARG UID
+RUN useradd -u $UID -ms /bin/bash timgreen
 ENV HOME /home/timgreen
+USER timgreen

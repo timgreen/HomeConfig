@@ -13,7 +13,6 @@ fi
 
 set -e
 for image in ${images[@]}; do
-  mkdir -p test_home/$image
   docker-compose \
     -f docker/docker-compose.yml \
     run \

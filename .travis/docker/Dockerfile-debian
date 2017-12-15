@@ -30,5 +30,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils locales \
   && dpkg-reconfigure --frontend=noninteractive locales \
   && update-locale LANG=en_US.UTF-8
 
+ARG UID
+RUN useradd -u $UID -ms /bin/bash timgreen
 ENV HOME /home/timgreen
 USER timgreen
