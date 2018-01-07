@@ -1,5 +1,5 @@
 requires:
-  - tic
+  - /usr/bin/tic
   - git
   - tmux
 after:
@@ -20,4 +20,4 @@ pre-install: |
 post-install: |
   ~/.tmux/plugins/tpm/bindings/install_plugins
 
-  tic "$HOME/.terminfo/tmux.txt"
+  /usr/bin/tic "$HOME/.terminfo/tmux.txt"
