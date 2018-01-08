@@ -1,0 +1,4 @@
+patch:
+  schema_list:
+    - schema: wubi_pinyin          # 五笔拼音混合輸入
+    # - schema: wubi86               # 五笔86

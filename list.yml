@@ -12,6 +12,7 @@ modules:
   - git/fzf_git
   - git/git
   - git/tig
+  - input_method/rime
   # - program_lang/ruby
   - program_lang/sdkman
   - shell/fzf
