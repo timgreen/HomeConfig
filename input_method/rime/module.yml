@@ -1,5 +1,5 @@
 # https://wiki.archlinux.org/index.php/IBus
-# https://wiki.archlinux.org/index.php/Fcitx_(简体中文)
+# https://wiki.archlinux.org/index.php/Fcitx
 requires:
   - fcitx
   - rime_deployer # for rime
