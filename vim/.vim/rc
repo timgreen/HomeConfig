@@ -152,6 +152,8 @@ set shortmess=atToOI " shortens messages
 set showcmd          " show the command being typed
 set sidescrolloff=10 " Keep 5 lines at the size
 set scrolloff=10     " Keep 5 lines (top/bottom) for scope
+set concealcursor=   " The cursor line concealed text is not hidden
+set conceallevel=2
 " }}}
 
 " Search {{{
@@ -583,6 +585,7 @@ autocmd FileType netrw setl bufhidden=delete
   " indentline {{{
   let g:indentLine_enabled = 1
   let g:indentLine_char = '│'
+  let g:indentLine_setConceal = 0
   " }}}
   " gruvbox {{{
   let g:gruvbox_italic = 1
