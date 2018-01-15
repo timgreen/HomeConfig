@@ -10,7 +10,7 @@ pre-install: |
   [ -d "$HOME/.sdkman" ] || {
     # Install sdkman without profile modifications.
     # https://github.com/sdkman/sdkman-cli/issues/556
-    curl -s http://get.sdkman.io | sed -e '/if.*sdkman_bashrc/,$d' | bash
+    curl -s http://get.sdkman.io | sed -e '/if.*darwin ==/,$d' | bash
   }
 post-install: |
   yes n | {
