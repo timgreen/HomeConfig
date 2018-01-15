@@ -512,6 +512,8 @@ autocmd FileType netrw setl bufhidden=delete
         \})
   map <Space>b :FzfBuffers<CR>
   map <Space>w :FzfWindows<CR>
+  map <Space>: :FzfCommands!<CR>
+  map <Space>H :FzfHelptags<CR>
   " }}}
   " lightline {{{
   set laststatus=2
