@@ -82,8 +82,8 @@ Plug 'henrik/vim-indexed-search'
 Plug 'haya14busa/vim-asterisk' | Plug 'inside/vim-search-pulse'
 "" }}}
 "" Langauges Configs {{{
-Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot' "A collection of language packs for Vim.
 " Plug 'vim-syntastic/syntastic'
 "" }}}
 "" nav {{{
@@ -624,6 +624,11 @@ autocmd FileType netrw setl bufhidden=delete
   " ALE {{{
   let g:ale_set_loclist = 0
   let g:ale_set_quickfix = 1
+  " }}}
+  " vim-polyglot {{{
+  "" markdown
+  let g:vim_markdown_frontmatter = 1
+  let g:vim_markdown_math = 1
   " }}}
 " }}} Plugin Configs
 
