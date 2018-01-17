@@ -22,7 +22,8 @@ RUN apt-get install -y \
   tmux \
   git \
   unzip \
-  zip
+  zip \
+  fcitx-rime
 
 # UTF-8
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils locales \

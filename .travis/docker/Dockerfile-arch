@@ -31,7 +31,8 @@ RUN yaourt --noconfirm -S \
   tmux \
   git \
   unzip \
-  zip
+  zip \
+  fcitx-rime
 
 USER root
 ARG UID
