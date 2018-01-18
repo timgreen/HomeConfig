@@ -10,6 +10,7 @@ path=(
   $HOME/bin
 
   $HOME/local/bin                          # user local
+  $HOME/.local/bin                         # e.g. pip install --local
 
   /usr/local/bin                           # local
 
