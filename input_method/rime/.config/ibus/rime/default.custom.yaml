@@ -7,7 +7,7 @@ patch:
       Control_R: noop
       Eisu_toggle: clear
       Shift_L: clear
-      Shift_R: clear
+      Shift_R: noop
   schema_list:
     - schema: wubi_pinyin          # 五笔拼音混合輸入
     # - schema: wubi86               # 五笔86
@@ -19,3 +19,7 @@ patch:
       - "Control+grave"
       - "Control+Shift+grave"
       # get rid of "F4"
+  punctuator:
+    import_preset: alternative
+  key_binder:
+    import_preset: alternative
