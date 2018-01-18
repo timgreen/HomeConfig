@@ -1,5 +1,8 @@
 requires:
   - ps
+provides:
+  - rvm
+  - ruby
 after:
   - ../../skeletons/zsh
 pre-install: |

@@ -1,4 +1,6 @@
 requires:
   - brew
+provides:
+  - tig
 pre-install: |
   which tig &> /dev/null || brew install tig

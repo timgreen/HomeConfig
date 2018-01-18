@@ -1,4 +1,7 @@
 requires:
   - brew
+provides:
+  - node
+  - npm
 pre-install: |
   brew install nodejs

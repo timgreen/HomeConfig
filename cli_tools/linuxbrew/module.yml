@@ -1,6 +1,8 @@
 requires:
   - git
   # - ruby
+provides:
+  - brew
 after:
   - ../../skeletons/zsh
   # - ../../program_lang/ruby

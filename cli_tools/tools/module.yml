@@ -1,5 +1,10 @@
 requires:
   - brew
+provides:
+  - scalafmt
+  - jq
+  - yq
+  - fzf
 pre-install: |
   which scalafmt &> /dev/null || brew install --HEAD olafurpg/scalafmt/scalafmt
   which jq       &> /dev/null || brew install jq

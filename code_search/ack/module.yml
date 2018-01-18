@@ -1,5 +1,8 @@
 requires:
   - brew
+provides:
+  - ack
+  - ag
 post-install: |
   which ack &> /dev/null || brew install ack
   which ag  &> /dev/null || brew install ag

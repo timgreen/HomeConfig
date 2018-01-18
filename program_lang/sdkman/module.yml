@@ -4,6 +4,11 @@ requires:
   - sed
   - zip
   - unzip
+provides:
+  - sdk
+  - java
+  - gradle
+  - scala
 after:
   - ../../skeletons/zsh
 pre-install: |

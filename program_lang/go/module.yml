@@ -1,5 +1,7 @@
 requires:
   - brew
+provides:
+  - go
 after:
   - ../../shell/zsh
 pre-install: |
