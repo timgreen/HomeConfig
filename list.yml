@@ -18,6 +18,7 @@ modules:
   - shell/fzf
   - shell/zgen
   - shell/zsh
+  - skeletons/vim-plug
   - skeletons/zgen
   - skeletons/zsh
   - term/man_color
