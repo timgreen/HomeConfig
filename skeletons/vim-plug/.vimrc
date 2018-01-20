@@ -6,16 +6,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-let g:onPlugLoadCallbacks = []
+let s:onPlugLoadCallbacks = []
 function! OnPlugLoad(name, exec)
-  if has_key(g:plugs, a:name) && (has_key(g:plugs[a:name], 'on') || has_key(g:plugs[a:name], 'for'))
-    execute 'autocmd! User' a:name a:exec
-  else
-    " `execute 'autocmd VimEnter *' a:exec` doesn't work with colorscheme <x>.
-    function! PlugOnLoadInner() closure
-      execute a:exec
-    endfunction
-    call add(g:onPlugLoadCallbacks, funcref('PlugOnLoadInner'))
+  if has_key(g:plugs, a:name) && isdirectory(expand($HOME . '/.vim/plugged/' . a:name))
+    if (has_key(g:plugs[a:name], 'on') || has_key(g:plugs[a:name], 'for'))
+      execute 'autocmd! User' a:name a:exec
+    else
+      " `execute 'autocmd VimEnter *' a:exec` doesn't work with colorscheme <x>.
+      function! PlugOnLoadInner() closure
+        execute a:exec
+      endfunction
+      call add(s:onPlugLoadCallbacks, funcref('PlugOnLoadInner'))
+    endif
   endif
 endfunction
 
@@ -25,6 +27,6 @@ for rc in split(glob('~/.vim/rc_*.vim'), '\n')
 endfor
 call plug#end()
 
-for Callback in g:onPlugLoadCallbacks
+for Callback in s:onPlugLoadCallbacks
   call Callback()
 endfor
