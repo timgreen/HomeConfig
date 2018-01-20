@@ -1,19 +1,17 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
 "" Colorscheme 256
+set background=dark
 " Plug 'junegunn/seoul256.vim'
 " Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
-set background=dark
-call OnPlugLoad('vim-one', 'colorscheme one')
 " " gruvbox {{{
 " let g:gruvbox_italic = 1
 " let g:gruvbox_italicize_strings = 1
 " let g:gruvbox_italicize_comments = 1
 " " }}}
-" vim-one {{{
-let g:one_allow_italics = 1
-" }}}
+Plug 'rakr/vim-one'
+  let g:one_allow_italics = 1
+call OnPlugLoad('vim-one', 'colorscheme one')
 
 " UI
 set concealcursor=   " The cursor line concealed text is not hidden
