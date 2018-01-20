@@ -14,6 +14,13 @@ Plug 'vim-scripts/libList.vim'
 Plug 'vim-scripts/gitdiff.vim'
 Plug 'airblade/vim-gitgutter'
 " }}} git
+Plug 'chip/vim-fat-finger' " Auto correct typo
+function! SetFatFingers()
+  iabbrev Stirng String
+endfunction
+call OnPlugLoad('vim-fat-finger', 'call SetFatFingers()')
+Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and more
+Plug 'junegunn/vim-peekaboo' " Peekaboo extends \" and @ in normal mode and <CTRL-R> in insert mode so you can see the contents of the registers.
 
 " Helper functions {{{
 " Set default indent and tab
