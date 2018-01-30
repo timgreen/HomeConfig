@@ -17,6 +17,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chip/vim-fat-finger' " Auto correct typo
 function! SetFatFingers()
   iabbrev Stirng String
+  iabbrev funciton function
+  iabbrev Funciton Function
 endfunction
 call OnPlugLoad('vim-fat-finger', 'call SetFatFingers()')
 Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and more
