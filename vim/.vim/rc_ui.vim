@@ -45,7 +45,7 @@ Plug 'itchyny/lightline.vim'
   \ 'colorscheme': 'wombat',
   \ 'active': {
   \   'left': [['mode', 'paste'], ['filename', 'modified']],
-  \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+  \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok'], ['filetype']]
   \ },
   \ 'component_expand': {
   \   'linter_warnings': 'LightlineLinterWarnings',
@@ -109,4 +109,19 @@ Plug 'w0rp/ale'
 " ALE {{{
   let g:ale_set_loclist = 0
   let g:ale_set_quickfix = 1
+" }}}
+
+Plug 'ryanoasis/vim-devicons'
+" vim-devicons {{{
+  function! DevIconsFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  endfunction
+  function! DevIconsFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
+  if !exists('g:lightline.component_function')
+    let g:lightline.component_function = {}
+  endif
+  let g:lightline.component_function.filetype = 'DevIconsFiletype'
+  let g:lightline.component_function.fileformat = 'DevIconsFileformat'
 " }}}
