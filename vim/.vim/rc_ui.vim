@@ -125,3 +125,5 @@ Plug 'ryanoasis/vim-devicons'
   let g:lightline.component_function.filetype = 'DevIconsFiletype'
   let g:lightline.component_function.fileformat = 'DevIconsFileformat'
 " }}}
+
+Plug 'mhinz/vim-startify'
