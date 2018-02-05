@@ -15,3 +15,7 @@ Plug 'SidOfc/mkdx'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tomtom/tcomment_vim'
+" Markdown
+Plug 'dpelle/vim-LanguageTool'
+" Rely on `brew install languagetool`
+let g:languagetool_jar='$HOME/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'

@@ -1,6 +1,9 @@
 requires:
   - vim
+  - brew
 afters:
   - ../skeletons/vim-plug
 post-install: |
+  # For vim-LanguageTool plugin.
+  brew install languagetool
   vim +PlugInstall +PlugClean! +qall
