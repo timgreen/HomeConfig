@@ -25,3 +25,7 @@ map <Space>= :tabnext 11<CR>
 let g:lasttab = 1
 map <Space><Space> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+
+""
+Plug 'scrooloose/nerdtree'
+
