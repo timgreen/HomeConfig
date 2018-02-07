@@ -1,6 +1,8 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
+" tmux
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 "" forcing use of tabs
 nnoremap gf :tab drop <cfile><CR>
