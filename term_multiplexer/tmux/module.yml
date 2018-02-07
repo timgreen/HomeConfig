@@ -4,6 +4,7 @@ requires:
   - tmux
 after:
   - ../../shell/zsh
+  - ../../term/nerd_fonts
 pre-install: |
   mkdir -p ~/.tmux/plugins
   mkdir -p ~/.tmux/tmuxifier-layouts
