@@ -1,9 +1,11 @@
 requires:
   - vim
   - brew
+  - npm # for ternjs
 afters:
   - ../skeletons/vim-plug
 post-install: |
   # For vim-LanguageTool plugin.
-  brew install languagetool
+  which languagetool &> /dev/null || brew install languagetool
+
   vim +PlugInstall +PlugClean! +qall
