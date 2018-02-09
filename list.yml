@@ -15,6 +15,7 @@ modules:
   - input_method/rime
   # - program_lang/ruby
   - program_lang/sdkman
+  - program_lang/nodejs
   - shell/fzf
   - shell/zgen
   - shell/zsh

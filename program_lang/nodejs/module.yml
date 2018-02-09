@@ -3,5 +3,7 @@ requires:
 provides:
   - node
   - npm
+  - yarn
 pre-install: |
-  brew install nodejs
+  which npm &> /dev/null || brew install nodejs
+  which yarn &> /dev/null || npm install -g yarn
