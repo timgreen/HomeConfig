@@ -13,9 +13,9 @@ modules:
   - git/git
   - git/tig
   - input_method/rime
+  - program_lang/nodejs
   # - program_lang/ruby
   - program_lang/sdkman
-  - program_lang/nodejs
   - shell/fzf
   - shell/zgen
   - shell/zsh
