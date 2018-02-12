@@ -13,6 +13,7 @@ modules:
   - git/git
   - git/tig
   - input_method/rime
+  - program_lang/go
   - program_lang/nodejs
   # - program_lang/ruby
   - program_lang/sdkman

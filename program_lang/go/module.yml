@@ -5,4 +5,4 @@ provides:
 after:
   - ../../shell/zsh
 pre-install: |
-  brew install go
+  which go &> /dev/null || brew install go
