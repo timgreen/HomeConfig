@@ -3,5 +3,13 @@ requires:
 provides:
   - node
   - npm
+  - yarn
 pre-install: |
   which npm &> /dev/null || brew install nodejs
+  # config npm, NODE_PATH set to ~/.node/lib/node_modules in zsh
+  mkdir -p ~/.node
+  npm config set prefix ~/.node
+  npm install -g npm
+post-install: |
+  which yarn &> /dev/null || npm install -g yarn
+  yarn config set prefix ~/.node
