@@ -24,7 +24,7 @@ RUN yaourt --noconfirm -Syu --aur \
   yq
 
 # required tools
-RUN yaourt --noconfirm -S \
+RUN yaourt --noconfirm -Syu --aur \
   procps \
   curl \
   vim \
@@ -33,6 +33,12 @@ RUN yaourt --noconfirm -S \
   unzip \
   zip \
   fcitx-rime
+
+ARG INCLUDE_NODE_JS=false
+RUN $INCLUDE_NODE_JS && \
+  yaourt --noconfirm -Syu --aur \
+  nodejs \
+  npm
 
 USER root
 ARG UID

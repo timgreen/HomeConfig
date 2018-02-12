@@ -3,8 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker-compose -f .travis/docker/docker-compose.yml build --build-arg UID=$UID arch
-  - docker-compose -f .travis/docker/docker-compose.yml build --build-arg UID=$UID debian
+  - docker-compose -f .travis/docker/docker-compose.yml build --build-arg UID=$UID --build-arg INCLUDE_NODE_JS=true arch
+  - docker-compose -f .travis/docker/docker-compose.yml build --build-arg UID=$UID --build-arg INCLUDE_NODE_JS=true debian
 
 script:
-  - travis_wait 60 .travis/run_tests.sh
+  - .travis/run_tests.sh

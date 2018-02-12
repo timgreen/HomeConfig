@@ -31,6 +31,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils locales \
   && dpkg-reconfigure --frontend=noninteractive locales \
   && update-locale LANG=en_US.UTF-8
 
+ARG INCLUDE_NODE_JS=false
+RUN $INCLUDE_NODE_JS && \
+  curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+  apt-get install -y \
+  nodejs
+
 ARG UID
 RUN useradd -u $UID -ms /bin/bash timgreen
 ENV HOME /home/timgreen
