@@ -2,7 +2,7 @@
 
 au BufWritePost *
       \	if &filetype == "" |
-      \   filetype detect
+      \   filetype detect  |
       \	endif
 
 Plug 'sheerun/vim-polyglot' "A collection of language packs for Vim.
