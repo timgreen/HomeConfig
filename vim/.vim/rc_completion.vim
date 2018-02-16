@@ -19,6 +19,12 @@ Plug 'artur-shaik/vim-javacomplete2'
   " TODO: figure out why call JCstart in autocmd will get vim stuck on startup.
   let g:JaveComplete_AutoStartServer = 0
   function JavacompleteStart(timer)
+    " Cleanup legacy process, for some reason the java process has been left
+    " over after vim terminated.
+    call job_start(
+          \['bash', '-c', 'pgrep -f -P 1 -- "java -Djava.system.class.loader=magicjar" | xargs -r -n 1 kill -9'],
+          \{'out_io': 'null'}
+          \)
     JCstart
   endfunction
   autocmd Filetype java call timer_start(100, 'JavacompleteStart')
