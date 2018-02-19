@@ -1,24 +1,9 @@
 requires:
   - /usr/bin/tic
-  - git
   - tmux
 after:
+  - ../../skeletons/tmux
   - ../../shell/zsh
   - ../../term/nerd_fonts
-pre-install: |
-  mkdir -p ~/.tmux/plugins
-  mkdir -p ~/.tmux/tmuxifier-layouts
-
-  [ -d ~/.tmux/plugins/tpm ] || {
-    echo "Installing TPM ..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  }
-
-  [ -d ~/.tmux/tmuxifier ] || {
-    echo "installing Tmuxifier ..."
-    git clone https://github.com/jimeh/tmuxifier.git ~/.tmux/tmuxifier
-  }
 post-install: |
-  ~/.tmux/plugins/tpm/bindings/install_plugins
-
   /usr/bin/tic "$HOME/.terminfo/tmux.txt"
