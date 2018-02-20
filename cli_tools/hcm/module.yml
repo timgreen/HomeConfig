@@ -1,5 +1,7 @@
 requires:
   - git
+after:
+  - ../../skeletons/zsh
 provides:
   - hcm
 pre-install: |
