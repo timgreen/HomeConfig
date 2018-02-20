@@ -7,6 +7,7 @@ after:
   - ../../skeletons/zsh
   # - ../../program_lang/ruby
 pre-install: |
-  [ -d ~/.linuxbrew ] || {
-    git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+  [ -d /home/linuxbrew/.linuxbrew ] || {
+    mkdir -p /home/linuxbrew
+    git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
   }
