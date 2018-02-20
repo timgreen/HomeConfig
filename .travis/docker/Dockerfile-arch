@@ -34,12 +34,6 @@ RUN yaourt --noconfirm -Syu --aur \
   zip \
   fcitx-rime
 
-ARG INCLUDE_NODE_JS=false
-RUN $INCLUDE_NODE_JS && \
-  yaourt --noconfirm -Syu --aur \
-  nodejs \
-  npm
-
 USER root
 ARG UID
 RUN useradd -u $UID -ms /bin/bash timgreen
