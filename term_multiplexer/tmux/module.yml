@@ -7,3 +7,6 @@ after:
   - ../../term/nerd_fonts
 post-install: |
   /usr/bin/tic "$HOME/.terminfo/tmux.txt"
+  # The install script requires a running tmux server.
+  # And start-server will exit if there is no running session.
+  tmux start-server \; run-shell ~/.tmux/plugins/tpm/bindings/install_plugins

@@ -14,5 +14,8 @@ pre-install: |
     echo "installing Tmuxifier ..."
     git clone https://github.com/jimeh/tmuxifier.git ~/.tmux/tmuxifier
   }
-post-install: |
-  ~/.tmux/plugins/tpm/bindings/install_plugins
+
+  # Include following line in `post-install` of the module adding tpm plugins.
+  # # The install script requires a running tmux server.
+  # # And start-server will exit if there is no running session.
+  # tmux start-server \; run-shell ~/.tmux/plugins/tpm/bindings/install_plugins
