@@ -40,4 +40,6 @@ RUN $INCLUDE_NODE_JS && \
 ARG UID
 RUN useradd -u $UID -ms /bin/bash timgreen
 ENV HOME /home/timgreen
+RUN mkdir /home/linuxbrew \
+  && chown timgreen /home/linuxbrew
 USER timgreen
