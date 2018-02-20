@@ -19,6 +19,3 @@ path=(
   /usr/sbin                                # sbin
   /usr/local/sbin                          # local sbin
 )
-
-# This removes duplicates from PATH, CDPATH, MANPATH, and FPATH
-typeset -U path manpath fpath
