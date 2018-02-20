@@ -1,0 +1,6 @@
+requires:
+  - git
+provides:
+  - hcm
+pre-install: |
+  [ -d ~/.hcm/repo ] || install_hcm.sh
