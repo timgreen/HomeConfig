@@ -14,7 +14,7 @@ Plug 'rakr/vim-one'
 call OnPlugLoad('vim-one', 'colorscheme one')
 
 " UI
-set concealcursor=   " The cursor line concealed text is not hidden
+set concealcursor=n  " The cursor line concealed text is not hidden
 set conceallevel=2
 set cursorcolumn
 set cursorline
