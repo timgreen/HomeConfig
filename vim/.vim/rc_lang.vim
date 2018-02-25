@@ -18,4 +18,4 @@ Plug 'tomtom/tcomment_vim'
 " Markdown
 Plug 'dpelle/vim-LanguageTool'
 " Rely on `brew install languagetool`
-let g:languagetool_jar='$HOME/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
+let g:languagetool_jar='/home/linuxbrew/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
