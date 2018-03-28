@@ -1,6 +1,7 @@
 requires:
   - aria2c
   - unzip
+  - fc-cache
 pre-install: |
   cd /dev/shm/
   aria2c 'https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/Hack.zip'
