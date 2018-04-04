@@ -3,6 +3,7 @@ modules:
   - chrome/Surfingkeys
   - cli_tools/hcm
   - cli_tools/linuxbrew
+  - cli_tools/remark
   - cli_tools/tools
   - code_search/ack
   - code_search/ctags

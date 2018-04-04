@@ -1,0 +1,17 @@
+# Setting for remark-stringify
+settings:
+  bullet: '*'
+  fences: true
+  incrementListMarker: true
+  listItemIndent: 'tab'
+  rule: '-'
+  ruleRepetition: 80
+  ruleSpaces: false
+  strong: '*'
+  emphasis: '_'
+# Setting for remark-lint
+plugins:
+  - remark-preset-lint-recommended
+  - remark-frontmatter
+  - ['remark-lint-list-item-indent', "tab-size"]
+  - ["remark-lint-maximum-line-length", ["warn", 80]]

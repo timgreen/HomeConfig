@@ -1,0 +1,12 @@
+requires:
+  - npm
+provides:
+  - remark
+post-install: |
+  npm install -g remark-cli
+  # And all the plugins mentioned in the config.
+  npm install -g \
+      remark-frontmatter \
+      remark-lint-maximum-line-length \
+      remark-preset-lint-recommended \
+      remark-lint-list-item-indent \
