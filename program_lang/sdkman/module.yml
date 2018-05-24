@@ -9,6 +9,7 @@ provides:
   - java
   - gradle
   - scala
+  - sbt
 after:
   - ../../skeletons/zsh
 pre-install: |
@@ -27,4 +28,7 @@ post-install: |
 
     sdk install scala 2.12.4
     sdk default scala 2.12.4
+
+    sdk install sbt 1.1.5
+    sdk default sbt 1.1.5
   }
