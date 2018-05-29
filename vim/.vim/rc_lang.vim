@@ -61,3 +61,5 @@ Plug 'tomtom/tcomment_vim'
 Plug 'dpelle/vim-LanguageTool'
 " Rely on `brew install languagetool`
 let g:languagetool_jar='/home/linuxbrew/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
+" Typescript
+Plug 'Quramy/tsuquyomi'
