@@ -1,5 +1,6 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
+Plug 'wellle/targets.vim'
 """ https://github.com/kana/vim-textobj-user/wiki
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
