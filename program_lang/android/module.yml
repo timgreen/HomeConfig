@@ -2,5 +2,7 @@ requires:
   - brew
 after:
   - ../../shell/zsh
+provides:
+  - adb
 pre-install: |
-  brew install android-sdk
+  which adb &> /dev/null || brew install android-platform-tools
