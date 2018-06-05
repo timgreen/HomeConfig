@@ -58,8 +58,13 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tomtom/tcomment_vim'
 " Markdown
-Plug 'dpelle/vim-LanguageTool'
+Plug 'dpelle/vim-LanguageTool', {
+  \ 'do': 'brew install languagetool' }
 " Rely on `brew install languagetool`
 let g:languagetool_jar='/home/linuxbrew/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
 " Typescript
 Plug 'Quramy/tsuquyomi'
+" Prettier
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
