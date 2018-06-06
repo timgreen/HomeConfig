@@ -63,7 +63,9 @@ Plug 'dpelle/vim-LanguageTool', {
 " Rely on `brew install languagetool`
 let g:languagetool_jar='/home/linuxbrew/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
 " Typescript
-Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/tsuquyomi', {
+  \ 'do': 'npm -g install typescript',
+  \ 'for': ['typescript'] }
 " Prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
