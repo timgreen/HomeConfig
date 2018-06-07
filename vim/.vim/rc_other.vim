@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'
 " }}} git
 Plug 'chip/vim-fat-finger' " Auto correct typo
 function! SetFatFingers()
+  iabbrev stirng string
   iabbrev Stirng String
   iabbrev funciton function
   iabbrev Funciton Function

@@ -60,13 +60,22 @@ Plug 'tomtom/tcomment_vim'
 " Markdown
 Plug 'dpelle/vim-LanguageTool', {
   \ 'do': 'brew install languagetool' }
-" Rely on `brew install languagetool`
-let g:languagetool_jar='/home/linuxbrew/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
+" LanguageTool {{{
+  let g:languagetool_jar='/home/linuxbrew/.linuxbrew/Cellar/languagetool/4.0/libexec/languagetool-commandline.jar'
+" }}}
 " Typescript
 Plug 'Quramy/tsuquyomi', {
   \ 'do': 'npm -g install typescript',
   \ 'for': ['typescript'] }
-" Prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+" Prettier {{{
+  let g:prettier#quickfix_enabled = 1
+  let g:prettier#autoformat = 0
+  autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
+  let g:prettier#config#single_quote = 'true'
+  let g:prettier#config#trailing_comma = 'all'
+  let g:prettier#config#parser = 'typescript'
+" }}}
