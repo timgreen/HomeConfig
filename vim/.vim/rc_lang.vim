@@ -67,6 +67,7 @@ Plug 'dpelle/vim-LanguageTool', {
 Plug 'Quramy/tsuquyomi', {
   \ 'do': 'npm -g install typescript',
   \ 'for': ['typescript'] }
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
