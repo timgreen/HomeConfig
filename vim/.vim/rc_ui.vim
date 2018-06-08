@@ -120,6 +120,17 @@ Plug 'w0rp/ale'
   let g:ale_typescript_prettier_options = '--config=~/.prettierrc.yml'
   let g:ale_json_prettier_options = '--config=~/.prettierrc.yml'
   let g:ale_css_prettier_options = '--config=~/.prettierrc.yml'
+  " remark
+  function! ALEFixerRemark(buffer)
+    return {
+    \   'command': 'remark',
+    \}
+  endfunction
+  function! ALEConfigRemarkFixer()
+    call ale#fix#registry#Add('remark', 'ALEFixerRemark', ['markdown'], 'Fix Markdown files with remark.')
+    let g:ale_fixers.markdown = ['remark']
+  endfunction
+  call OnPlugLoad('ale', 'call ALEConfigRemarkFixer()')
 " }}}
 
 Plug 'ryanoasis/vim-devicons'

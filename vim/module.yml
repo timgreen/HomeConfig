@@ -6,5 +6,6 @@ requires:
 afters:
   - ../skeletons/vim-plug
   - ../cli_tools/prettier
+  - ../cli_tools/remark
 post-install: |
   vim +PlugInstall +PlugClean! +qall
