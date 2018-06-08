@@ -1,0 +1,6 @@
+requires:
+  - npm
+provides:
+  - prettier
+post-install: |
+  npm install -g prettier
