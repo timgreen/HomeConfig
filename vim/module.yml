@@ -5,5 +5,6 @@ requires:
   - npm
 afters:
   - ../skeletons/vim-plug
+  - ../cli_tools/prettier
 post-install: |
   vim +PlugInstall +PlugClean! +qall

@@ -109,6 +109,17 @@ Plug 'w0rp/ale'
 " ALE {{{
   let g:ale_set_loclist = 0
   let g:ale_set_quickfix = 1
+  let g:ale_fix_on_save = 1
+  let g:ale_fixers = {
+  \   'javascript': ['prettier'],
+  \   'typescript': ['prettier'],
+  \   'json': ['prettier'],
+  \   'css': ['prettier'],
+  \}
+  let g:ale_javascript_prettier_options = '--config=~/.prettierrc.yml'
+  let g:ale_typescript_prettier_options = '--config=~/.prettierrc.yml'
+  let g:ale_json_prettier_options = '--config=~/.prettierrc.yml'
+  let g:ale_css_prettier_options = '--config=~/.prettierrc.yml'
 " }}}
 
 Plug 'ryanoasis/vim-devicons'

@@ -68,17 +68,3 @@ Plug 'Quramy/tsuquyomi', {
   \ 'do': 'npm -g install typescript',
   \ 'for': ['typescript'] }
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'vue'] }
-" Prettier {{{
-  let g:prettier#quickfix_enabled = 1
-  let g:prettier#autoformat = 0
-  autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
-
-  let g:prettier#config#single_quote = 'true'
-  let g:prettier#config#trailing_comma = 'all'
-  let g:prettier#config#bracket_spacing = 'true'
-  let g:prettier#config#jsx_bracket_same_line = 'false'
-  let g:prettier#config#parser = 'typescript'
-" }}}
