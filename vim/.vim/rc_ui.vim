@@ -116,10 +116,11 @@ Plug 'w0rp/ale'
   \   'json': ['prettier'],
   \   'css': ['prettier'],
   \}
-  let g:ale_javascript_prettier_options = '--config=~/.prettierrc.yml'
-  let g:ale_typescript_prettier_options = '--config=~/.prettierrc.yml'
-  let g:ale_json_prettier_options = '--config=~/.prettierrc.yml'
-  let g:ale_css_prettier_options = '--config=~/.prettierrc.yml'
+  let prettier_options = '--config=' . expand('~/.prettierrc.yml')
+  let g:ale_javascript_prettier_options = prettier_options
+  let g:ale_typescript_prettier_options = prettier_options
+  let g:ale_json_prettier_options = prettier_options
+  let g:ale_css_prettier_options = prettier_options
   " remark
   function! ALEFixerRemark(buffer)
     return {
