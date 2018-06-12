@@ -20,6 +20,8 @@ function! SetFatFingers()
   iabbrev Stirng String
   iabbrev funciton function
   iabbrev Funciton Function
+  iabbrev questoin question
+  iabbrev Questoin Question
 endfunction
 call OnPlugLoad('vim-fat-finger', 'call SetFatFingers()')
 Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and more
