@@ -5,7 +5,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 "" forcing use of tabs
-nnoremap gf :tab drop <cfile><CR>
+nnoremap gf <C-w>gf
 cab      e  tab drop
 
 "" tab nav
