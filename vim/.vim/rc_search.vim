@@ -34,6 +34,7 @@ let g:clever_f_chars_match_any_signs = ';'
 Plug 'vim-scripts/Mark--Karkat'
 nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
 nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+set viminfo+=!
 
 Plug 'rking/ag.vim'
 let g:ackprg="ag --nocolor --nogroup --column"
