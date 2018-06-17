@@ -1,5 +1,8 @@
 requires:
+  - bash
   - brew
+  - curl
+  - gpg
 provides:
   - node
   - npm
@@ -11,5 +14,7 @@ pre-install: |
   npm config set prefix ~/.node
   npm install -g npm
 post-install: |
-  which yarn &> /dev/null || npm install -g yarn
+  which yarn &> /dev/null || {
+    curl -o- -L https://yarnpkg.com/install.sh | bash
+  }
   yarn config set prefix ~/.node
