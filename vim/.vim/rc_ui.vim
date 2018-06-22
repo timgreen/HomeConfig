@@ -115,6 +115,7 @@ Plug 'w0rp/ale'
   \   'typescript': ['prettier'],
   \   'json': ['prettier'],
   \   'css': ['prettier'],
+  \   'java': ['google_java_format'],
   \}
   let prettier_options = '--config=' . expand('~/.prettierrc.yml')
   let g:ale_javascript_prettier_options = prettier_options
