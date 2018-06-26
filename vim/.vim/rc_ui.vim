@@ -110,13 +110,12 @@ Plug 'w0rp/ale'
   let g:ale_set_loclist = 0
   let g:ale_set_quickfix = 1
   let g:ale_fix_on_save = 1
-  let g:ale_fixers = {
-  \   'javascript': ['prettier'],
-  \   'typescript': ['prettier'],
-  \   'json': ['prettier'],
-  \   'css': ['prettier'],
-  \   'java': ['google_java_format'],
-  \}
+  let g:ale_fixers = get(g:, 'ale_fixers', {})
+  let g:ale_fixers.javascript = ['prettier']
+  let g:ale_fixers.typescript = ['prettier']
+  let g:ale_fixers.json = ['prettier']
+  let g:ale_fixers.css = ['prettier']
+  let g:ale_fixers.java = ['google_java_format']
   let prettier_options = '--config=' . expand('~/.prettierrc.yml')
   let g:ale_javascript_prettier_options = prettier_options
   let g:ale_typescript_prettier_options = prettier_options
@@ -130,6 +129,7 @@ Plug 'w0rp/ale'
   endfunction
   function! ALEConfigRemarkFixer()
     call ale#fix#registry#Add('remark', 'ALEFixerRemark', ['markdown'], 'Fix Markdown files with remark.')
+    let g:ale_fixers = get(g:, 'ale_fixers', {})
     let g:ale_fixers.markdown = ['remark']
   endfunction
   call OnPlugLoad('ale', 'call ALEConfigRemarkFixer()')
