@@ -8,17 +8,17 @@ endif
 
 let s:onPlugLoadCallbacks = []
 function! OnPlugLoad(name, exec)
-  if has_key(g:plugs, a:name) && isdirectory(expand($HOME . '/.vim/plugged/' . a:name))
-    if (has_key(g:plugs[a:name], 'on') || has_key(g:plugs[a:name], 'for'))
-      execute 'autocmd! User' a:name a:exec
-    else
-      " `execute 'autocmd VimEnter *' a:exec` doesn't work with colorscheme <x>.
-      function! PlugOnLoadInner() closure
+  function! PlugOnLoadInner() closure
+    if has_key(g:plugs, a:name) && isdirectory(expand($HOME . '/.vim/plugged/' . a:name))
+      if (has_key(g:plugs[a:name], 'on') || has_key(g:plugs[a:name], 'for'))
+        execute 'autocmd! User' a:name a:exec
+      else
+        " `execute 'autocmd VimEnter *' a:exec` doesn't work with colorscheme <x>.
         execute a:exec
-      endfunction
-      call add(s:onPlugLoadCallbacks, funcref('PlugOnLoadInner'))
+      endif
     endif
-  endif
+  endfunction
+  call add(s:onPlugLoadCallbacks, funcref('PlugOnLoadInner'))
 endfunction
 
 call plug#begin('~/.vim/plugged')
