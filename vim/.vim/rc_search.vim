@@ -38,3 +38,5 @@ set viminfo+=!
 
 Plug 'rking/ag.vim'
 let g:ackprg="ag --nocolor --nogroup --column"
+
+Plug 'dyng/ctrlsf.vim'
