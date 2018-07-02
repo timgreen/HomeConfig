@@ -67,4 +67,8 @@ Plug 'dpelle/vim-LanguageTool', {
 Plug 'Quramy/tsuquyomi', {
   \ 'do': 'npm -g install typescript',
   \ 'for': ['typescript'] }
+" tsuquyomi {{{
+  let g:tsuquyomi_single_quote_import = 1
+  let g:tsuquyomi_definition_split = 3 " tabedit
+" }}}
 Plug 'peitalin/vim-jsx-typescript'
