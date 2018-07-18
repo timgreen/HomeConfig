@@ -1,6 +1,5 @@
 shell: zsh
 modules:
-  - chrome/Surfingkeys
   - cli_tools/hcm
   - cli_tools/linuxbrew
   - cli_tools/prettier
@@ -8,14 +7,12 @@ modules:
   - cli_tools/tools
   - code_search/ack
   - code_search/ctags
-  - desktop/cursor_theme
   - downloader/aria2
   - downloader/lftp
   - downloader/wget
   - git/fzf_git
   - git/git
   - git/tig
-  - input_method/rime
   - program_lang/go
   - program_lang/nodejs
   # - program_lang/ruby

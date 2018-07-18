@@ -7,7 +7,8 @@ mkdir -p ~/.hcm
 {
   echo "shell: zsh"
   echo "lists:"
-  echo "  - /source/list.yml"
+  echo "  - /source/cli.yml"
+  echo "  - /source/desktop.yml"
 } > ~/.hcm/hcm.yml
 
 # hcm sync

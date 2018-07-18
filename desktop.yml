@@ -1,0 +1,5 @@
+shell: zsh
+modules:
+  - chrome/Surfingkeys
+  - desktop/cursor_theme
+  - input_method/rime
