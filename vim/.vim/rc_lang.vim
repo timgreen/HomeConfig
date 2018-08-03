@@ -72,3 +72,4 @@ Plug 'Quramy/tsuquyomi', {
   let g:tsuquyomi_definition_split = 3 " tabedit
 " }}}
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'alunny/pegjs-vim'
