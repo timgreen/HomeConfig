@@ -1,0 +1,8 @@
+requires:
+  - brew
+provides:
+  - kubectl
+pre-install: |
+  which kubectl &> /dev/null || brew install kubernetes-cli
+post-install: |
+  kubectl completion zsh > ~/.zsh.d/S41_completion_kubectl.zsh
