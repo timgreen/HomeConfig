@@ -10,3 +10,4 @@ post-install: |
       remark-lint-maximum-line-length \
       remark-preset-lint-recommended \
       remark-lint-list-item-indent \
+      remark-math \
