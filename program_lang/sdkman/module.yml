@@ -20,8 +20,8 @@ pre-install: |
   }
 post-install: |
   yes n | {
-    sdk install java 9.0.4-openjdk
-    sdk default java 9.0.4-openjdk
+    sdk install java 10.0.0-open
+    sdk default java 10.0.0-open
 
     sdk install gradle 4.3
     sdk default gradle 4.3
