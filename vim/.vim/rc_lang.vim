@@ -58,6 +58,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tomtom/tcomment_vim'
 " Markdown
+Plug 'jxnblk/vim-mdx-js'
 Plug 'dpelle/vim-LanguageTool', {
   \ 'do': 'brew install languagetool' }
 " LanguageTool {{{
