@@ -26,7 +26,7 @@ endfunction
 call OnPlugLoad('vim-fat-finger', 'call SetFatFingers()')
 Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times, and more
 Plug 'junegunn/vim-peekaboo' " Peekaboo extends \" and @ in normal mode and <CTRL-R> in insert mode so you can see the contents of the registers.
-
+Plug 'sjl/splice.vim' " three-way merges
 " Helper functions {{{
 " Set default indent and tab
 function! SetTabIndent(i)
