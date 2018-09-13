@@ -76,3 +76,7 @@ Plug 'Quramy/tsuquyomi', {
 " }}}
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'alunny/pegjs-vim'
+
+" Misc {{{
+Plug 'arthurxavierx/vim-caser'
+" }}}
