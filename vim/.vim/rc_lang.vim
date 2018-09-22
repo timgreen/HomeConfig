@@ -15,7 +15,10 @@ Plug 'SidOfc/mkdx' " some nice extra's for working with markdown documents
 " {{{ mkdx
   let g:mkdx#settings = {}
   let g:mkdx#settings.tokens = { 'list': '*' }
-  let g:mkdx#settings.checkbox = { 'update_tree': 0 }
+  let g:mkdx#settings.checkbox = { 'toggles': [' ', 'x'], 'update_tree': 0 }
+  let g:mkdx#settings.tokens = { 'strike': '~~' }
+  let g:mkdx#settings.highlight = { 'enable': 1 }
+  let g:mkdx#settings.fold = { 'enable': 1 }
   " Open TOC using fzf instead of quickfix window {{{
   " https://github.com/SidOfc/mkdx#open-toc-using-fzf-instead-of-quickfix-window
   fun! s:MkdxGoToHeader(header)
