@@ -11,6 +11,10 @@ Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim.
   let g:vim_markdown_frontmatter = 1
   let g:vim_markdown_math = 1
 " }}}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'tomtom/tcomment_vim'
+" Markdown
 Plug 'SidOfc/mkdx' " some nice extra's for working with markdown documents
 " {{{ mkdx
   let g:mkdx#settings = {}
@@ -57,10 +61,6 @@ Plug 'SidOfc/mkdx' " some nice extra's for working with markdown documents
   nnoremap <silent> <Leader>I :call <SID>MkdxFzfQuickfixHeaders()<Cr>
   " }}}
 " }}}
-Plug 'editorconfig/editorconfig-vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'tomtom/tcomment_vim'
-" Markdown
 Plug 'jxnblk/vim-mdx-js'
 Plug 'dpelle/vim-LanguageTool', {
   \ 'do': 'brew install languagetool' }
