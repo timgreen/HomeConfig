@@ -19,3 +19,4 @@ Plug 'AndrewRadev/sideways.vim'
   xmap ia <Plug>SidewaysArgumentTextobjI
   " }}}
 Plug 'rhysd/vim-textobj-anyblock' " b for any blocks
+Plug 'gcmt/wildfire.vim' " <ENTER> for closest text object among
