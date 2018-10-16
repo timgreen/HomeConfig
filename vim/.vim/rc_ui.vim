@@ -151,3 +151,6 @@ Plug 'ryanoasis/vim-devicons'
 " }}}
 
 Plug 'mhinz/vim-startify'
+" vim-startify {{{
+  let g:startify_enable_unsafe = 1
+" }}}
