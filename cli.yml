@@ -25,6 +25,7 @@ modules:
   - skeletons/tmux
   - skeletons/vim-plug
   - skeletons/zgen
+  - snap
   - skeletons/zsh
   - term/man_color
   - term/nerd_fonts
