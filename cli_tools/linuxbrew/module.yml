@@ -12,5 +12,6 @@ pre-install: |
     git clone https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
   }
 post-install: |
+  brew vendor-install ruby
   echo -n 'You can include "  0 12 *   *   *     brew upgrade"'
   echo 'in you crontab to update installed command during the lunch break.'
