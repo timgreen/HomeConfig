@@ -121,6 +121,10 @@ Plug 'w0rp/ale'
   let g:ale_typescript_prettier_options = prettier_options
   let g:ale_json_prettier_options = prettier_options
   let g:ale_css_prettier_options = prettier_options
+  let g:ale_pattern_options = {
+  \  '.*/node_modules/.*': {'ale_enabled': 0},
+  \  '.*/build/.*': {'ale_enabled': 0},
+  \}
   " remark
   function! ALEFixerRemark(buffer)
     return {
