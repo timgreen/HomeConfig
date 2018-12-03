@@ -2,7 +2,7 @@ shell: zsh
 modules:
   - cli_tools/eslint
   - cli_tools/hcm
-  - cli_tools/k8s
+  # - cli_tools/k8s
   - cli_tools/linuxbrew
   - cli_tools/prettier
   - cli_tools/remark
