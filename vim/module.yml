@@ -2,7 +2,6 @@ requires:
   - vim
   - brew
   - yarn
-  - npm
 afters:
   - ../skeletons/vim-plug
   - ../cli_tools/prettier

@@ -1,6 +1,6 @@
 requires:
-  - npm
+  - yarn
 provides:
   - prettier
 post-install: |
-  npm install -g prettier
+  yarn global add prettier

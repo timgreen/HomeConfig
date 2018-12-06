@@ -1,11 +1,11 @@
 requires:
-  - npm
+  - yarn
 provides:
   - remark
 post-install: |
-  npm install -g remark-cli
+  yarn global add remark-cli
   # And all the plugins mentioned in the config.
-  npm install -g \
+  yarn global add \
       remark-frontmatter \
       remark-lint-maximum-line-length \
       remark-preset-lint-recommended \
