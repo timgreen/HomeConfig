@@ -29,7 +29,6 @@ modules:
   - snap
   - skeletons/zsh
   - term/man_color
-  - term/nerd_fonts
   - term/readline
   - term_multiplexer/screen
   - term_multiplexer/tmux
