@@ -5,8 +5,7 @@
 PATH=~/.local/bin:$PATH
 
 sudo apt install -y git tmux zip jq python-pip
-pip install yq
-
+which yq || pip install yq
 
 mkdir -p ~/workspace
 cd ~/workspace
