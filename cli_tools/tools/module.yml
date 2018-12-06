@@ -3,13 +3,11 @@ requires:
 afters:
   - ../../skeletons/zsh
 provides:
-  - scalafmt
   - jq
   - yq
   - fzf
   # - bat
 pre-install: |
-  which scalafmt &> /dev/null || brew install --HEAD olafurpg/scalafmt/scalafmt
   which jq       &> /dev/null || brew install jq
   which yq       &> /dev/null || brew install python-yq
   which fzf      &> /dev/null || brew install fzf
