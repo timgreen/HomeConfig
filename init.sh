@@ -2,7 +2,11 @@
 
 # The script to init cli env.
 
-sudo apt install -y git tmux zip
+PATH=~/.local/bin:$PATH
+
+sudo apt install -y git tmux zip jq python-pip
+pip install yq
+
 
 mkdir -p ~/workspace
 cd ~/workspace
