@@ -4,7 +4,6 @@ requires:
 after:
   - ../../skeletons/tmux
   - ../../shell/zsh
-  - ../../term/nerd_fonts
 post-install: |
   /usr/bin/tic "$HOME/.terminfo/tmux.txt"
   # The install script requires a running tmux server.
