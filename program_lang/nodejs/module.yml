@@ -3,7 +3,7 @@ requires:
   - brew
   - curl
   - gpg
-afters:
+after:
   - ../../skeletons/zsh
 provides:
   - yarn
