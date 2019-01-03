@@ -8,7 +8,16 @@ after:
 provides:
   - yarn
 pre-install: |
+  # node-v11.6.0
+  which npm &> /dev/null || brew install https://raw.githubusercontent.com/Linuxbrew/homebrew-core/711812b39b7427d8dc3ccef7290a839236f514fa/Formula/node.rb
+
   which yarn &> /dev/null || {
     curl -o- -L https://yarnpkg.com/install.sh | bash
   }
+post-install: |
+  # config npm, NODE_PATH set to ~/.node/lib/node_modules in zsh
+  mkdir -p ~/.node
+  npm config set prefix ~/.node
+  npm install -g npm
+
   yarn config set prefix ~/.node
