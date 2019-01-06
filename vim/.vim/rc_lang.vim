@@ -61,6 +61,8 @@ Plug 'SidOfc/mkdx' " some nice extra's for working with markdown documents
   " }}}
 " }}}
 Plug 'jxnblk/vim-mdx-js'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'dpelle/vim-LanguageTool', {
   \ 'do': 'brew install languagetool' }
 " LanguageTool {{{
