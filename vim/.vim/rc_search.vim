@@ -7,15 +7,15 @@ set smartcase        " if there are caps, go case-sensitive
 map th :nohlsearch<CR>:Mark<CR>
 
 Plug 'henrik/vim-indexed-search'
-Plug 'haya14busa/vim-asterisk' | Plug 'inside/vim-search-pulse'
+Plug 'haya14busa/vim-asterisk' | Plug 'inside/vim-search-pulse' | Plug 'qxxxb/vim-searchhi'
 let g:indexed_search_mappings = 0
 let g:vim_search_pulse_disable_auto_mappings = 1
-nmap *  <Plug>(asterisk-z*)<Plug>Pulse
-nmap #  <Plug>(asterisk-z#)<Plug>Pulse
-nmap g* <Plug>(asterisk-gz*)<Plug>Pulse
-nmap g# <Plug>(asterisk-gz#)<Plug>Pulse
-nmap n n<Plug>Pulse
-nmap N N<Plug>Pulse
+nmap *  <Plug>(asterisk-z*)<Plug>(searchhi-update)<Plug>Pulse
+nmap #  <Plug>(asterisk-z#)<Plug>(searchhi-update)<Plug>Pulse
+nmap g* <Plug>(asterisk-gz*)<Plug>(searchhi-update)<Plug>Pulse
+nmap g# <Plug>(asterisk-gz#)<Plug>(searchhi-update)<Plug>Pulse
+nmap n n<Plug>(searchhi-update)<Plug>Pulse
+nmap N N<Plug>(searchhi-update)<Plug>Pulse
 " Pulses cursor line on first match
 " when doing search with / or ?
 cmap <silent> <expr> <enter> search_pulse#PulseFirst()
