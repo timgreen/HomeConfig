@@ -1,0 +1,14 @@
+requires:
+  - jq
+  - wget
+  - tar
+after:
+  - ../../skeletons/zsh
+provides:
+  - k9s
+post-install: |
+  cd /dev/shm/
+  latest_download_url=$(curl -s https://api.github.com/repos/derailed/k9s/releases | jq -r ".[0].assets | .[].browser_download_url" | grep '_Linux_x86_64.tar.gz$')
+  wget "$latest_download_url"
+  tar xf "$(basename "$latest_download_url")"
+  mv k9s ~/.k9s/bin/
