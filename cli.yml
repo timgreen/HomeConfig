@@ -1,6 +1,7 @@
 shell: zsh
 modules:
   - cli_tools/eslint
+  - cli_tools/hasura
   - cli_tools/hcm
   # - cli_tools/k8s
   - cli_tools/k9s
