@@ -21,7 +21,8 @@ RUN yaourt --noconfirm -Syu --aur \
   rsync \
   wget \
   jq \
-  python-pip
+  python-pip \
+  yq-bin
 
 # required tools
 RUN yaourt --noconfirm -Syu --aur \
