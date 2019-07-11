@@ -21,7 +21,7 @@ RUN yaourt --noconfirm -Syu --aur \
   rsync \
   wget \
   jq \
-  yq
+  python-pip
 
 # required tools
 RUN yaourt --noconfirm -Syu --aur \
@@ -35,6 +35,8 @@ RUN yaourt --noconfirm -Syu --aur \
   fcitx-rime
 
 USER root
+# for hcm
+RUN pip install yq
 ARG UID
 RUN useradd -u $UID -ms /bin/bash timgreen
 ENV HOME /home/timgreen
