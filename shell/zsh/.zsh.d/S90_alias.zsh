@@ -18,7 +18,7 @@ alias ll='ls -l'
 # Tools
 alias less='less -R'
 alias grep='grep --color=auto'
-alias rscp='rsync -aHAXxv -v -P -e "ssh -T -c arcfour -o Compression=no -x"' # http://www.commandlinefu.com/commands/view/11690/the-fastest-remote-directory-rsync-over-ssh-archival-i-can-muster-40mbs-over-1gb-nics
+alias rscp='rsync -aHAXxv -v -P -e "ssh -T -o Compression=no -x"' # http://www.commandlinefu.com/commands/view/11690/the-fastest-remote-directory-rsync-over-ssh-archival-i-can-muster-40mbs-over-1gb-nics
 
 #
 alias ri='ri -T -f ansi'
