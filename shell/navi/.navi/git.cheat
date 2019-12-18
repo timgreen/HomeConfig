@@ -1,0 +1,12 @@
+% git
+
+# Amend & reset author
+git commit --amend --reset-author
+
+# Config user name
+git config user.name <username>
+
+$ username: whoami
+
+# Config user email
+git config user.email <email>
