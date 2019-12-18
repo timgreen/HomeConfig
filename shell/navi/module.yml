@@ -1,0 +1,8 @@
+after:
+  - ../../skeletons/zgen
+  - ../../cli_tools/linuxbrew
+pre-install: |
+  which navi || brew install navi
+post-install: |
+  $HOME/sh/init_zgen.zsh
+

@@ -23,6 +23,7 @@ modules:
   # - program_lang/ruby
   - program_lang/sdkman
   - shell/fzf
+  - shell/navi
   - shell/zgen
   - shell/zsh
   - skeletons/tmux
