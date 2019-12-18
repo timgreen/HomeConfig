@@ -1,16 +1,7 @@
-FROM alekzonder/archlinux-yaourt
-
-RUN curl -o /etc/pacman.d/mirrorlist https://www.archlinux.org/mirrorlist/?country=US&protocol=https&ip_version=4&use_mirror_status=on \
-  && sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
-
-# UTF-8
-RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen \
-  && locale-gen
-
-USER yaourt
+FROM m0rf30/arch-yay
 
 # for hcm
-RUN yaourt --noconfirm -Syu --aur \
+RUN yay --noconfirm -Syu \
   coreutils \
   findutils \
   util-linux \
@@ -25,7 +16,7 @@ RUN yaourt --noconfirm -Syu --aur \
   yq-bin
 
 # required tools
-RUN yaourt --noconfirm -Syu --aur \
+RUN yay --noconfirm -Syu \
   procps \
   curl \
   vim \
