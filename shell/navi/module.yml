@@ -4,5 +4,7 @@ after:
 pre-install: |
   which navi || brew install navi
 post-install: |
+  rm -f $HOME/.navi/docker.cheat
+  ln -sf $LINUXBREW_HOME/Cellar/navi/*/libexec/cheats/docker.cheat $HOME/.navi/docker.cheat
   $HOME/sh/init_zgen.zsh
 
