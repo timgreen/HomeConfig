@@ -7,10 +7,16 @@ tmux set -ag @tpm_plugins ' tmux-plugins/tmux-battery'
 
 current_status_right=$(tmux show-options -gqv status-right)
 tmux set-option -g status-right "#{battery_status_fg} Battery: #{battery_icon} #{battery_percentage} #{battery_remain}$current_status_right"
+
 # Use nerd font icon.
-tmux set -g @batt_charged_icon       '🔋' # U+1F50B
-tmux set -g @batt_attached_icon      '' # '\\uf071'
-tmux set -g @batt_full_charge_icon   '' # '\\uf240'
-tmux set -g @batt_high_charge_icon   '' # '\\uf241'
-tmux set -g @batt_medium_charge_icon '' # '\\uf242'
-tmux set -g @batt_low_charge_icon    '' # '\\uf244'
+tmux set -g @batt_icon_status_charged  '' # nf-mdi-battery_plus
+tmux set -g @batt_icon_status_charging '⚡' #
+tmux set -g @batt_icon_status_discharging 'ﮤ' # nf-mdi-power_plug_off
+tmux set -g @batt_icon_charge_tier8    '' # nf-mdi-battery_10
+tmux set -g @batt_icon_charge_tier7    '' # nf-mdi-battery_20
+tmux set -g @batt_icon_charge_tier6    '' # nf-mdi-battery_30
+tmux set -g @batt_icon_charge_tier5    '' # nf-mdi-battery_40
+tmux set -g @batt_icon_charge_tier4    '' # nf-mdi-battery_50
+tmux set -g @batt_icon_charge_tier3    '' # nf-mdi-battery_60
+tmux set -g @batt_icon_charge_tier2    '' # nf-mdi-battery_70
+tmux set -g @batt_icon_charge_tier1    '' # nf-mdi-battery_80
