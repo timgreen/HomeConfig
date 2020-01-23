@@ -1,3 +1,5 @@
+autoload -Uz add-zsh-hook
+
 CMD_START_TIME=-1
 typeset -A CMD_ELAPSED_THRESHOLD
 
@@ -8,7 +10,7 @@ function preexec_notify_long_process {
   CMD_LAST_NAME="$cmd[1]:t"
   CMD_LAST="$1"
 }
-preexec_functions+='preexec_notify_long_process'
+add-zsh-hook preexec preexec_notify_long_process
 
 function precmd_notify_long_process {
   elapsed=$((SECONDS - CMD_START_TIME))
@@ -25,7 +27,8 @@ function precmd_notify_long_process {
   fi
   CMD_START_TIME=-1;
 }
-precmd_functions+='precmd_notify_long_process'
+add-zsh-hook precmd precmd_notify_long_process
 
 CMD_ELAPSED_THRESHOLD["vim"]=-1
 CMD_ELAPSED_THRESHOLD["tig"]=-1
+CMD_ELAPSED_THRESHOLD["htop"]=-1
