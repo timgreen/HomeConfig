@@ -1,12 +1,5 @@
 #!/bin/zsh
 
-# ssh: 
-# vim: 
-# htop/top/iotop: ﲯ
-# git/tig: 
-
-# other: ﲵ
-
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/shrink-path/shrink-path.plugin.zsh
 # Shrink directory paths, e.g. /home/me/foo/bar/quux -> ~/f/b/quux.
 #
@@ -133,11 +126,38 @@ shrink_path () {
         )
 }
 
+shrink_cmd() {
+  if [[ $1:t == "ssh" ]]; then
+    echo -n " "
+  elif [[ $1:t == "vim" ]]; then
+    echo -n " "
+  elif [[ $1:t == "htop" ]] || [[ $1:t == "top" ]] || [[ $1:t == "iotop" ]]; then
+    echo -n "ﲯ "
+  elif [[ $1:t == "git" ]] || [[ $1:t == "tig" ]]; then
+    echo -n " "
+  elif [[ $1:t == "man" ]]; then
+    echo -n " "
+  elif [[ $1:t == "node" ]] || [[ $1:t == "npm" ]] || [[ $1:t == "npx" ]] || [[ $1:t == "yarn" ]]; then
+    echo -n " "
+  elif [[ $1:t == "python" ]] || [[ $1:t == "python3" ]]; then
+    echo -n " "
+  elif [[ $1:t == "make" ]]; then
+    echo -n " "
+  elif [[ $1:t == "openscad" ]]; then
+    echo -n "ﳻ "
+  elif [[ $1:t == "zsh" ]]; then
+    # pass
+  else
+    echo -n " "
+  fi
+}
+
 main() {
   local dir="$1"
   local cmd="$2"
   local maxLen="${3:-10}"
 
+  shrink_cmd "$cmd"
   shrink_path -t -T -l "$dir"
 }
 
