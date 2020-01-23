@@ -35,6 +35,7 @@ modules:
   - term/man_color
   - term/readline
   - term_multiplexer/screen
+  - term_multiplexer/smart_title
   - term_multiplexer/tmux
   - term_multiplexer/tmuxifier_layouts
   - top/htop
