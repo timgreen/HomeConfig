@@ -26,6 +26,7 @@ modules:
   - shell/navi
   - shell/zgen
   - shell/zsh
+  - skeletons/ssh
   - skeletons/tmux
   - skeletons/vim-plug
   - skeletons/zgen
