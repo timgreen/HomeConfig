@@ -1,19 +1,15 @@
 requires:
-  - bash
   - brew
-  - curl
-  - gpg
 after:
   - ../../skeletons/zsh
 provides:
   - yarn
+  - npm
 pre-install: |
-  # node-v12.10.0
-  which npm &> /dev/null || brew install https://raw.githubusercontent.com/Linuxbrew/homebrew-core/49c737899d0eba1ccc69d3675e0cafaf36b49723/Formula/node.rb
+  # node
+  which npm &> /dev/null || brew install node
 
-  which yarn &> /dev/null || {
-    curl -o- -L https://yarnpkg.com/install.sh | bash
-  }
+  which yarn &> /dev/null || brew install yarn yarn-completion
 post-install: |
   # config npm, NODE_PATH set to ~/.node/lib/node_modules in zsh
   mkdir -p ~/.node
