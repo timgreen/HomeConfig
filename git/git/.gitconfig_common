@@ -3,3 +3,5 @@
 [alias]
 	amend = commit --amend -C HEAD
 	aa = commit --amend -C HEAD -a
+[grep]
+	lineNumber = true
