@@ -1,3 +1,0 @@
-alias yyy='yaourt -Syu --noconfirm --aur'
-alias yyy_s='yaourt -Syu --noconfirm'
-alias yyy_aur='yaourt -Sbu --noconfirm --aur'
