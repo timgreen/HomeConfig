@@ -13,7 +13,7 @@ RUN yay --noconfirm -Syu \
   wget \
   jq \
   python-pip \
-  yq-bin
+  yq2-bin
 
 # required tools
 RUN yay --noconfirm -Syu \
