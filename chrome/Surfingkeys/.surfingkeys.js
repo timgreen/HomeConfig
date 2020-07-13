@@ -5,7 +5,7 @@ unmap('B');
 unmap('ga');
 unmap('F');
 
-settings.startToShowEmoji = 0;
+settings.startToShowEmoji = 10;
 
 // Follow links
 settings.hintAlign = 'left';
