@@ -24,7 +24,9 @@ RUN yay --noconfirm -Syu \
   git \
   unzip \
   zip \
-  fcitx-rime
+  fcitx-rime \
+  rime-wubi \
+  rime-pinyin-simp
 
 USER root
 # for hcm
