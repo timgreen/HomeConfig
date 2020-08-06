@@ -12,4 +12,5 @@ settings.hintAlign = 'left';
 Hints.characters = 'asdfghjkl';
 
 // only keep E, R and T from Surfingkeys for some sites.
-unmapAllExcept(['E', 'R', 'T'], /mail.google.com|inbox.google.com|research.google.com/);
+unmapAllExcept(['E', 'R', 'T'], /(mail|inbox|research|docs).google.com/);
+unmapAllExcept([], /cad.onshape.com\/documents\//);
