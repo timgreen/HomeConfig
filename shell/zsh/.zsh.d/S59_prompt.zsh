@@ -29,7 +29,7 @@ function precmd_prompt {
   local prompt_size=2
   local pwd_placeholder="$(echo "${(%):-%~}" | LC_ALL=C sed "s/[\x80-\xff]\{3\}/xx/g")"
   local pwd_size=${#pwd_placeholder}
-  local hostname_size=$((${#${(%):-%m}} + 1))
+  local hostname_size=$((${#${(%):-%2m}} + 1))
   local git_info_size
   local git_current_branch="$(parse_git_branch)"
   if (( ${#git_current_branch} )); then
@@ -72,7 +72,7 @@ set_prompt () {
   local SNIPPET_FILLBAR='${(e)PR_FILLBAR}'
   local SNIPPET_EXIT_CODE='%(?..$PR_LIGHT_RED✖ $(nice_exit_code))'
   local SNIPPET_TIME='%D{%H:%M %b %d}'
-  local SNIPPET_HOSTNAME=' %m'
+  local SNIPPET_HOSTNAME=' %2m'
 
   # Finally, the prompt.
   # prompt will looks like:
