@@ -18,7 +18,7 @@ modules:
   - git/fzf_git
   - git/git
   - git/tig
-  - program_lang/go
+  # - program_lang/go
   - program_lang/nodejs
   # - program_lang/ruby
   - program_lang/sdkman
