@@ -1,8 +1,0 @@
-requires:
-  - brew
-after:
-  - ../../shell/zsh
-provides:
-  - adb
-pre-install: |
-  which adb &> /dev/null || brew install android-platform-tools
