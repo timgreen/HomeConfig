@@ -30,4 +30,4 @@ au TabLeave * let g:lasttab = tabpagenr()
 
 ""
 Plug 'scrooloose/nerdtree'
-
+Plug 'wsdjeg/vim-fetch' " support vim path/to/file.ext:12:3
