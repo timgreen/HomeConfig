@@ -15,3 +15,6 @@ Hints.characters = 'asdfghjkl';
 unmapAllExcept(['E', 'R', 'T'], /(mail|inbox|research|docs).google.com/);
 unmapAllExcept([], /cad.onshape.com\/documents\//);
 unmapAllExcept([], /remotedesktop.google.com/);
+
+unmapAllExcept([], /github.dev/);
+unmapAllExcept([], /www.figma.com/);
