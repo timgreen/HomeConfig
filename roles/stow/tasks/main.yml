@@ -1,0 +1,10 @@
+- name: check stow
+  shell: stow -V
+  register: stow_check
+
+- name: install stow | system
+  ansible.builtin.package:
+    name: stow 
+    state: latest
+  become: yes
+  when: stow_check.rc == 127

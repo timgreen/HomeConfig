@@ -5,4 +5,7 @@
     shell: echo "hello world"
 
   roles:
+  # Required
+  - stow
+  # Packages
   - skeleton
