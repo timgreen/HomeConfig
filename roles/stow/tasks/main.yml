@@ -1,5 +1,5 @@
 - name: check stow
-  shell: stow -V
+  command: stow -V
   register: stow_check
   ignore_errors: yes
 

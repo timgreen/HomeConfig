@@ -1,2 +1,2 @@
 - name: setup skeleton | ssh
-  shell: stow -t ~ -d dotfiles/ssh/ -R
+  command: stow -t ~ -d {{ role_path }}/dotfiles/ssh/
