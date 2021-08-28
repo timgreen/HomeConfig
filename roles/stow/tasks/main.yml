@@ -8,4 +8,4 @@
     name: stow
     state: latest
   become: yes
-  when: stow_check.rc == 127
+  when: stow_check.rc > 0
