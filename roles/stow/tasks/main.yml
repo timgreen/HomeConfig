@@ -4,7 +4,7 @@
 
 - name: install stow | system
   ansible.builtin.package:
-    name: stow 
+    name: stow
     state: latest
   become: yes
   when: stow_check.rc == 127
