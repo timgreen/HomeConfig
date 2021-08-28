@@ -1,6 +1,7 @@
 - name: check stow
   shell: stow -V
   register: stow_check
+  ignore_errors: yes
 
 - name: install stow | system
   ansible.builtin.package:
