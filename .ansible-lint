@@ -1,3 +1,5 @@
 warn_list:
 - '305'  # Use shell only when shell functionality is required       
 - '701'  # meta/main.yml should contain relevant info
+- '208'  # File permissions unset or incorrect
+- experimental  # all rules tagged as experimental
