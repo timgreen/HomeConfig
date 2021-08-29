@@ -1,11 +1,5 @@
 - hosts: localhost
 
   roles:
-  # Required
-  - role: package
-    vars:
-      cmd_name: stow
-      package_name: stow
-  # Packages
   - skeleton
   - tmux

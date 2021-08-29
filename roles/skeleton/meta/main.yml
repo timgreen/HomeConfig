@@ -1,5 +1,10 @@
 dependencies:
   - role: package
     vars:
-      cmd_name: git
+      check_cmd: git version
       package_name: git
+
+  - role: package
+    vars:
+      check_cmd: stow -V
+      package_name: stow

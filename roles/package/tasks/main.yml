@@ -1,5 +1,5 @@
-- name: "check {{ cmd_name }}"
-  command: "{{ cmd_name }} -V"
+- name: "check {{ package_name }}"
+  command: "{{ check_cmd }}"
   register: package_check
   ignore_errors: yes
   changed_when: False
