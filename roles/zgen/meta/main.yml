@@ -1,0 +1,5 @@
+dependencies:
+  - role: package
+    vars:
+      check_cmd: zsh --version
+      package_name: zsh
