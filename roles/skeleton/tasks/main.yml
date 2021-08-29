@@ -1,2 +1,2 @@
 - name: setup skeleton | ssh
-  command: stow -t ~ -d ssh -S . --no-folding
+  command: stow -t ~ -d {{ role_path }}/files/ssh -S . --no-folding
