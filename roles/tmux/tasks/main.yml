@@ -1,0 +1,7 @@
+- name: Ensure tmux installed
+  import_role: 
+    name: package
+  vars:
+    cmd_name: tmux
+    package_name: tmux
+

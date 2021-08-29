@@ -8,3 +8,4 @@
       package_name: stow
   # Packages
   - skeleton
+  - tmux
