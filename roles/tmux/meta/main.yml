@@ -3,3 +3,5 @@ dependencies:
     vars:
       check_cmd: tmux -V
       package_name: tmux
+
+  - role: skeleton
