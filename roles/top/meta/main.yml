@@ -1,0 +1,7 @@
+dependencies:
+  - role: package
+    vars:
+      check_cmd: htop -V
+      package_name: htop
+
+  - role: skeleton
