@@ -2,6 +2,9 @@
 
   roles:
   # Required
-  - stow
+  - role: package
+    vars:
+      cmd_name: stow
+      package_name: stow
   # Packages
   - skeleton
