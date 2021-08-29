@@ -1,5 +1,2 @@
 warn_list:
-- '301'  # Commands should not change things if nothing needs doing   
-
-skip_list:
 - '305'  # Use shell only when shell functionality is required       

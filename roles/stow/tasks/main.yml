@@ -2,6 +2,8 @@
   command: stow -V
   register: stow_check
   ignore_errors: yes
+  changed_when: False
+  check_mode: no
 
 - name: install stow | system
   ansible.builtin.package:
