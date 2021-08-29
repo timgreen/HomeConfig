@@ -1,0 +1,5 @@
+dependencies:
+  - role: package
+    vars:
+      cmd_name: git
+      package_name: git
