@@ -1,4 +1,9 @@
-- name: setup skeleton | ssh
-  command: stow -t ~ -d {{ role_path }}/files/ssh -S . --no-folding
+- name: setup skeleton
+  command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
   register: output
   changed_when: '"LINK" in output.stderr'
+  loop:
+    - ssh
+    - tmux
+    - zsh
+    - vim-plug
