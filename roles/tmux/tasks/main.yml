@@ -1,0 +1,5 @@
+- name: tmux tmuxifier
+  ansible.builtin.git:
+    repo: https://github.com/jimeh/tmuxifier.git
+    dest: ~/.tmux/tmuxifier
+    update: no
