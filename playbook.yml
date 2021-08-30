@@ -3,6 +3,6 @@
   roles:
   - skeleton
   - tmux
-  - zgen
+  - skeleton_zgen
   - vim
   - top
