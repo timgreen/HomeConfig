@@ -1,0 +1,6 @@
+- hosts: localhost
+
+- name: essentials
+  include: essentials.yml
+- name: cli
+  include: cli.yml

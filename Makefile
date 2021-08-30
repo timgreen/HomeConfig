@@ -1,5 +1,5 @@
-sync:
-	ansible-playbook playbook.yml
+sync-all:
+	ansible-playbook all.yml
 
 lint:
-	ansible-lint playbook.yml
+	ansible-lint all.yml
