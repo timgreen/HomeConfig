@@ -1,8 +1,0 @@
-requires:
-  - brew
-provides:
-  - aria2c
-after:
-  - ../../shell/zsh
-pre-install: |
-  which aria2c &> /dev/null || brew install aria2
