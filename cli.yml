@@ -3,3 +3,4 @@
   roles:
   - wget
   - aria2
+  - snap

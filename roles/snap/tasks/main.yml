@@ -1,0 +1,14 @@
+- name: stow snap
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: optionally install snapd
+  import_role:
+    name: package
+  vars:
+    check_cmd: snap version
+    package_name: snapd
+  ignore_errors: yes
+  tags:
+    - optional
