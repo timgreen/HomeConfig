@@ -10,8 +10,6 @@
   changed_when: '"LINK" in output.stderr'
 
 - name: init zgen
-  shell: ~/sh/init_zgen.zsh
+  command: zsh ~/sh/init_zgen.zsh
   args:
-    executable: /usr/bin/zsh
     creates: ~/.zgen/init.zsh
-  ignore_errors: yes
