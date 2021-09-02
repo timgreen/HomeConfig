@@ -1,8 +1,27 @@
 - hosts: localhost
 
-- name: essentials
-  include: essentials.yml
-- name: cli
-  include: cli.yml
-- name: gui
-  include: gui.yml
+  tasks:
+  - block:
+    - import_role: name=skeleton
+    - import_role: name=tmux
+    - import_role: name=skeleton_zgen
+    - import_role: name=zgen
+    - import_role: name=zsh
+    - import_role: name=vim
+    - import_role: name=top
+    - import_role: name=tig
+    - import_role: name=git
+    tags:
+    - essentials, mini
+
+  - block:
+    - import_role: name=wget
+    - import_role: name=aria2
+    - import_role: name=snap
+    tags:
+    - cli
+
+  - block:
+    - import_role: name=nerd_fonts
+    tags:
+    - gui
