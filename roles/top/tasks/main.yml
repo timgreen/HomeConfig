@@ -13,6 +13,7 @@
     path: ~/.config/htop/htoprc
     state: present
     create: yes
+    mode: "u=rw,g=r,o=r"
     line: "{{ item }}"
     regexp: "{{ item | regex_replace('=\\d', '') }}"
   loop:
