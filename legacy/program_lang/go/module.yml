@@ -1,8 +1,0 @@
-requires:
-  - brew
-provides:
-  - go
-after:
-  - ../../shell/zsh
-pre-install: |
-  which go &> /dev/null || brew install go

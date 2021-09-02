@@ -1,3 +1,0 @@
-#!/bin/bash
-ESC="\005"
-printf "$ESC{+b }$HOSTNAME$ESC{-}"

@@ -1,6 +1,0 @@
-requires:
-  - /usr/bin/tic
-after:
-  - ../../shell/zsh
-post-install: |
-  /usr/bin/tic "$HOME/.terminfo/mostlike.txt"
