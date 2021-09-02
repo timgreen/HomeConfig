@@ -1,2 +1,3 @@
 - name: update zgen
   command: zsh ~/sh/init_zgen.zsh
+  ignore_errors: yes
