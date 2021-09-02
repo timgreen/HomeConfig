@@ -23,5 +23,6 @@
 
   - block:
     - import_role: name=nerd_fonts
+    - import_role: name=cursor_theme
     tags:
     - gui
