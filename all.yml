@@ -4,3 +4,5 @@
   include: essentials.yml
 - name: cli
   include: cli.yml
+- name: gui
+  include: gui.yml
