@@ -1,0 +1,49 @@
+- name: stow cli_tools
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: install | tree
+  import_role:
+    name: package
+  vars:
+    check_cmd: tree --version
+    package_name: tree
+  tags:
+    - tree
+
+- name: install | ncdu
+  import_role:
+    name: package
+  vars:
+    check_cmd: ncdu --version
+    package_name: ncdu
+  tags:
+    - ncdu
+
+- name: install | jq
+  import_role:
+    name: package
+  vars:
+    check_cmd: jq --version
+    package_name: jq
+  tags:
+    - jq
+
+- name: install | tldr
+  import_role:
+    name: package
+  vars:
+    check_cmd: tldr --version
+    package_name: tldr
+  tags:
+    - tldr
+
+- name: install | bat
+  import_role:
+    name: package
+  vars:
+    check_cmd: bat --version
+    package_name: bat
+  tags:
+    - bat

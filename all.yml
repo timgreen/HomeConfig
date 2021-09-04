@@ -18,6 +18,7 @@
     - import_role: name=wget
     - import_role: name=aria2
     - import_role: name=snap
+    - import_role: name=cli_tools
     tags:
     - cli
 
