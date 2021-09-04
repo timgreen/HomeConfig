@@ -1,0 +1,9 @@
+---
+dependencies:
+- role: package
+  check_cmd: fcitx -v
+  package_name: fcitx
+
+- role: package
+  check_cmd: rime_deployer
+  package_name: librime-bin

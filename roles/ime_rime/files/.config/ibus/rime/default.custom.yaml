@@ -1,3 +1,4 @@
+---
 patch:
   ascii_composer:
     good_old_caps_lock: true
@@ -9,15 +10,15 @@ patch:
       Shift_L: clear
       Shift_R: noop
   schema_list:
-    - schema: wubi_pinyin          # 五笔拼音混合輸入
+  - schema: wubi_pinyin            # 五笔拼音混合輸入
     # - schema: wubi86               # 五笔86
   switcher:
     abbreviate_options: true
-    caption: "〔方案選單〕"
+    caption: 〔方案選單〕
     fold_options: true
     hotkeys:
-      - "Control+grave"
-      - "Control+Shift+grave"
+    - Control+grave
+    - Control+Shift+grave
       # get rid of "F4"
   punctuator:
     import_preset: alternative
