@@ -1,3 +1,0 @@
-[alias]
-	open = !"FZF_GIT_FILES=$(fzf_git) && vim -p $FZF_GIT_FILES"
-	open1 = !"FZF_GIT_FILES=$(fzf_git -1) && vim -p $FZF_GIT_FILES"
