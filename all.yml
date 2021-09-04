@@ -19,6 +19,7 @@
     - import_role: name=aria2
     - import_role: name=snap
     - import_role: name=cli_tools
+    - import_role: name=fzf
     tags:
     - cli
 
