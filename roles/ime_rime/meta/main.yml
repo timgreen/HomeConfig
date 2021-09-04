@@ -7,3 +7,7 @@ dependencies:
 - role: package
   check_cmd: rime_deployer
   package_name: librime-bin
+
+- role: package
+  check_cmd: ls /usr/share/rime-data/wubi_pinyin.schema.yaml
+  package_name: librime-data-wubi
