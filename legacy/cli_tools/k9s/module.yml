@@ -1,6 +1,0 @@
-requires:
-  - brew
-provides:
-  - k9s
-post-install: |
-  brew install derailed/k9s/k9s
