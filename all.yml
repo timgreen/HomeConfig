@@ -33,5 +33,6 @@
   - block:
     - import_role: name=nerd_fonts
     - import_role: name=cursor_theme
+    - import_role: name=chrome_surfingkeys
     tags:
     - gui, never
