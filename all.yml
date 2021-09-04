@@ -21,6 +21,7 @@
     - import_role: name=snap
     - import_role: name=cli_tools
     - import_role: name=fzf
+    - import_role: name=ack
     tags:
     - cli
 

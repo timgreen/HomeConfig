@@ -1,0 +1,11 @@
+---
+dependencies:
+- role: package
+  vars:
+    check_cmd: ag -V
+    package_name: silversearcher-ag
+
+- role: package
+  vars:
+    check_cmd: ack --version
+    package_name: ack
