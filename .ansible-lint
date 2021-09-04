@@ -3,3 +3,4 @@ warn_list:
 
 skip_list:
 - '701'  # meta/main.yml should contain relevant info
+- '602'  # Don't compare to empty string  
