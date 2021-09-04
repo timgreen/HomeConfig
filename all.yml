@@ -23,6 +23,7 @@
     - import_role: name=fzf
     - import_role: name=ack
     - import_role: name=fzf_git
+    - import_role: name=linuxbrew
     tags:
     - cli
 
