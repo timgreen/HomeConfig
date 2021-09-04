@@ -1,4 +1,3 @@
 ---
-check_cmd        : zsh
-package_name     : zsh
-arch_package_name: ''
+check_cmd   : zsh
+package_name: zsh
