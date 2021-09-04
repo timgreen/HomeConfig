@@ -12,7 +12,4 @@
     dest: '{{ ansible_env.HOME }}/.local/share/fonts'
     creates: ~/.local/share/fonts/Hack Bold Nerd Font Complete.ttf
   register: font_download
-
-- name: Update font cache
-  command: fc-cache -rfv
-  when: font_download.changed  # noqa: no-handler
+  notify: update font cache
