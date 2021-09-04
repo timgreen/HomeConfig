@@ -9,3 +9,4 @@
     git config --global --get include.path \.gitconfig_common || \
       git config --global --add include.path .gitconfig_common
   check_mode: no
+  changed_when: false

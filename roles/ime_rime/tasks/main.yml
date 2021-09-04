@@ -6,3 +6,5 @@
 
 - name: Generate rime data
   command: rime_deployer --build ~/.config/fcitx/rime /usr/share/rime-data/
+  args:
+    creates: ~/.config/fcitx/rime/build/wubi_pinyin.schema.yaml
