@@ -6,9 +6,16 @@
   changed_when: false
   check_mode: no
 
+- name: install {{ package_name }} | arch
+  ansible.builtin.package:
+    name: '{{ arch_package_name }}'
+    state: latest
+  become: yes
+  when: package_check.rc > 0 and arch_package_name != '' and ansible_distribution == 'Archlinux'
+
 - name: install {{ package_name }} | system
   ansible.builtin.package:
     name: '{{ package_name }}'
     state: latest
   become: yes
-  when: package_check.rc > 0
+  when: package_check.rc > 0 and arch_package_name == ''
