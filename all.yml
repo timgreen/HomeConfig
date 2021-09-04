@@ -12,7 +12,7 @@
     - import_role: name=tig
     - import_role: name=git
     tags:
-    - essentials, mini
+    - essentials, mini, always
 
   - block:
     - import_role: name=wget
@@ -27,4 +27,4 @@
     - import_role: name=nerd_fonts
     - import_role: name=cursor_theme
     tags:
-    - gui
+    - gui, never
