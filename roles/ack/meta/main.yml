@@ -3,13 +3,9 @@ dependencies:
 - role: package
   vars:
     check_cmd: ag -V
-    package_name: the_silver_searcher
-  when: ansible_distribution == 'Archlinux'
-
-- role: package
-  vars:
-    check_cmd: ag -V
-    package_name: silversearcher-ag
+    package_name:
+      arch: the_silver_searcher
+      default: silversearcher-ag
 
 - role: package
   vars:
