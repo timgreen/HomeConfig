@@ -1,7 +1,8 @@
+---
 dependencies:
-  - role: package
-    vars:
-      check_cmd: vim --version
-      package_name: vim
+- role: package
+  vars:
+    check_cmd: vim --version
+    package_name: vim
 
-  - role: skeleton
+- role: skeleton

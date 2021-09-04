@@ -1,7 +1,8 @@
+---
 dependencies:
-  - role: package
-    vars:
-      check_cmd: htop --version
-      package_name: htop
+- role: package
+  vars:
+    check_cmd: htop --version
+    package_name: htop
 
-  - role: skeleton
+- role: skeleton

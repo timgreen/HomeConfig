@@ -1,3 +1,4 @@
+---
 - name: stow vim
   command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
   register: output
@@ -5,5 +6,5 @@
 
 - name: vim plug install
   command: vim +PlugInstall +PlugClean! +qall
-  changed_when: False
+  changed_when: false
   check_mode: no

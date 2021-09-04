@@ -1,3 +1,4 @@
+---
 - name: stow wget
   command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
   register: output
@@ -11,4 +12,4 @@
     package_name: wget
   ignore_errors: yes
   tags:
-    - optional
+  - optional

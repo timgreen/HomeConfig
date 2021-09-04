@@ -2,7 +2,7 @@
 name: Ansible Lint check
 
 # yamllint disable-line rule:truthy
-on: [push, pull_request]
+on  : [push, pull_request]
 
 jobs:
   build:
@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Lint Ansible Playbook
-        uses: ansible/ansible-lint-action@master
-        with:
-          targets: "all.yml"
+    - name: Lint Ansible Playbook
+      uses: ansible/ansible-lint-action@master
+      with:
+        targets: all.yml
           # [required]
           # Paths to ansible files (i.e., playbooks, tasks, handlers etc..)
-          args: ""
+        args: ''
           # [optional]

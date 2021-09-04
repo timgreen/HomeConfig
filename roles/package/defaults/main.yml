@@ -1,2 +1,3 @@
-check_cmd: zsh
+---
+check_cmd   : zsh
 package_name: zsh

@@ -1,3 +1,4 @@
+---
 - name: tmux tmuxifier
   ansible.builtin.git:
     repo: https://github.com/jimeh/tmuxifier.git
@@ -18,4 +19,4 @@
   # The install script requires a running tmux server.
   # And start-server will exit if there is no running session.
   command: tmux start-server \; run-shell ~/.tmux/plugins/tpm/bindings/install_plugins
-  changed_when: False
+  changed_when: false

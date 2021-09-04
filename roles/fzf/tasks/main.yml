@@ -1,3 +1,4 @@
+---
 - name: stow fzf
   command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
   register: output

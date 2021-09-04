@@ -1,3 +1,4 @@
+---
 - name: stow cli_tools
   command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
   register: output
@@ -10,7 +11,7 @@
     check_cmd: tree --version
     package_name: tree
   tags:
-    - tree
+  - tree
 
 - name: install | ncdu
   import_role:
@@ -19,7 +20,7 @@
     check_cmd: ncdu --version
     package_name: ncdu
   tags:
-    - ncdu
+  - ncdu
 
 - name: install | jq
   import_role:
@@ -28,7 +29,7 @@
     check_cmd: jq --version
     package_name: jq
   tags:
-    - jq
+  - jq
 
 - name: install | tldr
   import_role:
@@ -37,7 +38,7 @@
     check_cmd: tldr --version
     package_name: tldr
   tags:
-    - tldr
+  - tldr
 
 - name: install | bat
   import_role:
@@ -46,4 +47,4 @@
     check_cmd: bat --version
     package_name: bat
   tags:
-    - bat
+  - bat

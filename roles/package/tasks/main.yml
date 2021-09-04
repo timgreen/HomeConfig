@@ -1,13 +1,14 @@
-- name: "check {{ package_name }}"
-  command: "{{ check_cmd }}"
+---
+- name: check {{ package_name }}
+  command: '{{ check_cmd }}'
   register: package_check
   ignore_errors: yes
-  changed_when: False
+  changed_when: false
   check_mode: no
 
 - name: install {{ package_name }} | system
   ansible.builtin.package:
-    name: "{{ package_name }}"
+    name: '{{ package_name }}'
     state: latest
   become: yes
   when: package_check.rc > 0
