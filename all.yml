@@ -27,6 +27,7 @@
     - import_role: name=ack
     - import_role: name=fzf_git
     - import_role: name=linuxbrew
+    - import_role: name=smart_title
     tags:
     - cli
 
