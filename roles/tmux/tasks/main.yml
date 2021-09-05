@@ -3,7 +3,8 @@
   ansible.builtin.git:
     repo: https://github.com/jimeh/tmuxifier.git
     dest: ~/.tmux/tmuxifier
-    update: no
+    update: yes
+    force: yes
 
 - name: stow tmux
   command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding

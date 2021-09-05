@@ -13,7 +13,8 @@
   ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
     dest: ~/.tmux/plugins/tpm
-    update: no
+    update: yes
+    force: yes
 
 - name: vim plug
   ansible.builtin.get_url:
