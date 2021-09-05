@@ -1,0 +1,23 @@
+---
+- name: tmux tmuxifier
+  ansible.builtin.git:
+    repo: https://github.com/jimeh/tmuxifier.git
+    dest: ~/.tmux/tmuxifier
+    update: yes
+    force: yes
+
+- name: stow tmux
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: tic
+  command: tic ~/.terminfo/tmux.txt -o ~/.terminfo
+  args:
+    creates: ~/.terminfo/t/tmux-256color
+
+- name: TPM install plugins
+  # The install script requires a running tmux server.
+  # And start-server will exit if there is no running session.
+  command: tmux start-server \; run-shell ~/.tmux/plugins/tpm/bindings/install_plugins
+  changed_when: false

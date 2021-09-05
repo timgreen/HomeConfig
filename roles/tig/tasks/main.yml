@@ -1,0 +1,15 @@
+---
+- name: stow tig
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: optionally install tig
+  import_role:
+    name: package
+  vars:
+    check_cmd: tig -v
+    package_name: tig
+  ignore_errors: yes
+  tags:
+  - optional

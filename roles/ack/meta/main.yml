@@ -1,0 +1,13 @@
+---
+dependencies:
+- role: package
+  vars:
+    check_cmd: ag -V
+    package_name:
+      arch: the_silver_searcher
+      default: silversearcher-ag
+
+- role: package
+  vars:
+    check_cmd: ack --version
+    package_name: ack

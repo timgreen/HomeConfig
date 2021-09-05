@@ -1,6 +1,0 @@
-requires:
-  - yarn
-provides:
-  - eslint
-post-install: |
-  which eslint > /dev/null || yarn global add eslint

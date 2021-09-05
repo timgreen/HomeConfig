@@ -1,0 +1,12 @@
+---
+- name: stow fzf_git
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: include git config | fzf
+  shell: |
+    git config --global --get include.path \.gitconfig_fzf || \
+      git config --global --add include.path .gitconfig_fzf
+  check_mode: no
+  changed_when: false

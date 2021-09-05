@@ -1,0 +1,18 @@
+---
+- name: clone zgen
+  ansible.builtin.git:
+    repo: https://github.com/tarjoilija/zgen.git
+    dest: ~/.zgen
+    update: yes
+    force: yes
+
+- name: stow zgen
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: init zgen
+  command: zsh ~/sh/init_zgen.zsh
+  args:
+    creates: ~/.zgen/init.zsh
+  ignore_errors: yes

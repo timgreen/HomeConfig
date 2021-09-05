@@ -1,0 +1,12 @@
+---
+- name: stow git
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: include git config | common
+  shell: |
+    git config --global --get include.path \.gitconfig_common || \
+      git config --global --add include.path .gitconfig_common
+  check_mode: no
+  changed_when: false

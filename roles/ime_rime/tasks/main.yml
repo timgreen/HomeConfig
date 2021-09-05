@@ -1,0 +1,10 @@
+---
+- name: stow ime_rime
+  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+  register: output
+  changed_when: '"LINK" in output.stderr'
+
+- name: Generate rime data
+  command: rime_deployer --build ~/.config/fcitx/rime /usr/share/rime-data/
+  args:
+    creates: ~/.config/fcitx/rime/build/wubi_pinyin.schema.yaml

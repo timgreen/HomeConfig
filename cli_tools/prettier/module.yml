@@ -1,6 +1,0 @@
-requires:
-  - yarn
-provides:
-  - prettier
-post-install: |
-  yarn global add prettier

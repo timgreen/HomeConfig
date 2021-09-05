@@ -1,0 +1,21 @@
+---
+- name: check {{ package_name }}
+  command: '{{ check_cmd }}'
+  register: package_check
+  ignore_errors: yes
+  changed_when: false
+  check_mode: no
+
+- name: install {{ package_name.arch | default(package_name) }} | arch
+  ansible.builtin.package:
+    name: '{{ package_name.arch | default(package_name) }}'
+    state: latest
+  become: yes
+  when: package_check.rc > 0 and ansible_distribution == 'Archlinux'
+
+- name: install {{ package_name.default | default(package_name) }} | system
+  ansible.builtin.package:
+    name: '{{ package_name.default | default(package_name) }}'
+    state: latest
+  become: yes
+  when: package_check.rc > 0 and ansible_distribution != 'Archlinux'

@@ -1,8 +1,0 @@
-requires:
-  - git
-after:
-  - ../../skeletons/zsh
-provides:
-  - hcm
-pre-install: |
-  [ -d ~/.hcm/repo ] || install_hcm.sh

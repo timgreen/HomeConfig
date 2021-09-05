@@ -1,5 +1,0 @@
-requires:
-  - tmux
-after:
-  - ../../skeletons/tmux
-  - ../../shell/zsh
