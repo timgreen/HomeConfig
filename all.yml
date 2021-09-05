@@ -37,4 +37,5 @@
     - import_role: name=chrome_surfingkeys
     - import_role: name=ime_rime
     tags:
-    - gui, never
+    - gui
+    - never
