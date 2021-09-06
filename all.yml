@@ -16,7 +16,9 @@
     - import_role: name=tig
     - import_role: name=git
     tags:
-    - essentials, mini, always
+    - essentials
+    - mini
+    - always
 
   - block:
     - import_role: name=wget
