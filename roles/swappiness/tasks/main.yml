@@ -1,0 +1,7 @@
+---
+- name: set swappiness value to {{ swappiness }}
+  command: sysctl vm.swappiness={{ swappiness }}
+  when: "{{ lookup('file', '/proc/sys/vm/swappiness') }} != {{ swappiness }}"
+  become: yes
+  tags:
+  - swappiness

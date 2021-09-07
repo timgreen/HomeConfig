@@ -15,6 +15,7 @@
     - import_role: name=top
     - import_role: name=tig
     - import_role: name=git
+    - import_role: name=swappiness
     tags:
     - essentials
     - mini
