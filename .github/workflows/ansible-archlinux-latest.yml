@@ -16,7 +16,7 @@ jobs:
       # replace "master" with any valid ref
       uses: roles-ansible/check-ansible-archlinux-latest-action@master
       with:
-        targets: --tags cli,gui --skip-tags swappiness all.yml
+        targets: --tags mini,cli,gui --skip-tags swappiness all.yml
         #  [required]
         #   Paths to your ansible role or playboox.yml you want to test
         #   Some Examples:

@@ -19,7 +19,6 @@
     tags:
     - essentials
     - mini
-    - always
 
   - block:
     - import_role: name=wget

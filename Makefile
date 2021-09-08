@@ -1,6 +1,3 @@
-sync-all:
-	ansible-playbook all.yml
-
 galaxy-install:
 	ansible-galaxy collection install -r requirements.yml
 
