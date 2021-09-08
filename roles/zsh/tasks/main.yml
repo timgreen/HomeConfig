@@ -12,7 +12,7 @@
     check_cmd: locale-gen
     package_name:
       # https://command-not-found.com/locale-gen
-      arch: glibc
+      Archlinux: glibc
       default: locales
   tags:
   - never

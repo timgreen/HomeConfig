@@ -5,7 +5,7 @@
   vars:
     package_name:
       # https://command-not-found.com/sysctl
-      arch: procps-ng
+      Archlinux: procps-ng
       default: procps
   tags:
   - swappiness
