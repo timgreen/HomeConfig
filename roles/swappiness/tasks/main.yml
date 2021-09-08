@@ -1,4 +1,14 @@
 ---
+- name: ensure sysctl
+  import_role:
+    name: package
+  vars:
+    # https://command-not-found.com/sysctl
+    arch_package_name: procps-ng
+    package_name: procps
+  tags:
+  - swappiness
+
 - name: set swappiness value to {{ swappiness }}
   command: sysctl vm.swappiness={{ swappiness }}
   when: "{{ lookup('file', '/proc/sys/vm/swappiness') }} != {{ swappiness }}"
