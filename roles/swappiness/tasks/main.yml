@@ -11,8 +11,10 @@
   - swappiness
 
 - name: set swappiness value to {{ swappiness }}
-  command: sysctl vm.swappiness={{ swappiness }}
-  when: "{{ lookup('file', '/proc/sys/vm/swappiness') }} != {{ swappiness }}"
+  ansible.posix.sysctl:
+    name: vm.swappiness
+    value: '{{ swappiness }}'
+    state: present
   become: yes
   tags:
   - swappiness
