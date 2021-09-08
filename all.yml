@@ -38,6 +38,7 @@
     - import_role: name=cursor_theme
     - import_role: name=chrome_surfingkeys
     - import_role: name=ime_rime
+    - import_role: name=guake
     tags:
     - gui
     - never
