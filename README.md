@@ -1,7 +1,5 @@
 # Tim Green Home Config
 
-[![Non-Interactive Installation Test](https://travis-ci.org/timgreen/HomeConfig.svg?branch=master)](https://travis-ci.org/timgreen/HomeConfig)
-
 [![Ansible Lint check](https://github.com/timgreen/HomeConfig/actions/workflows/ansible-linting-check.yml/badge.svg)](https://github.com/timgreen/HomeConfig/actions/workflows/ansible-linting-check.yml)
 
 Non-Interactive Installation Test 
@@ -13,5 +11,5 @@ Non-Interactive Installation Test
 ## Init
 
 ```sh
-ansible-playbook playbook.yml
+ansible-playbook all.yml --tags mini,cli --ask-become-pass
 ```
