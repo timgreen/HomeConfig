@@ -10,9 +10,10 @@
     name: package
   vars:
     check_cmd: locale-gen
-    # https://command-not-found.com/locale-gen
-    arch_package_name: glibc
-    package_name: locales
+    package_name:
+      # https://command-not-found.com/locale-gen
+      arch: glibc
+      default: locales
   tags:
   - never
   - locale

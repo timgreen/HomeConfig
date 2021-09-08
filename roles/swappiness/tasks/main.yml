@@ -3,9 +3,10 @@
   import_role:
     name: package
   vars:
-    # https://command-not-found.com/sysctl
-    arch_package_name: procps-ng
-    package_name: procps
+    package_name:
+      # https://command-not-found.com/sysctl
+      arch: procps-ng
+      default: procps
   tags:
   - swappiness
 
