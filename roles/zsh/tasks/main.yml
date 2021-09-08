@@ -4,6 +4,19 @@
   register: output
   changed_when: '"LINK" in output.stderr'
 
+
+- name: Ensure locale-gen
+  import_role:
+    name: package
+  vars:
+    check_cmd: which locale-gen
+    # https://command-not-found.com/locale-gen
+    arch_package_name: glibc
+    package_name: locales
+  tags:
+  - never
+  - locale
+
 - name: Ensure locale en_US.UTF-8 exists
   community.general.locale_gen:
     name: en_US.UTF-8
