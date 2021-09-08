@@ -9,7 +9,7 @@
   import_role:
     name: package
   vars:
-    check_cmd: which locale-gen
+    check_cmd: locale-gen
     # https://command-not-found.com/locale-gen
     arch_package_name: glibc
     package_name: locales
