@@ -3,4 +3,6 @@ dependencies:
 - role: package
   vars:
     check_cmd: dconf help
-    package_name: dconf
+    package_name:
+      Debian: dconf-cli
+      default: dconf
