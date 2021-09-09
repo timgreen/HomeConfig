@@ -9,7 +9,7 @@
       package_name: guake
 
   - name: Restore guake configuration
-    command: dconf load /apps/guake/ < {{ role_path }}/files/guake.dconf
+    shell: dconf load /apps/guake/ < {{ role_path }}/files/guake.dconf
 
   tags:
   - guake
