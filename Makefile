@@ -4,6 +4,9 @@ galaxy-install:
 lint:
 	ansible-lint all.yml
 
+list-tags:
+	ansible-playbook all.yml --list-tags --tags mini,cli,gui
+
 new-role:
 	ansible-galaxy init roles/${role}
 
