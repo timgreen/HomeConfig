@@ -1,20 +1,20 @@
-unmap('se');
-unmap('sb');
-unmap('ow');
-unmap('B');
-unmap('ga');
-unmap('F');
+api.unmap('se');
+api.unmap('sb');
+api.unmap('ow');
+api.unmap('B');
+api.unmap('ga');
+api.unmap('F');
 
 settings.startToShowEmoji = 10;
 
 // Follow links
 settings.hintAlign = 'left';
-Hints.characters = 'asdfghjkl';
+api.Hints.characters = 'asdfghjkl';
 
 // only keep E, R and T from Surfingkeys for some sites.
-unmapAllExcept(['E', 'R', 'T'], /(mail|inbox|research|docs).google.com/);
-unmapAllExcept([], /cad.onshape.com\/documents\//);
-unmapAllExcept([], /remotedesktop.google.com/);
+api.unmapAllExcept(['E', 'R', 'T'], /(mail|inbox|research|docs).google.com/);
+api.unmapAllExcept([], /cad.onshape.com\/documents\//);
+api.unmapAllExcept([], /remotedesktop.google.com/);
 
-unmapAllExcept([], /github.dev/);
-unmapAllExcept([], /www.figma.com/);
+api.unmapAllExcept([], /github.dev/);
+api.unmapAllExcept([], /www.figma.com/);
