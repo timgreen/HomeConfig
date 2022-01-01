@@ -1,0 +1,11 @@
+---
+dependencies:
+- role: package
+  vars:
+    check_cmd: xprintidle -v
+    package_name: xprintidle
+
+- role: package
+  vars:
+    check_cmd: xdotool -v
+    package_name: xdotool

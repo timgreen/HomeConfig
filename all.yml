@@ -41,6 +41,7 @@
     - import_role: name=chrome_surfingkeys
     - import_role: name=ime_rime
     - import_role: name=guake
+    - import_role: name=gui_scripts
     tags:
     - gui
     - never
