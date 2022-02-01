@@ -42,6 +42,7 @@
     - import_role: name=ime_rime
     - import_role: name=guake
     - import_role: name=gui_scripts
+    - import_role: name=flatpak
     - import_role: name=obsidian
     tags:
     - gui
