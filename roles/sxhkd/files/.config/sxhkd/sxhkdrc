@@ -9,7 +9,7 @@ super + ctrl + alt + period
   pkill sxhkd -SIGUSR1 && notify-send "Sxhkd config reloaded"
 
 super + w; p
-  notify-send "Place window"
+  notify-send -i kwin "Place window"
 
 # Use dbus to call KDE shortcuts.
 # List all the shortcut names
@@ -24,21 +24,35 @@ ctrl + {F1,F2,F3,F4}
   c="Switch to Desktop {1,2,3,4}"; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c"
 
+shift + ctrl + {F1,F2,F3,F4}
+  c="Window to Desktop {1,2,3,4}"; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c"
+
 # Tile window left / right
 super + w; {h,l}
   c={"Window Quick Tile Left","Window Quick Tile Right"}; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
-    && notify-send "$c"
+    && notify-send -i kwin "$c"
 ctrl + super alt + {Left,Right}
   c={"Window Quick Tile Left","Window Quick Tile Right"}; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
-    && notify-send "$c"
+    && notify-send -i kwin "$c"
+
+# Win max & to next screen.
+super + w; {k,j}
+  c={"Window Maximize","Window to Next Screen"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+ctrl + super alt + {Up,Down}
+  c={"Window Maximize","Window to Next Screen"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
 
 # Tile window to corner
 super + w; {u,o,m,period}
   c={"Window Quick Tile Top Left","Window Quick Tile Top Right","Window Quick Tile Bottom Left","Window Quick Tile Bottom Right"}; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
-    && notify-send "$c"
+    && notify-send -i kwin "$c"
 
 # On external monitor connect/disconnect
 shift + ctrl + super + alt + space
