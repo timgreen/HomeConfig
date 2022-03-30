@@ -44,6 +44,7 @@
     - import_role: name=gui_scripts
     - import_role: name=flatpak
     - import_role: name=obsidian
+    - import_role: name=sxhkd
     tags:
     - gui
     - never
