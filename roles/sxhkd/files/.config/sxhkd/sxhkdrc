@@ -39,3 +39,13 @@ super + w; {u,o,m,period}
   c={"Window Quick Tile Top Left","Window Quick Tile Top Right","Window Quick Tile Bottom Left","Window Quick Tile Bottom Right"}; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
     && notify-send "$c"
+
+# On external monitor connect/disconnect
+shift + ctrl + super + alt + space
+  on_screen_change.sh
+
+# Place windows with predefined rules
+ctrl + super + alt + space
+  place_windows.sh
+super + w; space
+  place_windows.sh
