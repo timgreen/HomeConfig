@@ -8,9 +8,6 @@
 super + ctrl + alt + period
   pkill sxhkd -SIGUSR1 && notify-send "Sxhkd config reloaded"
 
-super + w; p
-  notify-send -i kwin "Place window"
-
 # Use dbus to call KDE shortcuts.
 # List all the shortcut names
 #
@@ -60,6 +57,9 @@ shift + ctrl + super + alt + space
 
 # Place windows with predefined rules
 ctrl + super + alt + space
-  place_windows.sh
+  place_windows.sh && notify-send -i kwin "Place window"
 super + w; space
-  place_windows.sh
+  place_windows.sh && notify-send -i kwin "Place window"
+super + w; p
+  place_windows.sh && notify-send -i kwin "Place window"
+
