@@ -15,8 +15,8 @@ jobs:
     - name: Lint Ansible Playbook
       uses: ansible/ansible-lint-action@main
       with:
-        targets: all.yml
+        entryPoint: all.yml
           # [required]
           # Paths to ansible files (i.e., playbooks, tasks, handlers etc..)
-        args: ''
+        path: ''
           # [optional]

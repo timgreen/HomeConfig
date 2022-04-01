@@ -1,7 +1,7 @@
 warn_list:
-- experimental  # all rules tagged as experimental
+  - experimental  # all rules tagged as experimental
 
 skip_list:
-- '303'  # Using command rather than module
-- '602'  # Don't compare to empty string
-- '701'  # meta/main.yml should contain relevant info
+  - '303'  # Using command rather than module
+  - '602'  # Don't compare to empty string
+  - '701'  # meta/main.yml should contain relevant info
