@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=sxhkd
 Comment=Simple X hotkey daemon
-Exec=/usr/bin/sxhkd | tee -a /dev/shm/sxhkd.log
+Exec=/usr/bin/sxhkd 2>&1 | tee -a /dev/shm/sxhkd.log
 Terminal=false
 Type=Application
