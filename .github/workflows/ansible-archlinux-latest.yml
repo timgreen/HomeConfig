@@ -10,11 +10,11 @@ jobs:
 
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: ansible check with archlinux:latest
       # replace "master" with any valid ref
-      uses: roles-ansible/check-ansible-archlinux-latest-action@48c26fdf9234e7cc7be678ec491e73ce42b2fc99
+      uses: roles-ansible/check-ansible-archlinux-latest-action@master
       with:
         targets: --tags mini,cli,gui --skip-tags skip_in_ci all.yml
         #  [required]
