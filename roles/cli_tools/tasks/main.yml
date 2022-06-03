@@ -48,3 +48,12 @@
     package_name: bat
   tags:
   - bat
+
+- name: install | autossh
+  import_role:
+    name: package
+  vars:
+    check_cmd: autossh -V
+    package_name: autossh
+  tags:
+  - bat
