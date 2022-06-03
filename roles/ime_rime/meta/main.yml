@@ -5,6 +5,10 @@ dependencies:
   package_name: fcitx
 
 - role: package
+  check_cmd: ls /usr/share/doc/fcitx-rime/README.md
+  package_name: fcitx-rime
+
+- role: package
   check_cmd: rime_deployer
   package_name:
     Archlinux: librime
