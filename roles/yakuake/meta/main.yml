@@ -1,0 +1,8 @@
+---
+dependencies:
+- role: package
+  vars:
+    check_cmd: kwriteconfig5 -h
+    package_name:
+      Arch: kconfig
+      default: libkf5config-bin

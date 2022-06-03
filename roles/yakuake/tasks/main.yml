@@ -1,0 +1,24 @@
+---
+- block:
+  - name: stow konsole profiles
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+
+  - name: Install yakuake
+    import_role:
+      name: package
+    vars:
+      check_cmd: yakuake --version
+      package_name: yakuake
+
+  - name: Restore yakuake configuration
+    shell: |
+      kwriteconfig5 --file ~/.config/yakuakerc --group Window --key Height 90
+      kwriteconfig5 --file ~/.config/yakuakerc --group Window --key Width 100
+      kwriteconfig5 --file ~/.config/yakuakerc --group Window --key DynamicTabTitles --type bool true
+      kwriteconfig5 --file ~/.config/yakuakerc --group Appearance --key HideSkinBorders --type bool true
+      kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key DefaultProfile WhiteOnBlack.profile
+
+  tags:
+  - yakuake
