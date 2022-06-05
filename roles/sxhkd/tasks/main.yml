@@ -13,5 +13,12 @@
     register: output
     changed_when: '"LINK" in output.stderr'
 
+  - name: Install xinput
+    import_role:
+      name: package
+    vars:
+      check_cmd: xinput --help
+      package_name: xinput
+
   tags:
   - sxhkd

@@ -53,13 +53,13 @@ super + w; {u,o,m,period}
 
 # On external monitor connect/disconnect
 shift + ctrl + super + alt + space
-  on_screen_change.sh
+  $HOME/sh/on_screen_change.sh
 
 # Place windows with predefined rules
 ctrl + super + alt + space
-  place_windows.sh && notify-send -i kwin "Place window"
+  $HOME/sh/place_windows.sh && notify-send -i kwin "Place window"
 super + w; space
-  place_windows.sh && notify-send -i kwin "Place window"
+  $HOME/sh/place_windows.sh && notify-send -i kwin "Place window"
 super + w; p
-  place_windows.sh && notify-send -i kwin "Place window"
+  $HOME/sh/place_windows.sh && notify-send -i kwin "Place window"
 
