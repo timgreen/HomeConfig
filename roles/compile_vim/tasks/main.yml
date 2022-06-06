@@ -21,6 +21,21 @@
         - cmake
     when: ansible_pkg_mgr == 'apt'
 
+  - name: Install deps | pacman
+    become: yes
+    pacman:
+      state: latest
+      name:
+        - base-devel
+        - make
+        - cmake
+        - gcc
+        - awk
+        - ncurses
+        - libx11
+        - xorg-xinit
+    when: ansible_pkg_mgr == 'pacman'
+
   - name: git checkout
     git:
       repo: https://github.com/vim/vim.git
@@ -55,7 +70,7 @@
     become: yes
 
   - name: Clean up
-    command: "rm -fr {{vim_configure_prefix}}"
+    command: "rm -fr {{vim_git_dest}}"
 
   when: vim_feature_check.rc > 0
   tags:
