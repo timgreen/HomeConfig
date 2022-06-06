@@ -7,6 +7,13 @@
     tags:
     - always
 
+  - name: apt update
+    apt:
+      update_cache: yes
+    ignore_errors: yes
+    tags:
+    - always
+
   - block:
     - import_role: name=skeleton
     - import_role: name=tmux
