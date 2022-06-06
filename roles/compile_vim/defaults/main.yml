@@ -1,0 +1,4 @@
+---
+vim_git_dest: /dev/shm/vim
+vim_configure_prefix: /usr/local
+

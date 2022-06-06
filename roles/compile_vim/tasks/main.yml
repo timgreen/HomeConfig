@@ -1,0 +1,62 @@
+---
+# Inspired by https://github.com/guoqiao/ansible-role-vim/blob/master/tasks/main.yml
+- name: Check vim features
+  command: bash -c "vim --version | grep +clipboard"
+  register: vim_feature_check
+  changed_when: false
+  check_mode: no
+  ignore_errors: yes
+  tags:
+  - compile_vim
+
+- block:
+
+  - name: Install deps | apt
+    become: yes
+    apt:
+      state: latest
+      name:
+        - libncurses-dev
+        - xorg-dev  # for +clipboard
+        - cmake
+    when: ansible_pkg_mgr == 'apt'
+
+  - name: git checkout
+    git:
+      repo: https://github.com/vim/vim.git
+      dest: "{{vim_git_dest}}"
+      update: yes
+      clone: yes
+      depth: 1
+
+  - name: Compile vim
+    command: "{{item}}"
+    args:
+      chdir: "{{vim_git_dest}}"
+    loop:
+      - make distclean
+      - >
+        ./configure
+        --prefix={{vim_configure_prefix}}
+        --with-features=huge
+        --with-x
+        --enable-gui=auto
+        --enable-pythoninterp
+        --enable-python3interp
+        --enable-luainterp
+        --enable-rubyinterp
+        --enable-largefile
+      - make
+
+  - name: Install vim
+    command: make install
+    args:
+      chdir: "{{vim_git_dest}}"
+    become: yes
+
+  - name: Clean up
+    command: "rm -fr {{vim_configure_prefix}}"
+
+  when: vim_feature_check.rc > 0
+  tags:
+  - compile_vim
