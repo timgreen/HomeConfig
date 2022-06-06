@@ -18,7 +18,9 @@
       name: package
     vars:
       check_cmd: xinput --help
-      package_name: xinput
+      package_name:
+        Archlinux: xorg-xinput
+        default: xinput
 
   tags:
   - sxhkd
