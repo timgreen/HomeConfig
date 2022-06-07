@@ -54,6 +54,7 @@
     - import_role: name=flatpak
     - import_role: name=obsidian
     - import_role: name=sxhkd
+    - import_role: name=kdeconnect
     tags:
     - gui
     - never

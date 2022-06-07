@@ -1,0 +1,21 @@
+---
+- block:
+  - name: Install kdeconnect
+    package:
+      name: kdeconnect
+    become: yes
+
+  - name: Open ports
+    community.general.ufw:
+      proto: udp
+      rule: allow
+      src: '{{ item }}'
+      port: 1714:1764
+    loop:
+      - 10.0.0.0/8
+      - 172.16.0.0/12
+      - 192.168.0.0/16
+    become: yes
+
+  tags:
+  - kdeconnect
