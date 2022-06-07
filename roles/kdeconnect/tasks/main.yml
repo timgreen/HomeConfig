@@ -5,6 +5,11 @@
       name: kdeconnect
     become: yes
 
+  - name: Install ufw
+    package:
+      name: ufw
+    become: yes
+
   - name: Open ports
     community.general.ufw:
       proto: udp
