@@ -21,6 +21,8 @@
       - 172.16.0.0/12
       - 192.168.0.0/16
     become: yes
+    tags:
+      - skip_in_ci
 
   tags:
-  - kdeconnect
+    - kdeconnect
