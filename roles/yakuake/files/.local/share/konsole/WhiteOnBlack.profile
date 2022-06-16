@@ -5,6 +5,9 @@ ColorScheme=WhiteOnBlack
 Name=WhiteOnBlack
 Parent=FALLBACK/
 
+[Interaction Options]
+MouseWheelZoomEnabled=false
+
 [Terminal Features]
 BlinkingCursorEnabled=true
 ReverseUrlHints=true
