@@ -58,3 +58,9 @@
     tags:
     - gui
     - never
+
+  - block:
+    - import_role: name=vscode
+    tags:
+    - dev
+    - never
