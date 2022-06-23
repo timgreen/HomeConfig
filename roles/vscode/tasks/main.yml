@@ -5,6 +5,8 @@
       method: user
       name:  com.visualstudio.code
       state: present
+    tags:
+    - skip_in_ci
 
   - name: stow vscode
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
