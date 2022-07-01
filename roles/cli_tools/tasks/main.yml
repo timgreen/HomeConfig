@@ -57,3 +57,12 @@
     package_name: autossh
   tags:
   - bat
+
+- name: install | rclone
+  import_role:
+    name: package
+  vars:
+    check_cmd: rclone help
+    package_name: rclone
+  tags:
+  - rclone
