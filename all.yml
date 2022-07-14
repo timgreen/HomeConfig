@@ -20,6 +20,7 @@
     - import_role: name=skeleton_zgen
     - import_role: name=zgen
     - import_role: name=zsh
+    - import_role: name=zsh_p10k
     - import_role: name=vim
     - import_role: name=compile_vim
     - import_role: name=top
