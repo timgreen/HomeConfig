@@ -12,5 +12,5 @@ Non-Interactive Installation Test
 ## Init
 
 ```sh
-ansible-pull -U https://github.com/timgreen/HomeConfig.git -d $PWD/HomeConfig all.yml --tags mini,cli --ask-become-pass
+ansible-pull -U https://github.com/timgreen/HomeConfig.git -d $PWD/HomeConfig all.yml --tags mini,cli --ask-become-pass --accept-host-key
 ```
