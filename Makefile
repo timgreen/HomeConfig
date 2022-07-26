@@ -2,10 +2,10 @@ galaxy-install:
 	ansible-galaxy collection install -r requirements.yml
 
 lint:
-	ansible-lint all.yml
+	ansible-lint local.yml
 
 list-tags:
-	ansible-playbook all.yml --list-tags --tags mini,cli,gui
+	ansible-playbook local.yml --list-tags --tags mini,cli,gui
 
 new-role:
 	ansible-galaxy init roles/${role}
