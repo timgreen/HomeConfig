@@ -8,6 +8,7 @@
   ignore_errors: yes
   tags:
   - compile_vim
+  - skip_in_ci
 
 - block:
 
@@ -75,3 +76,4 @@
   when: vim_feature_check.rc > 0
   tags:
   - compile_vim
+  - skip_in_ci

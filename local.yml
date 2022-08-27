@@ -13,6 +13,7 @@
     become: yes
     tags:
     - always
+    - package_update
 
   - block:
     - import_role: name=skeleton
