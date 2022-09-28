@@ -49,9 +49,9 @@
     - import_role: name=nerd_fonts
     - import_role: name=cursor_theme
     - import_role: name=chrome_surfingkeys
-    - import_role: name=ime_rime
+    # - import_role: name=ime_rime
     # - import_role: name=guake
-    - import_role: name=yakuake
+    # - import_role: name=yakuake
     - import_role: name=gui_scripts
     - import_role: name=flatpak
     - import_role: name=obsidian
@@ -66,3 +66,11 @@
     tags:
     - dev
     - never
+
+  - block:
+    - import_role: name=chromeos_sommelier
+    when:
+    - ansible_hostname == 'penguin'
+    tags:
+    - chrome_os
+    - always
