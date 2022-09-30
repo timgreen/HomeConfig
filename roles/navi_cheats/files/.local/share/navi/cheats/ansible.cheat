@@ -1,0 +1,9 @@
+% ansible-playbook
+
+# run tags
+ansible-playbook <playbook_yml> --tags <ansible_tag> --skip-tags <skip_ansible_tag>
+
+$ playbook_yml: ls *.yml | grep -v requirements.yml
+$ ansible_tag: ansible-playbook --list-tags <playbook_yml> --tags all,never 2> /dev/null | grep "TASK TAGS:" | sed -e "s/.*\[//" -e "s/\].*//" -e "s/, /\n/g" | grep -v never | grep -v always
+$ skip_ansible_tag: ansible-playbook --list-tags <playbook_yml> --tags all,never 2> /dev/null | grep "TASK TAGS:" | sed -e "s/.*\[//" -e "s/\].*//" -e "s/, /\n/g" | grep -v never | grep -v always
+
