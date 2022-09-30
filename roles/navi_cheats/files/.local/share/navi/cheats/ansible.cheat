@@ -1,9 +1,9 @@
 % ansible-playbook
 
 # run tags
-ansible-playbook <playbook_yml> <ansible_include_tag> <skip_ansible_tag> <other_ansible_options>
+ansible-playbook <playbook_yml> <include_tags> <skip_tags> <other_options>
 
 $ playbook_yml: ls *.yml | grep -v requirements.yml --- --header "playbook yaml file"
-$ ansible_include_tag: ansible-playbook --list-tags <playbook_yml> --tags all,never 2> /dev/null | grep "TASK TAGS:" | sed -e "s/.*\[//" -e "s/\].*//" -e "s/, /\n/g" | grep -v never | grep -v always | {echo "\n$(cat -)"} --- --map "sed 's/\(.\+\)/--tags \1/'"
-$ skip_ansible_tag: ansible-playbook --list-tags <playbook_yml> --tags all,never 2> /dev/null | grep "TASK TAGS:" | sed -e "s/.*\[//" -e "s/\].*//" -e "s/, /\n/g" | grep -v never | grep -v always | {echo "\n$(cat -)"} --- --map "sed 's/\(.\+\)/--skip-tags \1/'"
-$ other_ansible_options: echo "\n--ask-become-pass"
+$ include_tags: ansible-playbook --list-tags <playbook_yml> --tags all,never 2> /dev/null | grep "TASK TAGS:" | sed -e "s/.*\[//" -e "s/\].*//" -e "s/, /\n/g" | grep -v never | grep -v always | {echo -n "\n$(cat -)"} --- --map "grep '.' | tr '\n' ',' | sed -e 's/,$//' | sed -e 's/^\(.\+\)$/--tags \1/'" --multi
+$ skip_tags:    ansible-playbook --list-tags <playbook_yml> --tags all,never 2> /dev/null | grep "TASK TAGS:" | sed -e "s/.*\[//" -e "s/\].*//" -e "s/, /\n/g" | grep -v never | grep -v always | {echo -n "\n$(cat -)"} --- --map "grep '.' | tr '\n' ',' | sed -e 's/,$//' | sed -e 's/^\(.\+\)$/--skip-tags \1/'" --multi
+$ other_options: echo "\n--ask-become-pass"
