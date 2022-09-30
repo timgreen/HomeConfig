@@ -1,5 +1,5 @@
 warn_list:
-  - experimental  # all rules tagged as experimental
+  - experimental               # all rules tagged as experimental
 
 skip_list:
   - fqcn-builtins              # Use FQCN for builtin actions.
@@ -8,3 +8,4 @@ skip_list:
   - package-latest             # Package installs should not use latest.
   - meta-no-info               # meta/main.yml should contain relevant info.
   - command-instead-of-module  # Using command rather than module. For 'git config'
+  - ignore-errors

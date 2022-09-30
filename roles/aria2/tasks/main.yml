@@ -10,6 +10,7 @@
   vars:
     check_cmd: aria2c -v
     package_name: aria2
-  failed_when: false
+  ignore_errors: true
   tags:
     - install_aria2c
+    - optional
