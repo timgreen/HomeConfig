@@ -1,16 +1,11 @@
 ---
 - block:
-  - name: check navi install
-    command: navi --version
-    register: navi_check
-    ignore_errors: yes
-    changed_when: false
-    check_mode: no
-
   - name: install navi
-    shell: |
-      BIN_DIR=$HOME/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/v2.20.1/scripts/install | grep -v 'append_to_file ')
-    when: navi_check.rc > 0
+    shell:
+      cmd: |
+        BIN_DIR=$HOME/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/v2.20.1/scripts/install | grep -v 'append_to_file ')
+      executable: /bin/bash
+      creates: $HOME/bin/navi
 
   - name: stow navi
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
