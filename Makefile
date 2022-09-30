@@ -5,7 +5,7 @@ lint:
 	ansible-lint
 
 list-tags:
-	ansible-playbook local.yml --list-tags --tags mini,cli,gui
+	ansible-playbook local.yml --list-tags --tags all,never
 
 new-role:
 	ansible-galaxy init roles/${role}
