@@ -1,2 +1,3 @@
 # Default trigger ctrl + g
-eval "$(navi widget zsh)"
+# don't use --best-match
+eval "$(navi widget zsh | sed 's/--best-match//g')"
