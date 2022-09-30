@@ -1,13 +1,13 @@
 ---
 dependencies:
-- role: package
-  vars:
-    check_cmd: tmux -V
-    package_name: tmux
+  - role: package
+    vars:
+      check_cmd: tmux -V
+      package_name: tmux
 
-- role: skeleton
+  - role: skeleton
 
-- role: package
-  vars:
-    check_cmd: tic -V
-    package_name: tic
+  - role: package
+    vars:
+      check_cmd: tic -V
+      package_name: tic

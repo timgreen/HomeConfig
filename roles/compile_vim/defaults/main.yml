@@ -1,4 +1,3 @@
 ---
 vim_git_dest: /tmp/vim
 vim_configure_prefix: /usr/local
-

@@ -10,6 +10,6 @@
   vars:
     check_cmd: wget -V
     package_name: wget
-  ignore_errors: yes
+  failed_when: false
   tags:
-  - optional
+    - optional

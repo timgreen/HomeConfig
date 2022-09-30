@@ -10,6 +10,6 @@
   vars:
     check_cmd: snap version
     package_name: snapd
-  ignore_errors: yes
+  failed_when: false
   tags:
-  - optional
+    - optional

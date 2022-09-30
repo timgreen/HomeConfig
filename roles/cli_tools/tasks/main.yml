@@ -11,7 +11,7 @@
     check_cmd: tree --version
     package_name: tree
   tags:
-  - tree
+    - tree
 
 - name: install | ncdu
   import_role:
@@ -20,7 +20,7 @@
     check_cmd: ncdu --version
     package_name: ncdu
   tags:
-  - ncdu
+    - ncdu
 
 - name: install | jq
   import_role:
@@ -29,7 +29,7 @@
     check_cmd: jq --version
     package_name: jq
   tags:
-  - jq
+    - jq
 
 - name: install | tldr
   import_role:
@@ -38,7 +38,7 @@
     check_cmd: tldr --version
     package_name: tldr
   tags:
-  - tldr
+    - tldr
 
 - name: install | bat
   import_role:
@@ -47,7 +47,7 @@
     check_cmd: bat --version
     package_name: bat
   tags:
-  - bat
+    - bat
 
 - name: install | autossh
   import_role:
@@ -56,7 +56,7 @@
     check_cmd: autossh -V
     package_name: autossh
   tags:
-  - bat
+    - bat
 
 - name: install | rclone
   import_role:
@@ -65,4 +65,4 @@
     check_cmd: rclone help
     package_name: rclone
   tags:
-  - rclone
+    - rclone

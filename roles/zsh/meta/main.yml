@@ -1,4 +1,4 @@
 ---
 dependencies:
-- role: skeleton
-- role: zgen
+  - role: skeleton
+  - role: zgen

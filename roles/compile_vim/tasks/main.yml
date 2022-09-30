@@ -1,79 +1,84 @@
 ---
-# Inspired by https://github.com/guoqiao/ansible-role-vim/blob/master/tasks/main.yml
+# Inspired by
+# https://github.com/guoqiao/ansible-role-vim/blob/master/tasks/main.yml
 - name: Check vim features
   command: bash -c "vim --version | grep +clipboard"
   register: vim_feature_check
   changed_when: false
-  check_mode: no
-  ignore_errors: yes
+  check_mode: false
+  ignore_errors: true
   tags:
-  - compile_vim
-  - skip_in_ci
+    - compile_vim
+    - skip_in_ci
 
 - block:
 
-  - name: Install deps | apt
-    become: yes
-    apt:
-      state: latest
-      name:
-        - libncurses-dev
-        - xorg-dev  # for +clipboard
-        - cmake
-    when: ansible_pkg_mgr == 'apt'
+    - name: Install deps | apt
+      become: true
+      apt:
+        state: latest
+        name:
+          - libncurses-dev
+          - xorg-dev  # for +clipboard
+          - cmake
+      when: ansible_pkg_mgr == 'apt'
 
-  - name: Install deps | pacman
-    become: yes
-    pacman:
-      state: latest
-      name:
-        - base-devel
+    - name: Install deps | pacman
+      become: true
+      pacman:
+        state: latest
+        name:
+          - base-devel
+          - make
+          - cmake
+          - gcc
+          - awk
+          - ncurses
+          - libx11
+          - xorg-xinit
+      when: ansible_pkg_mgr == 'pacman'
+
+    - name: git checkout
+      git:
+        repo: https://github.com/vim/vim.git
+        dest: "{{ vim_git_dest }}"
+        update: true
+        clone: true
+        depth: 1
+
+    - name: Compile vim
+      command: "{{ item }}"
+      args:
+        chdir: "{{ vim_git_dest }}"
+      loop:
+        - make distclean
+        - >
+          ./configure
+          --prefix={{ vim_configure_prefix }}
+          --with-features=huge
+          --with-x
+          --enable-gui=auto
+          --enable-pythoninterp
+          --enable-python3interp
+          --enable-luainterp
+          --enable-rubyinterp
+          --enable-largefile
         - make
-        - cmake
-        - gcc
-        - awk
-        - ncurses
-        - libx11
-        - xorg-xinit
-    when: ansible_pkg_mgr == 'pacman'
+      changed_when: false
 
-  - name: git checkout
-    git:
-      repo: https://github.com/vim/vim.git
-      dest: "{{vim_git_dest}}"
-      update: yes
-      clone: yes
-      depth: 1
+    - name: Install vim
+      command: make install
+      args:
+        chdir: "{{ vim_git_dest }}"
+      become: true
+      changed_when: false
 
-  - name: Compile vim
-    command: "{{item}}"
-    args:
-      chdir: "{{vim_git_dest}}"
-    loop:
-      - make distclean
-      - >
-        ./configure
-        --prefix={{vim_configure_prefix}}
-        --with-features=huge
-        --with-x
-        --enable-gui=auto
-        --enable-pythoninterp
-        --enable-python3interp
-        --enable-luainterp
-        --enable-rubyinterp
-        --enable-largefile
-      - make
-
-  - name: Install vim
-    command: make install
-    args:
-      chdir: "{{vim_git_dest}}"
-    become: yes
-
-  - name: Clean up
-    command: "rm -fr {{vim_git_dest}}"
+    - name: Clean up
+      ansible.builtin.file:
+        path: "{{ vim_git_dest }}"
+        state: absent
 
   when: vim_feature_check.rc > 0
   tags:
-  - compile_vim
-  - skip_in_ci
+    - compile_vim
+    - skip_in_ci

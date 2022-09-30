@@ -15,9 +15,9 @@
       name: vm.swappiness
       value: '{{ swappiness }}'
       state: present
-    become: yes
+    become: true
     tags:
-    - skip_in_ci  # not supported in the container
+      - skip_in_ci  # not supported in the container
 
   tags:
-  - swappiness
+    - swappiness

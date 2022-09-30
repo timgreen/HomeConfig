@@ -5,82 +5,82 @@
   - name: Distribution
     debug: msg="{{ ansible_distribution }}"
     tags:
-    - always
+      - always
 
   - name: package update
     action: >
       {{ ansible_pkg_mgr }} update_cache=yes
-    become: yes
+    become: true
     tags:
-    - always
-    - package_update
+      - always
+      - package_update
 
   - block:
-    - import_role: name=skeleton
-    - import_role: name=tmux
-    - import_role: name=skeleton_zgen
-    - import_role: name=zgen
-    - import_role: name=zsh
-    - import_role: name=zsh_p10k
-    - import_role: name=vim
-    - import_role: name=compile_vim
-    - import_role: name=top
-    - import_role: name=tig
-    - import_role: name=git
-    - import_role: name=swappiness
+      - import_role: name=skeleton
+      - import_role: name=tmux
+      - import_role: name=skeleton_zgen
+      - import_role: name=zgen
+      - import_role: name=zsh
+      - import_role: name=zsh_p10k
+      - import_role: name=vim
+      - import_role: name=compile_vim
+      - import_role: name=top
+      - import_role: name=tig
+      - import_role: name=git
+      - import_role: name=swappiness
     tags:
-    - essentials
-    - mini
+      - essentials
+      - mini
 
   - block:
-    - import_role: name=wget
-    - import_role: name=aria2
-    - import_role: name=snap
-    - import_role: name=cli_tools
-    - import_role: name=fzf
-    - import_role: name=ack
-    - import_role: name=fzf_git
-    - import_role: name=linuxbrew
-    - import_role: name=smart_title
-    - import_role: name=navi
-    - import_role: name=navi_cheats
+      - import_role: name=wget
+      - import_role: name=aria2
+      - import_role: name=snap
+      - import_role: name=cli_tools
+      - import_role: name=fzf
+      - import_role: name=ack
+      - import_role: name=fzf_git
+      - import_role: name=linuxbrew
+      - import_role: name=smart_title
+      - import_role: name=navi
+      - import_role: name=navi_cheats
     tags:
-    - cli
+      - cli
 
   - block:
-    - import_role: name=nerd_fonts
-    - import_role: name=cursor_theme
-    # - import_role: name=ime_rime
-    # - import_role: name=guake
-    - import_role: name=yakuake
-    - import_role: name=gui_scripts
-    - import_role: name=flatpak
-    - import_role: name=obsidian
+      - import_role: name=nerd_fonts
+      - import_role: name=cursor_theme
+      # - import_role: name=ime_rime
+      # - import_role: name=guake
+      - import_role: name=yakuake
+      - import_role: name=gui_scripts
+      - import_role: name=flatpak
+      - import_role: name=obsidian
     tags:
-    - gui
-    - never
+      - gui
+      - never
 
   # skip for chrome os
   - block:
-    - import_role: name=chrome_surfingkeys
-    - import_role: name=sxhkd
-    - import_role: name=kdeconnect
+      - import_role: name=chrome_surfingkeys
+      - import_role: name=sxhkd
+      - import_role: name=kdeconnect
     when:
-    - ansible_hostname != 'penguin'
+      - ansible_hostname != 'penguin'
     tags:
-    - gui
-    - never
+      - gui
+      - never
 
   - block:
-    - import_role: name=vscode
+      - import_role: name=vscode
     tags:
-    - dev
-    - never
+      - dev
+      - never
 
   - block:
-    - import_role: name=chromeos_sommelier
+      - import_role: name=chromeos_sommelier
     when:
-    - ansible_hostname == 'penguin'
+      - ansible_hostname == 'penguin'
     tags:
-    - chrome_os
-    - always
+      - chrome_os
+      - always

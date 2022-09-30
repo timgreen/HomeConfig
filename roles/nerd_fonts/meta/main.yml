@@ -1,11 +1,11 @@
 ---
 dependencies:
-- role: package
-  vars:
-    check_cmd: unzip -v
-    package_name: unzip
+  - role: package
+    vars:
+      check_cmd: unzip -v
+      package_name: unzip
 
-- role: package
-  vars:
-    check_cmd: fc-cache -V
-    package_name: fontconfig
+  - role: package
+    vars:
+      check_cmd: fc-cache -V
+      package_name: fontconfig

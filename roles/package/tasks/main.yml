@@ -2,13 +2,13 @@
 - name: check {{ package_name }}
   command: '{{ check_cmd }}'
   register: package_check
-  ignore_errors: yes
+  ignore_errors: true
   changed_when: false
-  check_mode: no
+  check_mode: false
 
 - name: install {{ package_name[ansible_distribution] | default(package_name.default) | default(package_name) }} | system
   ansible.builtin.package:
     name: '{{ package_name[ansible_distribution] | default(package_name.default) | default(package_name) }}'
     state: latest
-  become: yes
+  become: true
   when: package_check.rc > 0

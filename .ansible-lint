@@ -2,6 +2,9 @@ warn_list:
   - experimental  # all rules tagged as experimental
 
 skip_list:
-  - '303'  # Using command rather than module
-  - '602'  # Don't compare to empty string
-  - '701'  # meta/main.yml should contain relevant info
+  - fqcn-builtins              # Use FQCN for builtin actions.
+  - unnamed-task               # All tasks should be named. For 'import role'
+  - git-latest                 # Git checkouts must contain explicit version.
+  - package-latest             # Package installs should not use latest.
+  - meta-no-info               # meta/main.yml should contain relevant info.
+  - command-instead-of-module  # Using command rather than module. For 'git config'

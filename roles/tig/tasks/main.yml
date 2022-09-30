@@ -10,6 +10,6 @@
   vars:
     check_cmd: tig -v
     package_name: tig
-  ignore_errors: yes
+  failed_when: false
   tags:
-  - optional
+    - optional

@@ -1,9 +1,9 @@
 ---
 dependencies:
-- role: package
-  vars:
-    check_cmd: dconf help
-    package_name:
-      Debian: dconf-cli
-      Ubuntu: dconf-tools
-      default: dconf
+  - role: package
+    vars:
+      check_cmd: dconf help
+      package_name:
+        Debian: dconf-cli
+        Ubuntu: dconf-tools
+        default: dconf

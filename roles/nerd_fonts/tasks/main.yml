@@ -8,7 +8,7 @@
 - name: Download and unarchive font
   unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-    remote_src: yes
+    remote_src: true
     dest: '{{ ansible_env.HOME }}/.local/share/fonts'
     creates: ~/.local/share/fonts/Hack Bold Nerd Font Complete.ttf
   register: font_download

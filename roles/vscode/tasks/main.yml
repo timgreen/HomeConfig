@@ -3,10 +3,10 @@
   - name: Install the vscode flatpak
     community.general.flatpak:
       method: user
-      name:  com.visualstudio.code
+      name: com.visualstudio.code
       state: present
     tags:
-    - skip_in_ci
+      - skip_in_ci
 
   - name: stow vscode
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
@@ -14,4 +14,4 @@
     changed_when: '"LINK" in output.stderr'
 
   tags:
-  - vscode
+    - vscode

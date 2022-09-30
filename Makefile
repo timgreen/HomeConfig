@@ -2,7 +2,7 @@ galaxy-install:
 	ansible-galaxy collection install -r requirements.yml
 
 lint:
-	ansible-lint local.yml
+	ansible-lint
 
 list-tags:
 	ansible-playbook local.yml --list-tags --tags mini,cli,gui

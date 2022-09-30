@@ -2,6 +2,5 @@
 - name: Install the Obsidian flatpak
   community.general.flatpak:
     method: user
-    name:  md.obsidian.Obsidian
+    name: md.obsidian.Obsidian
     state: present
-

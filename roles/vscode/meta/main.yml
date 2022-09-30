@@ -1,4 +1,4 @@
 ---
 dependencies:
-- role: flatpak
-- role: skeleton
+  - role: flatpak
+  - role: skeleton

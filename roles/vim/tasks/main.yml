@@ -7,4 +7,4 @@
 - name: vim plug install
   command: vim +PlugInstall +PlugClean! +qall
   changed_when: false
-  check_mode: no
+  check_mode: false

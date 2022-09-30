@@ -8,5 +8,5 @@
   shell: |
     git config --global --get include.path \.gitconfig_fzf || \
       git config --global --add include.path .gitconfig_fzf
-  check_mode: no
+  check_mode: false
   changed_when: false

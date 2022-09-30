@@ -20,6 +20,7 @@
       kwriteconfig5 --file ~/.config/yakuakerc --group Appearance --key HideSkinBorders --type bool true
       kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key DefaultProfile WhiteOnBlack.profile
       kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key DefaultProfile WhiteOnBlack.profile
+    changed_when: false
 
   tags:
-  - yakuake
+    - yakuake

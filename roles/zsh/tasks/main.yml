@@ -15,13 +15,13 @@
       Archlinux: glibc
       default: locales
   tags:
-  - never
-  - locale
+    - never
+    - locale
 
 - name: Ensure locale en_US.UTF-8 exists
   community.general.locale_gen:
     name: en_US.UTF-8
     state: present
   tags:
-  - never
-  - locale
+    - never
+    - locale
