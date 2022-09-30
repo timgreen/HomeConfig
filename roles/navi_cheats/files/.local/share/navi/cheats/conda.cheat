@@ -1,0 +1,12 @@
+% conda
+
+# activate env
+conda activate <conda_env>
+
+# deactivate
+conda deactivate
+
+# list env
+conda env list
+
+$ conda_env: conda env list | grep -v "^#" --- --map "cut -f 1 -d' '"

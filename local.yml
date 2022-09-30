@@ -43,6 +43,7 @@
     - import_role: name=linuxbrew
     - import_role: name=smart_title
     - import_role: name=navi
+    - import_role: name=navi_cheats
     tags:
     - cli
 
