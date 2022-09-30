@@ -44,7 +44,7 @@
   import_role:
     name: package
   vars:
-    check_cmd: bat --version
+    check_cmd: batcat --version
     package_name: bat
   tags:
     - bat
