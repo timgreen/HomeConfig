@@ -1,10 +1,14 @@
 ---
-- name: stow vim
-  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-  register: output
-  changed_when: '"LINK" in output.stderr'
+- block:
+  - name: stow vim
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
 
-- name: vim plug install
-  command: vim +PlugInstall +PlugClean! +qall
-  changed_when: false
-  check_mode: false
+  - name: vim plug install
+    command: vim +PlugInstall +PlugClean! +qall
+    changed_when: false
+    check_mode: false
+
+  tags:
+    - vim

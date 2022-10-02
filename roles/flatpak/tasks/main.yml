@@ -1,14 +1,18 @@
 ---
-- name: Install flatpak
-  import_role:
-    name: package
-  vars:
-    check_cmd: flatpak --version
-    package_name: flatpak
+- block:
+  - name: Install flatpak
+    import_role:
+      name: package
+    vars:
+      check_cmd: flatpak --version
+      package_name: flatpak
 
-- name: Add the flathub flatpak repository remote to the user installation
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-    method: user
+  - name: Add the flathub flatpak repository remote to the user installation
+    community.general.flatpak_remote:
+      name: flathub
+      state: present
+      flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      method: user
+
+  tags:
+    - flatpak

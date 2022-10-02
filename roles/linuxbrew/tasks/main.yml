@@ -1,5 +1,9 @@
 ---
-- name: stow linuxbrew
-  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-  register: output
-  changed_when: '"LINK" in output.stderr'
+- block:
+  - name: stow linuxbrew
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+
+  tags:
+    - linuxbrew

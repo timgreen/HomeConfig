@@ -1,27 +1,30 @@
 ---
-- name: stow zsh
-  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-  register: output
-  changed_when: '"LINK" in output.stderr'
+- block:
+  - name: stow zsh
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
 
+  - name: Ensure locale-gen
+    import_role:
+      name: package
+    vars:
+      check_cmd: locale-gen
+      package_name:
+        # https://command-not-found.com/locale-gen
+        Archlinux: glibc
+        default: locales
+    tags:
+      - never
+      - locale
 
-- name: Ensure locale-gen
-  import_role:
-    name: package
-  vars:
-    check_cmd: locale-gen
-    package_name:
-      # https://command-not-found.com/locale-gen
-      Archlinux: glibc
-      default: locales
+  - name: Ensure locale en_US.UTF-8 exists
+    community.general.locale_gen:
+      name: en_US.UTF-8
+      state: present
+    tags:
+      - never
+      - locale
+
   tags:
-    - never
-    - locale
-
-- name: Ensure locale en_US.UTF-8 exists
-  community.general.locale_gen:
-    name: en_US.UTF-8
-    state: present
-  tags:
-    - never
-    - locale
+    zsh

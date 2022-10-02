@@ -1,15 +1,19 @@
 ---
-- name: Create local fonts directory
-  file:
-    path: '{{ ansible_env.HOME }}/.local/share/fonts'
-    state: directory
-    mode: u=rwx,g=rx,o=rx
+- block:
+  - name: Create local fonts directory
+    file:
+      path: '{{ ansible_env.HOME }}/.local/share/fonts'
+      state: directory
+      mode: u=rwx,g=rx,o=rx
 
-- name: Download and unarchive font
-  unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-    remote_src: true
-    dest: '{{ ansible_env.HOME }}/.local/share/fonts'
-    creates: ~/.local/share/fonts/Hack Bold Nerd Font Complete.ttf
-  register: font_download
-  notify: update font cache
+  - name: Download and unarchive font
+    unarchive:
+      src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+      remote_src: true
+      dest: '{{ ansible_env.HOME }}/.local/share/fonts'
+      creates: ~/.local/share/fonts/Hack Bold Nerd Font Complete.ttf
+    register: font_download
+    notify: update font cache
+
+  tags:
+    - nerd_fonts

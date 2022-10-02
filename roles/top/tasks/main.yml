@@ -1,26 +1,30 @@
 ---
-- name: stow top
-  command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
-  register: output
-  changed_when: '"LINK" in output.stderr'
-  loop:
-    - top
-    - htop
+- block:
+  - name: stow top
+    command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+    loop:
+      - top
+      - htop
 
-# htop (1.0.3) config is ~/.config/htop/htoprc.
-# It's in managed by app itself, when you change settings inside htop,
-# the config will be overwrite.
-- name: set htop config
-  lineinfile:
-    path: ~/.config/htop/htoprc
-    state: present
-    create: true
-    mode: u=rw,g=r,o=r
-    line: '{{ item }}'
-    regexp: "{{ item | regex_replace('=\\d', '') }}"
-  loop:
-    - cpu_count_from_zero=1
-    - highlight_base_name=1
-    - highlight_threads=1
-    - shadow_other_users=1
-    - tree_view=1
+  # htop (1.0.3) config is ~/.config/htop/htoprc.
+  # It's in managed by app itself, when you change settings inside htop,
+  # the config will be overwrite.
+  - name: set htop config
+    lineinfile:
+      path: ~/.config/htop/htoprc
+      state: present
+      create: true
+      mode: u=rw,g=r,o=r
+      line: '{{ item }}'
+      regexp: "{{ item | regex_replace('=\\d', '') }}"
+    loop:
+      - cpu_count_from_zero=1
+      - highlight_base_name=1
+      - highlight_threads=1
+      - shadow_other_users=1
+      - tree_view=1
+
+  tags:
+    - top

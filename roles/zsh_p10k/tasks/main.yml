@@ -1,6 +1,9 @@
 ---
-- name: stow zsh_p10k
-  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-  register: output
-  changed_when: '"LINK" in output.stderr'
-  notify: update zgen
+- block:
+  - name: stow zsh_p10k
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+    notify: update zgen
+  tags:
+    - zsh_p10k
