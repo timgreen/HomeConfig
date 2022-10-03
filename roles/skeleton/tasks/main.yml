@@ -5,10 +5,10 @@
     register: output
     changed_when: '"LINK" in output.stderr'
     loop:
-    - ssh
-    - tmux
-    - zsh
-    - vim-plug
+      - ssh
+      - tmux
+      - zsh
+      - vim-plug
 
   - name: tmux TPM
     ansible.builtin.git:
@@ -25,4 +25,3 @@
 
   tags:
     - skeleton
-
