@@ -20,7 +20,6 @@ finder:
 
 cheats:
   paths:
-    - .
     - ./.cheats
     - ~/.local/share/navi/cheats
 
