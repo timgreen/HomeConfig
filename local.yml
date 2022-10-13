@@ -18,6 +18,7 @@
   - block:
       - import_role: name=skeleton
       - import_role: name=tmux
+      - import_role: name=compile_tmux
       - import_role: name=skeleton_zgen
       - import_role: name=zgen
       - import_role: name=zsh
