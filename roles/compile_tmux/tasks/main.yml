@@ -27,10 +27,11 @@
         state: latest
         name:
           - libevent-dev
-          - libevent
+          # - libevent
           - ncurses-dev
-          - ncurses
+          # - ncurses
           - build-essential
+          - autoconf
           - bison
           - pkg-config
           - libutf8proc-dev
@@ -45,9 +46,10 @@
         state: latest
         name:
           - libevent-devel
-          - libevent
+          # - libevent
           - ncurses-devel
-          - ncurses
+          # - ncurses
+          - autoconf
           - gcc
           - make
           - bison
