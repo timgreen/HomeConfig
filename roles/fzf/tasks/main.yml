@@ -1,5 +1,21 @@
 ---
 - block:
+  - name: clone fzf from git
+    ansible.builtin.git:
+      repo: https://github.com/junegunn/fzf.git
+      dest: ~/.fzf
+      depth: 1
+
+  - name: install fzf from git
+    command: ~/.fzf/install --bin --no-update-rc
+    args:
+      creates: ~/.fzf/bin/fzf
+
+  tags:
+    - never
+    - fzf_install
+
+- block:
   - name: stow fzf
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
