@@ -51,7 +51,7 @@
   - block:
       - import_role: name=nerd_fonts
       - import_role: name=cursor_theme
-      # - import_role: name=ime_rime
+      - import_role: name=ime_rime
       # - import_role: name=guake
       - import_role: name=yakuake
       - import_role: name=gui_scripts

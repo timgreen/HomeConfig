@@ -1,5 +1,33 @@
 ---
 - block:
+  - name: Install fcitx
+    import_role: name=package
+    vars:
+      check_cmd: fcitx -v
+      package_name: fcitx
+
+  - name: install fcitx-rime
+    import_role: name=package
+    vars:
+      check_cmd: ls /usr/share/doc/fcitx-rime/README.md
+      package_name: fcitx-rime
+
+  - name: install rime_deployer
+    import_role: name=package
+    vars:
+      check_cmd: rime_deployer
+      package_name:
+        Archlinux: librime
+        default: librime-bin
+
+  - name: rime-wubi
+    import_role: name=package
+    vars:
+      check_cmd: ls /usr/share/rime-data/wubi_pinyin.schema.yaml
+      package_name:
+        Archlinux: rime-wubi
+        default: librime-data-wubi
+
   - name: stow ime_rime
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
