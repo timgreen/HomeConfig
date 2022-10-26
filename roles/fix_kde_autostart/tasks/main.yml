@@ -1,0 +1,24 @@
+---
+- block:
+  - name: Fix KDE autostart
+    # https://www.reddit.com/r/archlinux/comments/ves6mh/kde_autostart_mostly_no_longer_working/
+    # mrbumpy409:
+    #
+    # I know this is an old thread, but for anybody else running into this same
+    # problem, it appears to be due to recent Plasma's use of systemd startup
+    # for user login. More info here:
+    # https://blog.davidedmundson.co.uk/blog/plasma-and-the-systemd-startup/
+    #
+    # You can disable Plasma systemd startup with the following command:
+    #
+    # kwriteconfig5 --file startkderc --group General --key systemdBoot false
+    #
+    # After doing this, all of my startup applications and scripts worked
+    # properly again.
+    command: >
+      kwriteconfig5 --file startkderc --group General --key systemdBoot false
+    failed_when: false
+    changed_when: false
+
+  tags:
+    - fix_kde_autostart
