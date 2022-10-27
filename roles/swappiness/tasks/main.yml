@@ -2,13 +2,14 @@
 - block:
 
   - name: ensure sysctl
-    import_role:
-      name: package
+    package:
+      name: "{{ sysctl[ansible_pkg_mgr] }}"
     vars:
-      package_name:
+      sysctl:
         # https://command-not-found.com/sysctl
-        Archlinux: procps-ng
-        default: procps
+        pacman: procps-ng
+        apt: procps
+    become: true
 
   - name: set swappiness value to {{ swappiness }}
     ansible.posix.sysctl:

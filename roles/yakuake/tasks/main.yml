@@ -5,12 +5,16 @@
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: Install yakuake
-    import_role:
-      name: package
+  - name: Install yakuake & tool
+    package:
+      name:
+        - yakuake
+        - "{{ kwriteconfig5[ansible_pkg_mgr] }}"
     vars:
-      check_cmd: yakuake --version
-      package_name: yakuake
+      kwriteconfig5:
+        pacman: kconfig
+        apt: libkf5config-bin
+    become: true
 
   - name: Restore yakuake configuration
     shell: |

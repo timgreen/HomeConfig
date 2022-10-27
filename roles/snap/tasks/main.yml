@@ -6,11 +6,9 @@
     changed_when: '"LINK" in output.stderr'
 
   - name: optionally install snapd
-    import_role:
-      name: package
-    vars:
-      check_cmd: snap version
-      package_name: snapd
+    package:
+      name: snapd
+    become: true
     ignore_errors: true
     tags:
       - optional

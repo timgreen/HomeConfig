@@ -6,14 +6,14 @@
     changed_when: '"LINK" in output.stderr'
 
   - name: Ensure locale-gen
-    import_role:
-      name: package
+    package:
+      name: "{{ locale_gen[ansible_pkg_mgr] }}"
     vars:
-      check_cmd: locale-gen
-      package_name:
+      locale_gen:
         # https://command-not-found.com/locale-gen
-        Archlinux: glibc
-        default: locales
+        pacman: glibc
+        apt: locales
+    become: true
     tags:
       - never
       - locale

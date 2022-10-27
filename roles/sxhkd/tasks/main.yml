@@ -2,11 +2,9 @@
 - block:
 
   - name: Install sxhkd
-    import_role:
-      name: package
-    vars:
-      check_cmd: sxhkd -v
-      package_name: sxhkd
+    package:
+      name: sxhkd
+    become: true
 
   - name: stow sxhkd
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
@@ -14,13 +12,13 @@
     changed_when: '"LINK" in output.stderr'
 
   - name: Install xinput
-    import_role:
-      name: package
+    package:
+      name: "{{ xinput[ansible_pkg_mgr] }}"
     vars:
-      check_cmd: xinput --help
-      package_name:
-        Archlinux: xorg-xinput
-        default: xinput
+      xinput:
+        pacman: xorg-xinput
+        apt: xinput
+    become: true
 
   tags:
     - sxhkd

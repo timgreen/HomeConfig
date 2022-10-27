@@ -1,5 +1,10 @@
 ---
 - block:
+  - name: install zsh
+    package:
+      name: zsh
+    become: true
+
   - name: clone zgen
     ansible.builtin.git:
       repo: https://github.com/tarjoilija/zgen.git

@@ -1,5 +1,10 @@
 ---
 - block:
+  - name: install vim
+    package:
+      name: vim
+    become: true
+
   - name: stow vim
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output

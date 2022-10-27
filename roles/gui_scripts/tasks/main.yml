@@ -5,5 +5,12 @@
     register: output
     changed_when: '"LINK" in output.stderr'
 
+  - name: install X tools
+    package:
+      name:
+        - xprintidle
+        - xdotool
+    become: true
+
   tags:
     - gui_scripts

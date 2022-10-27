@@ -1,5 +1,16 @@
 ---
 - block:
+  - name: install ag / ack
+    package:
+      name:
+        - ack
+        - "{{ ag[ansible_pkg_mgr] }}"
+    vars:
+      ag:
+        apt: silversearcher-ag
+        pacman: the_silver_searcher
+    become: true
+
   - name: stow ack
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output

@@ -1,5 +1,16 @@
 ---
 - block:
+  - name: install tmux & tic
+    package:
+      name:
+        - tmux
+        - "{{ tic[ansible_pkg_mgr] }}"
+    vars:
+      tic:
+        pacman: ncurses
+        apt: ncurses-bin
+    become: true
+
   - name: tmux tmuxifier
     ansible.builtin.git:
       repo: https://github.com/jimeh/tmuxifier.git

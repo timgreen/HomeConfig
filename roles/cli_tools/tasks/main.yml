@@ -1,68 +1,20 @@
 ---
-- name: stow cli_tools
-  command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-  register: output
-  changed_when: '"LINK" in output.stderr'
+- block:
+    - name: stow cli_tools
+      command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+      register: output
+      changed_when: '"LINK" in output.stderr'
 
-- name: install | tree
-  import_role:
-    name: package
-  vars:
-    check_cmd: tree --version
-    package_name: tree
+    - name: install cli tools
+      package:
+        name:
+          - tree
+          - ncdu
+          - jq
+          - tldr
+          - bat  # for batcat
+          - autossh
+          - rclone
+      become: true
   tags:
-    - tree
-
-- name: install | ncdu
-  import_role:
-    name: package
-  vars:
-    check_cmd: ncdu --version
-    package_name: ncdu
-  tags:
-    - ncdu
-
-- name: install | jq
-  import_role:
-    name: package
-  vars:
-    check_cmd: jq --version
-    package_name: jq
-  tags:
-    - jq
-
-- name: install | tldr
-  import_role:
-    name: package
-  vars:
-    check_cmd: tldr --version
-    package_name: tldr
-  tags:
-    - tldr
-
-- name: install | bat
-  import_role:
-    name: package
-  vars:
-    check_cmd: batcat --version
-    package_name: bat
-  tags:
-    - bat
-
-- name: install | autossh
-  import_role:
-    name: package
-  vars:
-    check_cmd: autossh -V
-    package_name: autossh
-  tags:
-    - bat
-
-- name: install | rclone
-  import_role:
-    name: package
-  vars:
-    check_cmd: rclone help
-    package_name: rclone
-  tags:
-    - rclone
+    - cli_tools

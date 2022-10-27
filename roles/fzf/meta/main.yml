@@ -1,10 +1,4 @@
 ---
 dependencies:
   - role: skeleton
-
-  - role: package
-    vars:
-      check_cmd: fzf --version
-      package_name: fzf
-
   - role: skeleton_zgen

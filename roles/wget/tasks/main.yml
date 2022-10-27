@@ -6,12 +6,10 @@
     changed_when: '"LINK" in output.stderr'
 
   - name: optionally install wget
-    import_role:
-      name: package
-    vars:
-      check_cmd: wget -V
-      package_name: wget
+    package:
+      name: wget
     ignore_errors: true
+    become: true
     tags:
       - optional
   tags:

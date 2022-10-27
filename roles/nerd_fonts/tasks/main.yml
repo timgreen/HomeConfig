@@ -6,6 +6,13 @@
       state: directory
       mode: u=rwx,g=rx,o=rx
 
+  - name: Install tools
+    package:
+      name:
+        - unzip
+        - fontconfig
+    become: true
+
   - name: Download and unarchive font
     unarchive:
       src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip

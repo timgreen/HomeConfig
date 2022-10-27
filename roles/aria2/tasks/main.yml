@@ -6,12 +6,10 @@
     changed_when: '"LINK" in output.stderr'
 
   - name: optionally install aria2c
-    import_role:
-      name: package
-    vars:
-      check_cmd: aria2c -v
-      package_name: aria2
+    package:
+      name: aria2
     ignore_errors: true
+    become: true
     tags:
       - install_aria2c
       - optional

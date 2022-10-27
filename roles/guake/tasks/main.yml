@@ -2,11 +2,9 @@
 - block:
 
   - name: Install guake
-    import_role:
-      name: package
-    vars:
-      check_cmd: guake --version
-      package_name: guake
+    package:
+      name: guake
+    become: true
 
   - name: Restore guake configuration
     shell: dconf load /apps/guake/ < {{ role_path }}/files/guake.dconf

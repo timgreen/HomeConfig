@@ -1,5 +1,11 @@
 ---
 - block:
+  - name: install htop
+    package:
+      name:
+        - htop
+    become: true
+
   - name: stow top
     command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
     register: output
