@@ -1,3 +1,25 @@
 ---
 vim_git_dest: /tmp/vim
 vim_configure_prefix: /usr/local
+vim_deps:
+  apt:
+    - libncurses-dev
+    - xorg-dev        # for +clipboard
+    - cmake
+    - lua5.3          # for +lua
+    - liblua5.3-dev   # for +lua
+    - python3         # for +python3/dyn
+    - libpython3-dev  # for +python3/dyn
+  pacman:
+    - base-devel
+    - make
+    - cmake
+    - gcc
+    - awk
+    - ncurses
+    - libx11
+    - xorg-xinit
+    - lua5.3          # for +lua
+    - liblua5.3-dev   # for +lua
+    - python3         # for +python3/dyn
+    - libpython3-dev  # for +python3/dyn

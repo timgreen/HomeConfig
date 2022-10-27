@@ -2,7 +2,7 @@
 # Inspired by
 # https://github.com/guoqiao/ansible-role-vim/blob/master/tasks/main.yml
 - name: Check vim features
-  command: bash -c "vim --version | grep +clipboard"
+  command: bash -c "vim --version | tr '\n' ' ' | awk '/\+clipboard/&&/\+lua/'"
   register: vim_feature_check
   changed_when: false
   check_mode: false
@@ -13,30 +13,11 @@
 
 - block:
 
-    - name: Install deps | apt
+    - name: Install deps
       become: true
-      apt:
+      package:
         state: latest
-        name:
-          - libncurses-dev
-          - xorg-dev  # for +clipboard
-          - cmake
-      when: ansible_pkg_mgr == 'apt'
-
-    - name: Install deps | pacman
-      become: true
-      pacman:
-        state: latest
-        name:
-          - base-devel
-          - make
-          - cmake
-          - gcc
-          - awk
-          - ncurses
-          - libx11
-          - xorg-xinit
-      when: ansible_pkg_mgr == 'pacman'
+        name: "{{ vim_deps[ansible_pkg_mgr] }}"
 
     - name: git checkout
       git:
@@ -47,7 +28,7 @@
         depth: 1
 
     - name: Compile vim
-      command: "{{ item }}"
+      shell: "{{ item }}"
       args:
         chdir: "{{ vim_git_dest }}"
       loop:
@@ -60,6 +41,7 @@
           --enable-gui=auto
           --enable-pythoninterp
           --enable-python3interp
+          --with-python3-config-dir=`python3-config --configdir`
           --enable-luainterp
           --enable-rubyinterp
           --enable-largefile
