@@ -3,7 +3,7 @@
   - name: Install fcitx
     package:
       name:
-        - fctix
+        - fcitx
         - fcitx-rime
         - "{{ rime_deployer[ansible_pkg_mgr] }}"
         - "{{ rime_wubi[ansible_pkg_mgr] }}"
