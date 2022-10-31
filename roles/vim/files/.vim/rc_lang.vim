@@ -87,9 +87,6 @@ Plug 'davidhalter/jedi-vim' " python
   let g:jedi#popup_on_dot = 0
 	let g:jedi#auto_vim_configuration = 0
   let g:jedi#use_splits_not_buffers = "top"
-	let g:neocomplete#force_omni_input_patterns.python =
-	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-	" alternative pattern: '\h\w*\|[^. \t]\.\w*'
 " }}}
 
 " Misc {{{
