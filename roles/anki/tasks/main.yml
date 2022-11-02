@@ -1,0 +1,15 @@
+---
+- block:
+  - name: Install the Anki flatpak
+    community.general.flatpak:
+      method: user
+      name: net.ankiweb.Anki
+      state: present
+
+  - name: flatpak override
+    # https://github.com/flathub/net.ankiweb.Anki/issues/26#issuecomment-504334187
+    command: flatpak override --user net.ankiweb.Anki --filesystem=host
+    changed_when: false
+
+  tags:
+    - obsidian

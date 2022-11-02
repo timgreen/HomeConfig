@@ -57,6 +57,7 @@
       - import_role: name=gui_scripts
       - import_role: name=flatpak
       - import_role: name=obsidian
+      - import_role: name=anki
       - import_role: name=fix_kde_autostart
     tags:
       - gui
