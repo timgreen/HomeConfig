@@ -1,0 +1,6 @@
+---
+- block:
+    - ansible.builtin.import_tasks: kxkbrc.yml
+
+  tags:
+    - kde_settings
