@@ -15,6 +15,7 @@
           - bat  # for batcat
           - autossh
           - rclone
+          - exa  # fzf-tab need it for 'cd'
       become: true
   tags:
     - cli_tools
