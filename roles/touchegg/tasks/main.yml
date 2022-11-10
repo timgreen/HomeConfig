@@ -1,0 +1,14 @@
+---
+- block:
+    - ansible.builtin.import_tasks: debian_complie.yml
+      when: ansible_pkg_mgr == 'apt'
+
+    - name: Enable Service
+      ansible.builtin.systemd:
+        name: touchegg
+        state: started
+        enabled: true
+      become: true
+
+  tags:
+    - touchegg

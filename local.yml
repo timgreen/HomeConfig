@@ -69,6 +69,7 @@
       - import_role: name=chrome_surfingkeys
       - import_role: name=sxhkd
       - import_role: name=kdeconnect
+      - import_role: name=touchegg
     when:
       - ansible_hostname != 'penguin'
     tags:
@@ -88,4 +89,4 @@
       - ansible_hostname == 'penguin'
     tags:
       - chrome_os
-      - always
+      - never
