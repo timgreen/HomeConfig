@@ -9,6 +9,8 @@
         state: started
         enabled: true
       become: true
+      tags:
+        - skip_in_ci
 
   tags:
     - touchegg
