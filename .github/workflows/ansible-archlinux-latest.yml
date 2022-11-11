@@ -14,7 +14,7 @@ jobs:
 
     - name: ansible check with archlinux:latest
       # replace "master" with any valid ref
-      uses: timgreen/check-ansible-archlinux-latest-action@master
+      uses: roles-ansible/check-ansible-archlinux-latest-action@master
       with:
         targets: --tags mini,cli,gui,dev --skip-tags skip_in_ci local.yml
         #  [required]
