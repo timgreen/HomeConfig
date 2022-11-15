@@ -1,0 +1,20 @@
+---
+- block:
+  - name: install deno
+    ansible.builtin.shell:
+      cmd: >
+        curl -fsSL https://deno.land/x/install/install.sh | sh
+      creates: ~/.deno/bin/deno
+
+  - name: stow deno
+    ansible.builtin.command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+
+  - name: deno completions zsh
+    ansible.builtin.shell:
+      cmd: ~/.deno/bin/deno completions zsh > ~/.zsh_functions/_deno
+      creates: ~/.zsh_functions/_deno
+
+  tags:
+    deno

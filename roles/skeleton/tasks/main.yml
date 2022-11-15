@@ -17,6 +17,12 @@
       - zsh
       - vim-plug
 
+  - name: make sure ~/.zsh_functions
+    ansible.builtin.file:
+      path: ~/.zsh_functions
+      state: directory
+      mode: '0755'
+
   - name: tmux TPM
     ansible.builtin.git:
       repo: https://github.com/tmux-plugins/tpm

@@ -79,6 +79,7 @@
   - block:
       - import_role: name=vscode
       - import_role: name=nvm
+      - import_role: name=deno
     tags:
       - dev
       - never

@@ -6,3 +6,4 @@ done
 
 # This removes duplicates from PATH, MANPATH, and FPATH
 typeset -U path manpath fpath
+fpath+=~/.zsh_functions
