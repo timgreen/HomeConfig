@@ -15,6 +15,8 @@
     ansible.builtin.shell:
       cmd: ~/.deno/bin/deno completions zsh > ~/.zsh_functions/_deno
       creates: ~/.zsh_functions/_deno
+    tags:
+      - skip_in_ci
 
   tags:
-    deno
+    - deno
