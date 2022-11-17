@@ -13,5 +13,10 @@
     register: output
     changed_when: '"LINK" in output.stderr'
 
+  - name: Use podman-remote for dev container.
+    ansible.builtin.import_tasks: dev_container.yml
+    tags:
+      - skip_in_ci
+
   tags:
     - vscode

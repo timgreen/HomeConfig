@@ -1,0 +1,38 @@
+---
+# Based on: https://hackandslash.blog/how-to-run-vs-code-flatpak-with-a-toolbox-with-code-completion/
+#   Also see: https://gist.github.com/FilBot3/4424d312a87f7b4178722d3b5eb20212
+- block:
+  - name: Install vscode podman tool
+    community.general.flatpak:
+      method: user
+      name: runtime/com.visualstudio.code.tool.podman/x86_64/22.08
+      state: present
+
+
+  - name: Override Flatpak to allow Podman Socket from vscode
+    ansible.builtin.command: >
+      flatpak override --user --filesystem=xdg-run/podman com.visualstudio.code
+    changed_when: false
+
+  - name: Enable Podman Socket for the User
+    ansible.builtin.systemd:
+      name: podman.socket
+      state: started
+      enabled: true
+      scope: user
+
+  - name: Installs Remote Development VSCode Plugin
+    ansible.builtin.command: >
+      flatpak run com.visualstudio.code
+        --install-extension
+        ms-vscode-remote.vscode-remote-extensionpack
+    changed_when: false
+
+  - name: Setup Visual Studio Code to use Podman-Remote
+    ansible.builtin.shell: |
+      jq '."dev.containers.dockerPath"|="/app/tools/podman/bin/podman-remote"' \
+        ~/.var/app/com.visualstudio.code/config/Code/User/settings.json \
+        | sponge ~/.var/app/com.visualstudio.code/config/Code/User/settings.json
+
+  tags:
+    vscode_dev_container
