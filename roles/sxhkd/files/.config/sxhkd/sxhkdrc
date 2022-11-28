@@ -5,6 +5,8 @@
 
 # The keysym names are given by the output of `xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'`.
 
+# https://unix.stackexchange.com/questions/261371/how-do-i-find-out-what-program-owns-a-hotkey
+
 super + ctrl + alt + period
   pkill sxhkd -SIGUSR1 && notify-send "Sxhkd config reloaded"
 
@@ -30,8 +32,12 @@ super + w; {h,l}
   c={"Window Quick Tile Left","Window Quick Tile Right"}; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
     && notify-send -i kwin "$c"
-ctrl + super alt + {Left,Right}
+ctrl + super + alt + {Left,Right}
   c={"Window Quick Tile Left","Window Quick Tile Right"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+alt + {bracketleft,bracketright,equal}
+  c={"Window Quick Tile Left","Window Quick Tile Right","Window Maximize"}; \
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
     && notify-send -i kwin "$c"
 
@@ -42,6 +48,18 @@ super + w; {k,j}
     && notify-send -i kwin "$c"
 ctrl + super alt + {Up,Down}
   c={"Window Maximize","Window to Next Screen"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+
+# Prev / Next Desktop
+super + {bracketleft,bracketright}
+  c={"Switch to Previous Desktop","Switch to Next Desktop"}
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+
+# Win to Prev / Next Desktop
+shift + super + {bracketleft,bracketright}
+  c={"Window to Previous Desktop","Window to Next Desktop"}
   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
     && notify-send -i kwin "$c"
 
@@ -57,9 +75,8 @@ shift + ctrl + super + alt + space
 
 # Place windows with predefined rules
 ctrl + super + alt + space
-  $HOME/sh/place_windows.sh && notify-send -i kwin "Place window"
+  /home/timgreen/sh/set_marble_mouse.sh && notify-send -i kwin "Set mouse"
 super + w; space
   $HOME/sh/place_windows.sh && notify-send -i kwin "Place window"
 super + w; p
   $HOME/sh/place_windows.sh && notify-send -i kwin "Place window"
-

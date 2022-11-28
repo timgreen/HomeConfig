@@ -1,0 +1,20 @@
+---
+- block:
+    - ansible.builtin.import_tasks: swhkd_compile.yml
+
+    - name: stow swhkd
+      command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+      register: output
+      changed_when: '"LINK" in output.stderr'
+
+    # - name: Enable Service
+    #   ansible.builtin.systemd:
+    #     name: touchegg
+    #     state: started
+    #     enabled: true
+    #   become: true
+    #   tags:
+    #     - skip_in_ci
+
+  tags:
+    - swhkd

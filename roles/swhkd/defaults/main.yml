@@ -1,0 +1,10 @@
+---
+swhkd_git_dest: /tmp/swhkd
+swhkd_configure_prefix: /usr/local
+swhkd_deps:
+  apt:
+    - build-essential
+    - make
+  pacman:
+    - make
+    - gcc

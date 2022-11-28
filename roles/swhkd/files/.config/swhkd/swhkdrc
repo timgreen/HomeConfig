@@ -1,0 +1,46 @@
+# Docs:
+# - https://github.com/waycrate/swhkd/blob/main/docs/swhkd.5.scd
+# - https://github.com/waycrate/swhkd/blob/main/docs/swhkd-keys.5.scd
+
+super + ctrl + alt + period
+  notify-send "Reload Sxhkd config" && pkexec pkill -HUP swhkd
+
+# Use dbus to call KDE shortcuts.
+# List all the shortcut names
+#
+# qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.shortcutNames
+
+# Switch Desktop
+# {XF86Launch5,XF86Launch6,XF86Launch7,XF86Launch8}
+#   c="Switch to Desktop {1,2,3,4}"; \
+#   qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c"
+ctrl + {F1,F2,F3,F4}
+  c="Switch to Desktop {1,2,3,4}"; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c"
+
+shift + ctrl + {F1,F2,F3,F4}
+  c="Window to Desktop {1,2,3,4}"; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c"
+
+# Tile window left / right
+ctrl + super + alt + {Left,Right}
+  c={"Window Quick Tile Left","Window Quick Tile Right"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+alt + {bracketleft,bracketright,equal}
+  c={"Window Quick Tile Left","Window Quick Tile Right","Window Maximize"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+
+# Prev / Next Desktop
+super + {bracketleft,bracketright}
+  c={"Switch to Previous Desktop","Switch to Next Desktop"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+
+# Win to Prev / Next Desktop
+shift + super + {bracketleft,bracketright}
+  c={"Window to Previous Desktop","Window to Next Desktop"}; \
+  qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut "$c" \
+    && notify-send -i kwin "$c"
+

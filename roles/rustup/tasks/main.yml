@@ -1,0 +1,15 @@
+---
+- block:
+  - name: Install rustup
+    ansible.builtin.shell:
+      cmd: >
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+      creates: ~/.cargo/env
+
+  - name: stow rustup
+    ansible.builtin.command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+
+  tags:
+    - rustup
