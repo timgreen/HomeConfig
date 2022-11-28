@@ -60,6 +60,7 @@
       - import_role: name=anki
       - import_role: name=fix_kde_autostart
       - import_role: name=kde_settings
+      - import_role: name=wayland
     tags:
       - gui
       - never
