@@ -1,5 +1,6 @@
 " vim: set ft=vim foldmethod=marker shiftwidth=2 st=2 ts=2:
 
+Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'asins/vim-dict'
 Plug 'godlygeek/tabular'
 Plug 'timgreen/vim-re-edit-all'
