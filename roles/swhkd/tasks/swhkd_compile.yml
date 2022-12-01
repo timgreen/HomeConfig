@@ -28,6 +28,7 @@
           make clean
           make
         chdir: "{{ swhkd_git_dest }}"
+        executable: /bin/zsh
       changed_when: false
 
     - name: Install
