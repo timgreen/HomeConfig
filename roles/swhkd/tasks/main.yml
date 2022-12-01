@@ -7,14 +7,22 @@
       register: output
       changed_when: '"LINK" in output.stderr'
 
-    # - name: Enable Service
-    #   ansible.builtin.systemd:
-    #     name: touchegg
-    #     state: started
-    #     enabled: true
-    #   become: true
-    #   tags:
-    #     - skip_in_ci
+    - name: Enable Service
+      ansible.builtin.systemd:
+        name: swhkd
+        scope: user
+        enabled: true
+      tags:
+        - skip_in_ci
+
+    - name: Start Service
+      ansible.builtin.systemd:
+        name: swhkd
+        scope: user
+        state: started
+        enabled: true
+      tags:
+        - skip_in_ci
 
   tags:
     - swhkd
