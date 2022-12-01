@@ -33,6 +33,7 @@
       jq '."dev.containers.dockerPath"|="/app/tools/podman/bin/podman-remote"' \
         ~/.var/app/com.visualstudio.code/config/Code/User/settings.json \
         | sponge ~/.var/app/com.visualstudio.code/config/Code/User/settings.json
+    changed_when: false
 
   tags:
     vscode_dev_container
