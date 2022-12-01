@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=System;Utility;
 Comment=Start Input Method
-Exec=fcitx
+Exec=fcitx5
 GenericName=Input Method
 Icon=fcitx
 Name=Fcitx

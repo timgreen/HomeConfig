@@ -3,8 +3,8 @@
   - name: Install fcitx
     package:
       name:
-        - fcitx
-        - fcitx-rime
+        - fcitx5
+        - fcitx5-rime
         - "{{ rime_deployer[ansible_pkg_mgr] }}"
         - "{{ rime_wubi[ansible_pkg_mgr] }}"
     vars:
@@ -25,6 +25,11 @@
     command: rime_deployer --build ~/.config/fcitx/rime /usr/share/rime-data/
     args:
       creates: ~/.config/fcitx/rime/build/wubi_pinyin.schema.yaml
+
+  - name: Generate rime data for fcitx5
+    command: rime_deployer --build ~/.local/share/fcitx5/rime /usr/share/rime-data/
+    args:
+      creates: ~/.local/share/fcitx5/rime/build/wubi_pinyin.schema.yaml
 
   tags:
     - ime_rime
