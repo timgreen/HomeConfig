@@ -1,0 +1,2 @@
+ACTION=="add", ATTRS{idVendor}=="{{ marble_vendor_id }}", ATTRS{idProduct}=="{{ marble_product_id }}", ENV{XAUTHORITY}="/home/{{ ansible_env.USER }}/.Xauthority", ENV{DISPLAY}=":0", OWNER="{{ ansible_env.USER }}", RUN+="{{ template_fullpath| dirname }}/usb-marble-in_udev.sh"
+

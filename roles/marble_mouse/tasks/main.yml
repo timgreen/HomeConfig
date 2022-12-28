@@ -1,0 +1,13 @@
+---
+- block:
+  # https://askubuntu.com/questions/284224/autorun-a-script-after-i-plugged-or-unplugged-a-usb-device
+  - name: Write marble udev rule
+    ansible.builtin.template:
+      # https://stackoverflow.com/questions/61832261/cannot-use-ansible-user-with-local-connection
+      src: 00-usb-marble-mouse.rules.j2
+      dest: /etc/udev/rules.d/00-usb-marble-mouse.rules
+      mode: u=rw,g=r,o=r
+    become: true
+
+  tags:
+    - marble_mouse
