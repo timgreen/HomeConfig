@@ -70,7 +70,7 @@
   - block:
       - import_role: name=chrome_surfingkeys
       # - import_role: name=sxhkd
-      - import_role: name=swhkd
+      # - import_role: name=swhkd
       - import_role: name=kdeconnect
       - import_role: name=touchegg
     when:
