@@ -11,3 +11,4 @@
 
   tags:
     - marble_mouse
+    - skip_in_ci
