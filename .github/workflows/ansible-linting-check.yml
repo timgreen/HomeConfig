@@ -2,7 +2,11 @@
 name: Ansible Lint check
 
 # yamllint disable-line rule:truthy
-on  : [push, pull_request]
+on  :
+  push:
+  pull_request:
+  schedule:
+    - cron: '15 12 * * 1'  # At 12:15 on Monday.
 
 jobs:
   build:
