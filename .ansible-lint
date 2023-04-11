@@ -10,7 +10,7 @@ skip_list:
   - command-instead-of-module  # Using command rather than module. For 'git config'
   - command-instead-of-shell   # Use shell only when shell functionality is required.
   - ignore-errors
-  - yaml[indentation]
-  - key-order[task]
-  - no-free-form
-  - role-name
+  - yaml[indentation]          # Conflict with yamlfmt settings in pre-commit.
+  - key-order[task]            # I prefer tags at the bottom.
+  - no-free-form               # For `import_role`
+  - role-name                  # Bug
