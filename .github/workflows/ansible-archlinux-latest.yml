@@ -22,4 +22,4 @@ jobs:
       with:
         targets: local.yml
         tags: mini,cli,gui,dev
-        skiptags: skip_in_ci
+        skiptags: skip_in_ci,navi

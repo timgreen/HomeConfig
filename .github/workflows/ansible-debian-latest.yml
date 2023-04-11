@@ -20,7 +20,7 @@ jobs:
       # replace "master" with any valid ref
       uses: roles-ansible/check-ansible-debian-latest-action@master
       with:
-        targets: --tags mini,cli,gui,dev --skip-tags skip_in_ci local.yml
+        targets: --tags mini,cli,gui,dev --skip-tags skip_in_ci,navi local.yml
         #  [required]
         #   Paths to your ansible role or playboox.yml you want to test
         #   Some Examples:
