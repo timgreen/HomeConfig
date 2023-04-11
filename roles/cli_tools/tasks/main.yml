@@ -8,6 +8,8 @@
   - name: Install cli tools
     package:
       name:
+      - curl
+      - wget
       - tree
       - ncdu
       - jq
