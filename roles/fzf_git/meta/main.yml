@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - role: fzf
-  - role: zsh
+- role: fzf
+- role: zsh

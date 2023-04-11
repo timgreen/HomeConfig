@@ -1,19 +1,19 @@
 ---
 - block:
-  - name: install vim
+  - name: Install vim
     package:
       name: vim
     become: true
 
-  - name: stow vim
+  - name: Stow vim
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: vim plug install
+  - name: Vim plug install
     command: vim +PlugInstall +PlugClean! +qall
     changed_when: false
     check_mode: false
 
   tags:
-    - vim
+  - vim

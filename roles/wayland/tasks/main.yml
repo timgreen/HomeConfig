@@ -1,10 +1,10 @@
 ---
 - block:
-  - name: install tools for wayland
+  - name: Install tools for wayland
     package:
       name:
-        - wl-clipboard
+      - wl-clipboard
     become: true
 
   tags:
-    - wayland
+  - wayland

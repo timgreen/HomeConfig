@@ -8,59 +8,59 @@
   check_mode: false
   ignore_errors: true
   tags:
-    - compile_vim
-    - skip_in_ci
+  - compile_vim
+  - skip_in_ci
 
 - block:
 
-    - name: Install deps
-      become: true
-      package:
-        state: latest
-        name: "{{ vim_deps[ansible_pkg_mgr] }}"
+  - name: Install deps
+    become: true
+    package:
+      state: latest
+      name: '{{ vim_deps[ansible_pkg_mgr] }}'
 
-    - name: git checkout
-      git:
-        repo: https://github.com/vim/vim.git
-        dest: "{{ vim_git_dest }}"
-        update: true
-        clone: true
-        depth: 1
+  - name: Git checkout
+    git:
+      repo: https://github.com/vim/vim.git
+      dest: '{{ vim_git_dest }}'
+      update: true
+      clone: true
+      depth: 1
 
-    - name: Compile vim
-      shell: "{{ item }}"
-      args:
-        chdir: "{{ vim_git_dest }}"
-      loop:
-        - make distclean
-        - >
-          ./configure
-          --prefix={{ vim_configure_prefix }}
-          --with-features=huge
-          --with-x
-          --enable-gui=auto
-          --enable-pythoninterp
-          --enable-python3interp
-          --with-python3-config-dir=`python3-config --configdir`
-          --enable-luainterp
-          --enable-rubyinterp
-          --enable-largefile
-        - make
-      changed_when: false
+  - name: Compile vim
+    shell: '{{ item }}'
+    args:
+      chdir: '{{ vim_git_dest }}'
+    loop:
+    - make distclean
+    - >
+      ./configure
+      --prefix={{ vim_configure_prefix }}
+      --with-features=huge
+      --with-x
+      --enable-gui=auto
+      --enable-pythoninterp
+      --enable-python3interp
+      --with-python3-config-dir=`python3-config --configdir`
+      --enable-luainterp
+      --enable-rubyinterp
+      --enable-largefile
+    - make
+    changed_when: false
 
-    - name: Install vim
-      command: make install
-      args:
-        chdir: "{{ vim_git_dest }}"
-      become: true
-      changed_when: false
+  - name: Install vim
+    command: make install
+    args:
+      chdir: '{{ vim_git_dest }}'
+    become: true
+    changed_when: false
 
-    - name: Clean up
-      ansible.builtin.file:
-        path: "{{ vim_git_dest }}"
-        state: absent
+  - name: Clean up
+    ansible.builtin.file:
+      path: '{{ vim_git_dest }}'
+      state: absent
 
   when: vim_feature_check.rc > 0
   tags:
-    - compile_vim
-    - skip_in_ci
+  - compile_vim
+  - skip_in_ci

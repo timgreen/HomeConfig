@@ -1,6 +1,13 @@
 ---
+repos:
 - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-  rev: 0.0.11  # or specific tag
+  rev: 0.2.2     # or specific tag
   hooks:
   - id: yamlfmt
-    args: [--mapping, '2', --sequence, '2', --offset, '0', --colons, --width, '150']
+    args: [--mapping, '2', --sequence, '2', --offset, '0', --width, '150']
+
+- repo: https://github.com/ansible/ansible-lint.git
+  rev: v6.14.4
+  hooks:
+  - id: ansible-lint
+    files: \.yml$

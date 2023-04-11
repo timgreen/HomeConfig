@@ -1,16 +1,16 @@
 ---
 - block:
-  - name: stow scripts
+  - name: Stow scripts
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: install X tools
+  - name: Install X tools
     package:
       name:
-        - xprintidle
-        - xdotool
+      - xprintidle
+      - xdotool
     become: true
 
   tags:
-    - gui_scripts
+  - gui_scripts

@@ -1,13 +1,13 @@
 ---
 - block:
-    - name: Ensure the CapsLock Override.
-      community.general.ini_file:
-        path: ~/.config/kxkbrc
-        section: Layout
-        option: Options
-        value: caps:super
-        no_extra_spaces: true
-        mode: '0600'
+  - name: Ensure the CapsLock Override.
+    community.general.ini_file:
+      path: ~/.config/kxkbrc
+      section: Layout
+      option: Options
+      value: caps:super
+      no_extra_spaces: true
+      mode: '0600'
 
   tags:
-    - kxkbrc
+  - kxkbrc

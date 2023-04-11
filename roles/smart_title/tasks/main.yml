@@ -1,9 +1,9 @@
 ---
 - block:
-  - name: stow smart_title
+  - name: Stow smart_title
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
   tags:
-    - smart_title
+  - smart_title

@@ -1,97 +1,98 @@
 ---
-- hosts: localhost
+- name: Tim Green Home Config
+  hosts: localhost
 
   tasks:
   - name: Distribution
     debug: msg="{{ ansible_distribution }} - ansible {{ ansible_version.full }}"
     tags:
-      - always
+    - always
 
-  - name: package update
+  - name: Package update
     action: >
       {{ ansible_pkg_mgr }} update_cache=yes
     become: true
     tags:
-      - always
-      - package_update
+    - always
+    - package_update
 
   - block:
-      - import_role: name=skeleton
-      - import_role: name=tmux
-      - import_role: name=compile_tmux
-      - import_role: name=skeleton_zgen
-      - import_role: name=zgen
-      - import_role: name=zsh
-      - import_role: name=zsh_p10k
-      - import_role: name=vim
-      - import_role: name=compile_vim
-      - import_role: name=top
-      - import_role: name=tig
-      - import_role: name=git
-      - import_role: name=swappiness
+    - import_role: name=skeleton
+    - import_role: name=tmux
+    - import_role: name=compile_tmux
+    - import_role: name=skeleton_zgen
+    - import_role: name=zgen
+    - import_role: name=zsh
+    - import_role: name=zsh_p10k
+    - import_role: name=vim
+    - import_role: name=compile_vim
+    - import_role: name=top
+    - import_role: name=tig
+    - import_role: name=git
+    - import_role: name=swappiness
     tags:
-      - essentials
-      - mini
+    - essentials
+    - mini
 
   - block:
-      - import_role: name=wget
-      - import_role: name=aria2
-      - import_role: name=snap
-      - import_role: name=cli_tools
-      - import_role: name=fzf
-      - import_role: name=ack
-      - import_role: name=fzf_git
-      - import_role: name=linuxbrew
-      - import_role: name=smart_title
-      - import_role: name=navi
-      - import_role: name=navi_cheats
+    - import_role: name=wget
+    - import_role: name=aria2
+    - import_role: name=snap
+    - import_role: name=cli_tools
+    - import_role: name=fzf
+    - import_role: name=ack
+    - import_role: name=fzf_git
+    - import_role: name=linuxbrew
+    - import_role: name=smart_title
+    - import_role: name=navi
+    - import_role: name=navi_cheats
     tags:
-      - cli
+    - cli
 
   - block:
-      - import_role: name=nerd_fonts
-      - import_role: name=cursor_theme
-      - import_role: name=ime_rime
+    - import_role: name=nerd_fonts
+    - import_role: name=cursor_theme
+    - import_role: name=ime_rime
       # - import_role: name=guake
-      - import_role: name=yakuake
-      - import_role: name=gui_scripts
-      - import_role: name=flatpak
-      - import_role: name=obsidian
-      - import_role: name=anki
-      - import_role: name=fix_kde_autostart
-      - import_role: name=kde_settings
-      - import_role: name=wayland
-      - import_role: name=marble_mouse
+    - import_role: name=yakuake
+    - import_role: name=gui_scripts
+    - import_role: name=flatpak
+    - import_role: name=obsidian
+    - import_role: name=anki
+    - import_role: name=fix_kde_autostart
+    - import_role: name=kde_settings
+    - import_role: name=wayland
+    - import_role: name=marble_mouse
     tags:
-      - gui
-      - never
+    - gui
+    - never
 
   # skip for chrome os
   - block:
-      - import_role: name=chrome_surfingkeys
+    - import_role: name=chrome_surfingkeys
       # - import_role: name=sxhkd
       # - import_role: name=swhkd
-      - import_role: name=kdeconnect
-      - import_role: name=touchegg
+    - import_role: name=kdeconnect
+    - import_role: name=touchegg
     when:
-      - ansible_hostname != 'penguin'
+    - ansible_hostname != 'penguin'
     tags:
-      - gui
-      - never
+    - gui
+    - never
 
   - block:
-      - import_role: name=vscode
-      - import_role: name=nvm
-      - import_role: name=deno
-      - import_role: name=rustup
+    - import_role: name=vscode
+    - import_role: name=nvm
+    - import_role: name=deno
+    - import_role: name=rustup
     tags:
-      - dev
-      - never
+    - dev
+    - never
 
   - block:
-      - import_role: name=chromeos_sommelier
+    - import_role: name=chromeos_sommelier
     when:
-      - ansible_hostname == 'penguin'
+    - ansible_hostname == 'penguin'
     tags:
-      - chrome_os
-      - never
+    - chrome_os
+    - never

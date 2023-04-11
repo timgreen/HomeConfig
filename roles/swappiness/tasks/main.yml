@@ -1,9 +1,9 @@
 ---
 - block:
 
-  - name: ensure sysctl
+  - name: Ensure sysctl
     package:
-      name: "{{ sysctl[ansible_pkg_mgr] }}"
+      name: '{{ sysctl[ansible_pkg_mgr] }}'
     vars:
       sysctl:
         # https://command-not-found.com/sysctl
@@ -11,14 +11,14 @@
         apt: procps
     become: true
 
-  - name: set swappiness value to {{ swappiness }}
+  - name: Set swappiness value to {{ swappiness }}
     ansible.posix.sysctl:
       name: vm.swappiness
       value: '{{ swappiness }}'
       state: present
     become: true
     tags:
-      - skip_in_ci  # not supported in the container
+    - skip_in_ci             # not supported in the container
 
   tags:
-    - swappiness
+  - swappiness

@@ -1,18 +1,18 @@
 ---
 - block:
-  - name: stow aria2
+  - name: Stow aria2
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: optionally install aria2c
+  - name: Optionally install aria2c
     package:
       name: aria2
     ignore_errors: true
     become: true
     tags:
-      - install_aria2c
-      - optional
+    - install_aria2c
+    - optional
 
   tags:
-    - aria2
+  - aria2

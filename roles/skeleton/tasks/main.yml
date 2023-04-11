@@ -1,40 +1,40 @@
 ---
 - block:
-  - name: install tools
+  - name: Install tools
     package:
       name:
-        - git
-        - stow
+      - git
+      - stow
     become: true
 
-  - name: setup skeleton
+  - name: Setup skeleton
     command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
     loop:
-      - ssh
-      - tmux
-      - zsh
-      - vim-plug
+    - ssh
+    - tmux
+    - zsh
+    - vim-plug
 
-  - name: make sure ~/.zsh_functions
+  - name: Make sure ~/.zsh_functions
     ansible.builtin.file:
       path: ~/.zsh_functions
       state: directory
       mode: '0755'
 
-  - name: tmux TPM
+  - name: Tmux TPM
     ansible.builtin.git:
       repo: https://github.com/tmux-plugins/tpm
       dest: ~/.tmux/plugins/tpm
       update: true
       force: true
 
-  - name: vim plug
+  - name: Vim plug
     ansible.builtin.get_url:
       url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       dest: ~/.vim/autoload/plug.vim
       mode: u=rw,g=r,o=r
 
   tags:
-    - skeleton
+  - skeleton

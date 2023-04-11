@@ -1,3 +1,4 @@
 ---
-- name: update font cache
+- name: Update font cache
   command: fc-cache -rfv
+  changed_when: false

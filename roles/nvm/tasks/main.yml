@@ -1,16 +1,16 @@
 ---
 - block:
-  - name: install nvm
+  - name: Install nvm
     shell:
       # Override XDG_CONFIG_HOME="" to ensure the NVM_DIR=~/.nvm
-      cmd: >
+      cmd: |
+        set -o pipefail
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | grep -v '>> "$NVM_PROFILE"' | XDG_CONFIG_HOME="" bash
       creates: ~/.nvm/nvm.sh
 
-  - name: stow nvm
+  - name: Stow nvm
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  tags:
-    nvm
+  tags: nvm

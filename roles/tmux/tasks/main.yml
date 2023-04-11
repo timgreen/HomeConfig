@@ -1,29 +1,29 @@
 ---
 - block:
-  - name: install tmux & tic
+  - name: Install tmux & tic
     package:
       name:
-        - tmux
-        - "{{ tic[ansible_pkg_mgr] }}"
+      - tmux
+      - '{{ tic[ansible_pkg_mgr] }}'
     vars:
       tic:
         pacman: ncurses
         apt: ncurses-bin
     become: true
 
-  - name: tmux tmuxifier
+  - name: Tmux tmuxifier
     ansible.builtin.git:
       repo: https://github.com/jimeh/tmuxifier.git
       dest: ~/.tmux/tmuxifier
       update: true
       force: true
 
-  - name: stow tmux
+  - name: Stow tmux
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: tic
+  - name: Tic
     command: tic ~/.terminfo/tmux.txt -o ~/.terminfo
     args:
       creates: ~/.terminfo/t/tmux-256color
@@ -35,4 +35,4 @@
     changed_when: false
 
   tags:
-    - tmux
+  - tmux

@@ -30,10 +30,10 @@
 
   - name: Setup Visual Studio Code to use Podman-Remote
     ansible.builtin.shell: |
+      set -o pipefail
       jq '."dev.containers.dockerPath"|="/app/tools/podman/bin/podman-remote"' \
         ~/.var/app/com.visualstudio.code/config/Code/User/settings.json \
         | sponge ~/.var/app/com.visualstudio.code/config/Code/User/settings.json
     changed_when: false
 
-  tags:
-    vscode_dev_container
+  tags: vscode_dev_container

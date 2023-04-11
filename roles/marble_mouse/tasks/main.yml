@@ -10,5 +10,5 @@
     become: true
 
   tags:
-    - marble_mouse
-    - skip_in_ci
+  - marble_mouse
+  - skip_in_ci

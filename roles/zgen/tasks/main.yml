@@ -1,10 +1,10 @@
 ---
 - block:
-  - name: stow zgen
+  - name: Stow zgen
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
     notify: update zgen
 
   tags:
-    - zgen
+  - zgen

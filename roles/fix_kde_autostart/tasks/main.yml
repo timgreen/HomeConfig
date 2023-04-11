@@ -21,4 +21,4 @@
     changed_when: false
 
   tags:
-    - fix_kde_autostart
+  - fix_kde_autostart

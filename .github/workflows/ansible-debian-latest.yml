@@ -1,11 +1,11 @@
 ---
 name: Ansible check debian:latest
 
-on  :
+on:
   push:
   pull_request:
   schedule:
-    - cron: '15 12 * * 1'  # At 12:15 on Monday.
+  - cron: 15 12 * * 1       # At 12:15 on Monday.
 
 jobs:
   build:

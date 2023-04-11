@@ -1,16 +1,16 @@
 ---
 - block:
-  - name: install navi
+  - name: Install navi
     shell:
       cmd: |
+        set -o pipefail
         BIN_DIR=$HOME/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/v2.20.1/scripts/install | grep -v 'append_to_file ')
       executable: /bin/bash
       creates: $HOME/bin/navi
 
-  - name: stow navi
+  - name: Stow navi
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  tags:
-    navi
+  tags: navi

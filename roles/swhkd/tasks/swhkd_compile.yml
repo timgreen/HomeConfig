@@ -1,46 +1,46 @@
 ---
-- name: check if /usr/bin/swhkd exists
+- name: Check if /usr/bin/swhkd exists
   stat:
     path: /usr/bin/swhkd
   register: swhkd
 
 - block:
     # https://github.com/waycrate/swhkd/blob/main/INSTALL.md#dependencies
-    - name: Install deps
-      become: true
-      package:
-        state: latest
-        name: "{{ swhkd_deps[ansible_pkg_mgr] }}"
+  - name: Install deps
+    become: true
+    package:
+      state: latest
+      name: '{{ swhkd_deps[ansible_pkg_mgr] }}'
 
-    - name: Git checkout source
-      git:
-        repo: https://github.com/waycrate/swhkd.git
-        dest: "{{ swhkd_git_dest }}"
-        update: true
-        clone: true
-        depth: 1
+  - name: Git checkout source
+    git:
+      repo: https://github.com/waycrate/swhkd.git
+      dest: '{{ swhkd_git_dest }}'
+      update: true
+      clone: true
+      depth: 1
 
-    - name: Build
-      ansible.builtin.shell:
-        cmd: |
-          source ~/.cargo/env
-          make setup
-          make clean
-          make
-        chdir: "{{ swhkd_git_dest }}"
-        executable: /bin/zsh
-      changed_when: false
+  - name: Build
+    ansible.builtin.shell:
+      cmd: |
+        source ~/.cargo/env
+        make setup
+        make clean
+        make
+      chdir: '{{ swhkd_git_dest }}'
+      executable: /bin/zsh
+    changed_when: false
 
-    - name: Install
-      ansible.builtin.command:
-        cmd: make install
-        chdir: "{{ swhkd_git_dest }}"
-        creates: /usr/bin/swhkd
-      become: true
+  - name: Install
+    ansible.builtin.command:
+      cmd: make install
+      chdir: '{{ swhkd_git_dest }}'
+      creates: /usr/bin/swhkd
+    become: true
 
-    - name: Clean up
-      ansible.builtin.file:
-        path: "{{ swhkd_git_dest }}"
-        state: absent
+  - name: Clean up
+    ansible.builtin.file:
+      path: '{{ swhkd_git_dest }}'
+      state: absent
 
   when: not swhkd.stat.exists

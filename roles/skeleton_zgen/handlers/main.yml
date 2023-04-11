@@ -1,4 +1,5 @@
 ---
-- name: update zgen
+- name: Update zgen
   command: zsh ~/sh/init_zgen.zsh
   failed_when: false
+  changed_when: false

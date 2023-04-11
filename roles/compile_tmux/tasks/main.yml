@@ -16,81 +16,81 @@
         {{ minimum_tmux_version }}
 
   tags:
-    - compile_tmux
-    - skip_in_ci
+  - compile_tmux
+  - skip_in_ci
 
 - block:
 
-    - name: Install deps | apt
-      become: true
-      apt:
-        state: latest
-        name:
-          - libevent-dev
+  - name: Install deps | apt
+    become: true
+    apt:
+      state: latest
+      name:
+      - libevent-dev
           # - libevent
-          - ncurses-dev
+      - ncurses-dev
           # - ncurses
-          - build-essential
-          - autoconf
-          - bison
-          - pkg-config
-          - libutf8proc-dev
-          - libutf8proc2
-          - libutempter-dev
-          - libutempter0
-      when: ansible_pkg_mgr == 'apt'
+      - build-essential
+      - autoconf
+      - bison
+      - pkg-config
+      - libutf8proc-dev
+      - libutf8proc2
+      - libutempter-dev
+      - libutempter0
+    when: ansible_pkg_mgr == 'apt'
 
-    - name: Install deps | yum
-      become: true
-      pacman:
-        state: latest
-        name:
-          - libevent-devel
+  - name: Install deps | yum
+    become: true
+    community.general.pacman:
+      state: latest
+      name:
+      - libevent-devel
           # - libevent
-          - ncurses-devel
+      - ncurses-devel
           # - ncurses
-          - autoconf
-          - gcc
-          - make
-          - bison
-          - pkg-config
-      when: ansible_pkg_mgr == 'yum'
+      - autoconf
+      - gcc
+      - make
+      - bison
+      - pkg-config
+    when: ansible_pkg_mgr == 'yum'
 
-    - name: git checkout
-      git:
-        repo: https://github.com/tmux/tmux.git
-        dest: "{{ tmux_git_dest }}"
-        update: true
-        clone: true
-        depth: 1
+  - name: Git checkout
+    git:
+      repo: https://github.com/tmux/tmux.git
+      dest: '{{ tmux_git_dest }}'
+      update: true
+      clone: true
+      depth: 1
 
-    - name: Compile tmux
-      command: "{{ item }}"
-      args:
-        chdir: "{{ tmux_git_dest }}"
-      loop:
-        - sh autogen.sh
-        - >
-          ./configure
-          --prefix={{ tmux_configure_prefix }}
-          --enable-utempter
-          --enable-utf8proc
-        - make
-      changed_when: false
+  - name: Compile tmux
+    command: '{{ item }}'
+    args:
+      chdir: '{{ tmux_git_dest }}'
+    loop:
+    - sh autogen.sh
+    - >
+      ./configure
+      --prefix={{ tmux_configure_prefix }}
+      --enable-utempter
+      --enable-utf8proc
+    - make
+    changed_when: false
 
-    - name: Install tmux
-      command: make install
-      args:
-        chdir: "{{ tmux_git_dest }}"
-      become: true
-      changed_when: false
+  - name: Install tmux
+    command: make install
+    args:
+      chdir: '{{ tmux_git_dest }}'
+    become: true
+    changed_when: false
 
-    - name: Clean up
-      ansible.builtin.file:
-        path: "{{ tmux_git_dest }}"
-        state: absent
+  - name: Clean up
+    ansible.builtin.file:
+      path: '{{ tmux_git_dest }}'
+      state: absent
 
-  when: "tmux_version.stdout is version(minimum_tmux_version, '<')"
+  when: tmux_version.stdout is version(minimum_tmux_version, '<')
   tags:
-    - compile_tmux
-    - skip_in_ci
+  - compile_tmux
+  - skip_in_ci

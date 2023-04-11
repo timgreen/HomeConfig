@@ -3,10 +3,10 @@
   - name: Install fcitx
     package:
       name:
-        - fcitx5
-        - fcitx5-rime
-        - "{{ rime_deployer[ansible_pkg_mgr] }}"
-        - "{{ rime_wubi[ansible_pkg_mgr] }}"
+      - fcitx5
+      - fcitx5-rime
+      - '{{ rime_deployer[ansible_pkg_mgr] }}'
+      - '{{ rime_wubi[ansible_pkg_mgr] }}'
     vars:
       rime_deployer:
         pacman: librime
@@ -16,7 +16,7 @@
         apt: librime-data-wubi
     become: true
 
-  - name: stow ime_rime
+  - name: Stow ime_rime
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
@@ -32,4 +32,4 @@
       creates: ~/.local/share/fcitx5/rime/build/wubi_pinyin.schema.yaml
 
   tags:
-    - ime_rime
+  - ime_rime

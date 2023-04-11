@@ -10,7 +10,7 @@
     shell: dconf load /apps/guake/ < {{ role_path }}/files/guake.dconf
     changed_when: false
     tags:
-      - skip_in_ci    # error: Cannot spawn a message bus without a machine-id
+    - skip_in_ci             # error: Cannot spawn a message bus without a machine-id
 
   tags:
-    - guake
+  - guake

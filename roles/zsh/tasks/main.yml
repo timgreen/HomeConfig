@@ -1,13 +1,13 @@
 ---
 - block:
-  - name: stow zsh
+  - name: Stow zsh
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
   - name: Ensure locale-gen
     package:
-      name: "{{ locale_gen[ansible_pkg_mgr] }}"
+      name: '{{ locale_gen[ansible_pkg_mgr] }}'
     vars:
       locale_gen:
         # https://command-not-found.com/locale-gen
@@ -15,16 +15,15 @@
         apt: locales
     become: true
     tags:
-      - never
-      - locale
+    - never
+    - locale
 
   - name: Ensure locale en_US.UTF-8 exists
     community.general.locale_gen:
       name: en_US.UTF-8
       state: present
     tags:
-      - never
-      - locale
+    - never
+    - locale
 
-  tags:
-    zsh
+  tags: zsh

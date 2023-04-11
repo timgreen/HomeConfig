@@ -1,21 +1,21 @@
 ---
 - block:
-    - name: stow cli_tools
-      command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-      register: output
-      changed_when: '"LINK" in output.stderr'
+  - name: Stow cli_tools
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
 
-    - name: install cli tools
-      package:
-        name:
-          - tree
-          - ncdu
-          - jq
-          - tldr
-          - bat  # for batcat
-          - autossh
-          - rclone
-          - exa  # fzf-tab need it for 'cd'
-      become: true
+  - name: Install cli tools
+    package:
+      name:
+      - tree
+      - ncdu
+      - jq
+      - tldr
+      - bat               # for batcat
+      - autossh
+      - rclone
+      - exa               # fzf-tab need it for 'cd'
+    become: true
   tags:
-    - cli_tools
+  - cli_tools

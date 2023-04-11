@@ -6,10 +6,10 @@
       name: net.ankiweb.Anki
       state: present
 
-  - name: flatpak override
+  - name: Flatpak override
     # https://github.com/flathub/net.ankiweb.Anki/issues/26#issuecomment-504334187
     command: flatpak override --user net.ankiweb.Anki --filesystem=host
     changed_when: false
 
   tags:
-    - obsidian
+  - obsidian

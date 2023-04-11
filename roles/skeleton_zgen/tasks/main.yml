@@ -1,27 +1,27 @@
 ---
 - block:
-  - name: install zsh
+  - name: Install zsh
     package:
       name: zsh
     become: true
 
-  - name: clone zgen
+  - name: Clone zgen
     ansible.builtin.git:
       repo: https://github.com/tarjoilija/zgen.git
       dest: ~/.zgen
       update: true
       force: true
 
-  - name: stow zgen
+  - name: Stow zgen
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: init zgen
+  - name: Init zgen
     command: zsh ~/sh/init_zgen.zsh
     args:
       creates: ~/.zgen/init.zsh
     failed_when: false
 
   tags:
-    - skeleton_zgen
+  - skeleton_zgen

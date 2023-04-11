@@ -1,17 +1,17 @@
 ---
 - block:
-  - name: stow snap
+  - name: Stow snap
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
 
-  - name: optionally install snapd
+  - name: Optionally install snapd
     package:
       name: snapd
     become: true
     ignore_errors: true
     tags:
-      - optional
+    - optional
 
   tags:
-    - snap
+  - snap

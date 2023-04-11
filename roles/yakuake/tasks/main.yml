@@ -1,6 +1,6 @@
 ---
 - block:
-  - name: stow konsole profiles
+  - name: Stow konsole profiles
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: output
     changed_when: '"LINK" in output.stderr'
@@ -8,8 +8,8 @@
   - name: Install yakuake & tool
     package:
       name:
-        - yakuake
-        - "{{ kwriteconfig5[ansible_pkg_mgr] }}"
+      - yakuake
+      - '{{ kwriteconfig5[ansible_pkg_mgr] }}'
     vars:
       kwriteconfig5:
         pacman: kconfig
@@ -27,4 +27,4 @@
     changed_when: false
 
   tags:
-    - yakuake
+  - yakuake
