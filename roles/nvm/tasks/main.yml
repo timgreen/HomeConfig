@@ -6,6 +6,7 @@
       cmd: |
         set -o pipefail
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | grep -v '>> "$NVM_PROFILE"' | XDG_CONFIG_HOME="" bash
+      executable: /bin/bash
       creates: ~/.nvm/nvm.sh
 
   - name: Stow nvm

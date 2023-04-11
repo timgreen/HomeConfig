@@ -5,6 +5,7 @@
       cmd: >
         set -o pipefail
         curl -fsSL https://deno.land/x/install/install.sh | sh
+      executable: /bin/bash
       creates: ~/.deno/bin/deno
 
   - name: Stow deno
