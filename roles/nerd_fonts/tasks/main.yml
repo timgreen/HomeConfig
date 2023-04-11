@@ -20,7 +20,7 @@
       dest: '{{ ansible_env.HOME }}/.local/share/fonts'
       creates: ~/.local/share/fonts/Hack Bold Nerd Font Complete.ttf
     register: font_download
-    notify: update font cache
+    notify: Update font cache
 
   tags:
   - nerd_fonts
