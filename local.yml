@@ -92,7 +92,7 @@
   - dev
   - never
   roles:
-  - vscode
+  # - vscode
   - nvm
   - deno
   - rustup
