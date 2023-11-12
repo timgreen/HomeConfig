@@ -12,7 +12,7 @@
       - '{{ kwriteconfig5[ansible_pkg_mgr] }}'
     vars:
       kwriteconfig5:
-        pacman: kconfig
+        pacman: kconfig5
         apt: libkf5config-bin
     become: true
 
