@@ -94,7 +94,6 @@
   roles:
   # - vscode
   - nvm
-  - deno
   - rustup
 
 - name: Chrome os
