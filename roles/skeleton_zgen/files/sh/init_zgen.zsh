@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-source "$HOME/.zgen/zgen.zsh"
-zgen loadall < <(
+source "$HOME/.zgenom/zgenom.zsh"
+zgenom loadall < <(
   sed 's/\s*#.*$//' $HOME/.zgen_list/*.list(N) /dev/null
 )
-zgen save
+zgenom save
