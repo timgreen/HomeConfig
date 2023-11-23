@@ -1,0 +1,40 @@
+---
+- block:
+    - name: Check if directory exists
+      stat:
+        path: ~/.miniconda3
+      register: dir
+    - block:
+        - name: Download Miniconda
+          get_url:
+            url: https://repo.anaconda.com/miniconda/Miniconda3-py311_23.10.0-1-Linux-x86_64.sh
+            dest: /tmp/install-miniconda.sh
+            checksum: sha256:d0643508fa49105552c94a523529f4474f91730d3e0d1f168f1700c43ae67595
+            mode: 0550
+        - name: Run the installer
+          shell:
+            cmd: /tmp/install-miniconda.sh -b -u -p ~/.miniconda3
+            creates: ~/.miniconda3
+        - name: Remove the installer
+          file:
+            state: absent
+            path: /tmp/install-miniconda.sh
+        - name: Conda - read permission for all
+          file:
+            path: ~/.miniconda3
+            mode: +r
+            recurse: true
+        - name: Conda - execution permission for all
+          file:
+            path: ~/.miniconda3/bin
+            mode: +x
+            recurse: true
+      when: not dir.stat.exists
+
+    - name: Stow conda (hook)
+      command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+      register: output
+      changed_when: '"LINK" in output.stderr'
+
+  tags:
+    - conda
