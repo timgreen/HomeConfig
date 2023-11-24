@@ -18,6 +18,13 @@
       - autossh
       - rclone
       - exa               # fzf-tab need it for 'cd'
+      - rsync
     become: true
+
+  - name: Download tldr pages
+    command:
+      cmd: tldr -u
+      creates: ~/.local/share/tldr
+
   tags:
   - cli_tools
