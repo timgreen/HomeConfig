@@ -1,9 +1,10 @@
 ---
 - block:
-  - name: Install htop
+  - name: Install htop/btop
     package:
       name:
       - htop
+      - btop
     become: true
 
   - name: Stow top
