@@ -22,9 +22,8 @@
     become: true
 
   - name: Download tldr pages
-    command:
-      cmd: tldr -u
-      creates: ~/.local/share/tldr
+    command: tldr -u
+    changed_when: false
 
   tags:
   - cli_tools
