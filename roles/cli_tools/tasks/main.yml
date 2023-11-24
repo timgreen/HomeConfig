@@ -21,9 +21,5 @@
       - rsync
     become: true
 
-  - name: Download tldr pages
-    command: tldr -u
-    changed_when: false
-
   tags:
   - cli_tools
