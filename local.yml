@@ -92,10 +92,11 @@
   - dev
   - never
   roles:
-  # - vscode
+  - vscode
   - nvm
   - rustup
   - conda
+  - 3d_printing
 
 - name: Chrome os
   hosts: localhost
