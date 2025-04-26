@@ -1,0 +1,14 @@
+---
+- block:
+  - name: Install zoxide
+    package:
+      name: zoxide
+    become: true
+
+  - name: Stow zoxide
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+
+  tags:
+  - zoxide

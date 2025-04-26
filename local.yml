@@ -50,6 +50,7 @@
   - smart_title
   - navi
   - navi_cheats
+  - zoxide
 
 - name: Gui
   hosts: localhost
