@@ -17,7 +17,7 @@
       - bat               # for batcat
       - autossh
       - rclone
-      - exa               # fzf-tab need it for 'cd'
+      - eza               # fzf-tab need it for 'cd'
       - rsync
     become: true
 
