@@ -12,5 +12,5 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 # increase popup-min-size
-zstyle ':fzf-tab:*' popup-min-size 50 8
+zstyle ':fzf-tab:*' popup-min-size 100 8
 
