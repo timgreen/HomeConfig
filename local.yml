@@ -79,12 +79,12 @@
       # - import_role: name=sxhkd
       # - import_role: name=swhkd
     - import_role: name=touchegg
-    - import_role: fix_kde_autostart
-    - import_role: kde_settings
-    - import_role: wayland
-    - import_role: marble_mouse
+    - import_role: name=fix_kde_autostart
+    - import_role: name=kde_settings
+    - import_role: name=wayland
+    - import_role: name=marble_mouse
     when:
-    - ansible_hostname != 'penguin'
+    - not is_chromeos_device
 
 - name: Dev
   hosts: localhost
