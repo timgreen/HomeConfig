@@ -107,4 +107,4 @@
   - block:
     - import_role: name=chromeos_sommelier
     when:
-    - ansible_hostname == 'penguin'
+    - is_chromeos_device
