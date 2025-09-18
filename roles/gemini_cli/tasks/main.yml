@@ -1,0 +1,23 @@
+---
+- block:
+  - name: Ensure stow is installed
+    ansible.builtin.package:
+      name: stow
+      state: present
+
+  - name: Install gemini-cli via npm (using nvm's npm)
+    ansible.builtin.shell:
+      cmd: |
+        . "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+        nvm use default
+        npm install -g @google/gemini-cli
+      executable: /bin/bash
+    changed_when: false
+
+  - name: Stow gemini_cli dotfiles
+    ansible.builtin.command:
+      cmd: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: output
+    changed_when: '"LINK" in output.stderr'
+  tags:
+    - gemini_cli

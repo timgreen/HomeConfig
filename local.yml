@@ -97,6 +97,7 @@
   - rustup
   - conda
   - 3d_printing
+  - gemini_cli
 
 - name: Chrome os
   hosts: localhost
