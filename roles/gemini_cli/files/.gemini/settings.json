@@ -1,5 +1,19 @@
 {
-  "preferredEditor": "vim",
-  "selectedAuthType": "oauth-personal",
-  "vimMode": false
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ]
+    }
+  },
+  "general": {
+    "preferredEditor": "vim",
+    "vimMode": false
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  }
 }
