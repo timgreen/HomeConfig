@@ -51,6 +51,7 @@
   - navi
   - navi_cheats
   - zoxide
+  - just
 
 - name: Gui
   hosts: localhost

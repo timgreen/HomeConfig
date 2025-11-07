@@ -88,6 +88,7 @@ Plug 'davidhalter/jedi-vim' " python
 	let g:jedi#auto_vim_configuration = 0
   let g:jedi#use_splits_not_buffers = "top"
 " }}}
+Plug 'NoahTheDuke/vim-just'
 
 " Misc {{{
 Plug 'arthurxavierx/vim-caser'
