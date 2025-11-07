@@ -15,4 +15,10 @@
     changed_when: '"LINK" in output.stderr'
     notify: Update zgen
 
+  - name: Install default node version
+    shell:
+      cmd: . ~/.nvm/nvm.sh && nvm install --lts && nvm alias default lts/*
+      executable: /bin/bash
+      creates: ~/.nvm/alias/default
+
   tags: nvm
