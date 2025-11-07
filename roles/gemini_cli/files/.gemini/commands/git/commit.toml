@@ -1,0 +1,10 @@
+description = "Generates a git commit command with a proper message for staged changes."
+prompt = """
+Based on the following staged changes, generate a `git commit -m \"...\"` command with a concise and informative commit message.
+
+```diff
+!{git diff --cached}
+```
+
+Then run the `git commit` command.
+"""
