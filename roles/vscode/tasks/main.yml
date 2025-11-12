@@ -10,8 +10,8 @@
 
   - name: Stow vscode
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: vscode_output
+    changed_when: '"LINK" in vscode_output.stderr'
 
   - name: Use podman-remote for dev container.
     ansible.builtin.import_tasks: dev_container.yml

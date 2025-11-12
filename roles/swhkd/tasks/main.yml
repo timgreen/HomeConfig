@@ -4,8 +4,8 @@
 
   - name: Stow swhkd
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: swhkd_output
+    changed_when: '"LINK" in swhkd_output.stderr'
 
   - name: Enable Service
     ansible.builtin.systemd:

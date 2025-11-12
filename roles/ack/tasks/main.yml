@@ -13,8 +13,8 @@
 
   - name: Stow ack
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: ack_output
+    changed_when: '"LINK" in ack_output.stderr'
 
   tags:
   - ack

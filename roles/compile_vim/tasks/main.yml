@@ -3,7 +3,7 @@
 # https://github.com/guoqiao/ansible-role-vim/blob/master/tasks/main.yml
 - name: Check vim features
   command: bash -c "vim --version | tr '\n' ' ' | awk '/\+clipboard/&&/\+lua/'"
-  register: vim_feature_check
+  register: compile_vim_vim_feature_check
   changed_when: false
   check_mode: false
   ignore_errors: true
@@ -60,7 +60,7 @@
       path: '{{ compile_vim_git_dest }}'
       state: absent
 
-  when: vim_feature_check.rc > 0
+  when: compile_vim_vim_feature_check.rc > 0
   tags:
   - compile_vim
   - skip_in_ci

@@ -2,8 +2,8 @@
 - block:
   - name: Stow zgen
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: zgen_output
+    changed_when: '"LINK" in zgen_output.stderr'
     notify: Update zgen
 
   tags:

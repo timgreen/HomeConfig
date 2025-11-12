@@ -20,8 +20,8 @@
 
   - name: Stow tmux
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: tmux_output
+    changed_when: '"LINK" in tmux_output.stderr'
 
   - name: Tic
     command: tic ~/.terminfo/tmux.txt -o ~/.terminfo

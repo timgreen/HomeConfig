@@ -2,7 +2,7 @@
 - name: Check if /usr/bin/swhkd exists
   stat:
     path: /usr/bin/swhkd
-  register: swhkd
+  register: swhkd_swhkd
 
 - block:
     # https://github.com/waycrate/swhkd/blob/main/INSTALL.md#dependencies
@@ -43,4 +43,4 @@
       path: '{{ swhkd_git_dest }}'
       state: absent
 
-  when: not swhkd.stat.exists
+  when: not swhkd_swhkd.stat.exists

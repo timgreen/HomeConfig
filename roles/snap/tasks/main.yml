@@ -2,8 +2,8 @@
 - block:
   - name: Stow snap
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: snap_output
+    changed_when: '"LINK" in snap_output.stderr'
 
   - name: Optionally install snapd
     package:

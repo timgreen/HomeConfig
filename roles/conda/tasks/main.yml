@@ -3,7 +3,7 @@
     - name: Check if directory exists
       stat:
         path: ~/.miniconda3
-      register: dir
+      register: conda_dir
     - block:
         - name: Download Miniconda
           get_url:
@@ -29,12 +29,12 @@
             path: ~/.miniconda3/bin
             mode: +x
             recurse: true
-      when: not dir.stat.exists
+      when: not conda_dir.stat.exists
 
     - name: Stow conda (hook)
       command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-      register: output
-      changed_when: '"LINK" in output.stderr'
+      register: conda_output
+      changed_when: '"LINK" in conda_output.stderr'
 
   tags:
     - conda

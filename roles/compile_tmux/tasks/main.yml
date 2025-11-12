@@ -2,7 +2,7 @@
 - block:
   - name: Check tmux version
     command: bash -c "tmux -V | cut -d' ' -f 2-"
-    register: tmux_version
+    register: compile_tmux_tmux_version
     changed_when: false
     check_mode: false
     ignore_errors: true
@@ -11,7 +11,7 @@
     debug:
       msg: >
         Installed tmux verion:
-        {{ tmux_version.stdout }}
+        {{ compile_tmux_tmux_version.stdout }}
         Minimum tmux version:
         {{ compile_tmux_minimum_tmux_version }}
 
@@ -90,7 +90,7 @@
       path: '{{ compile_tmux_git_dest }}'
       state: absent
 
-  when: tmux_version.stdout is version(compile_tmux_minimum_tmux_version, '<')
+  when: compile_tmux_tmux_version.stdout is version(compile_tmux_minimum_tmux_version, '<')
   tags:
   - compile_tmux
   - skip_in_ci

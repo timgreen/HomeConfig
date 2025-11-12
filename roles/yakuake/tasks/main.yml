@@ -2,8 +2,8 @@
 - block:
   - name: Stow konsole profiles
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: yakuake_output
+    changed_when: '"LINK" in yakuake_output.stderr'
 
   - name: Install yakuake & tool
     package:

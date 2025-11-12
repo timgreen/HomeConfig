@@ -2,8 +2,8 @@
 - block:
   - name: Stow chromeos sommelier
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: chromeos_sommelier_output
+    changed_when: '"LINK" in chromeos_sommelier_output.stderr'
 
   tags:
   - chromeos_sommelier

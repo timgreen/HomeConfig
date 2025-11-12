@@ -2,8 +2,8 @@
 - block:
   - name: Stow cli_tools
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: cli_tools_output
+    changed_when: '"LINK" in cli_tools_output.stderr'
 
   - name: Install cli tools
     package:

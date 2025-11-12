@@ -2,8 +2,8 @@
 - block:
   - name: Stow chrome_surfingkeys
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: chrome_surfingkeys_output
+    changed_when: '"LINK" in chrome_surfingkeys_output.stderr'
 
   tags:
   - chrome_surfingkeys

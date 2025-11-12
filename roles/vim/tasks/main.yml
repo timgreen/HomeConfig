@@ -7,8 +7,8 @@
 
   - name: Stow vim
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: vim_output
+    changed_when: '"LINK" in vim_output.stderr'
 
   - name: Vim plug install
     command: vim +PlugInstall +PlugClean! +qall

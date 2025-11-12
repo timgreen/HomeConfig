@@ -2,8 +2,8 @@
 - block:
   - name: Stow aria2
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: aria2_output
+    changed_when: '"LINK" in aria2_output.stderr'
 
   - name: Optionally install aria2c
     package:

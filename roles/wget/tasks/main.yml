@@ -2,8 +2,8 @@
 - block:
   - name: Stow wget
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: wget_output
+    changed_when: '"LINK" in wget_output.stderr'
 
   - name: Optionally install wget
     package:
