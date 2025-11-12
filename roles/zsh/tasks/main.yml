@@ -32,7 +32,7 @@
           line: 'en_US.UTF-8 UTF-8'
           state: present
         register: zsh_locale_gen_uncomment
-      - name: Run locale-gen
+      - name: Run locale-gen  # noqa: no-handler
         ansible.builtin.command: locale-gen
         when: zsh_locale_gen_uncomment.changed
         changed_when: zsh_locale_gen_uncomment.changed
