@@ -5,11 +5,11 @@
   - always
   tasks:
   - name: Distribution
-    debug: msg="{{ ansible_distribution }} - ansible {{ ansible_version.full }}"
+    debug: msg="{{ ansible_facts['distribution'] }} - ansible {{ ansible_version.full }}"
 
   - name: Package update
     action: >
-      {{ ansible_pkg_mgr }} update_cache=yes
+      {{ ansible_facts['pkg_mgr'] }} update_cache=yes
     become: true
     tags:
     - package_update
