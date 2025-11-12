@@ -18,10 +18,27 @@
     - never
     - locale
 
+  - name: Ensure locale en_US.UTF-8 exists (Arch Linux)
+    when: ansible_os_family == 'Archlinux'
+    become: true
+    tags:
+    - never
+    - locale
+    block:
+      - name: Uncomment en_US.UTF-8 in /etc/locale.gen
+        ansible.builtin.lineinfile:
+          path: /etc/locale.gen
+          regexp: '^#?en_US.UTF-8 UTF-8'
+          line: 'en_US.UTF-8 UTF-8'
+          state: present
+      - name: Run locale-gen
+        ansible.builtin.command: locale-gen
+
   - name: Ensure locale en_US.UTF-8 exists
     community.general.locale_gen:
       name: en_US.UTF-8
       state: present
+    when: ansible_os_family == 'Debian'
     tags:
     - never
     - locale
