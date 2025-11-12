@@ -16,6 +16,8 @@
     - tmux
     - zsh
     - vim-plug
+    - wget
+    - curl
 
   - name: Make sure ~/.zsh_functions
     ansible.builtin.file:
