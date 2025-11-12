@@ -31,8 +31,11 @@
           regexp: '^#?en_US.UTF-8 UTF-8'
           line: 'en_US.UTF-8 UTF-8'
           state: present
+        register: zsh_locale_gen_uncomment
       - name: Run locale-gen
         ansible.builtin.command: locale-gen
+        when: zsh_locale_gen_uncomment.changed
+        changed_when: zsh_locale_gen_uncomment.changed
 
   - name: Ensure locale en_US.UTF-8 exists
     community.general.locale_gen:
