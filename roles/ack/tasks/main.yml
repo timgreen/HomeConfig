@@ -3,8 +3,7 @@
   - name: Install ag / ack
     package:
       name:
-      - ack
-      - '{{ ag[ansible_pkg_mgr] }}'
+      - '{{ ag[ansible_facts["pkg_mgr"]] }}'
     vars:
       ag:
         apt: silversearcher-ag
