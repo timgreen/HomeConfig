@@ -20,6 +20,7 @@
       - eza               # fzf-tab need it for 'cd'
       - rsync
     become: true
+    ignore_errors: true
 
   tags:
   - cli_tools
