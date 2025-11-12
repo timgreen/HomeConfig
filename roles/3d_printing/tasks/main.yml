@@ -2,8 +2,8 @@
 - block:
   - name: Stow 3d printing
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: 3d_printing_output
-    changed_when: '"LINK" in 3d_printing_output.stderr'
+    register: threed_printing_output  # noqa: var-naming[no-role-prefix]
+    changed_when: '"LINK" in threed_printing_output.stderr'
 
   tags:
   - 3d_printing
