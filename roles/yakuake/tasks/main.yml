@@ -25,6 +25,8 @@
       kwriteconfig5 --file ~/.config/yakuakerc --group "Desktop Entry" --key DefaultProfile WhiteOnBlack.profile
       kwriteconfig5 --file ~/.config/konsolerc --group "Desktop Entry" --key DefaultProfile WhiteOnBlack.profile
     changed_when: false
+    tags:
+    - skip_in_ci
 
   tags:
   - yakuake
