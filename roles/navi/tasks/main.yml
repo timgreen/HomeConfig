@@ -11,7 +11,7 @@
 
   - name: Stow navi
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: navi_output
+    changed_when: '"LINK" in navi_output.stderr'
 
   tags: navi

@@ -17,7 +17,7 @@
   - name: Stow gemini_cli dotfiles
     ansible.builtin.command:
       cmd: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: gemini_cli_output
+    changed_when: '"LINK" in gemini_cli_output.stderr'
   tags:
     - gemini_cli

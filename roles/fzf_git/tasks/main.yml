@@ -2,8 +2,8 @@
 - block:
   - name: Stow fzf_git
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: fzf_git_output
+    changed_when: '"LINK" in fzf_git_output.stderr'
 
   - name: Include git config | fzf
     shell: |

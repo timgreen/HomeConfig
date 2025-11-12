@@ -23,8 +23,8 @@
 
   - name: Stow fzf
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: fzf_output
+    changed_when: '"LINK" in fzf_output.stderr'
     notify: Update zgen
 
   tags:

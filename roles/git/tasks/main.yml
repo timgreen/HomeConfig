@@ -2,8 +2,8 @@
 - block:
   - name: Stow git
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: git_output
+    changed_when: '"LINK" in git_output.stderr'
 
   - name: Include git config | common
     shell: |

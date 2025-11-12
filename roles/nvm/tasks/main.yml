@@ -11,8 +11,8 @@
 
   - name: Stow nvm
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: nvm_output
+    changed_when: '"LINK" in nvm_output.stderr'
     notify: Update zgen
 
   - name: Install default node version

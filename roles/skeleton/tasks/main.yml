@@ -9,8 +9,8 @@
 
   - name: Setup skeleton
     command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: skeleton_output
+    changed_when: '"LINK" in skeleton_output.stderr'
     loop:
     - ssh
     - tmux

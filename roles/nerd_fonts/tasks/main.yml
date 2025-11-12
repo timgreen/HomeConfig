@@ -19,7 +19,7 @@
       remote_src: true
       dest: '{{ ansible_env.HOME }}/.local/share/fonts'
       creates: ~/.local/share/fonts/Hack Bold Nerd Font Complete.ttf
-    register: font_download
+    register: nerd_fonts_font_download
     notify: Update font cache
 
   tags:

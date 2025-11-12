@@ -10,8 +10,8 @@
 
   - name: Stow rustup
     ansible.builtin.command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: output
-    changed_when: '"LINK" in output.stderr'
+    register: rustup_output
+    changed_when: '"LINK" in rustup_output.stderr'
 
   tags:
   - rustup
