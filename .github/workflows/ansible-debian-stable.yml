@@ -18,7 +18,7 @@ jobs:
 
     - name: ansible check with debian:stable
       # replace "master" with any valid ref
-      uses: roles-ansible/check-ansible-debian-bookworm-action@master
+      uses: roles-ansible/check-ansible-debian-bookworm-action@main
       with:
         targets: --tags mini,cli,gui,dev --skip-tags skip_in_ci,navi local.yml
         #  [required]
