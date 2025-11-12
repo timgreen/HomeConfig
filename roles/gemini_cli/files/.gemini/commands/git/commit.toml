@@ -6,5 +6,5 @@ Based on the following staged changes, generate a `git commit -m \"...\"` comman
 !{git diff --cached}
 ```
 
-Then run the `git commit` command.
+Then run the `git commit` command, don't add or remove any other changes.
 """
