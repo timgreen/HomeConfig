@@ -17,12 +17,12 @@
     become: true
     package:
       state: latest
-      name: '{{ vim_deps[ansible_pkg_mgr] }}'
+      name: '{{ compile_vim_deps[ansible_pkg_mgr] }}'
 
   - name: Git checkout
     git:
       repo: https://github.com/vim/vim.git
-      dest: '{{ vim_git_dest }}'
+      dest: '{{ compile_vim_git_dest }}'
       update: true
       clone: true
       depth: 1
@@ -30,12 +30,12 @@
   - name: Compile vim
     shell: '{{ item }}'
     args:
-      chdir: '{{ vim_git_dest }}'
+      chdir: '{{ compile_vim_git_dest }}'
     loop:
     - make distclean
     - >
       ./configure
-      --prefix={{ vim_configure_prefix }}
+      --prefix={{ compile_vim_configure_prefix }}
       --with-features=huge
       --with-x
       --enable-gui=auto
@@ -51,13 +51,13 @@
   - name: Install vim
     command: make install
     args:
-      chdir: '{{ vim_git_dest }}'
+      chdir: '{{ compile_vim_git_dest }}'
     become: true
     changed_when: false
 
   - name: Clean up
     ansible.builtin.file:
-      path: '{{ vim_git_dest }}'
+      path: '{{ compile_vim_git_dest }}'
       state: absent
 
   when: vim_feature_check.rc > 0

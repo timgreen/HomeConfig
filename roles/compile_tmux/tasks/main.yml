@@ -13,7 +13,7 @@
         Installed tmux verion:
         {{ tmux_version.stdout }}
         Minimum tmux version:
-        {{ minimum_tmux_version }}
+        {{ compile_tmux_minimum_tmux_version }}
 
   tags:
   - compile_tmux
@@ -59,7 +59,7 @@
   - name: Git checkout
     git:
       repo: https://github.com/tmux/tmux.git
-      dest: '{{ tmux_git_dest }}'
+      dest: '{{ compile_tmux_git_dest }}'
       update: true
       clone: true
       depth: 1
@@ -67,12 +67,12 @@
   - name: Compile tmux
     command: '{{ item }}'
     args:
-      chdir: '{{ tmux_git_dest }}'
+      chdir: '{{ compile_tmux_git_dest }}'
     loop:
     - sh autogen.sh
     - >
       ./configure
-      --prefix={{ tmux_configure_prefix }}
+      --prefix={{ compile_tmux_configure_prefix }}
       --enable-utempter
       --enable-utf8proc
     - make
@@ -81,16 +81,16 @@
   - name: Install tmux
     command: make install
     args:
-      chdir: '{{ tmux_git_dest }}'
+      chdir: '{{ compile_tmux_git_dest }}'
     become: true
     changed_when: false
 
   - name: Clean up
     ansible.builtin.file:
-      path: '{{ tmux_git_dest }}'
+      path: '{{ compile_tmux_git_dest }}'
       state: absent
 
-  when: tmux_version.stdout is version(minimum_tmux_version, '<')
+  when: tmux_version.stdout is version(compile_tmux_minimum_tmux_version, '<')
   tags:
   - compile_tmux
   - skip_in_ci

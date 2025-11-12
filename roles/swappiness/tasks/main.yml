@@ -11,10 +11,10 @@
         apt: procps
     become: true
 
-  - name: Set swappiness value to {{ swappiness }}
+  - name: Set swappiness value to {{ swappiness_value }}
     ansible.posix.sysctl:
       name: vm.swappiness
-      value: '{{ swappiness }}'
+      value: '{{ swappiness_value }}'
       state: present
     become: true
     tags:

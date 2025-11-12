@@ -1,2 +1,2 @@
 ---
-swappiness: 10
+swappiness_value: 10  # noqa: var-naming[no-role-prefix]

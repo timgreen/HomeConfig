@@ -1,6 +1,6 @@
 ---
 # For tmux popup we need at least 3.2.
 # https://raw.githubusercontent.com/tmux/tmux/3.2/CHANGES
-minimum_tmux_version: '3.2'
-tmux_git_dest: /tmp/tmux
-tmux_configure_prefix: /usr/local
+compile_tmux_minimum_tmux_version: '3.2'
+compile_tmux_git_dest: /tmp/tmux
+compile_tmux_configure_prefix: /usr/local

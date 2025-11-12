@@ -1,7 +1,7 @@
 ---
-vim_git_dest: /tmp/vim
-vim_configure_prefix: /usr/local
-vim_deps:
+compile_vim_git_dest: /tmp/vim
+compile_vim_configure_prefix: /usr/local
+compile_vim_deps:
   apt:
   - libncurses-dev
   - xorg-dev          # for +clipboard
