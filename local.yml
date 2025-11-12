@@ -62,7 +62,7 @@
   - nerd_fonts
   - cursor_theme
   - ime_rime
-      # - guake
+
   - yakuake
   - gui_scripts
   - flatpak
