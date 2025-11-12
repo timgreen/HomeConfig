@@ -18,7 +18,7 @@ jobs:
 
     - name: ansible check with debian:latest
       # replace "master" with any valid ref
-      uses: roles-ansible/check-ansible-debian-latest-action@master
+      uses: Jakuje/check-ansible-debian-latest-action@ansible-debian
       with:
         targets: --tags mini,cli,gui,dev --skip-tags skip_in_ci,navi local.yml
         #  [required]
