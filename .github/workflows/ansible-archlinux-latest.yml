@@ -11,15 +11,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    container: archlinux:latest
 
     steps:
-    # Important: This sets up your GITHUB_WORKSPACE environment variable
     - uses: actions/checkout@v5
 
-    - name: ansible check with archlinux:latest
-      # replace "master" with any valid ref
-      uses: timgreen/check-ansible-archlinux-latest-action@master
-      with:
-        targets: local.yml
-        tags: mini,cli,gui,dev
-        skiptags: skip_in_ci,navi
+    - name: Install Ansible
+      run: |
+        pacman -Sy --noconfirm ansible
+
+    - name: Run Ansible Playbook
+      run: ansible-playbook --tags mini,cli,gui,dev --skip-tags skip_in_ci,navi local.yml
