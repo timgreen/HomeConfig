@@ -79,7 +79,6 @@
     - import_role: name=chrome_surfingkeys
       # - import_role: name=sxhkd
       # - import_role: name=swhkd
-    
     - import_role: name=fix_kde_autostart
     - import_role: name=kde_settings
     - import_role: name=wayland
