@@ -5,6 +5,8 @@
       name:
       - git
       - stow
+      - wget
+      - curl
     become: true
 
   - name: Setup skeleton
@@ -16,8 +18,6 @@
     - tmux
     - zsh
     - vim-plug
-    - wget
-    - curl
 
   - name: Make sure ~/.zsh_functions
     ansible.builtin.file:
