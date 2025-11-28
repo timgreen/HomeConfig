@@ -9,11 +9,27 @@
   },
   "general": {
     "preferredEditor": "vim",
-    "vimMode": false
+    "vimMode": true,
+    "previewFeatures": true,
+    "enablePromptCompletion": true
   },
   "security": {
     "auth": {
       "selectedType": "oauth-personal"
+    }
+  },
+  "output": {
+    "format": "text"
+  },
+  "ui": {
+    "footer": {
+      "hideContextPercentage": false
+    },
+    "showCitations": true
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
     }
   }
 }
