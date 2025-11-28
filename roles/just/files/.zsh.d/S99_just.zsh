@@ -1,2 +1,2 @@
 alias j=just
-eval =(just --completions zsh)
+eval "$(just --completions zsh)"
