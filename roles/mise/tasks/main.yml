@@ -1,0 +1,16 @@
+---
+- block:
+  - name: Install mise
+    ansible.builtin.shell:
+      cmd: |
+        set -o pipefail
+        curl https://mise.run | sh
+      executable: /bin/bash
+      creates: ~/.local/bin/mise
+  - name: Stow mise
+    command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: mise_output
+    changed_when: '"LINK" in mise_output.stderr'
+
+  tags:
+  - mise

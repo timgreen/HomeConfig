@@ -98,6 +98,7 @@
   - conda
   - 3d_printing
   - gemini_cli
+  - mise
 
 - name: Chrome os
   hosts: localhost
