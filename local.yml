@@ -93,7 +93,6 @@
   - never
   roles:
   - vscode
-  - nvm
   - rustup
   - conda
   - 3d_printing
