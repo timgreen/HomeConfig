@@ -14,13 +14,13 @@
   - name: Install usage (required by autocomplete)
     ansible.builtin.shell:
       cmd: |
-        mise use -g usage
+        ~/.local/bin/mise use -g usage
       executable: /bin/zsh
     changed_when: false
   - name: Mise autocomplete
     ansible.builtin.shell:
       cmd: |
-        mise completion zsh > ~/.zsh_functions/_mise
+        ~/.local/bin/mise completion zsh > ~/.zsh_functions/_mise
       executable: /bin/bash
       creates: ~/.zsh_functions/_mise
   tags:
