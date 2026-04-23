@@ -9,7 +9,7 @@
   },
   "general": {
     "preferredEditor": "vim",
-    "vimMode": true,
+    "vimMode": false,
     "previewFeatures": true,
     "enablePromptCompletion": true
   },
