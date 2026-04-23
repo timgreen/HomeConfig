@@ -11,6 +11,16 @@
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
     register: mise_output
     changed_when: '"LINK" in mise_output.stderr'
-
+  - name: install usage (required by autocompelte)
+    ansible.builtin.shell:
+      cmd: |
+        mise use -g usage
+      executable: /bin/zsh
+  - name: mise autocomplete
+    ansible.builtin.shell:
+      cmd: |
+        mise completion zsh > ~/.zsh_functions/_mise
+      executable: /bin/bash
+      creates: ~/.zsh_functions/_mise
   tags:
   - mise
