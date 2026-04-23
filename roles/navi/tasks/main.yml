@@ -1,7 +1,7 @@
 ---
 - block:
   - name: Install navi (via mise)
-	  ansible.builtin.shell:
+    ansible.builtin.shell:
       cmd: |
         ~/.local/bin/mise use -g navi
       executable: /bin/bash

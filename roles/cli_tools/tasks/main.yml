@@ -20,7 +20,7 @@
     ignore_errors: true
 
   - name: Install cli tools (via mise)
-	  ansible.builtin.shell:
+    ansible.builtin.shell:
       cmd: |
         ~/.local/bin/mise use -g eza bat jq
       executable: /bin/bash
