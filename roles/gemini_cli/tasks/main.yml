@@ -8,7 +8,7 @@
   - name: Install gemini-cli via mise
     ansible.builtin.shell:
       cmd: |
-        ~/.local/bin/mise use -g gemini-cli
+        ~/.local/bin/mise use -g gemini-cli node
       executable: /bin/bash
     changed_when: false
 
