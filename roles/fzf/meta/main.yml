@@ -2,3 +2,4 @@
 dependencies:
 - role: skeleton
 - role: skeleton_zgen
+- role: mise
