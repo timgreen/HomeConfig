@@ -5,12 +5,10 @@
       name: stow
       state: present
 
-  - name: Install gemini-cli via npm (using nvm's npm)
+  - name: Install gemini-cli via mise
     ansible.builtin.shell:
       cmd: |
-        . "{{ ansible_env.HOME }}/.nvm/nvm.sh"
-        nvm use default
-        npm install -g @google/gemini-cli
+        ~/.local/bin/mise use -g gemini-cli
       executable: /bin/bash
     changed_when: false
 
