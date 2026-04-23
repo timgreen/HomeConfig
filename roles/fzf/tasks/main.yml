@@ -1,25 +1,15 @@
 ---
 - block:
-  - name: Clone fzf from git
-    ansible.builtin.git:
-      repo: https://github.com/junegunn/fzf.git
-      dest: ~/.fzf
-      depth: 1
-
-  - name: Install fzf from git
-    command: ~/.fzf/install --bin --no-update-rc
-    args:
-      creates: ~/.fzf/bin/fzf
-
-  tags:
-  - never
-  - fzf_install
-
-- block:
-  - name: Install fzf
-    package:
-      name: fzf
-    become: true
+  # - name: Install fzf
+  #   package:
+  #     name: fzf
+  #   become: true
+  - name: Install fzf (from mise)
+    ansible.builtin.shell:
+      cmd: |
+        ~/.local/bin/mise use -g fzf
+      executable: /bin/bash
+    changed_when: false
 
   - name: Stow fzf
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
