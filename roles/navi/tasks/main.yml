@@ -1,13 +1,12 @@
 ---
 - block:
-  - name: Install navi
-    shell:
+  - name: Install navi (via mise)
+	  ansible.builtin.shell:
       cmd: |
-        set -o pipefail
-        BIN_DIR=$HOME/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/6bc0e1dc97e01f5e0ab1c6008196612f96ee8ad7/scripts/install \
-          | grep -v 'append_to_file ')
+        ~/.local/bin/mise use -g navi
       executable: /bin/bash
-      creates: $HOME/bin/navi
+    changed_when: false
+
 
   - name: Stow navi
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding

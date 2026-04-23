@@ -12,15 +12,19 @@
       - wget
       - tree
       - ncdu
-      - jq
       - tldr
-      - bat               # for batcat
       - autossh
       - rclone
-      - eza               # fzf-tab need it for 'cd'
       - rsync
     become: true
     ignore_errors: true
+
+  - name: Install cli tools (via mise)
+	  ansible.builtin.shell:
+      cmd: |
+        ~/.local/bin/mise use -g eza bat jq
+      executable: /bin/bash
+    changed_when: false
 
   tags:
   - cli_tools

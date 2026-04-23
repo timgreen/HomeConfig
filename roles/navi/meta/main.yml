@@ -2,3 +2,4 @@
 dependencies:
 - role: zsh
 - role: fzf
+- role: mise
