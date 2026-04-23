@@ -4,12 +4,14 @@
   #   package:
   #     name: fzf
   #   become: true
-  - name: Install fzf (from mise)
+  - name: Install fzf (via mise)
     ansible.builtin.shell:
       cmd: |
-        ~/.local/bin/mise use -g fzf
-      executable: /bin/bash
-    changed_when: false
+        mise use -g fzf
+    register: fzf_install_output
+    changed_when: '"Reshimming" in fzf_install_output.stderr'
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
 
   - name: Stow fzf
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding

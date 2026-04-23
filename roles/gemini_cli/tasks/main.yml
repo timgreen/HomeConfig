@@ -8,9 +8,11 @@
   - name: Install gemini-cli via mise
     ansible.builtin.shell:
       cmd: |
-        ~/.local/bin/mise use -g gemini-cli node
-      executable: /bin/bash
-    changed_when: false
+        mise use -g gemini-cli node
+    register: gemini_cli_install_output
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
+    changed_when: '"Reshimming" in gemini_cli_install_output.stderr'
 
   - name: Stow gemini_cli dotfiles
     ansible.builtin.command:

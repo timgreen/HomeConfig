@@ -21,7 +21,6 @@
     ansible.builtin.shell:
       cmd: |
         ~/.local/bin/mise completion zsh > ~/.zsh_functions/_mise
-      executable: /bin/bash
       creates: ~/.zsh_functions/_mise
   tags:
   - mise

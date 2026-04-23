@@ -3,9 +3,11 @@
   - name: Install navi (via mise)
     ansible.builtin.shell:
       cmd: |
-        ~/.local/bin/mise use -g navi
-      executable: /bin/bash
-    changed_when: false
+        mise use -g navi
+    register: navi_install_output
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
+    changed_when: '"Reshimming" in navi_install_output.stderr'
 
 
   - name: Stow navi

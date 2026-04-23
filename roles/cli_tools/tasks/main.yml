@@ -22,9 +22,11 @@
   - name: Install cli tools (via mise)
     ansible.builtin.shell:
       cmd: |
-        ~/.local/bin/mise use -g eza bat jq
-      executable: /bin/bash
-    changed_when: false
+        mise use -g eza bat jq
+    register: cli_tools_install_output
+    changed_when: '"Reshimming" in cli_tools_install_output.stderr'
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
 
   tags:
   - cli_tools
