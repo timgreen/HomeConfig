@@ -22,7 +22,7 @@
   - name: Install cli tools (via mise)
     ansible.builtin.shell:
       cmd: |
-        mise use -g eza bat jq
+        mise use -g eza bat jq glow
     register: cli_tools_install_output
     changed_when: '"Reshimming" in cli_tools_install_output.stderr'
     environment:
