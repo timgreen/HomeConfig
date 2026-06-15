@@ -8,7 +8,9 @@
   - name: Install antigravity-cli via official script
     ansible.builtin.shell:
       cmd: |
+        set -o pipefail
         curl -fsSL https://antigravity.google/cli/install.sh | bash
+      executable: /bin/bash
       creates: "{{ ansible_env.HOME }}/.local/bin/agy"
     environment:
       PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
