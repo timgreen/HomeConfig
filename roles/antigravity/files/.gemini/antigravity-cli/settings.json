@@ -1,12 +1,4 @@
 {
-  "mcpServers": {
-    "chrome-devtools": {
-      "command": "npx",
-      "args": [
-        "chrome-devtools-mcp@latest"
-      ]
-    }
-  },
   "general": {
     "preferredEditor": "vim",
     "vimMode": false,

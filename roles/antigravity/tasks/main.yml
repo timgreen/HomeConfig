@@ -5,19 +5,18 @@
       name: stow
       state: present
 
-  - name: Install gemini-cli via mise
+  - name: Install antigravity-cli via official script
     ansible.builtin.shell:
       cmd: |
-        mise use -g gemini-cli node
-    register: gemini_cli_install_output
+        curl -fsSL https://antigravity.google/cli/install.sh | bash
+      creates: "{{ ansible_env.HOME }}/.local/bin/agy"
     environment:
       PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
-    changed_when: '"Reshimming" in gemini_cli_install_output.stderr'
 
-  - name: Stow gemini_cli dotfiles
+  - name: Stow antigravity dotfiles
     ansible.builtin.command:
       cmd: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
-    register: gemini_cli_output
-    changed_when: '"LINK" in gemini_cli_output.stderr'
+    register: antigravity_output
+    changed_when: '"LINK" in antigravity_output.stderr'
   tags:
-    - gemini_cli
+    - antigravity
