@@ -1,10 +1,5 @@
 ---
 - block:
-  - name: Ensure stow is installed
-    ansible.builtin.package:
-      name: stow
-      state: present
-
   - name: Install antigravity-cli via official script
     ansible.builtin.shell:
       cmd: |
