@@ -23,6 +23,8 @@
 
   - name: Install deps | apt
     become: true
+    tags:
+    - sudo
     apt:
       state: latest
       name:
@@ -42,6 +44,8 @@
 
   - name: Install deps | yum
     become: true
+    tags:
+    - sudo
     community.general.pacman:
       state: latest
       name:
@@ -83,6 +87,8 @@
     args:
       chdir: '{{ compile_tmux_git_dest }}'
     become: true
+    tags:
+    - sudo
     changed_when: false
 
   - name: Clean up

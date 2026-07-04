@@ -8,6 +8,8 @@
       dest: /etc/udev/rules.d/00-usb-marble-mouse.rules
       mode: u=rw,g=r,o=r
     become: true
+    tags:
+    - sudo
 
   tags:
   - marble_mouse

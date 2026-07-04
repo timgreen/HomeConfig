@@ -10,6 +10,8 @@
         pacman: ncurses
         apt: ncurses-bin
     become: true
+    tags:
+    - sudo
 
   - name: Tmux tmuxifier
     ansible.builtin.git:

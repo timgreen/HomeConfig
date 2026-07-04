@@ -14,6 +14,7 @@
     become: true
     tags:
     - package_update
+    - sudo
 
 - name: Essentials
   hosts: localhost

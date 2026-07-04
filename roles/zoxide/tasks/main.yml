@@ -4,6 +4,8 @@
     package:
       name: zoxide
     become: true
+    tags:
+    - sudo
 
   - name: Stow zoxide
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding

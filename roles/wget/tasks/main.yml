@@ -12,5 +12,6 @@
     become: true
     tags:
     - optional
+    - sudo
   tags:
   - wget

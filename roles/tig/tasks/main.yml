@@ -12,6 +12,7 @@
     become: true
     tags:
     - optional
+    - sudo
 
   tags:
   - tig

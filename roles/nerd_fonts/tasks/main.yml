@@ -12,6 +12,8 @@
       - unzip
       - fontconfig
     become: true
+    tags:
+    - sudo
 
   - name: Download and unarchive font
     unarchive:

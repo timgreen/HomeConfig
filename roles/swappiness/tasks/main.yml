@@ -10,6 +10,8 @@
         pacman: procps-ng
         apt: procps
     become: true
+    tags:
+    - sudo
 
   - name: Set swappiness value to {{ swappiness_value }}
     ansible.posix.sysctl:
@@ -19,6 +21,7 @@
     become: true
     tags:
     - skip_in_ci             # not supported in the container
+    - sudo
 
   tags:
   - swappiness

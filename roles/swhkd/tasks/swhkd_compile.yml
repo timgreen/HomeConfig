@@ -8,6 +8,8 @@
     # https://github.com/waycrate/swhkd/blob/main/INSTALL.md#dependencies
   - name: Install deps
     become: true
+    tags:
+    - sudo
     package:
       state: latest
       name: '{{ swhkd_deps[ansible_pkg_mgr] }}'
@@ -37,6 +39,8 @@
       chdir: '{{ swhkd_git_dest }}'
       creates: /usr/bin/swhkd
     become: true
+    tags:
+    - sudo
 
   - name: Clean up
     ansible.builtin.file:

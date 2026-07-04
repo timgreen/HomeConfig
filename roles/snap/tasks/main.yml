@@ -12,6 +12,7 @@
     ignore_errors: true
     tags:
     - optional
+    - sudo
 
   tags:
   - snap

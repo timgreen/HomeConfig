@@ -17,6 +17,7 @@
     tags:
     - never
     - locale
+    - sudo
 
   - name: Ensure locale en_US.UTF-8 exists (Arch Linux)
     when: ansible_os_family == 'Archlinux'
@@ -24,6 +25,7 @@
     tags:
     - never
     - locale
+    - sudo
     block:
       - name: Uncomment en_US.UTF-8 in /etc/locale.gen
         ansible.builtin.lineinfile:

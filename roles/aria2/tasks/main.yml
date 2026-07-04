@@ -13,6 +13,7 @@
     tags:
     - install_aria2c
     - optional
+    - sudo
 
   tags:
   - aria2

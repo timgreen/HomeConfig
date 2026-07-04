@@ -4,6 +4,8 @@
     package:
       name: just
     become: true
+    tags:
+    - sudo
 
   - name: Setup just zsh completion
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding

@@ -4,6 +4,8 @@
     package:
       name: zsh
     become: true
+    tags:
+    - sudo
 
   - name: Clone zgen
     ansible.builtin.git:

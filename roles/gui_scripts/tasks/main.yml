@@ -11,6 +11,8 @@
       - xprintidle
       - xdotool
     become: true
+    tags:
+    - sudo
 
   tags:
   - gui_scripts

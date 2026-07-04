@@ -15,6 +15,8 @@
         pacman: kconfig5
         apt: libkf5config-bin
     become: true
+    tags:
+    - sudo
 
   - name: Restore yakuake configuration
     shell: |

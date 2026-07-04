@@ -5,6 +5,8 @@
     package:
       name: sxhkd
     become: true
+    tags:
+    - sudo
 
   - name: Stow sxhkd
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
@@ -19,6 +21,8 @@
         pacman: xorg-xinput
         apt: xinput
     become: true
+    tags:
+    - sudo
 
   tags:
   - sxhkd

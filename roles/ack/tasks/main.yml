@@ -9,6 +9,8 @@
         apt: silversearcher-ag
         pacman: the_silver_searcher
     become: true
+    tags:
+    - sudo
 
   - name: Stow ack
     command: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding

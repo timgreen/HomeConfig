@@ -5,6 +5,8 @@
       name:
       - wl-clipboard
     become: true
+    tags:
+    - sudo
 
   tags:
   - wayland

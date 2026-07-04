@@ -18,6 +18,8 @@
       - rsync
     become: true
     ignore_errors: true
+    tags:
+    - sudo
 
   - name: Install cli tools (via mise)
     ansible.builtin.shell:

@@ -8,6 +8,8 @@
       - wget
       - curl
     become: true
+    tags:
+    - sudo
 
   - name: Setup skeleton
     command: stow -v -t ~ -d {{ role_path }}/files/{{ item }} -S . --no-folding
