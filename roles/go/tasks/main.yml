@@ -1,0 +1,13 @@
+---
+- block:
+  - name: Install go (via mise)
+    ansible.builtin.shell:
+      cmd: |
+        mise use -g go
+    register: go_install_output
+    changed_when: '"Reshimming" in go_install_output.stderr'
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
+
+  tags:
+  - go
