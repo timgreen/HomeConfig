@@ -1,0 +1,14 @@
+[Unit]
+Description=Herdr Web Terminal Service (ttyd)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/herdr-web
+Restart=on-failure
+RestartSec=3
+Environment=HERDR_WEB_PORT=7681
+Environment=HERDR_WEB_HOST=0.0.0.0
+
+[Install]
+WantedBy=default.target

@@ -112,3 +112,12 @@
     - import_role: name=chromeos_sommelier
     when:
     - is_chromeos_device
+
+- name: Herdr
+  hosts: localhost
+  tags:
+  - herdr
+  - never
+  roles:
+  - herdr
+

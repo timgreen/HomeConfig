@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# herdr-web: Launches ttyd with embedded Nerd Font support wrapping Herdr
+
+PORT="${HERDR_WEB_PORT:-7681}"
+INTERFACE="${HERDR_WEB_HOST:-0.0.0.0}"
+AUTH="${HERDR_WEB_AUTH:-}" # Format: "username:password"
+
+AUTH_FLAG=""
+if [ -n "$AUTH" ]; then
+    AUTH_FLAG="-c $AUTH"
+fi
+
+TTYD_BIN="${HOME}/.local/bin/ttyd-nerd"
+if [ ! -f "$TTYD_BIN" ]; then
+    TTYD_BIN="ttyd"
+fi
+
+exec "$TTYD_BIN" \
+    -p "$PORT" \
+    -i "$INTERFACE" \
+    $AUTH_FLAG \
+    -W \
+    -t fontSize=15 \
+    -t fontFamily="JetBrains, SarasaMono, monospace" \
+    -t cursorBlink=true \
+    -t theme='{"background": "#1e1e2e", "foreground": "#cdd6f4"}' \
+    "${HOME}/.local/bin/herdr"

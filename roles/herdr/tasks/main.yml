@@ -1,0 +1,48 @@
+---
+- block:
+  - name: Install herdr via official installer
+    ansible.builtin.shell:
+      cmd: |
+        set -o pipefail
+        curl -fsSL https://herdr.dev/install.sh | sh
+      executable: /bin/bash
+      creates: "{{ ansible_env.HOME }}/.local/bin/herdr"
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
+
+  - name: Download ttyd-nerd binary with embedded Nerd Font
+    ansible.builtin.get_url:
+      url: https://github.com/Lanjelin/nerd-ttyd/releases/download/1.7.7-JetBrains3.4.0/ttyd.x86_64
+      dest: "{{ ansible_env.HOME }}/.local/bin/ttyd-nerd"
+      mode: '0755'
+
+  - name: Ensure herdr-web executable permission in role files
+    ansible.builtin.file:
+      path: "{{ role_path }}/files/.local/bin/herdr-web"
+      mode: '0755'
+
+  - name: Stow herdr files
+    ansible.builtin.command:
+      cmd: stow -v -t ~ -d {{ role_path }}/files -S . --no-folding
+    register: herdr_stow_output
+    changed_when: '"LINK" in herdr_stow_output.stderr'
+
+  - name: Reload user systemd daemon
+    ansible.builtin.systemd:
+      scope: user
+      daemon_reload: true
+    tags:
+      - skip_in_ci
+
+  - name: Enable and start herdr-web user service
+    ansible.builtin.systemd:
+      name: herdr-web
+      scope: user
+      enabled: true
+      state: started
+    tags:
+      - skip_in_ci
+
+  tags:
+    - herdr
+    - never
