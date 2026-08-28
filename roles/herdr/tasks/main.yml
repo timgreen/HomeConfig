@@ -35,7 +35,7 @@
 
   - name: Set installed herdr plugins fact
     ansible.builtin.set_fact:
-      installed_herdr_plugins: "{{ (herdr_plugin_list_raw.stdout | from_json).result.plugins | map(attribute='plugin_id') | list }}"
+      herdr_installed_plugins: "{{ (herdr_plugin_list_raw.stdout | from_json).result.plugins | map(attribute='plugin_id') | list }}"
 
   - name: Install herdr plugins
     ansible.builtin.shell:
@@ -51,10 +51,12 @@
           herdr plugin install {{ item.repo }} -y
         fi
       executable: /bin/bash
+    register: herdr_plugin_install_output
+    changed_when: '"Installed" in herdr_plugin_install_output.stdout'
     environment:
       PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.HOME }}/.cargo/bin:{{ ansible_env.PATH }}"
     loop: "{{ herdr_plugins }}"
-    when: item.id not in installed_herdr_plugins
+    when: item.id not in herdr_installed_plugins
 
   - name: Reload user systemd daemon
     ansible.builtin.systemd:
