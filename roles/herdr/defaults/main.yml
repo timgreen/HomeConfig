@@ -1,0 +1,4 @@
+---
+herdr_plugins:
+  - id: herdr-agent-quota
+    repo: levi-qiao/herdr-agent-quota

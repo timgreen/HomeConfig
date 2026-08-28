@@ -27,6 +27,35 @@
     register: herdr_stow_output
     changed_when: '"LINK" in herdr_stow_output.stderr'
 
+  - name: Check installed herdr plugins
+    ansible.builtin.command:
+      cmd: "{{ ansible_env.HOME }}/.local/bin/herdr plugin list --json"
+    register: herdr_plugin_list_raw
+    changed_when: false
+
+  - name: Set installed herdr plugins fact
+    ansible.builtin.set_fact:
+      installed_herdr_plugins: "{{ (herdr_plugin_list_raw.stdout | from_json).result.plugins | map(attribute='plugin_id') | list }}"
+
+  - name: Install herdr plugins
+    ansible.builtin.shell:
+      cmd: |
+        set -o pipefail
+        if command -v mise >/dev/null 2>&1; then
+          CLANG_BIN="$(find {{ ansible_env.HOME }}/.local/share/mise/installs/clang -name 'ar' -printf '%h\n' 2>/dev/null | head -n 1)"
+          if [ -n "$CLANG_BIN" ]; then
+            export PATH="$CLANG_BIN:$PATH"
+          fi
+          mise exec -- herdr plugin install {{ item.repo }} -y
+        else
+          herdr plugin install {{ item.repo }} -y
+        fi
+      executable: /bin/bash
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.HOME }}/.cargo/bin:{{ ansible_env.PATH }}"
+    loop: "{{ herdr_plugins }}"
+    when: item.id not in installed_herdr_plugins
+
   - name: Reload user systemd daemon
     ansible.builtin.systemd:
       scope: user
