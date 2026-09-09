@@ -4,3 +4,5 @@ herdr_plugins:
     repo: levi-qiao/herdr-agent-quota
   - id: ttt.editor
     repo: eugenioenko/ttt/herdr-plugin
+  - id: herdr.auto-title
+    repo: kryptamine/herdr-auto-title
