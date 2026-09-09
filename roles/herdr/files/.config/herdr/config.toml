@@ -25,3 +25,9 @@ key = "prefix+shift+r"
 type = "plugin_action"
 command = "herdr-agent-quota.refresh"
 description = "refresh all agent quotas"
+
+[[keys.command]]
+key = "prefix+e"
+type = "shell"
+command = "herdr plugin pane open --plugin ttt.editor --entrypoint editor"
+description = "open TTT editor"
