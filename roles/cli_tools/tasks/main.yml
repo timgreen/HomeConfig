@@ -24,9 +24,17 @@
   - name: Install cli tools (via mise)
     ansible.builtin.shell:
       cmd: |
-        mise use -g eza bat jq glow
+        mise use -g eza bat jq glow github:pranshuparmar/witr
     register: cli_tools_install_output
     changed_when: '"Reshimming" in cli_tools_install_output.stderr'
+    environment:
+      PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
+
+  - name: Setup witr zsh completion
+    ansible.builtin.shell:
+      cmd: |
+        mise exec -- witr completion zsh > ~/.zsh_functions/_witr
+      creates: ~/.zsh_functions/_witr
     environment:
       PATH: "{{ ansible_env.HOME }}/.local/bin:{{ ansible_env.PATH }}"
 
