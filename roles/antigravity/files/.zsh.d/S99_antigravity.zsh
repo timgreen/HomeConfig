@@ -1,3 +1,2 @@
-alias a="agy"
-alias a-yoyo="agy --dangerously-skip-permissions"
-alias agy-yoyo="agy --dangerously-skip-permissions"
+alias a="agy --remote-control"
+alias a-yoyo="agy --dangerously-skip-permissions --remote-control"
